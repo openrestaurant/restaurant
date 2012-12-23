@@ -47,7 +47,7 @@ projects[devel][subdir] = contrib
 
 projects[restaurant_menu][type] = module
 projects[restaurant_menu][download][type] = git
-projects[restaurant_menu][download][revision] = af4188d
+projects[restaurant_menu][download][revision] = 5f0105b
 projects[restaurant_menu][download][branch] = 7.x-1.x
 projects[restaurant_menu][subdir] = restaurant
 
