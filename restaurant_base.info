@@ -1,0 +1,9 @@
+name = Restaurant Base
+description = Provides base configuration and structure for the Restaurant Distribution
+core = 7.x
+package = Restaurant
+version = 7.x-1.0-dev
+project = restaurant_base
+dependencies[] = ctools
+dependencies[] = features
+features[features_api][] = api:1
