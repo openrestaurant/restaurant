@@ -9,9 +9,6 @@ projects[field_collection][subdir] = contrib
 projects[ds][version] = 2.0
 projects[ds][subdir] = contrib
 
-projects[menu_block][version] = 2.3
-projects[menu_block][subdir] = contrib
-
 projects[taxonomy_menu][version] = 1.4
 projects[taxonomy_menu][subdir] = contrib
 
