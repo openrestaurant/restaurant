@@ -68,3 +68,9 @@ projects[restaurant_blog][download][type] = git
 projects[restaurant_blog][download][revision] = a72273a
 projects[restaurant_blog][download][branch] = 7.x-1.x
 projects[restaurant_blog][subdir] = restaurant
+
+projects[restaurant_event][type] = module
+projects[restaurant_event][download][type] = git
+projects[restaurant_event][download][revision] = 73b6f2d
+projects[restaurant_event][download][branch] = 7.x-1.x
+projects[restaurant_event][subdir] = restaurant
