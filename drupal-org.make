@@ -45,6 +45,12 @@ projects[devel][subdir] = contrib
 
 ; Restaurant
 
+projects[restaurant_base][type] = module
+projects[restaurant_base][download][type] = git
+projects[restaurant_base][download][revision] = 627421c
+projects[restaurant_base][download][branch] = 7.x-1.x
+projects[restaurant_base][subdir] = restaurant
+
 projects[restaurant_menu][type] = module
 projects[restaurant_menu][download][type] = git
 projects[restaurant_menu][download][revision] = 11930da
@@ -57,8 +63,8 @@ projects[restaurant_slideshow][download][revision] = 948ccc7
 projects[restaurant_slideshow][download][branch] = 7.x-1.x
 projects[restaurant_slideshow][subdir] = restaurant
 
-projects[restaurant_base][type] = module
-projects[restaurant_base][download][type] = git
-projects[restaurant_base][download][revision] = 627421c
-projects[restaurant_base][download][branch] = 7.x-1.x
-projects[restaurant_base][subdir] = restaurant
+projects[restaurant_blog][type] = module
+projects[restaurant_blog][download][type] = git
+projects[restaurant_blog][download][revision] = a72273a
+projects[restaurant_blog][download][branch] = 7.x-1.x
+projects[restaurant_blog][subdir] = restaurant
