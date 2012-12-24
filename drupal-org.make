@@ -47,7 +47,7 @@ projects[devel][subdir] = contrib
 
 projects[restaurant_base][type] = module
 projects[restaurant_base][download][type] = git
-projects[restaurant_base][download][revision] = bbcfba3
+projects[restaurant_base][download][revision] = 1928d27
 projects[restaurant_base][download][branch] = 7.x-1.x
 projects[restaurant_base][subdir] = restaurant
 
