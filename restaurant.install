@@ -1,0 +1,179 @@
+<?php
+
+/**
+ * Implements hook_install_tasks_alter()
+ */
+function restaurant_install_tasks_alter(&$tasks, $install_state) {
+
+  // Add a welcome screen
+  $new_task['restaurant_install_welcome'] = array(
+    'display' => TRUE,
+    'display_name' => st('Welcome'),
+    'type' => 'form',
+    'run' => isset($install_state['parameters']['welcome']) ? INSTALL_TASK_SKIP : INSTALL_TASK_RUN_IF_REACHED,
+  );
+  $old_tasks = $tasks;
+  $tasks = array_slice($old_tasks, 0, 2) + $new_task + array_slice($old_tasks, 2);
+
+  // Custom install_finished callback
+  $tasks['install_finished']['function'] = 'restaurant_install_finished';
+
+  // Set the install theme to sizzle
+  _restaurant_set_theme('sizzle');
+
+  // Magically go one level deeper in solving years of dependency problems
+  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
+  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
+}
+
+/**
+ * Implements hook_install_tasks().
+ */
+function restaurant_install_tasks($install_state) {
+  $tasks = array();
+
+  // Add the Panopoly App Server to the Installation Process
+  // require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
+  // $tasks = $tasks + apps_profile_install_tasks($install_state, array('machine name' => 'panopoly', 'default apps' => array('panopoly_demo')));
+
+  // Add a task to for restaurant configuration
+  $tasks['restaurant_install_configure'] = array(
+    'display_name' => st('Configure Restaurant'),
+    'type' => 'form',
+  );
+
+  return $tasks;
+}
+
+/**
+ * Shows the welcome screen for the restaurant profile.
+ */
+function restaurant_install_welcome($form, &$form_state, &$install_state) {
+  drupal_set_title(st('Welcome'));
+
+  $message = '<h3>' . st('Thank you for choosing Drupal Restaurant!') . '</h3>';
+  $message .= '<p class="lead">' . st('This distribution installs Drupal Restaurant, a feature-packed
+  distribution for kick-starting your restaurant website.') . '</p>';
+
+  $form = array();
+  $form['welcome_message'] = array(
+    '#markup' => $message,
+  );
+  $form['actions'] = array(
+    '#type' => 'actions',
+  );
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => st("Let's Get Started!"),
+    '#weight' => 10,
+    '#attributes' => array(
+      'class' => array('btn', 'btn-large', 'btn-big'),
+    ),
+  );
+  return $form;
+}
+
+function restaurant_install_welcome_submit($form, &$form_state) {
+  global $install_state;
+
+  // mark welcome step as done
+  $install_state['parameters']['welcome'] = 'done';
+}
+
+/**
+ * Shows the configuration form for the restaurant profile.
+ */
+function restaurant_install_configure($form, &$form_state, &$install_state) {
+  drupal_set_title(st('Configure Restaurant'));
+
+  $message = '<h3>' . st('Configure Restaurant!') . '</h3>';
+  $message .= '<p class="lead">' . st('Almost there! Configure your restaurant and you are good to go.') . '</p>';
+
+  $form = array();
+  $form['configure_message'] = array(
+    '#markup' => $message,
+  );
+  $form['actions'] = array(
+    '#type' => 'actions',
+  );
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => st("Save"),
+    '#weight' => 10,
+    '#attributes' => array(
+      'class' => array('btn', 'btn-large', 'btn-big'),
+    ),
+  );
+  return $form;
+}
+
+function restaurant_install_configure_submit($form, &$form_state) {
+  // set the default theme to sizzle
+  theme_enable(array('sizzle'));
+  variable_set('theme_default', 'sizzle');
+}
+
+/**
+ * Callback for install_finished task
+ */
+function restaurant_install_finished(&$install_state) {
+  drupal_set_title(st('Installation complete'));
+
+  $messages = drupal_set_message();
+
+  // Remember the profile which was used.
+  variable_set('install_profile', drupal_get_profile());
+  variable_set('install_task', 'done');
+
+  // Flush all caches to ensure that any full bootstraps during the installer
+  // do not leave stale cached data, and that any content types or other items
+  // registered by the install profile are registered correctly.
+  drupal_flush_all_caches();
+
+  // Install profiles are always loaded last
+  db_update('system')
+    ->fields(array('weight' => 1000))
+    ->condition('type', 'module')
+    ->condition('name', drupal_get_profile())
+    ->execute();
+
+  // Cache a fully-built schema.
+  drupal_get_schema(NULL, TRUE);
+
+  // Run cron to populate update status tables (if available) so that users
+  // will be warned if they've installed an out of date Drupal version.
+  // Will also trigger indexing of profile-supplied content or feeds.
+  drupal_cron_run();
+
+  if (isset($messages['error'])) {
+    $output = '<p>' . (isset($messages['error']) ? st('Review the messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
+    return $output;
+  }
+  else {
+    // Since any module can add a drupal_set_message, this can bug the user
+    // when we redirect him to the front page. For a better user experience,
+    // remove all the message that are only "notifications" message.
+    drupal_get_messages('status', TRUE);
+    drupal_get_messages('completed', TRUE);
+    // Migrate adds its messages under the wrong type, see #1659150.
+    drupal_get_messages('ok', TRUE);
+
+    // If we don't install drupal using Drush, redirect the user to the front page.
+    if (!drupal_is_cli()) {
+      drupal_goto('');
+    }
+  }
+}
+
+/**
+ * Sets the installation theme for Restaurant profile
+ */
+function _restaurant_set_theme($theme) {
+  if ($GLOBALS['theme'] != $theme) {
+    unset($GLOBALS['theme']);
+
+    drupal_static_reset();
+    $GLOBALS['conf']['maintenance_theme'] = $theme;
+    _drupal_maintenance_theme();
+  }
+}
