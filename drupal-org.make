@@ -48,6 +48,12 @@ projects[restaurant_base][download][revision] = 1928d27
 projects[restaurant_base][download][branch] = 7.x-1.x
 projects[restaurant_base][subdir] = restaurant
 
+projects[restaurant_theme][type] = module
+projects[restaurant_theme][download][type] = git
+projects[restaurant_theme][download][revision] = b00cf39
+projects[restaurant_theme][download][branch] = 7.x-1.x
+projects[restaurant_theme][subdir] = restaurant
+
 projects[restaurant_menu][type] = module
 projects[restaurant_menu][download][type] = git
 projects[restaurant_menu][download][revision] = 883796a
@@ -71,3 +77,5 @@ projects[restaurant_event][download][type] = git
 projects[restaurant_event][download][revision] = 5471254
 projects[restaurant_event][download][branch] = 7.x-1.x
 projects[restaurant_event][subdir] = restaurant
+
+
