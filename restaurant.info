@@ -38,3 +38,7 @@ dependencies[] = devel
 ; Restaurant
 dependencies[] = restaurant_base
 dependencies[] = restaurant_menu
+
+; Restaurant Recommended
+dependencies[] = admin_menu
+dependencies[] = admin_menu_toolbar
