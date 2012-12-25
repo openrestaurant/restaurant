@@ -37,4 +37,3 @@ dependencies[] = devel
 
 ; Restaurant
 dependencies[] = restaurant_base
-dependencies[] = restaurant_menu
