@@ -1,5 +1,18 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Provides base configuration and structure for the Restaurant Distribution
  */
+
+/**
+ * Implements hook_apps_servers_info().
+ */
+function restaurant_base_apps_servers_info() {
+  return array(
+    'restaurant' => array(
+      'title' => t('Restaurant'),
+      'description' => t('Apps for the Restaurant distribution.'),
+      'manifest' => 'http://dev.restaurant-apps.gotpantheon.com/restaurant',
+    ),
+  );
+}
