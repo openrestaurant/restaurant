@@ -54,10 +54,3 @@ projects[restaurant_theme][download][revision] = 09c2bc7
 projects[restaurant_theme][download][branch] = 7.x-1.x
 projects[restaurant_theme][subdir] = restaurant
 
-projects[restaurant_menu][type] = module
-projects[restaurant_menu][download][type] = git
-projects[restaurant_menu][download][revision] = 883796a
-projects[restaurant_menu][download][branch] = 7.x-1.x
-projects[restaurant_menu][subdir] = restaurant
-
-
