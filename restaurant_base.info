@@ -15,5 +15,6 @@ dependencies[] = path
 dependencies[] = pathauto
 dependencies[] = semanticviews
 dependencies[] = views
+dependencies[] = variable
 dependencies[] = restaurant_theme
 features[features_api][] = api:1

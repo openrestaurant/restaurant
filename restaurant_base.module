@@ -4,6 +4,8 @@
  * Provides base configuration and structure for the Restaurant Distribution
  */
 
+include_once 'restaurant_base.settings.inc';
+
 /**
  * Implements hook_apps_servers_info().
  */
@@ -15,4 +17,53 @@ function restaurant_base_apps_servers_info() {
       'manifest' => 'http://dev.restaurant-apps.gotpantheon.com/restaurant-dev-manifest.json',
     ),
   );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function restaurant_base_menu() {
+  $items = array();
+
+  $items['admin/restaurant'] = array(
+    'title' => 'Restaurant',
+    'description' => 'Administer restaurant settings.',
+    'weight' => -8,
+    'position' => 'left',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+
+   $items['admin/restaurant/settings'] = array(
+    'title' => 'Settings',
+    'description' => 'Configuration related to Restaurant.',
+    'weight' => 50,
+    'position' => 'left',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('administer site configuration'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+
+  $items['admin/restaurant/settings/general'] = array(
+    'title' => 'General',
+    'description' => 'Configuration related to Restaurant',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('variable_group_form', 'restaurant_settings_general'),
+    'access arguments' => array('administer site configuration'),
+    'weight' => -8,
+  );
+  
+  $items['admin/restaurant/settings/social'] = array(
+    'title' => 'Social',
+    'description' => 'Configure social links for restaurant',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('variable_group_form', 'restaurant_settings_social'),
+    'access arguments' => array('administer site configuration'),
+    'weight' => -8,
+  );
+
+  return $items;
 }
