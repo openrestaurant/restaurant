@@ -59,3 +59,29 @@ projects[restaurant_plugins][download][type] = git
 projects[restaurant_plugins][download][revision] = 396b42e
 projects[restaurant_plugins][download][branch] = 7.x-1.x
 projects[restaurant_plugins][subdir] = restaurant
+
+; Restaurant Apps
+
+projects[restaurant_menu][type] = module
+projects[restaurant_menu][download][type] = git
+projects[restaurant_menu][download][revision] = 5497cec
+projects[restaurant_menu][download][branch] = 7.x-1.x
+projects[restaurant_menu][subdir] = restaurant
+
+projects[restaurant_blog][type] = module
+projects[restaurant_blog][download][type] = git
+projects[restaurant_blog][download][revision] = ed352c1
+projects[restaurant_blog][download][branch] = 7.x-1.x
+projects[restaurant_blog][subdir] = restaurant
+
+projects[restaurant_event][type] = module
+projects[restaurant_event][download][type] = git
+projects[restaurant_event][download][revision] = be90525
+projects[restaurant_event][download][branch] = 7.x-1.x
+projects[restaurant_event][subdir] = restaurant
+
+projects[restaurant_slideshow][type] = module
+projects[restaurant_slideshow][download][type] = git
+projects[restaurant_slideshow][download][revision] = b02241e
+projects[restaurant_slideshow][download][branch] = 7.x-1.x
+projects[restaurant_slideshow][subdir] = restaurant
