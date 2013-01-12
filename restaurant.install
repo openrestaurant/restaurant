@@ -7,7 +7,7 @@ function restaurant_install_tasks($install_state) {
   $tasks = array();
 
   // Remove status messages
-  drupal_get_messages('status', TRUE);
+  // drupal_get_messages('status', TRUE);
   drupal_get_messages('warning', TRUE);
 
   // Add a task to install apps
@@ -111,7 +111,12 @@ function restaurant_install_configure($form, &$form_state, &$install_state) {
   $form = array();
   $form['configure_message'] = array(
     '#markup' => $message,
+    '#weight' => -100,
   );
+
+  $variable_form = drupal_get_form('variable_module_form', 'restaurant_base');
+
+  $form = array_merge($form, $variable_form);
 
   $form['actions'] = array(
     '#type' => 'actions',
