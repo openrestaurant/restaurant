@@ -22,6 +22,9 @@ projects[apps][version] = 1.0-beta7
 projects[apps][subdir] = contrib
 projects[apps][patch][1790902] = http://drupal.org/files/1790902-check-last-modified-existing.patch
 projects[apps][patch][1887010] = http://drupal.org/files/apps-wrap-submit-button-in-actions-1887010-2.patch
-projects[apps][patch][1875794] = http://drupal.org/files/appserver-undefined-index-line-46-1875794.patch
-projects[apps][patch][1503046] = http://drupal.org/files/appserver-1503046.patch
+
+projects[appserver][version] = 1.0-beta3
+projects[appserver][subdir] = contrib
+projects[appserver][patch][1875794] = http://drupal.org/files/appserver-undefined-index-line-46-1875794.patch
+projects[appserver][patch][1503046] = http://drupal.org/files/appserver-1503046.patch
 
