@@ -1,36 +1,13 @@
 <?php
 
 /**
- * Implements hook_install_tasks_alter()
- */
-function restaurant_install_tasks_alter(&$tasks, $install_state) {
-
-  // Add a welcome screen
-  $new_task['restaurant_install_welcome'] = array(
-    'display' => TRUE,
-    'display_name' => st('Welcome'),
-    'type' => 'form',
-    'run' => isset($install_state['parameters']['welcome']) ? INSTALL_TASK_SKIP : INSTALL_TASK_RUN_IF_REACHED,
-  );
-  $old_tasks = $tasks;
-  $tasks = array_slice($old_tasks, 0, 2) + $new_task + array_slice($old_tasks, 2);
-
-  // Custom install_finished callback
-  $tasks['install_finished']['function'] = 'restaurant_install_finished';
-
-  // Set the install theme to sizzle
-  _restaurant_set_theme('sizzle');
-
-  // Magically go one level deeper in solving years of dependency problems
-  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
-  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
-}
-
-/**
  * Implements hook_install_tasks().
  */
 function restaurant_install_tasks($install_state) {
   $tasks = array();
+
+  // Remove status messages
+  drupal_get_messages('status', TRUE);
 
   // Add a task to install apps
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
@@ -50,6 +27,36 @@ function restaurant_install_tasks($install_state) {
   );
 
   return $tasks;
+}
+
+/**
+ * Implements hook_install_tasks_alter()
+ */
+function restaurant_install_tasks_alter(&$tasks, $install_state) {
+  // Custom install_finished callback
+  $tasks['install_finished']['function'] = 'restaurant_install_finished';
+
+  $tasks['install_select_profile']['display'] = FALSE;
+  $tasks['install_select_profile']['run'] = INSTALL_TASK_SKIP;
+  $tasks['install_select_locale']['display'] = FALSE;
+  $tasks['install_select_locale']['run'] = INSTALL_TASK_SKIP;
+
+  // Add a welcome screen
+  $welcome_task['restaurant_install_welcome'] = array(
+    'display' => TRUE,
+    'display_name' => st('Welcome'),
+    'type' => 'form',
+    'run' => isset($install_state['parameters']['welcome']) ? INSTALL_TASK_SKIP : INSTALL_TASK_RUN_IF_REACHED,
+  );
+  $tasks_copy = $tasks;
+  $tasks = array_slice($tasks_copy, 0, 2) + $welcome_task + array_slice($tasks_copy, 2);
+
+  // Set the install theme to sizzle
+  _restaurant_set_theme('sizzle');
+
+  // Magically go one level deeper in solving years of dependency problems
+  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
+  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
 }
 
 /**
@@ -85,6 +92,10 @@ function restaurant_install_welcome_submit($form, &$form_state) {
 
   // mark welcome step as done
   $install_state['parameters']['welcome'] = 'done';
+
+  // add default parameters
+  $install_state['parameters']['profile'] = 'restaurant';
+  $install_state['parameters']['locale'] = 'en';
 }
 
 /**

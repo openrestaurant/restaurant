@@ -2,6 +2,8 @@ name = Restaurant
 description = "A Drupal Distribution to build Restaurant websites"
 version = VERSION
 core = 7.x
+distribution_name = Restaurant
+exclusive = 1
 
 ; Drupal Core
 dependencies[] = menu
