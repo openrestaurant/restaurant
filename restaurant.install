@@ -81,7 +81,7 @@ function restaurant_install_welcome($form, &$form_state, &$install_state) {
     '#value' => st("Let's Get Started!"),
     '#weight' => 10,
     '#attributes' => array(
-      'class' => array('btn', 'btn-large', 'btn-big'),
+      'class' => array('btn'),
     ),
   );
   return $form;
@@ -119,7 +119,7 @@ function restaurant_install_configure($form, &$form_state, &$install_state) {
     '#value' => st("Save"),
     '#weight' => 10,
     '#attributes' => array(
-      'class' => array('btn', 'btn-large', 'btn-big'),
+      'class' => array('btn'),
     ),
   );
   return $form;
