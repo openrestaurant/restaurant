@@ -8,6 +8,7 @@ function restaurant_install_tasks($install_state) {
 
   // Remove status messages
   drupal_get_messages('status', TRUE);
+  drupal_get_messages('warning', TRUE);
 
   // Add a task to install apps
   require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
@@ -111,6 +112,7 @@ function restaurant_install_configure($form, &$form_state, &$install_state) {
   $form['configure_message'] = array(
     '#markup' => $message,
   );
+
   $form['actions'] = array(
     '#type' => 'actions',
   );
@@ -127,8 +129,8 @@ function restaurant_install_configure($form, &$form_state, &$install_state) {
 
 function restaurant_install_configure_submit($form, &$form_state) {
   // set the default theme to sizzle
-  theme_enable(array('sizzle'));
-  variable_set('theme_default', 'sizzle');
+  theme_enable(array('chef'));
+  variable_set('theme_default', 'chef');
 }
 
 /**
@@ -173,8 +175,6 @@ function restaurant_install_finished(&$install_state) {
     // remove all the message that are only "notifications" message.
     drupal_get_messages('status', TRUE);
     drupal_get_messages('completed', TRUE);
-    // Migrate adds its messages under the wrong type, see #1659150.
-    drupal_get_messages('ok', TRUE);
 
     // If we don't install drupal using Drush, redirect the user to the front page.
     if (!drupal_is_cli()) {
