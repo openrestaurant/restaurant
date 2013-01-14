@@ -55,6 +55,12 @@ projects[restaurant_theme][download][revision] = 8790fdd
 projects[restaurant_theme][download][branch] = 7.x-1.x
 projects[restaurant_theme][subdir] = restaurant
 
+projects[restaurant_admin][type] = module
+projects[restaurant_admin][download][type] = git
+projects[restaurant_admin][download][revision] = cf9083d
+projects[restaurant_admin][download][branch] = 7.x-1.x
+projects[restaurant_admin][subdir] = restaurant
+
 projects[restaurant_plugins][type] = module
 projects[restaurant_plugins][download][type] = git
 projects[restaurant_plugins][download][revision] = ff7f114
