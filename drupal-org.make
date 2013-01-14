@@ -24,6 +24,7 @@ projects[panopoly_admin][subdir] = panopoly
 
 projects[panopoly_users][version] = 1.0-rc3
 projects[panopoly_users][subdir] = panopoly
+projects[panopoly_users][patch][1888262] = http://drupal.org/files/restaurant-switch-panels-layout-to-radix-layouts-user-pages-1888262-1.patch
 
 ; The Panopoly Toolset
 
