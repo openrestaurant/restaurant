@@ -21,6 +21,7 @@ projects[panopoly_widgets][subdir] = panopoly
 
 projects[panopoly_admin][version] = 1.0-rc3
 projects[panopoly_admin][subdir] = panopoly
+projects[panopoly_admin][patch][1888636] = http://drupal.org/files/panopoly-admin-patch-navbar-links-alter-1888636-1.patch
 
 projects[panopoly_users][version] = 1.0-rc3
 projects[panopoly_users][subdir] = panopoly
