@@ -7,7 +7,7 @@ function restaurant_install_tasks($install_state) {
   $tasks = array();
 
   // Remove status messages
-  // drupal_get_messages('status', TRUE);
+  drupal_get_messages('status', TRUE);
   drupal_get_messages('warning', TRUE);
 
   // Add a task to install apps
@@ -133,9 +133,8 @@ function restaurant_install_configure($form, &$form_state, &$install_state) {
 }
 
 function restaurant_install_configure_submit($form, &$form_state) {
-  // set the default theme to sizzle
-  theme_enable(array('chef'));
-  variable_set('theme_default', 'chef');
+  // set the default theme to chef
+  _restaurant_set_theme('chef');
 }
 
 /**
