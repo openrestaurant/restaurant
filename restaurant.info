@@ -40,3 +40,8 @@ dependencies[] = navbar
 
 ; Restaurant
 dependencies[] = restaurant_base
+
+; Restaurant Contrib
+dependencies[] = navbar
+dependencies[] = contact
+
