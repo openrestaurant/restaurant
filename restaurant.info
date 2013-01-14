@@ -36,6 +36,7 @@ dependencies[] = panopoly_wysiwyg
 
 ; Panopoly Recommended
 dependencies[] = devel
+dependencies[] = navbar
 
 ; Restaurant
 dependencies[] = restaurant_base
