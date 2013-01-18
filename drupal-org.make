@@ -47,7 +47,7 @@ projects[devel][subdir] = contrib
 
 projects[radix_core][type] = module
 projects[radix_core][download][type] = git
-projects[radix_core][download][revision] = e6631da
+projects[radix_core][download][revision] = cf358c0
 projects[radix_core][download][branch] = 7.x-1.x
 projects[radix_core][subdir] = contrib
 
