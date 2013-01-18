@@ -43,6 +43,14 @@ projects[panopoly_search][subdir] = panopoly
 projects[devel][version] = 1.3
 projects[devel][subdir] = contrib
 
+; Radix
+
+projects[radix_core][type] = module
+projects[radix_core][download][type] = git
+projects[radix_core][download][revision] = e6631da
+projects[radix_core][download][branch] = 7.x-1.x
+projects[radix_core][subdir] = contrib
+
 ; Restaurant
 
 projects[restaurant_base][type] = module
