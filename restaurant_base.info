@@ -19,5 +19,7 @@ dependencies[] = variable
 dependencies[] = uuid
 dependencies[] = uuid_path
 dependencies[] = uuid_features
+dependencies[] = radix_core
+dependencies[] = restaurant_plugins
 dependencies[] = restaurant_theme
 features[features_api][] = api:1
