@@ -1,0 +1,4 @@
+# Ignore profile modules, libraries and themes
+modules/*
+themes/*
+libraries/*
