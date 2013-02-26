@@ -41,6 +41,13 @@ function restaurant_base_variable_info($options) {
     'group' => 'restaurant_settings_general',
   );
 
+  $variables['restaurant_settings_opening_hours'] = array(
+    'title' => t('Opening Hours'),
+    'type' => 'text',
+    'description' => t('Restaurant opening hours.'),
+    'group' => 'restaurant_settings_general',
+  );
+
 
   // Social
   $variables['restaurant_settings_twitter'] = array(
