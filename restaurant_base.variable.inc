@@ -36,7 +36,7 @@ function restaurant_base_variable_info($options) {
 
   $variables['restaurant_settings_address'] = array(
     'title' => t('Address'),
-    'type' => 'text_format',
+    'type' => 'text',
     'description' => t('Restaurant address.'),
     'group' => 'restaurant_settings_general',
   );
