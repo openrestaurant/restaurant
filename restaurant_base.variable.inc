@@ -66,19 +66,7 @@ function restaurant_base_variable_info($options) {
  * Implements hook_variable_type_info().
  */
 function restaurant_base_variable_type_info() {
-  $type['mail_address'] = array(
-    'title' => t('E-mail address'),
-    'element' => array('#type' => 'textfield'),
-    'token' => TRUE,
-  );
-  $type['mail_text'] = array(
-    'title' => t('Mail text'),
-    'multiple' => array('subject' => t('Subject'), 'body' => t('Body')),
-    'build callback' => 'variable_build_mail_text',
-    'localize' => TRUE,
-    'type' => 'multiple',
-  );
-  return $type;
+  //
 }
 
 /**
