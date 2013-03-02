@@ -16,7 +16,7 @@ function restaurant_install_tasks($install_state) {
     $install_state, 
     array(
       'machine name' => 'restaurant',
-      'default apps' => array('restaurant_admin', 'restaurant_menu'),
+      'default apps' => array('restaurant_menu'),
       'required apps' => array('restaurant_menu')
     )
   );
