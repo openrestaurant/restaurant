@@ -14,7 +14,6 @@ function restaurant_base_variable_info($options) {
     'title' => t('Name'),
     'type' => 'string',
     'description' => t('The name of your restaurant.'),
-    'default' => 'Restaurant',
     'group' => 'restaurant_settings_general',
   );
 
@@ -22,7 +21,6 @@ function restaurant_base_variable_info($options) {
     'title' => t('Slogan'),
     'type' => 'string',
     'description' => t('The slogan of your restaurant.'),
-    'default' => 'Veggie magis turnip corn tomatillo aubergine quandong lettuce',
     'group' => 'restaurant_settings_general',
   );
 
@@ -30,7 +28,6 @@ function restaurant_base_variable_info($options) {
     'title' => t('Phone'),
     'type' => 'string',
     'description' => t('Phone number for restaurant.'),
-    'default' => '+1 (888) 888-8888',
     'group' => 'restaurant_settings_general',
   );
 
@@ -54,7 +51,6 @@ function restaurant_base_variable_info($options) {
     'title' => t('Twitter'),
     'type' => 'string',
     'description' => t('Link to Twitter profile.'),
-    'default' => 'http://twitter.com',
     'group' => 'restaurant_settings_social',
   );
 
@@ -62,7 +58,6 @@ function restaurant_base_variable_info($options) {
     'title' => t('Facebook'),
     'type' => 'string',
     'description' => t('Link to Facebook profile.'),
-    'default' => 'http://facebook.com',
     'group' => 'restaurant_settings_social',
   );
 
