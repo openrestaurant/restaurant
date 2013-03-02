@@ -1,6 +1,12 @@
 <?php
 /**
  * @file
+ * Code for the Restaurant Base feature.
+ */
+
+include_once 'restaurant_base.features.inc';
+/**
+ * @file
  * Provides base configuration and structure for the Restaurant Distribution
  */
 
