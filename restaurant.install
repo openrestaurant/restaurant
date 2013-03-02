@@ -133,11 +133,15 @@ function restaurant_install_configure($form, &$form_state, &$install_state) {
 }
 
 function restaurant_install_configure_submit($form, &$form_state) {
-  $theme = 'plate';
-
   // set the default theme
+  $theme = 'plate';
   theme_enable(array($theme));
   variable_set('theme_default', $theme);
+
+  // set the admin theme
+  $admin_theme = 'seven';
+  theme_enable(array($admin_theme));
+  variable_set('admin_theme', $admin_theme);
  
   // Flush theme caches so things are right
   system_rebuild_theme_data();
@@ -160,6 +164,11 @@ function restaurant_install_finished(&$install_state) {
   $theme = 'plate';
   theme_enable(array($theme));
   variable_set('theme_default', $theme);
+
+  // set the admin theme
+  $admin_theme = 'seven';
+  theme_enable(array($admin_theme));
+  variable_set('admin_theme', $admin_theme);
  
   // Flush theme caches so things are right
   system_rebuild_theme_data();
