@@ -18,6 +18,7 @@ dependencies[] = radix_core
 dependencies[] = restaurant_plugins
 dependencies[] = restaurant_theme
 dependencies[] = semanticviews
+dependencies[] = twitter_pull
 dependencies[] = uuid
 dependencies[] = uuid_features
 dependencies[] = uuid_path
