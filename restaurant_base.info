@@ -21,7 +21,6 @@ dependencies[] = semanticviews
 dependencies[] = twitter_pull
 dependencies[] = uuid
 dependencies[] = uuid_features
-dependencies[] = uuid_path
 dependencies[] = variable
 dependencies[] = views
 features[features_api][] = api:1
