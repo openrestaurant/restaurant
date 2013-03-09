@@ -85,12 +85,6 @@ projects[restaurant_blog][download][revision] = b048c44
 projects[restaurant_blog][download][branch] = 7.x-1.x
 projects[restaurant_blog][subdir] = restaurant
 
-projects[restaurant_event][type] = module
-projects[restaurant_event][download][type] = git
-projects[restaurant_event][download][revision] = be90525
-projects[restaurant_event][download][branch] = 7.x-1.x
-projects[restaurant_event][subdir] = restaurant
-
 projects[restaurant_slideshow][type] = module
 projects[restaurant_slideshow][download][type] = git
 projects[restaurant_slideshow][download][revision] = 91636d9
