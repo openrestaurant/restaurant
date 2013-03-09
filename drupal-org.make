@@ -75,13 +75,13 @@ projects[restaurant_plugins][subdir] = restaurant
 
 projects[restaurant_menu][type] = module
 projects[restaurant_menu][download][type] = git
-projects[restaurant_menu][download][revision] = 350a54e
+projects[restaurant_menu][download][revision] = 51634fb
 projects[restaurant_menu][download][branch] = 7.x-1.x
 projects[restaurant_menu][subdir] = restaurant
 
 projects[restaurant_blog][type] = module
 projects[restaurant_blog][download][type] = git
-projects[restaurant_blog][download][revision] = b048c44
+projects[restaurant_blog][download][revision] = c1a770c
 projects[restaurant_blog][download][branch] = 7.x-1.x
 projects[restaurant_blog][subdir] = restaurant
 
