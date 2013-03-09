@@ -31,7 +31,7 @@ dependencies[] = panopoly_users
 
 ; Panopoly Toolset
 dependencies[] = panopoly_pages
-dependencies[] = panopoly_search
+; dependencies[] = panopoly_search
 dependencies[] = panopoly_wysiwyg
 
 ; Restaurant
