@@ -8,6 +8,7 @@ project = restaurant_base
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = image
+dependencies[] = migrate
 dependencies[] = panels_ipe
 dependencies[] = panopoly_admin
 dependencies[] = panopoly_core

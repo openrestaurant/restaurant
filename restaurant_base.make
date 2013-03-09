@@ -20,3 +20,6 @@ projects[uuid_features][subdir] = contrib
 
 projects[variable][version] = 2.1
 projects[variable][subdir] = contrib
+
+projects[migrate][version] = 2.5
+projects[migrate][subdir] = contrib
