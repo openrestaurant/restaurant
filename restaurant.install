@@ -169,6 +169,9 @@ function restaurant_install_finished(&$install_state) {
   $admin_theme = 'seven';
   theme_enable(array($admin_theme));
   variable_set('admin_theme', $admin_theme);
+
+  // set the node admin theme
+  variable_set('node_admin_theme', 1);
  
   // Flush theme caches so things are right
   system_rebuild_theme_data();
