@@ -12,7 +12,7 @@ projects[semanticviews][subdir] = contrib
 projects[twitter_pull][version] = 1.0-rc4
 projects[twitter_pull][subdir] = contrib
 
-projects[uuid][version] = 1.0-alpha3
+projects[uuid][version] = 1.x-dev
 projects[uuid][subdir] = contrib
 
 projects[uuid_features][version] = 1.0-alpha3
