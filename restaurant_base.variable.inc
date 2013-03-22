@@ -10,20 +10,6 @@
 function restaurant_base_variable_info($options) {
 
   // general
-  $variables['restaurant_settings_name'] = array(
-    'title' => t('Name'),
-    'type' => 'string',
-    'description' => t('The name of your restaurant.'),
-    'group' => 'restaurant_settings_general',
-  );
-
-  $variables['restaurant_settings_slogan'] = array(
-    'title' => t('Slogan'),
-    'type' => 'string',
-    'description' => t('The slogan of your restaurant.'),
-    'group' => 'restaurant_settings_general',
-  );
-
   $variables['restaurant_settings_phone'] = array(
     'title' => t('Phone'),
     'type' => 'string',
@@ -44,8 +30,7 @@ function restaurant_base_variable_info($options) {
     'description' => t('Restaurant opening hours.'),
     'group' => 'restaurant_settings_general',
   );
-
-
+  
   // Social
   $variables['restaurant_settings_twitter'] = array(
     'title' => t('Twitter'),
