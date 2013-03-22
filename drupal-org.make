@@ -43,9 +43,6 @@ projects[panopoly_wysiwyg][subdir] = panopoly
 projects[devel][version] = 1.3
 projects[devel][subdir] = contrib
 
-projects[panelizer][version] = 3.1
-projects[panelizer][subdir] = contrib
-
 ; Radix
 
 projects[radix_core][type] = module
