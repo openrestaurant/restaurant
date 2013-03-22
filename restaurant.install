@@ -11,20 +11,26 @@ function restaurant_install_tasks($install_state) {
   drupal_get_messages('warning', TRUE);
 
   // Add a task to install apps
-  require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
-  $tasks = $tasks + apps_profile_install_tasks(
-    $install_state, 
-    array(
-      'machine name' => 'restaurant',
-      'default apps' => array('restaurant_menu'),
-      'required apps' => array('restaurant_menu')
-    )
-  );
+  // require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
+  // $tasks = $tasks + apps_profile_install_tasks(
+  //   $install_state, 
+  //   array(
+  //     'machine name' => 'restaurant',
+  //     'default apps' => array('restaurant_menu'),
+  //     'required apps' => array('restaurant_menu')
+  //   )
+  // );
 
   // Add a task to for restaurant configuration
   $tasks['restaurant_install_configure'] = array(
-    'display_name' => st('Configure Restaurant'),
+    'display_name' => st('Configure restaurant'),
     'type' => 'form',
+  );
+
+  // Task to install features
+  $tasks['restaurant_install_features'] = array(
+    'display_name' => st('Install features'),
+    'type' => 'batch',
   );
 
   return $tasks;
@@ -78,13 +84,14 @@ function restaurant_install_welcome($form, &$form_state, &$install_state) {
 <li>Awesome support</li>
 </ul>';
 
-  $form = array();
   $form['welcome_message'] = array(
     '#markup' => $message,
   );
+
   $form['actions'] = array(
     '#type' => 'actions',
   );
+
   $form['actions']['submit'] = array(
     '#type' => 'submit',
     '#value' => st("Let's Get Started!"),
@@ -93,6 +100,7 @@ function restaurant_install_welcome($form, &$form_state, &$install_state) {
       'class' => array('btn'),
     ),
   );
+
   return $form;
 }
 
@@ -114,7 +122,7 @@ function restaurant_install_configure($form, &$form_state, &$install_state) {
   drupal_set_title(st('Configure Restaurant'));
 
   $message = '<h3>' . st('Configure Restaurant!') . '</h3>';
-  $message .= '<p class="lead">' . st('Almost there! Configure your restaurant and you are good to go.') . '</p>';
+  $message .= '<p class="lead">' . st('Almost there! Select features for your restaurant.') . '</p>';
 
   $form = array();
   $form['configure_message'] = array(
@@ -122,39 +130,111 @@ function restaurant_install_configure($form, &$form_state, &$install_state) {
     '#weight' => -100,
   );
 
-  $variable_form = drupal_get_form('variable_module_form', 'restaurant_base');
+  $options_features = array(
+    'menu' => 'Create and manage menus for your restaurant',
+    'blog' => 'Blog functionality',
+    'admin' => 'Enhanced administrative interface',
+    'slideshow' => 'Slideshows'
+  );
+  $form['features'] = array(
+    '#type' => 'checkboxes',
+    '#options' => $options_features,
+    '#description' => t('Enable these features for your restaurant'),
+    '#prefix' => '<h4>' . t('Features') . '</h4>',
+    '#default_value' => array(
+      'menu', 'blog', 'admin', 'slideshow',  
+    ),
+  );
 
-  $form = array_merge($form, $variable_form);
+  $form['demo_content'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Install demo content?'),
+    '#description' => t('Install demo content such as menus and blog posts.'),
+    '#default_value' => '1',
+  );
 
   $form['actions'] = array(
     '#type' => 'actions',
   );
+
   $form['actions']['submit'] = array(
     '#type' => 'submit',
-    '#value' => st("Save"),
+    '#value' => st("Install"),
     '#weight' => 10,
     '#attributes' => array(
       'class' => array('btn'),
     ),
   );
+
   return $form;
 }
 
 function restaurant_install_configure_submit($form, &$form_state) {
-  // set the default theme
-  $theme = 'plate';
-  theme_enable(array($theme));
-  variable_set('theme_default', $theme);
-
-  // set the admin theme
-  $admin_theme = 'seven';
-  theme_enable(array($admin_theme));
-  variable_set('admin_theme', $admin_theme);
- 
-  // Flush theme caches so things are right
-  system_rebuild_theme_data();
-  drupal_theme_rebuild();
+  variable_set('restaurant_features', $form_state['values']['features']);
+  variable_set('restaurant_demo_content', $form_state['values']['demo_content']);
 }
+
+/**
+ * Install selected features for restaurant
+ */
+function restaurant_install_features() {
+  $modules = array();
+
+  // install features
+  $features = variable_get('restaurant_features', array());
+  if (!empty($features['menu'])) {
+    $modules[] = 'restaurant_menu';
+  }
+  if (!empty($features['blog'])) {
+    $modules[] = 'restaurant_blog';
+  }
+  if (!empty($features['slideshow'])) {
+    $modules[] = 'restaurant_slideshow';
+  }
+  if (!empty($features['admin'])) {
+    $modules[] = 'restaurant_admin';
+  }
+
+  // install demo content
+  $install_demo_content = variable_get('restaurant_demo_content', FALSE);
+  if ($install_demo_content) {
+    if (!empty($features['blog'])) {
+      // $modules[] = 'restaurant_blog_demo';
+    }
+  }
+
+  // Resolve the dependencies now, so that module_enable() doesn't need
+  // to do it later for each individual module (which kills performance).
+  $files = system_rebuild_module_data();
+  $modules_sorted = array();
+  foreach ($modules as $module) {
+    if ($files[$module]->requires) {
+      // Create a list of dependencies that haven't been installed yet.
+      $dependencies = array_keys($files[$module]->requires);
+      // Add them to the module list.
+      $modules = array_merge($modules, $dependencies);
+    }
+  }
+  $modules = array_unique($modules);
+  foreach ($modules as $module) {
+    $modules_sorted[$module] = $files[$module]->sort;
+  }
+  arsort($modules_sorted);
+
+  $operations = array();
+  foreach ($modules_sorted as $module => $weight) {
+    $operations[] = array('_restaurant_enable_module', array($module, $files[$module]->info['name']));
+  }
+
+  $batch = array(
+    'title' => t('Installing features'),
+    'operations' => $operations,
+    'file' => drupal_get_path('profile', 'restaurant') . '/restaurant.install_callbacks.inc',
+  );
+
+  return $batch;
+}
+
 
 /**
  * Callback for install_finished task
