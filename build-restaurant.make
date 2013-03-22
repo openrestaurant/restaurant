@@ -1,7 +1,7 @@
 api = 2
 core = 7.x
 
-projects[drupal][version] = 7.18
+projects[drupal][version] = 7.21
 includes[] = drupal-org-core.make
 
 ; Download the Restaurant install profile and recurively build its dependencies:
