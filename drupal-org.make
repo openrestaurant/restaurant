@@ -6,7 +6,6 @@ core = 7.x
 projects[panopoly_core][version] = 1.0-rc3
 projects[panopoly_core][subdir] = panopoly
 projects[panopoly_core][patch][1887856] = http://drupal.org/files/panopoly-core-apps-patch-action-buttons-1887856-1.patch
-projects[panelizer][patch][1789000] = http://drupal.org/files/key_too_long-1789000-9.patch
 
 projects[panopoly_images][version] = 1.0-rc3
 projects[panopoly_images][subdir] = panopoly
@@ -43,6 +42,9 @@ projects[panopoly_wysiwyg][subdir] = panopoly
 
 projects[devel][version] = 1.3
 projects[devel][subdir] = contrib
+
+projects[panelizer][version] = 3.1
+projects[panelizer][subdir] = contrib
 
 ; Radix
 
