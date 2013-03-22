@@ -31,7 +31,7 @@ function restaurant_base_apps_servers_info() {
 function restaurant_base_menu() {
   $items = array();
 
-  $items['admin/restaurant'] = array(
+  $items['admin/config/restaurant'] = array(
     'title' => 'Restaurant',
     'description' => 'Administer restaurant settings.',
     'weight' => -8,
@@ -42,7 +42,7 @@ function restaurant_base_menu() {
     'file path' => drupal_get_path('module', 'system'),
   );
 
-   $items['admin/restaurant/settings'] = array(
+   $items['admin/config/restaurant/settings'] = array(
     'title' => 'Settings',
     'description' => 'Configuration related to Restaurant.',
     'weight' => 50,
@@ -53,7 +53,7 @@ function restaurant_base_menu() {
     'file path' => drupal_get_path('module', 'system'),
   );
 
-  $items['admin/restaurant/settings/general'] = array(
+  $items['admin/config/restaurant/settings/general'] = array(
     'title' => 'General',
     'description' => 'Configuration related to Restaurant',
     'page callback' => 'drupal_get_form',
@@ -62,7 +62,7 @@ function restaurant_base_menu() {
     'weight' => -8,
   );
   
-  $items['admin/restaurant/settings/social'] = array(
+  $items['admin/config/restaurant/settings/social'] = array(
     'title' => 'Social',
     'description' => 'Configure social links for restaurant',
     'page callback' => 'drupal_get_form',
