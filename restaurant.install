@@ -200,6 +200,9 @@ function restaurant_install_features() {
     if (!empty($features['blog'])) {
       $modules[] = 'restaurant_blog_demo';
     }
+    if (!empty($features['menu'])) {
+      $modules[] = 'restaurant_menu_demo';
+    }
   }
 
   // Resolve the dependencies now, so that module_enable() doesn't need
