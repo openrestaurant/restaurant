@@ -10,16 +10,8 @@ function restaurant_install_tasks($install_state) {
   drupal_get_messages('status', TRUE);
   drupal_get_messages('warning', TRUE);
 
-  // Add a task to install apps
-  // require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
-  // $tasks = $tasks + apps_profile_install_tasks(
-  //   $install_state, 
-  //   array(
-  //     'machine name' => 'restaurant',
-  //     'default apps' => array('restaurant_menu'),
-  //     'required apps' => array('restaurant_menu')
-  //   )
-  // );
+  // Install demo conntent
+  $install_demo_content = variable_get('restaurant_demo_content', FALSE);
 
   // Add a task to for restaurant configuration
   $tasks['restaurant_install_configure'] = array(
@@ -31,6 +23,13 @@ function restaurant_install_tasks($install_state) {
   $tasks['restaurant_install_features'] = array(
     'display_name' => st('Install features'),
     'type' => 'batch',
+  );
+
+  // Task to install demo content
+  $tasks['restaurant_install_demo_content'] = array(
+    'display_name' => st('Install demo content'),
+    'type' => 'batch',
+    'display' => $install_demo_content,
   );
 
   return $tasks;
@@ -199,7 +198,7 @@ function restaurant_install_features() {
   $install_demo_content = variable_get('restaurant_demo_content', FALSE);
   if ($install_demo_content) {
     if (!empty($features['blog'])) {
-      // $modules[] = 'restaurant_blog_demo';
+      $modules[] = 'restaurant_blog_demo';
     }
   }
 
@@ -211,6 +210,7 @@ function restaurant_install_features() {
     if ($files[$module]->requires) {
       // Create a list of dependencies that haven't been installed yet.
       $dependencies = array_keys($files[$module]->requires);
+      $dependencies = array_filter($dependencies, '_restaurant_filter_dependencies');
       // Add them to the module list.
       $modules = array_merge($modules, $dependencies);
     }
@@ -233,6 +233,32 @@ function restaurant_install_features() {
   );
 
   return $batch;
+}
+
+/**
+ * Callback to install demo content
+ */
+function restaurant_install_demo_content() {
+  $install_demo_content = variable_get('restaurant_demo_content', FALSE);
+  $features = variable_get('restaurant_features', array());
+  $operations = array();
+
+  if ($install_demo_content) {
+    // Run all available migrations.
+    $migrations = migrate_migrations();
+    foreach ($migrations as $machine_name => $migration) {
+      $operations[] = array('_restaurant_import', array($machine_name, t('Importing content.')));
+    }
+
+  $batch = array(
+    'title' => t('Installing demo content'),
+    'operations' => $operations,
+    'file' => drupal_get_path('profile', 'restaurant') . '/restaurant.install_callbacks.inc',
+  );
+
+  return $batch;
+
+  }
 }
 
 
@@ -314,4 +340,11 @@ function _restaurant_set_theme($theme) {
     $GLOBALS['conf']['maintenance_theme'] = $theme;
     _drupal_maintenance_theme();
   }
+}
+
+/**
+ * array_filter() callback used to filter out already installed dependencies.
+ */
+function _restaurant_filter_dependencies($dependency) {
+  return !module_exists($dependency);
 }
