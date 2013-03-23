@@ -97,3 +97,8 @@ projects[restaurant_slideshow][download][revision] = 13d73f7
 projects[restaurant_slideshow][download][branch] = 7.x-1.x
 projects[restaurant_slideshow][subdir] = restaurant
 
+projects[restaurant_pages][type] = module
+projects[restaurant_pages][download][type] = git
+projects[restaurant_pages][download][revision] = a4ef730
+projects[restaurant_pages][download][branch] = 7.x-1.x
+projects[restaurant_pages][subdir] = restaurant

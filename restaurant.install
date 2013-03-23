@@ -152,6 +152,13 @@ function restaurant_install_configure($form, &$form_state, &$install_state) {
     '#default_value' => '1',
   );
 
+  $form['demo_pages'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Install demo pages?'),
+    '#description' => t('Setup demo pages such as a front page, a contact page...etc.'),
+    '#default_value' => '1',
+  );
+
   $form['actions'] = array(
     '#type' => 'actions',
   );
@@ -171,6 +178,7 @@ function restaurant_install_configure($form, &$form_state, &$install_state) {
 function restaurant_install_configure_submit($form, &$form_state) {
   variable_set('restaurant_features', $form_state['values']['features']);
   variable_set('restaurant_demo_content', $form_state['values']['demo_content']);
+  variable_set('restaurant_demo_pages', $form_state['values']['demo_pages']);
 }
 
 /**
@@ -203,6 +211,12 @@ function restaurant_install_features() {
     if (!empty($features['menu'])) {
       $modules[] = 'restaurant_menu_demo';
     }
+  }
+
+  // install demo content
+  $install_demo_pages = variable_get('restaurant_demo_pages', FALSE);
+  if ($install_demo_content) {
+    $modules[] = 'restaurant_pages';
   }
 
   // Resolve the dependencies now, so that module_enable() doesn't need
@@ -253,14 +267,13 @@ function restaurant_install_demo_content() {
       $operations[] = array('_restaurant_import', array($machine_name, t('Importing content.')));
     }
 
-  $batch = array(
-    'title' => t('Installing demo content'),
-    'operations' => $operations,
-    'file' => drupal_get_path('profile', 'restaurant') . '/restaurant.install_callbacks.inc',
-  );
+    $batch = array(
+      'title' => t('Installing demo content'),
+      'operations' => $operations,
+      'file' => drupal_get_path('profile', 'restaurant') . '/restaurant.install_callbacks.inc',
+    );
 
-  return $batch;
-
+    return $batch;
   }
 }
 
