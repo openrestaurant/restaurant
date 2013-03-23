@@ -61,7 +61,7 @@ projects[restaurant_base][subdir] = restaurant
 
 projects[restaurant_theme][type] = module
 projects[restaurant_theme][download][type] = git
-projects[restaurant_theme][download][revision] = 7bfefc5
+projects[restaurant_theme][download][revision] = a80d5c0
 projects[restaurant_theme][download][branch] = 7.x-1.x
 projects[restaurant_theme][subdir] = restaurant
 
