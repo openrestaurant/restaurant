@@ -37,7 +37,8 @@ dependencies[] = panopoly_wysiwyg
 ; Restaurant
 dependencies[] = restaurant_base
 
-; Restaurant Contrib
+; Restaurant Core Dependencies
 dependencies[] = toolbar
+dependencies[] = shortcut
 dependencies[] = contact
 
