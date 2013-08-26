@@ -5,7 +5,7 @@ core = 7.x
 
 projects[panopoly_core][version] = 1.0-rc5
 projects[panopoly_core][subdir] = panopoly
-projects[panopoly_core][patch][1887856] = http://drupal.org/files/panopoly-core-apps-patch-action-buttons-1887856-1.patch
+; projects[panopoly_core][patch][1887856] = http://drupal.org/files/panopoly-core-apps-patch-action-buttons-1887856-1.patch
 
 projects[panopoly_images][version] = 1.0-rc5
 projects[panopoly_images][subdir] = panopoly
@@ -21,11 +21,11 @@ projects[panopoly_widgets][subdir] = panopoly
 
 projects[panopoly_admin][version] = 1.0-rc5
 projects[panopoly_admin][subdir] = panopoly
-projects[panopoly_admin][patch][1888636] = http://drupal.org/files/panopoly-admin-patch-navbar-links-alter-1888636-1.patch
+; projects[panopoly_admin][patch][1888636] = http://drupal.org/files/panopoly-admin-patch-navbar-links-alter-1888636-1.patch
 
 projects[panopoly_users][version] = 1.0-rc5
 projects[panopoly_users][subdir] = panopoly
-projects[panopoly_users][patch][1888262] = http://drupal.org/files/restaurant-switch-panels-layout-to-radix-layouts-user-pages-1888262-1.patch
+; projects[panopoly_users][patch][1888262] = http://drupal.org/files/restaurant-switch-panels-layout-to-radix-layouts-user-pages-1888262-1.patch
 
 ; The Panopoly Toolset
 
