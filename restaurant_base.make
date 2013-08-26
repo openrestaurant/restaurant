@@ -9,6 +9,9 @@ projects[field_collection][subdir] = contrib
 projects[semanticviews][version] = 1.x-dev
 projects[semanticviews][subdir] = contrib
 
+projects[oauth][version] = 3.1
+projects[oauth][subdir] = contrib
+
 projects[twitter][version] = 5.8
 projects[twitter][subdir] = contrib
 
