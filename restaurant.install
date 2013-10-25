@@ -224,7 +224,7 @@ function restaurant_install_features() {
   $files = system_rebuild_module_data();
   $modules_sorted = array();
   foreach ($modules as $module) {
-    if ($files[$module]->requires) {
+    if (isset($files[$module]) && $files[$module]->requires) {
       // Create a list of dependencies that haven't been installed yet.
       $dependencies = array_keys($files[$module]->requires);
       $dependencies = array_filter($dependencies, '_restaurant_filter_dependencies');
