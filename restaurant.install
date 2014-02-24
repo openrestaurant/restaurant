@@ -291,7 +291,7 @@ function restaurant_install_finished(&$install_state) {
   variable_set('install_task', 'done');
 
   // set the default theme
-  $theme = 'plate';
+  $theme = 'chef';
   theme_enable(array($theme));
   variable_set('theme_default', $theme);
 
