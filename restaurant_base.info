@@ -9,6 +9,7 @@ dependencies[] = ctools
 dependencies[] = features
 dependencies[] = image
 dependencies[] = migrate
+dependencies[] = panels_everywhere
 dependencies[] = panels_ipe
 dependencies[] = panopoly_admin
 dependencies[] = panopoly_core
