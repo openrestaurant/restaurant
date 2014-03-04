@@ -99,3 +99,9 @@ projects[restaurant_pages][download][type] = git
 projects[restaurant_pages][download][revision] = 4e22eba
 projects[restaurant_pages][download][branch] = 7.x-1.x
 projects[restaurant_pages][subdir] = restaurant
+
+projects[restaurant_widgets][type] = module
+projects[restaurant_widgets][download][type] = git
+projects[restaurant_widgets][download][revision] = 6cf7add
+projects[restaurant_widgets][download][branch] = 7.x-1.x
+projects[restaurant_widgets][subdir] = restaurant
