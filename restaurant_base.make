@@ -30,5 +30,8 @@ projects[variable][subdir] = contrib
 projects[migrate][version] = 2.5
 projects[migrate][subdir] = contrib
 
-projecst[panels_everywhere][version] = 1.0-rc1
-projecst[panels_everywhere][subdir] = contrib
+projects[panels_everywhere][version] = 1.0-rc1
+projects[panels_everywhere][subdir] = contrib
+
+projects[view_mode_templates][version] = 1.x-dev
+projects[view_mode_templates][subdir] = contrib
