@@ -52,7 +52,7 @@ projects[radix_core][subdir] = contrib
 
 projects[restaurant_base][type] = module
 projects[restaurant_base][download][type] = git
-projects[restaurant_base][download][revision] = 94056c2
+projects[restaurant_base][download][revision] = 604454c
 projects[restaurant_base][download][branch] = 7.x-1.x
 projects[restaurant_base][subdir] = restaurant
 
