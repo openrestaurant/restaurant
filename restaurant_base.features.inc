@@ -24,13 +24,14 @@ function restaurant_base_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => '620',
+          'width' => 620,
           'height' => '',
           'upscale' => 0,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
+    'label' => 'restaurant_large',
   );
 
   return $styles;
