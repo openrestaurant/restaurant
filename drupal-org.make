@@ -68,6 +68,12 @@ projects[restaurant_admin][download][revision] = 07f625a
 projects[restaurant_admin][download][branch] = 7.x-1.x
 projects[restaurant_admin][subdir] = restaurant
 
+projects[restaurant_widgets][type] = module
+projects[restaurant_widgets][download][type] = git
+projects[restaurant_widgets][download][revision] = 91975d2
+projects[restaurant_widgets][download][branch] = 7.x-1.x
+projects[restaurant_widgets][subdir] = restaurant
+
 projects[restaurant_plugins][type] = module
 projects[restaurant_plugins][download][type] = git
 projects[restaurant_plugins][download][revision] = 8116e30
@@ -99,9 +105,3 @@ projects[restaurant_pages][download][type] = git
 projects[restaurant_pages][download][revision] = 4e22eba
 projects[restaurant_pages][download][branch] = 7.x-1.x
 projects[restaurant_pages][subdir] = restaurant
-
-projects[restaurant_widgets][type] = module
-projects[restaurant_widgets][download][type] = git
-projects[restaurant_widgets][download][revision] = 91975d2
-projects[restaurant_widgets][download][branch] = 7.x-1.x
-projects[restaurant_widgets][subdir] = restaurant
