@@ -9,11 +9,18 @@
  */
 function restaurant_base_variable_info($options) {
 
-  // general
+  // General.
   $variables['restaurant_settings_phone'] = array(
     'title' => t('Phone'),
     'type' => 'string',
     'description' => t('Phone number for restaurant.'),
+    'group' => 'restaurant_settings_general',
+  );
+
+  $variables['restaurant_settings_mail'] = array(
+    'title' => t('Email'),
+    'type' => 'string',
+    'description' => t('Contact email for restaurant.'),
     'group' => 'restaurant_settings_general',
   );
 
@@ -31,7 +38,7 @@ function restaurant_base_variable_info($options) {
     'group' => 'restaurant_settings_general',
   );
   
-  // Social
+  // Social.
   $variables['restaurant_settings_twitter'] = array(
     'title' => t('Twitter'),
     'type' => 'string',
