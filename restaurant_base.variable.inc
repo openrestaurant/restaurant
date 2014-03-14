@@ -17,7 +17,7 @@ function restaurant_base_variable_info($options) {
     'group' => 'restaurant_settings_general',
   );
 
-  $variables['restaurant_settings_mail'] = array(
+  $variables['restaurant_settings_email'] = array(
     'title' => t('Email'),
     'type' => 'string',
     'description' => t('Contact email for restaurant.'),
