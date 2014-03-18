@@ -38,3 +38,6 @@ projects[view_mode_templates][subdir] = contrib
 
 projects[email][version] = 1.2
 projects[email][subdir] = contrib
+
+projects[auto_nodetitle][version] = 1.0
+projects[auto_nodetitle][subdir] = contrib
