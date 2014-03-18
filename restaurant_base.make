@@ -35,3 +35,6 @@ projects[panels_everywhere][subdir] = contrib
 
 projects[view_mode_templates][version] = 1.x-dev
 projects[view_mode_templates][subdir] = contrib
+
+projects[email][version] = 1.2
+projects[email][subdir] = contrib
