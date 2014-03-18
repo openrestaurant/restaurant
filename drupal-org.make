@@ -105,3 +105,9 @@ projects[restaurant_pages][download][type] = git
 projects[restaurant_pages][download][revision] = 4e22eba
 projects[restaurant_pages][download][branch] = 7.x-1.x
 projects[restaurant_pages][subdir] = restaurant
+
+projects[restaurant_reservation][type] = module
+projects[restaurant_reservation][download][type] = git
+projects[restaurant_reservation][download][revision] = 15857b4
+projects[restaurant_reservation][download][branch] = 7.x-1.x
+projects[restaurant_reservation][subdir] = restaurant
