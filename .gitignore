@@ -2,3 +2,4 @@
 modules/*
 themes/*
 libraries/*
+.DS_Store

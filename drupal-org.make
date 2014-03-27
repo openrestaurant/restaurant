@@ -44,7 +44,7 @@ projects[devel][subdir] = contrib
 
 projects[radix_core][type] = module
 projects[radix_core][download][type] = git
-projects[radix_core][download][revision] = f949ae5
+projects[radix_core][download][revision] = 279d438
 projects[radix_core][download][branch] = 7.x-3.x
 projects[radix_core][subdir] = contrib
 
@@ -52,7 +52,7 @@ projects[radix_core][subdir] = contrib
 
 projects[restaurant_base][type] = module
 projects[restaurant_base][download][type] = git
-projects[restaurant_base][download][revision] = 94056c2
+projects[restaurant_base][download][revision] = f872737
 projects[restaurant_base][download][branch] = 7.x-1.x
 projects[restaurant_base][subdir] = restaurant
 
@@ -68,9 +68,15 @@ projects[restaurant_admin][download][revision] = 07f625a
 projects[restaurant_admin][download][branch] = 7.x-1.x
 projects[restaurant_admin][subdir] = restaurant
 
+projects[restaurant_widgets][type] = module
+projects[restaurant_widgets][download][type] = git
+projects[restaurant_widgets][download][revision] = 91975d2
+projects[restaurant_widgets][download][branch] = 7.x-1.x
+projects[restaurant_widgets][subdir] = restaurant
+
 projects[restaurant_plugins][type] = module
 projects[restaurant_plugins][download][type] = git
-projects[restaurant_plugins][download][revision] = ebc5ca2
+projects[restaurant_plugins][download][revision] = bf2820d
 projects[restaurant_plugins][download][branch] = 7.x-1.x
 projects[restaurant_plugins][subdir] = restaurant
 
@@ -78,13 +84,13 @@ projects[restaurant_plugins][subdir] = restaurant
 
 projects[restaurant_menu][type] = module
 projects[restaurant_menu][download][type] = git
-projects[restaurant_menu][download][revision] = aa23364
+projects[restaurant_menu][download][revision] = dad9655
 projects[restaurant_menu][download][branch] = 7.x-1.x
 projects[restaurant_menu][subdir] = restaurant
 
 projects[restaurant_blog][type] = module
 projects[restaurant_blog][download][type] = git
-projects[restaurant_blog][download][revision] = 73aecb6
+projects[restaurant_blog][download][revision] = 55f5c0a
 projects[restaurant_blog][download][branch] = 7.x-1.x
 projects[restaurant_blog][subdir] = restaurant
 
@@ -99,3 +105,9 @@ projects[restaurant_pages][download][type] = git
 projects[restaurant_pages][download][revision] = 4e22eba
 projects[restaurant_pages][download][branch] = 7.x-1.x
 projects[restaurant_pages][subdir] = restaurant
+
+projects[restaurant_reservation][type] = module
+projects[restaurant_reservation][download][type] = git
+projects[restaurant_reservation][download][revision] = 15857b4
+projects[restaurant_reservation][download][branch] = 7.x-1.x
+projects[restaurant_reservation][subdir] = restaurant
