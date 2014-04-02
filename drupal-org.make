@@ -108,6 +108,6 @@ projects[restaurant_pages][subdir] = restaurant
 
 projects[restaurant_reservation][type] = module
 projects[restaurant_reservation][download][type] = git
-projects[restaurant_reservation][download][revision] = d7d8adf
+projects[restaurant_reservation][download][revision] = 223a70a
 projects[restaurant_reservation][download][branch] = 7.x-1.x
 projects[restaurant_reservation][subdir] = restaurant
