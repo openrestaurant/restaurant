@@ -47,3 +47,6 @@ projects[addressfield][subdir] = contrib
 
 projects[disqus][version] = 1.10
 projects[disqus][subdir] = contrib
+
+projects[better_exposed_filters][version] = 3.0-beta4
+projects[better_exposed_filters][subdir] = contrib
