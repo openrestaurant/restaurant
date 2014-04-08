@@ -45,6 +45,9 @@ projects[auto_nodetitle][subdir] = contrib
 projects[addressfield][version] = 1.0-beta5
 projects[addressfield][subdir] = contrib
 
+projects[colorfield][version] = 1.0
+projects[colorfield][subdir] = contrib
+
 projects[disqus][version] = 1.10
 projects[disqus][subdir] = contrib
 
