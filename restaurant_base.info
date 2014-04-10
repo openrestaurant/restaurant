@@ -5,6 +5,7 @@ package = Restaurant
 version = 7.x-1.0-dev
 project = restaurant_base
 dependencies[] = ctools
+dependencies[] = entity
 dependencies[] = features
 dependencies[] = image
 dependencies[] = migrate

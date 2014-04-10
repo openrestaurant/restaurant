@@ -56,3 +56,6 @@ projects[better_exposed_filters][subdir] = contrib
 
 projects[calendar][version] = 3.4
 projects[calendar][subdir] = contrib
+
+projects[entity][version] = 1.5
+projects[entity][subdir] = contrib
