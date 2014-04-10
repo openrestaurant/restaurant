@@ -5,6 +5,9 @@ drupal_root="$HOME/Sites/restaurant"
 backup_dest="$HOME/backups"
 dbname="restaurant.sql"
 
+# time_stamp=$(date +%Y-%m-%d-%H-%M-%S);
+# dbname="restaurant-${time_stamp}.sql"
+
 # Make sure the backup directory is available
 if [ ! -d ${backup_dest} ]; then
     echo backup_dest="$HOME/backups"
