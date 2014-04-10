@@ -71,15 +71,17 @@ function restaurant_install_tasks_alter(&$tasks, $install_state) {
 function restaurant_install_welcome($form, &$form_state, &$install_state) {
   drupal_set_title(st('Welcome'));
 
-  $message = '<h3>' . st('Thank you for choosing the Restaurant Distribution!') . '</h3>';
-  $message .= '<p class="lead">' . st('The distribution to kickstart your restaurant website.') . '</p>';
-  $message .= '<h2>Features</h2>
+  $message = '<h2>' . st('Thank you for choosing the Restaurant Distribution!') . '</h2>';
+  $message .= '<p class="lead">' . st('The Restaurant distribution has everything you need to build your restaurant website.') . '</p>';
+  $message .= '<h3>Features</h3>
 <ul>
-<li>Built on top of <a href="http://drupal.org/project/panopoly" title="Panopoly">magic</a></li>
-<li>Apps to manage <a href="http://drupal.org/project/restaurant_menu">menus</a>, <a href="http://drupal.org/project/restaurant_event">events</a>, <a href="http://drupal.org/project/restaurant_blog">blogs</a>..etc</li>
-<li>Widgets: Map, social links, hours and location, and contact forms.
-<li>Responsive out of the box</li>
-<li>Free themes</li>
+<li>Menu management system.</li>
+<li>Built-in reservation system.</li>
+<li>A customizable blog for your restaurant.</li>
+<li>Events and calendar</li>
+<li>Widgets: Map, social links, hours and location, and contact forms.</li>
+<li>Drag and drop functionality to build pages.</li>
+<li>Responsive out of the box. Works on all your devices.</li>
 <li>Awesome support</li>
 </ul>';
 
