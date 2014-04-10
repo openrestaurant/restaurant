@@ -58,7 +58,7 @@ function restaurant_install_tasks_alter(&$tasks, $install_state) {
   $tasks = array_slice($tasks_copy, 0, 2) + $welcome_task + array_slice($tasks_copy, 2);
 
   // Set the install theme to sizzle
-  _restaurant_set_theme('sizzle');
+  // _restaurant_set_theme('sizzle');
 
   // Magically go one level deeper in solving years of dependency problems
   require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
