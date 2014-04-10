@@ -60,7 +60,7 @@ projects[restaurant_base][download][url] = "https://github.com/arshad/restaurant
 
 projects[restaurant_theme][type] = module
 projects[restaurant_theme][download][type] = git
-projects[restaurant_theme][download][revision] = 5b28786
+projects[restaurant_theme][download][revision] = fac418d
 projects[restaurant_theme][download][branch] = 7.x-1.x
 projects[restaurant_theme][subdir] = restaurant
 projects[restaurant_theme][download][url] = "https://github.com/arshad/restaurant_theme.git"
