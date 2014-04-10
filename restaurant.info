@@ -54,6 +54,8 @@ dependencies[] = toolbar
 dependencies[] = shortcut
 dependencies[] = contact
 
+; Other
+copyright = Restaurant Distribution @ Arshad Chummun 2014
 
 ; Information added by drush on 2014-02-09
 version = "7.x-1.x-dev"
