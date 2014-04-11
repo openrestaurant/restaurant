@@ -102,6 +102,13 @@ projects[restaurant_blog][download][branch] = 7.x-1.x
 projects[restaurant_blog][subdir] = restaurant
 projects[restaurant_blog][download][url] = "https://github.com/arshad/restaurant_blog.git"
 
+projects[restaurant_event][type] = module
+projects[restaurant_event][download][type] = git
+projects[restaurant_event][download][revision] = d5bfd08
+projects[restaurant_event][download][branch] = 7.x-1.x
+projects[restaurant_event][subdir] = restaurant
+projects[restaurant_event][download][url] = "https://github.com/arshad/restaurant_event.git"
+
 projects[restaurant_slideshow][type] = module
 projects[restaurant_slideshow][download][type] = git
 projects[restaurant_slideshow][download][revision] = a0b9d4a
