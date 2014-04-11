@@ -59,6 +59,3 @@ projects[calendar][subdir] = contrib
 
 projects[entity][version] = 1.5
 projects[entity][subdir] = contrib
-
-projects[menu_editor][version] = 1.0-beta3
-projects[menu_editor][subdir] = contrib
