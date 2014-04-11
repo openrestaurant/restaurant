@@ -285,6 +285,10 @@ function restaurant_install_finished(&$install_state) {
   variable_set('install_profile', drupal_get_profile());
   variable_set('install_task', 'done');
 
+  // Disable some unwanted modules.
+  $unwanted = array('navbar', 'overlay');
+  module_disable($unwanted);
+
   // set the default theme
   $theme = 'restaurant_radix';
   theme_enable(array($theme));
