@@ -83,3 +83,27 @@ function restaurant_base_variable_update($name, $value, $old_value, $options) {
     variable_set('restaurant_settings_site_mail', $value);
   }
 }
+
+/**
+ * Returns a list of social networks available.
+ */
+function restaurant_base_get_social_networks() {
+  return array(
+    'twitter' => array(
+      'title' => t('Twitter'),
+      'button_text' => t('Follow us on Twitter'),
+    ),
+    'facebook' => array(
+      'title' => t('Facebook'),
+      'button_text' => t('Like us on Facebook'),
+    ),
+    'google_plus' => array(
+      'title' => t('Google+'),
+      'button_text' => t('Follow us on Google+'),
+    ),
+    'yelp' => array(
+      'title' => t('Yelp'),
+      'button_text' => t('Find us on Yelp'),
+    ),
+  );
+}

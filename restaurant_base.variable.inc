@@ -47,33 +47,14 @@ function restaurant_base_variable_info($options) {
   );
   
   // Social.
-  $variables['restaurant_settings_twitter'] = array(
-    'title' => t('Twitter'),
-    'type' => 'string',
-    'description' => t('Link to Twitter profile.'),
-    'group' => 'restaurant_settings_social',
-  );
-
-  $variables['restaurant_settings_facebook'] = array(
-    'title' => t('Facebook'),
-    'type' => 'string',
-    'description' => t('Link to Facebook profile.'),
-    'group' => 'restaurant_settings_social',
-  );
-
-  $variables['restaurant_settings_google_plus'] = array(
-    'title' => t('Google+'),
-    'type' => 'string',
-    'description' => t('Link to Google+ profile.'),
-    'group' => 'restaurant_settings_social',
-  );
-
-  $variables['restaurant_settings_yelp'] = array(
-    'title' => t('Yelp'),
-    'type' => 'string',
-    'description' => t('Link to Yelp page.'),
-    'group' => 'restaurant_settings_social',
-  );
+  $networks = restaurant_base_get_social_networks();
+  foreach ($networks as $name => $network) {
+    $variables['restaurant_settings_' . $name] = array(
+      'title' => $network['title'],
+      'type' => 'string',
+      'group' => 'restaurant_settings_social',
+    );  
+  }
 
   return $variables;
 }
