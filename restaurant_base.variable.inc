@@ -61,6 +61,13 @@ function restaurant_base_variable_info($options) {
     'group' => 'restaurant_settings_social',
   );
 
+  $variables['restaurant_settings_google_plus'] = array(
+    'title' => t('Google+'),
+    'type' => 'string',
+    'description' => t('Link to Google+ profile.'),
+    'group' => 'restaurant_settings_social',
+  );
+
   return $variables;
 }
 
