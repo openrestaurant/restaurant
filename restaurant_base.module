@@ -43,7 +43,7 @@ function restaurant_base_menu() {
   );
 
   $items['admin/settings/restaurant/general'] = array(
-    'title' => 'General',
+    'title' => 'General settings',
     'description' => 'Configuration related to the site name, phone, address, and location.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('variable_group_form', 'restaurant_settings_general'),
@@ -52,7 +52,7 @@ function restaurant_base_menu() {
   );
   
   $items['admin/settings/restaurant/social'] = array(
-    'title' => 'Social',
+    'title' => 'Social settings',
     'description' => 'Settings for Twitter, Facebook..etc',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('variable_group_form', 'restaurant_settings_social'),
