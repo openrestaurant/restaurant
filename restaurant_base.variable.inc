@@ -68,6 +68,13 @@ function restaurant_base_variable_info($options) {
     'group' => 'restaurant_settings_social',
   );
 
+  $variables['restaurant_settings_yelp'] = array(
+    'title' => t('Yelp'),
+    'type' => 'string',
+    'description' => t('Link to Yelp page.'),
+    'group' => 'restaurant_settings_social',
+  );
+
   return $variables;
 }
 
