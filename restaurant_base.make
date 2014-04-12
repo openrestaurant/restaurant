@@ -9,15 +9,6 @@ projects[field_collection][subdir] = contrib
 projects[semanticviews][version] = 1.x-dev
 projects[semanticviews][subdir] = contrib
 
-projects[oauth][version] = 3.1
-projects[oauth][subdir] = contrib
-
-projects[twitter][version] = 5.8
-projects[twitter][subdir] = contrib
-
-projects[twitter_pull][version] = 2.0-alpha2
-projects[twitter_pull][subdir] = contrib
-
 projects[uuid][version] = 1.x-dev
 projects[uuid][subdir] = contrib
 
