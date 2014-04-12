@@ -109,7 +109,7 @@ function restaurant_base_get_social_networks() {
 
   // Add value to networks.
   foreach ($networks as $name => $network) {
-    $networks[$name]['value'] = variable_set('restaurant_settings_' . $name);
+    $networks[$name]['value'] = variable_get('restaurant_settings_' . $name);
   }
 
   return $networks;
