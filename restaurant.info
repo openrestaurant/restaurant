@@ -35,7 +35,6 @@ dependencies[] = panopoly_pages
 dependencies[] = panopoly_wysiwyg
 
 ; Panopoly Recommended - Admin
-dependencies[] = navbar
 dependencies[] = backports
 dependencies[] = simplified_menu_admin
 dependencies[] = save_draft
