@@ -53,7 +53,7 @@ projects[radix_core][download][url] = "https://github.com/arshad/radix_core.git"
 
 projects[restaurant_base][type] = module
 projects[restaurant_base][download][type] = git
-projects[restaurant_base][download][revision] = b0ac6f4
+projects[restaurant_base][download][revision] = 2569fdd
 projects[restaurant_base][download][branch] = 7.x-1.x
 projects[restaurant_base][subdir] = restaurant
 projects[restaurant_base][download][url] = "https://github.com/arshad/restaurant_base.git"
