@@ -21,6 +21,9 @@ projects[variable][subdir] = contrib
 projects[migrate][version] = 2.5
 projects[migrate][subdir] = contrib
 
+projects[migrate_extras][version] = 2.5
+projects[migrate_extras][subdir] = contrib
+
 projects[panels_everywhere][version] = 1.0-rc1
 projects[panels_everywhere][subdir] = contrib
 
