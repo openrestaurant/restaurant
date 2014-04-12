@@ -10,6 +10,13 @@
 function restaurant_base_variable_info($options) {
 
   // General.
+  $variables['restaurant_settings_site_name'] = array(
+    'title' => t('Site name'),
+    'type' => 'string',
+    'group' => 'restaurant_settings_general',
+    'default' => variable_get('site_name', 'Restaurant'),
+  );
+
   $variables['restaurant_settings_phone'] = array(
     'title' => t('Phone'),
     'type' => 'string',
