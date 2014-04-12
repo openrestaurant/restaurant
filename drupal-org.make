@@ -123,6 +123,13 @@ projects[restaurant_pages][download][branch] = 7.x-1.x
 projects[restaurant_pages][subdir] = restaurant
 projects[restaurant_pages][download][url] = "https://github.com/arshad/restaurant_pages.git"
 
+projects[restaurant_demo][type] = module
+projects[restaurant_demo][download][type] = git
+projects[restaurant_demo][download][revision] = 1e3fb7e
+projects[restaurant_demo][download][branch] = 7.x-1.x
+projects[restaurant_demo][subdir] = restaurant
+projects[restaurant_demo][download][url] = "https://github.com/arshad/restaurant_demo.git"
+
 projects[restaurant_reservation][type] = module
 projects[restaurant_reservation][download][type] = git
 projects[restaurant_reservation][download][revision] = f9fb49b
