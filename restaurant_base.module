@@ -78,5 +78,11 @@ function restaurant_base_menu() {
  * Implements hook_variable_update().
  */
 function restaurant_base_variable_update($name, $value, $old_value, $options) {
-  // dpm($name);
+  // Update site name accordingly.
+  if ($name == 'restaurant_settings_site_name') {
+    variable_set('site_name', $value);
+  }
+  if ($name == 'site_name') {
+    variable_set('restaurant_settings_site_name', $value);
+  }
 }
