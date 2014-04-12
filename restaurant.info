@@ -54,7 +54,7 @@ dependencies[] = shortcut
 dependencies[] = contact
 
 ; Other
-copyright = Restaurant Distribution @ Arshad Chummun 2014
+copyright = Drupal is a registered trademark of Dries Buytaert.
 
 ; Information added by drush on 2014-02-09
 version = "7.x-1.x-dev"
