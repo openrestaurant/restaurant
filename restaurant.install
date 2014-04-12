@@ -95,7 +95,7 @@ function restaurant_install_welcome($form, &$form_state, &$install_state) {
 
   $form['actions']['submit'] = array(
     '#type' => 'submit',
-    '#value' => st("Let's Get Started!"),
+    '#value' => st("Start installation"),
     '#weight' => 10,
     '#attributes' => array(
       'class' => array('btn', 'btn-lg', 'btn-primary'),
