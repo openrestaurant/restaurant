@@ -23,7 +23,6 @@ dependencies[] = restaurant_plugins
 dependencies[] = restaurant_theme
 dependencies[] = semanticviews
 dependencies[] = strongarm
-dependencies[] = twitter_pull
 dependencies[] = uuid
 dependencies[] = uuid_features
 dependencies[] = variable
