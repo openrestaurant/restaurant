@@ -131,12 +131,12 @@ function restaurant_install_configure($form, &$form_state, &$install_state) {
   );
 
   $options_features = array(
-    'restaurant_menu' => 'Menu management',
-    'restaurant_blog' => 'Blog functionality',
-    'restaurant_event' => 'Events and calendar',
-    'restaurant_reservation' => 'Reservation system',
-    'restaurant_admin' => 'Enhanced administrative interface',
-    'restaurant_slideshow' => 'Slideshows',
+    'restaurant_menu' => st('Menu management'),
+    'restaurant_blog' => st('Blog functionality'),
+    'restaurant_event' => st('Events and calendar'),
+    'restaurant_reservation' => st('Reservation system'),
+    'restaurant_admin' => st('Enhanced administrative interface'),
+    'restaurant_slideshow' => st('Slideshows'),
   );
   $form['features'] = array(
     '#type' => 'checkboxes',
@@ -148,8 +148,8 @@ function restaurant_install_configure($form, &$form_state, &$install_state) {
 
   $form['demo_content'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Install demo content?'),
-    '#description' => t('Install demo content such as menus, events and blog posts.'),
+    '#title' => st('Install demo content?'),
+    '#description' => st('Install demo content such as menus, events and blog posts.'),
     '#default_value' => '1',
   );
 
@@ -227,7 +227,7 @@ function restaurant_install_features() {
   }
 
   $batch = array(
-    'title' => t('Installing features'),
+    'title' => st('Installing features'),
     'operations' => $operations,
     'file' => drupal_get_path('profile', 'restaurant') . '/restaurant.install_callbacks.inc',
   );
@@ -251,7 +251,7 @@ function restaurant_install_demo_content() {
     }
 
     $batch = array(
-      'title' => t('Installing demo content'),
+      'title' => st('Installing demo content'),
       'operations' => $operations,
       'file' => drupal_get_path('profile', 'restaurant') . '/restaurant.install_callbacks.inc',
     );
@@ -277,20 +277,20 @@ function restaurant_install_finished(&$install_state) {
   $unwanted = array('navbar', 'overlay');
   module_disable($unwanted);
 
-  // set the default theme
+  // Set the default theme.
   $theme = 'restaurant_radix';
   theme_enable(array($theme));
   variable_set('theme_default', $theme);
 
-  // set the admin theme
+  // Set the admin theme.
   $admin_theme = 'seven';
   theme_enable(array($admin_theme));
   variable_set('admin_theme', $admin_theme);
 
-  // set the node admin theme
+  // Set the node admin theme.
   variable_set('node_admin_theme', 1);
  
-  // Flush theme caches so things are right
+  // Flush theme caches so things are right.
   system_rebuild_theme_data();
   drupal_theme_rebuild();
 
