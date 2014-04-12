@@ -88,7 +88,7 @@ function restaurant_base_variable_update($name, $value, $old_value, $options) {
  * Returns a list of social networks available.
  */
 function restaurant_base_get_social_networks() {
-  return array(
+  $networks = array(
     'twitter' => array(
       'title' => t('Twitter'),
       'button_text' => t('Follow us on Twitter'),
@@ -106,4 +106,11 @@ function restaurant_base_get_social_networks() {
       'button_text' => t('Find us on Yelp'),
     ),
   );
+
+  // Add value to networks.
+  foreach ($networks as $name => $network) {
+    $networks[$name]['value'] = variable_set('restaurant_settings_' . $name);
+  }
+
+  return $networks;
 }
