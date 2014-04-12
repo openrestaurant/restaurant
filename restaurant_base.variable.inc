@@ -17,17 +17,18 @@ function restaurant_base_variable_info($options) {
     'default' => variable_get('site_name', 'Restaurant'),
   );
 
+  $variables['restaurant_settings_site_mail'] = array(
+    'title' => t('Site mail'),
+    'type' => 'string',
+    'description' => t('The From address in automated e-mails sent during registration and new password requests, and other notifications. (Use an address ending in your site\'s domain to help prevent this e-mail being flagged as spam.)'),
+    'group' => 'restaurant_settings_general',
+    'default' => variable_get('site_mail'),
+  );
+
   $variables['restaurant_settings_phone'] = array(
     'title' => t('Phone'),
     'type' => 'string',
     'description' => t('Phone number for restaurant.'),
-    'group' => 'restaurant_settings_general',
-  );
-
-  $variables['restaurant_settings_email'] = array(
-    'title' => t('Email'),
-    'type' => 'string',
-    'description' => t('Contact email for restaurant.'),
     'group' => 'restaurant_settings_general',
   );
 

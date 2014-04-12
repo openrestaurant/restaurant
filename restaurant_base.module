@@ -74,4 +74,12 @@ function restaurant_base_variable_update($name, $value, $old_value, $options) {
   if ($name == 'site_name') {
     variable_set('restaurant_settings_site_name', $value);
   }
+
+  // Update site mail accordingly.
+  if ($name == 'restaurant_settings_site_mail') {
+    variable_set('site_mail', $value);
+  }
+  if ($name == 'site_mail') {
+    variable_set('restaurant_settings_site_mail', $value);
+  }
 }
