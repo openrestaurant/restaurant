@@ -53,3 +53,6 @@ projects[calendar][subdir] = contrib
 
 projects[entity][version] = 1.5
 projects[entity][subdir] = contrib
+
+projects[google_analytics][version] = 1.4
+projects[google_analytics][subdir] = contrib
