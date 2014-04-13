@@ -6,30 +6,36 @@
 function restaurant_install_tasks($install_state) {
   $tasks = array();
 
-  // Remove status messages
+  // Remove status messages.
   drupal_get_messages('status', TRUE);
   drupal_get_messages('warning', TRUE);
 
   // Install demo conntent
   $install_demo_content = variable_get('restaurant_demo_content', FALSE);
 
-  // Add a task to for restaurant configuration
-  $tasks['restaurant_install_configure'] = array(
-    'display_name' => st('Configure restaurant'),
+  // Add a task to select features for restaurant.
+  $tasks['restaurant_select_features'] = array(
+    'display_name' => st('Select features'),
     'type' => 'form',
   );
 
-  // Task to select features
-  $tasks['restaurant_select_features'] = array(
-    'display_name' => st('Select features'),
+  // Task to install features.
+  $tasks['restaurant_install_features'] = array(
+    'display_name' => st('Install features'),
     'type' => 'batch',
   );
 
-  // Task to install demo content
+  // Task to install demo content.
   $tasks['restaurant_install_demo_content'] = array(
     'display_name' => st('Install demo content'),
     'type' => 'batch',
     'display' => $install_demo_content,
+  );
+
+  // Add a task to configure restaurant.
+  $tasks['restaurant_configure_restaurant'] = array(
+    'display_name' => st('Configure restaurant'),
+    'type' => 'form',
   );
 
   return $tasks;
@@ -117,12 +123,12 @@ function restaurant_install_welcome_submit($form, &$form_state) {
 }
 
 /**
- * Shows the configuration form for the restaurant profile.
+ * Shows the features form for the restaurant profile.
  */
-function restaurant_install_configure($form, &$form_state, &$install_state) {
-  drupal_set_title(st('Configure Restaurant'));
+function restaurant_select_features($form, &$form_state, &$install_state) {
+  drupal_set_title(st('Select features'));
 
-  $message = '<p class="lead">' . st('Almost there! Select features for your restaurant.') . '</p>';
+  $message = '<p class="lead">' . st('Select features for your restaurant.') . '</p>';
 
   $form = array();
   $form['configure_message'] = array(
@@ -169,7 +175,7 @@ function restaurant_install_configure($form, &$form_state, &$install_state) {
   return $form;
 }
 
-function restaurant_install_configure_submit($form, &$form_state) {
+function restaurant_select_features_submit($form, &$form_state) {
   variable_set('restaurant_features', $form_state['values']['features']);
   variable_set('restaurant_demo_content', $form_state['values']['demo_content']);
 }
@@ -177,7 +183,7 @@ function restaurant_install_configure_submit($form, &$form_state) {
 /**
  * Install selected features for restaurant
  */
-function restaurant_select_features() {
+function restaurant_install_features() {
   $modules = array();
 
   // Install features.
@@ -260,6 +266,18 @@ function restaurant_install_demo_content() {
   }
 }
 
+/**
+ * Callback for configure restaurant.
+ */
+function restaurant_configure_restaurant($form, &$form_state, &$install_state) {
+  module_load_include('inc', 'panopoly_config', 'panopoly_config.profile');
+  $form += panopoly_config_get_profile_form();
+  return $form;
+}
+
+function restaurant_configure_restaurant_submit($form, &$form_state) {
+  //
+}
 
 /**
  * Callback for install_finished task

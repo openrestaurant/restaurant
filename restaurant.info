@@ -45,6 +45,9 @@ dependencies[] = date_popup_authored
 dependencies[] = devel
 dependencies[] = uuid
 
+; Panopoly Contrib
+dependencies[] = panopoly_config
+
 ; Restaurant
 dependencies[] = restaurant_base
 
