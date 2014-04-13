@@ -40,6 +40,15 @@ projects[panopoly_wysiwyg][subdir] = panopoly
 projects[devel][version] = 1.3
 projects[devel][subdir] = contrib
 
+; Panopoly Other
+
+projects[panopoly_config][type] = module
+projects[panopoly_config][download][type] = git
+projects[panopoly_config][download][revision] = b8b8bcb
+projects[panopoly_config][download][branch] = 7.x-1.x
+projects[panopoly_config][subdir] = contrib
+projects[panopoly_config][download][url] = "https://github.com/arshad/panopoly_config.git"
+
 ; Radix
 
 projects[radix_core][type] = module
@@ -81,7 +90,7 @@ projects[restaurant_widgets][download][url] = "https://github.com/arshad/restaur
 
 projects[restaurant_plugins][type] = module
 projects[restaurant_plugins][download][type] = git
-projects[restaurant_plugins][download][revision] = 2614dd1
+projects[restaurant_plugins][download][revision] = 3477916
 projects[restaurant_plugins][download][branch] = 7.x-1.x
 projects[restaurant_plugins][subdir] = restaurant
 projects[restaurant_plugins][download][url] = "https://github.com/arshad/restaurant_plugins.git"
