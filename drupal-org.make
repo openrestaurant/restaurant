@@ -45,7 +45,7 @@ projects[devel][subdir] = contrib
 projects[panopoly_config][type] = module
 projects[panopoly_config][download][type] = git
 projects[panopoly_config][download][branch] = 7.x-1.x
-projects[panopoly_config][subdir] = contrib
+projects[panopoly_config][subdir] = panopoly
 projects[panopoly_config][download][url] = "https://github.com/arshad/panopoly_config.git"
 
 ; Radix
