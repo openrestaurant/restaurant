@@ -1,87 +1,93 @@
 <?php
 /**
  * @file
- * Code for the Restaurant Base feature.
- */
-
-include_once 'restaurant_base.features.inc';
-/**
- * @file
  * Provides base configuration and structure for the Restaurant Distribution
  */
 
+include_once 'restaurant_base.features.inc';
 include_once 'restaurant_base.settings.inc';
 
 /**
- * Implements hook_apps_servers_info().
+ * Implements hook_panopoly_config_info()
  */
-function restaurant_base_apps_servers_info() {
-  return array(
-    'restaurant' => array(
-      'title' => t('Restaurant'),
-      'description' => t('Apps for the Restaurant distribution.'),
-      'manifest' => 'http://dev.restaurant-apps.gotpantheon.com/restaurant-dev-manifest.json',
+function restaurant_base_panopoly_config_info() {
+  $info = array();
+
+  // General
+  $info['general'] = array(
+    'title' => t('General'),
+    'description' => t('General settings such as site name, site mail.'),
+    'weight' => 10,
+    'config' => array(
+      'site_name' => array(
+        'title' => t('Site name'),
+        'type' => 'string',
+        'default' => variable_get('site_name', 'Restaurant'),
+      ),
+      'site_mail' => array(
+        'title' => t('Site mail'),
+        'description' => t('The From address in automated e-mails sent during registration and new password requests, and other notifications. (Use an address ending in your site\'s domain to help prevent this e-mail being flagged as spam.)'),
+        'type' => 'string',
+        'default' => variable_get('site_mail'),
+      ),
     ),
   );
-}
 
-/**
- * Implements hook_menu().
- */
-function restaurant_base_menu() {
-  $items = array();
-
-  $items['admin/settings/restaurant'] = array(
-    'title' => 'Restaurant',
-    'description' => 'Administer restaurant settings.',
-    'weight' => -8,
-    'position' => 'left',
-    'page callback' => 'system_admin_menu_block_page',
-    'access arguments' => array('access administration pages'),
-    'file' => 'system.admin.inc',
-    'file path' => drupal_get_path('module', 'system'),
+  // Contact.
+  $info['contact'] = array(
+    'title' => t('Contact'),
+    'description' => t('Contact and opening hours.'),
+    'weight' => 20,
+    'config' => array(
+      'phone' => array(
+        'title' => t('Phone'),
+        'type' => 'string',
+        'description' => t('Phone number for restaurant.'),
+      ),
+      'address' => array(
+        'title' => t('Address'),
+        'type' => 'text',
+        'description' => t('Restaurant address.'),
+      ),
+      'opening_hours' => array(
+        'title' => t('Opening Hours'),
+        'type' => 'text',
+        'description' => t('Restaurant opening hours.'),
+      ),
+    ),
   );
 
-  $items['admin/settings/restaurant/general'] = array(
-    'title' => 'General settings',
-    'description' => 'Configuration related to the site name, phone, address, and location.',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('variable_group_form', 'restaurant_settings_general'),
-    'access arguments' => array('administer site configuration'),
-    'weight' => -8,
-  );
-  
-  $items['admin/settings/restaurant/social'] = array(
-    'title' => 'Social settings',
-    'description' => 'Settings for Twitter, Facebook..etc',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('variable_group_form', 'restaurant_settings_social'),
-    'access arguments' => array('administer site configuration'),
-    'weight' => -8,
+  // Services.
+  $info['services'] = array(
+    'title' => t('Services'),
+    'description' => t('Settings for external web services such as Google analytics, Disqus..etc'),
+    'weight' => 30,
+    'config' => array(
+      'googleanalytics_account' => array(
+        'title' => t('Google analytics ID'),
+        'description' => t('Google analytics ID in the form of UA-xxxxxxx-yy. !link for advanced settings.', array(
+          '!link' => l(t('Click here'), 'admin/config/system/googleanalytics'),
+        )),
+        'type' => 'string',
+      ),
+    ),
   );
 
-  return $items;
-}
+  // Social.
+  $info['social'] = array(
+    'title' => t('Social'),
+    'description' => t('Settings for social networks such as Twitter, Facebook..etc'),
+    'weight' => 40,
+  );
+  $networks = restaurant_base_get_social_networks();
+  foreach ($networks as $name => $network) {
+    $info['social']['config'][$name] = array(
+      'title' => $network['title'],
+      'type' => 'string',
+    );  
+  }
 
-/**
- * Implements hook_variable_update().
- */
-function restaurant_base_variable_update($name, $value, $old_value, $options) {
-  // Update site name accordingly.
-  if ($name == 'restaurant_settings_site_name') {
-    variable_set('site_name', $value);
-  }
-  if ($name == 'site_name') {
-    variable_set('restaurant_settings_site_name', $value);
-  }
-
-  // Update site mail accordingly.
-  if ($name == 'restaurant_settings_site_mail') {
-    variable_set('site_mail', $value);
-  }
-  if ($name == 'site_mail') {
-    variable_set('restaurant_settings_site_mail', $value);
-  }
+  return $info;
 }
 
 /**
@@ -109,7 +115,7 @@ function restaurant_base_get_social_networks() {
 
   // Add value to networks.
   foreach ($networks as $name => $network) {
-    $networks[$name]['value'] = variable_get('restaurant_settings_' . $name);
+    $networks[$name]['default'] = panopoly_config_get($name);
   }
 
   return $networks;
