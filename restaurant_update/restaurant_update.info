@@ -1,0 +1,7 @@
+name = Restaurant Update
+description = Modifications to the Drupal update status page.
+core = 7.x
+package = Restaurant
+version = 7.x-1.0
+project = restaurant_update
+dependencies[] = update
