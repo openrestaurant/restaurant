@@ -147,3 +147,10 @@ projects[restaurant_reservation][download][revision] = f2cf1f9
 projects[restaurant_reservation][download][branch] = 7.x-1.x
 projects[restaurant_reservation][subdir] = restaurant
 projects[restaurant_reservation][download][url] = "https://github.com/arshad/restaurant_reservation.git"
+
+projects[restaurant_seo][type] = module
+projects[restaurant_seo][download][type] = git
+projects[restaurant_seo][download][revision] = 207dc99
+projects[restaurant_seo][download][branch] = 7.x-1.x
+projects[restaurant_seo][subdir] = restaurant
+projects[restaurant_seo][download][url] = "https://github.com/arshad/restaurant_seo.git"
