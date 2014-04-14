@@ -21,7 +21,7 @@ function restaurant_update_menu() {
 }
 
 /**
- * Implements hook_menu_alter
+ * Implements hook_menu_alter().
  */
 function restaurant_update_menu_alter(&$items) {
   // swap out normal update links with our own pages
