@@ -48,6 +48,9 @@ projects[panopoly_config][download][branch] = 7.x-1.x
 projects[panopoly_config][subdir] = panopoly
 projects[panopoly_config][download][url] = "https://github.com/arshad/panopoly_config.git"
 
+projects[panopoly_seo]version] = 1.x-dev
+projects[panopoly_seo][subdir] = panopoly
+
 ; Radix
 
 projects[radix_core][type] = module
