@@ -97,6 +97,13 @@ projects[restaurant_plugins][download][branch] = 7.x-1.x
 projects[restaurant_plugins][subdir] = restaurant
 projects[restaurant_plugins][download][url] = "https://github.com/arshad/restaurant_plugins.git"
 
+projects[restaurant_mail][type] = module
+projects[restaurant_mail][download][type] = git
+projects[restaurant_mail][download][revision] = 3477916
+projects[restaurant_mail][download][branch] = 7.x-1.x
+projects[restaurant_mail][subdir] = restaurant
+projects[restaurant_mail][download][url] = "https://github.com/arshad/restaurant_mail.git"
+
 ; Restaurant Apps
 
 projects[restaurant_menu][type] = module
