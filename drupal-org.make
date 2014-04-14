@@ -99,7 +99,7 @@ projects[restaurant_plugins][download][url] = "https://github.com/arshad/restaur
 
 projects[restaurant_mail][type] = module
 projects[restaurant_mail][download][type] = git
-projects[restaurant_mail][download][revision] = 3477916
+projects[restaurant_mail][download][revision] = f000864
 projects[restaurant_mail][download][branch] = 7.x-1.x
 projects[restaurant_mail][subdir] = restaurant
 projects[restaurant_mail][download][url] = "https://github.com/arshad/restaurant_mail.git"
