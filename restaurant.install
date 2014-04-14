@@ -205,6 +205,9 @@ function restaurant_install_features() {
     if (!empty($features['restaurant_event'])) {
       $modules[] = 'restaurant_event_demo';
     }
+    if (!empty($features['restaurant_reservation'])) {
+      $modules[] = 'restaurant_reservation_demo';
+    }
     $modules[] = 'restaurant_pages';
     $modules[] = 'restaurant_demo';
   }
