@@ -1,28 +1,25 @@
 <?php
 /**
  * @file
- * restaurant_base.strongarm.inc
+ * restaurant_base.features.defaultconfig.inc
  */
 
 /**
- * Implements hook_strongarm().
+ * Implements hook_defaultconfig_features().
  */
-function restaurant_base_strongarm() {
+function restaurant_base_defaultconfig_features() {
+  return array(
+    'restaurant_base' => array(
+      'strongarm' => 'strongarm',
+    ),
+  );
+}
+
+/**
+ * Implements hook_defaultconfig_strongarm().
+ */
+function restaurant_base_defaultconfig_strongarm() {
   $export = array();
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'jquery_update_compression_type';
-  $strongarm->value = 'min';
-  $export['jquery_update_compression_type'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'jquery_update_jquery_cdn';
-  $strongarm->value = 'none';
-  $export['jquery_update_jquery_cdn'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
