@@ -56,3 +56,6 @@ projects[entity][subdir] = contrib
 
 projects[google_analytics][version] = 1.4
 projects[google_analytics][subdir] = contrib
+
+projects[computed_field][version] = 1.0
+projects[computed_field][subdir] = contrib
