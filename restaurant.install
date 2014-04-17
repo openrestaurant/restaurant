@@ -77,7 +77,7 @@ function restaurant_install_tasks_alter(&$tasks, $install_state) {
 function restaurant_install_welcome($form, &$form_state, &$install_state) {
   drupal_set_title(st('Welcome'));
 
-  $message = '<h2>' . st('Thank you for choosing the Restaurant Distribution!') . '</h2>';
+  $message = '<h3>' . st('Thank you for choosing the Restaurant Distribution!') . '</h3>';
   $message .= '<p class="lead">' . st('The Restaurant distribution has everything you need to build your restaurant website.') . '</p>';
   $message .= '<h3>Features</h3>
 <ul>
@@ -101,7 +101,8 @@ function restaurant_install_welcome($form, &$form_state, &$install_state) {
 
   $form['actions']['submit'] = array(
     '#type' => 'submit',
-    '#value' => st("Start installation"),
+    '#prefix' => '<p class="lead">' . st('Ready to get started?') . '</p>',
+    '#value' => st("Launch installation"),
     '#weight' => 10,
     '#attributes' => array(
       'class' => array('btn', 'btn-lg', 'btn-primary'),
