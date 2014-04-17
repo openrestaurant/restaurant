@@ -7,7 +7,6 @@ project = restaurant_base
 dependencies[] = ctools
 dependencies[] = defaultconfig
 dependencies[] = entity
-dependencies[] = fast_404
 dependencies[] = features
 dependencies[] = filter
 dependencies[] = image

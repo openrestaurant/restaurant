@@ -59,6 +59,3 @@ projects[google_analytics][subdir] = contrib
 
 projects[computed_field][version] = 1.0
 projects[computed_field][subdir] = contrib
-
-projects[fast_404][version] = 1.3
-projects[fast_404][subdir] = contrib
