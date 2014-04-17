@@ -25,6 +25,7 @@ dependencies[] = radix_core
 dependencies[] = restaurant_update
 dependencies[] = restaurant_plugins
 dependencies[] = restaurant_theme
+dependencies[] = restaurant_user
 dependencies[] = semanticviews
 dependencies[] = strongarm
 dependencies[] = uuid
