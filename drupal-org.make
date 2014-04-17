@@ -104,6 +104,13 @@ projects[restaurant_mail][download][branch] = 7.x-1.x
 projects[restaurant_mail][subdir] = restaurant
 projects[restaurant_mail][download][url] = "http://git.drupal.org/project/restaurant_mail.git"
 
+projects[restaurant_user][type] = module
+projects[restaurant_user][download][type] = git
+projects[restaurant_user][download][revision] = 3477916
+projects[restaurant_user][download][branch] = 7.x-1.x
+projects[restaurant_user][subdir] = restaurant
+projects[restaurant_user][download][url] = "http://git.drupal.org/project/restaurant_user.git"
+
 ; Restaurant Apps
 
 projects[restaurant_menu][type] = module
