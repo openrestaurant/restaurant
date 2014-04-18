@@ -78,7 +78,7 @@ projects[restaurant_theme][download][url] = "http://git.drupal.org/project/resta
 
 projects[restaurant_admin][type] = module
 projects[restaurant_admin][download][type] = git
-projects[restaurant_admin][download][revision] = ce7f46c
+projects[restaurant_admin][download][revision] = 15d5306
 projects[restaurant_admin][download][branch] = 7.x-1.x
 projects[restaurant_admin][subdir] = restaurant
 projects[restaurant_admin][download][url] = "http://git.drupal.org/project/restaurant_admin.git"

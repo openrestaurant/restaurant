@@ -297,7 +297,7 @@ function restaurant_install_finished(&$install_state) {
   variable_set('install_task', 'done');
 
   // Disable some unwanted modules.
-  $unwanted = array('navbar', 'overlay');
+  $unwanted = array('navbar', 'overlay', 'toolbar');
   module_disable($unwanted);
 
   // Set the default theme.
