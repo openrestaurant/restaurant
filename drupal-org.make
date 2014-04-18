@@ -55,7 +55,7 @@ projects[panopoly_seo][subdir] = panopoly
 
 projects[radix_core][type] = module
 projects[radix_core][download][type] = git
-projects[radix_core][download][revision] = b8b8bcb
+projects[radix_core][download][revision] = 4f64503
 projects[radix_core][download][branch] = 7.x-3.x
 projects[radix_core][subdir] = contrib
 projects[radix_core][download][url] = "http://git.drupal.org/project/radix_core.git"
