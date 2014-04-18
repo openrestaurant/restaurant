@@ -170,3 +170,10 @@ projects[restaurant_seo][download][revision] = 5dd3d94
 projects[restaurant_seo][download][branch] = 7.x-1.x
 projects[restaurant_seo][subdir] = restaurant
 projects[restaurant_seo][download][url] = "https://github.com/arshad/restaurant_seo.git"
+
+projects[restaurant_location][type] = module
+projects[restaurant_location][download][type] = git
+projects[restaurant_location][download][revision] = 5dd3d94
+projects[restaurant_location][download][branch] = 7.x-1.x
+projects[restaurant_location][subdir] = restaurant
+projects[restaurant_location][download][url] = "https://github.com/arshad/restaurant_location.git"
