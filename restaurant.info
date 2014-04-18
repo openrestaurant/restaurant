@@ -53,7 +53,8 @@ dependencies[] = panopoly_seo
 dependencies[] = restaurant_base
 
 ; Restaurant Core Dependencies
-dependencies[] = toolbar
+dependencies[] = admin_menu
+dependencies[] = admin_menu_toolbar
 dependencies[] = shortcut
 dependencies[] = contact
 
