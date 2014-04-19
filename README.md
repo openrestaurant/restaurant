@@ -11,6 +11,7 @@ It comes with a responsive theme that can be easily customized.
 * Built-in reservation system.
 * A customizable blog for your restaurant.
 * Events and calendar.
+* Manage multiple restaurant locations and menus by location.
 * Widgets: Map, social links, hours and location, and contact forms.
 * Drag and drop functionality to build pages.
 * Responsive out of the box. Works on all your devices.
