@@ -78,17 +78,18 @@ function restaurant_install_welcome($form, &$form_state, &$install_state) {
   drupal_set_title(st('Welcome'));
 
   $message = '<h3>' . st('Thank you for choosing the Restaurant Distribution!') . '</h3>';
-  $message .= '<p class="lead">' . st('The Restaurant distribution has everything you need to build your restaurant website.') . '</p>';
+  $message .= '<p class="lead">' . st('The Restaurant Distribution has everything you need to build your restaurant website.') . '</p>';
   $message .= '<h3>Features</h3>
 <ul>
 <li>Menu management system.</li>
 <li>Built-in reservation system.</li>
 <li>A customizable blog for your restaurant.</li>
-<li>Events and calendar</li>
+<li>Events and calendar.</li>
+<li>Manage multiple restaurant locations and menus by location.</li>
 <li>Widgets: Map, social links, hours and location, and contact forms.</li>
 <li>Drag and drop functionality to build pages.</li>
 <li>Responsive out of the box. Works on all your devices.</li>
-<li>Awesome support</li>
+<li>Awesome support.</li>
 </ul>';
 
   $form['welcome_message'] = array(
