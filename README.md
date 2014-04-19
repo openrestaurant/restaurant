@@ -1,9 +1,9 @@
 Drupal Restaurant Distribution
 =========
 
-The Restaurant Distribution has everything you need to kickstart your restaurant website. It comes with a menu management system, a reservation system, a customizable blog and events management.
+The Restaurant Distribution has everything you need to kickstart your restaurant website. It comes with a menu management system, a reservation system, multiple restaurants support, a customizable blog and events management.
 
-It comes with a responsive theme that can be easily customized.
+It also has a responsive theme that can be easily customized.
 
 ## Features
 
