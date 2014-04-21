@@ -175,3 +175,10 @@ projects[restaurant_location][download][revision] = 1a93192
 projects[restaurant_location][download][branch] = 7.x-1.x
 projects[restaurant_location][subdir] = restaurant
 projects[restaurant_location][download][url] = "http://git.drupal.org/project/restaurant_location.git"
+
+projects[restaurant_opentable][type] = module
+projects[restaurant_opentable][download][type] = git
+projects[restaurant_opentable][download][revision] = 4ccb799
+projects[restaurant_opentable][download][branch] = 7.x-1.x
+projects[restaurant_opentable][subdir] = restaurant
+projects[restaurant_opentable][download][url] = "http://git.drupal.org/project/restaurant_opentable.git"
