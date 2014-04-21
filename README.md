@@ -1,32 +1,23 @@
 Drupal Restaurant Distribution
 =========
 
-The Restaurant Distribution has everything you need to kickstart your restaurant website. It comes with a menu management system, a reservation system, multiple restaurants support, a customizable blog and events management.
+The Restaurant Distribution has everything you need to kickstart your restaurant website. It comes with a menu management system, a reservation system, a customizable blog and events management.
 
 It also has a responsive theme that can be easily customized.
 
 ## Features
 
-* Menu management system.
-* Built-in reservation system.
-* A customizable blog for your restaurant.
-* Events and calendar.
-* Manage multiple restaurant locations and menus by location.
-* Widgets: Map, social links, hours and location, and contact forms.
-* Drag and drop functionality to build pages.
-* Responsive out of the box. Works on all your devices.
-* Awesome support.
+* **Menu management** - A powerful managment system for creating menus, uploading menu pictures, and categorization.
+* **Locations** - Manage multiple restaurant locations from one site. Separate menus, address, opening hours for each location.
+* **Reservation System** - Manage your reservations easily from one dashboard. View all reservations for today, this week or this month.
+* **Events and Calendar** - Create and manage events for your restaurant. View events on a calendar by date, week or month.
+* **Blog** - The distribution comes with a blog system that you can easily customize.
+* **Opentable** - Integrates with Opentable: reservation form, badges and ratings.
+* **In-page page building** - Every page is customizable using a simple drag and drop ui.
+* **Widgets** - Maps, address, opening hours and contact forms.
+* **Responsive theme** - Works on all your devices. Bootstrap and bootswatch included.
+* **Custom look and feel** - Easily customize and colorize your website's theme.
 
-## Demo
+## Read more
 
-http://dev-restaurant.gotpantheon.com
-
-## Try it out on Pantheon
-
-[Click here to spin a new restaurant website in minutes.](https://dashboard.getpantheon.com/products/restaurant/spinup)
-
-## Project page
-
-http://drupal.org/project/restaurant
-
-
+https://arshad.github.io/drupalrestaurant
