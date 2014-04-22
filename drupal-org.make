@@ -178,7 +178,7 @@ projects[restaurant_location][download][url] = "http://git.drupal.org/project/re
 
 projects[restaurant_opentable][type] = module
 projects[restaurant_opentable][download][type] = git
-projects[restaurant_opentable][download][revision] = 50dc0b0
+projects[restaurant_opentable][download][revision] = ef77ec1
 projects[restaurant_opentable][download][branch] = 7.x-1.x
 projects[restaurant_opentable][subdir] = restaurant
 projects[restaurant_opentable][download][url] = "http://git.drupal.org/project/restaurant_opentable.git"
