@@ -71,7 +71,7 @@ projects[restaurant_base][download][url] = "http://git.drupal.org/project/restau
 
 projects[restaurant_theme][type] = module
 projects[restaurant_theme][download][type] = git
-projects[restaurant_theme][download][revision] = d488030
+projects[restaurant_theme][download][revision] = 5a07f5c
 projects[restaurant_theme][download][branch] = 7.x-1.x
 projects[restaurant_theme][subdir] = restaurant
 projects[restaurant_theme][download][url] = "http://git.drupal.org/project/restaurant_theme.git"
@@ -143,7 +143,7 @@ projects[restaurant_slideshow][download][url] = "http://git.drupal.org/project/r
 
 projects[restaurant_pages][type] = module
 projects[restaurant_pages][download][type] = git
-projects[restaurant_pages][download][revision] = 94c3fc5
+projects[restaurant_pages][download][revision] = 5ebae62
 projects[restaurant_pages][download][branch] = 7.x-1.x
 projects[restaurant_pages][subdir] = restaurant
 projects[restaurant_pages][download][url] = "http://git.drupal.org/project/restaurant_pages.git"

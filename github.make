@@ -73,7 +73,7 @@ projects[restaurant_base][download][url] = "https://github.com/arshad/restaurant
 
 projects[restaurant_theme][type] = module
 projects[restaurant_theme][download][type] = git
-projects[restaurant_theme][download][revision] = d488030
+projects[restaurant_theme][download][revision] = 5a07f5c
 projects[restaurant_theme][download][branch] = 7.x-1.x
 projects[restaurant_theme][subdir] = restaurant
 projects[restaurant_theme][download][url] = "https://github.com/arshad/restaurant_theme.git"
@@ -145,7 +145,7 @@ projects[restaurant_slideshow][download][url] = "https://github.com/arshad/resta
 
 projects[restaurant_pages][type] = module
 projects[restaurant_pages][download][type] = git
-projects[restaurant_pages][download][revision] = 6d3a426
+projects[restaurant_pages][download][revision] = 5ebae62
 projects[restaurant_pages][download][branch] = 7.x-1.x
 projects[restaurant_pages][subdir] = restaurant
 projects[restaurant_pages][download][url] = "https://github.com/arshad/restaurant_pages.git"
