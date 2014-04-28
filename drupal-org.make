@@ -62,7 +62,7 @@ projects[radix_core][download][url] = "http://git.drupal.org/project/radix_core.
 
 projects[unary][type] = module
 projects[unary][download][type] = git
-projects[unary][download][revision] = 1d1e88c
+projects[unary][download][revision] = 583e939
 projects[unary][download][branch] = 7.x-3.x
 projects[unary][subdir] = contrib
 projects[unary][download][url] = "http://git.drupal.org/project/unary.git"
