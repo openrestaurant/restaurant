@@ -99,7 +99,7 @@ projects[restaurant_widgets][download][url] = "http://git.drupal.org/project/res
 
 projects[restaurant_plugins][type] = module
 projects[restaurant_plugins][download][type] = git
-projects[restaurant_plugins][download][revision] = 7db5816
+projects[restaurant_plugins][download][revision] = 2c87e0b
 projects[restaurant_plugins][download][branch] = 7.x-1.x
 projects[restaurant_plugins][subdir] = restaurant
 projects[restaurant_plugins][download][url] = "http://git.drupal.org/project/restaurant_plugins.git"
