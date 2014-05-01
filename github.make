@@ -62,13 +62,6 @@ projects[radix_core][download][branch] = 7.x-3.x
 projects[radix_core][subdir] = contrib
 projects[radix_core][download][url] = "https://github.com/arshad/radix_core.git"
 
-projects[unary][type] = module
-projects[unary][download][type] = git
-projects[unary][download][revision] = ea9e86f
-projects[unary][download][branch] = 7.x-3.x
-projects[unary][subdir] = contrib
-projects[unary][download][url] = "https://github.com/arshad/unary.git"
-
 ; Restaurant
 
 projects[restaurant_base][type] = module
