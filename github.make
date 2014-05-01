@@ -64,7 +64,7 @@ projects[radix_core][download][url] = "https://github.com/arshad/radix_core.git"
 
 projects[unary][type] = module
 projects[unary][download][type] = git
-projects[unary][download][revision] = 8e7d293
+projects[unary][download][revision] = ea9e86f
 projects[unary][download][branch] = 7.x-3.x
 projects[unary][subdir] = contrib
 projects[unary][download][url] = "https://github.com/arshad/unary.git"
