@@ -17,28 +17,29 @@ use Behat\Gherkin\Node\PyStringNode,
 /**
  * Features context.
  */
-class FeatureContext extends Drupal\DrupalExtension\Context\DrupalContext
-{
-    /**
-     * Initializes context.
-     * Every scenario gets its own context object.
-     *
-     * @param array $parameters context parameters (set them up through behat.yml)
-     */
-    public function __construct(array $parameters)
-    {
-        // Initialize your context here
-    }
+class FeatureContext extends Drupal\DrupalExtension\Context\DrupalContext {
+  /**
+   * Initializes context.
+   * Every scenario gets its own context object.
+   *
+   * @param array $parameters context parameters (set them up through behat.yml)
+   */
+  public function __construct(array $parameters) {
+    // Initialize your context here
+  }
 
-//
-// Place your definition and hook methods here:
-//
-//    /**
-//     * @Given /^I have done something with "([^"]*)"$/
-//     */
-//    public function iHaveDoneSomethingWith($argument)
-//    {
-//        doSomethingWith($argument);
-//    }
-//
+  /**
+   * @Given /^I log in with the One Time Login Url$/
+   */
+  public function iLogInWithTheOneTimeLoginUrl() {
+    $base_url = rtrim($this->locatePath('/'), '/');
+    $login_link = $this->getMainContext()->getDriver('drush')->drush('uli', array(
+      '--browser=0',
+      "--uri=${base_url}",
+    ));
+    // Trim EOL characters. Required or else visiting the link won't work.
+    $login_link = trim($login_link);
+    $this->getSession()->visit($this->locatePath($login_link));
+    return TRUE;
+  }
 }
