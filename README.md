@@ -12,11 +12,15 @@ It also has a responsive theme that can be easily customized.
 * **Reservation System** - Manage your reservations easily from one dashboard. View all reservations for today, this week or this month.
 * **Events and Calendar** - Create and manage events for your restaurant. View events on a calendar by date, week or month.
 * **Blog** - The distribution comes with a blog system that you can easily customize.
-* **Opentable** - Integrates with Opentable: reservation form, badges and ratings.
 * **In-page page building** - Every page is customizable using a simple drag and drop ui.
 * **Widgets** - Maps, address, opening hours and contact forms.
 * **Responsive theme** - Works on all your devices. Bootstrap and bootswatch included.
 * **Custom look and feel** - Easily customize and colorize your website's theme.
+
+## Services
+
+* **Opentable** - Integrates with Opentable: reservation form, badges and ratings.
+* **Foursquare** - Get number of check ins, users, ratings and build widgets for your restaurant.
 
 ## Read more
 
