@@ -22,6 +22,7 @@ It also has a responsive theme that can be easily customized.
 * **Opentable** - Integrates with Opentable: reservation form, badges and ratings.
 * **Foursquare** - Get number of check ins, users, ratings and build widgets for your restaurant.
 
+
 ## Read more
 
 https://arshad.github.io/drupalrestaurant
