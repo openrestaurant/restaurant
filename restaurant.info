@@ -42,7 +42,7 @@ dependencies[] = module_filter
 dependencies[] = date_popup_authored
 
 ; Panopoly Recommended - Other
-dependencies[] = devel
+; dependencies[] = devel
 dependencies[] = uuid
 
 ; Panopoly Contrib
