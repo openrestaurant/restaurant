@@ -114,6 +114,10 @@ function restaurant_base_get_social_networks() {
       'title' => t('Yelp'),
       'button_text' => t('Find us on Yelp'),
     ),
+    'foursquare' => array(
+      'title' => t('Foursquare'),
+      'button_text' => t('We are on Foursquare'),
+    ),
   );
 
   // Add value to networks.
