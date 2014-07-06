@@ -26,4 +26,4 @@ It also has a responsive theme that can be easily customized.
 
 ## Read more
 
-https://arshad.github.io/drupalrestaurant
+https://drupal.org/project/restaurant
