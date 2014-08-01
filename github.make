@@ -183,4 +183,4 @@ projects[restaurant_opentable][download][type] = git
 projects[restaurant_opentable][download][revision] = f190175
 projects[restaurant_opentable][download][branch] = 7.x-1.x
 projects[restaurant_opentable][subdir] = restaurant
-projects[restaurant_location][download][url] = "https://github.com/arshad/restaurant_opentable.git"
+projects[restaurant_opentable][download][url] = "https://github.com/arshad/restaurant_opentable.git"
