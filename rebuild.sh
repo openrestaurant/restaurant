@@ -18,17 +18,17 @@ if [ -f drupal-org.make ]; then
   if [ $SELECTION = "1" ]; then
 
     echo "Building Drupal Restaurant install profile in release mode..."
-    drush make --no-core --no-gitinfofile --contrib-destination=. drupal-org-release.make
+    drush make -y --no-core --no-gitinfofile --contrib-destination=. drupal-org-release.make
 
   elif [ $SELECTION = "2" ]; then
 
     echo "Building Drupal Restaurant install in development mode (latest dev code)..."
-    drush make --no-core --no-gitinfofile --contrib-destination=. drupal-org.make
+    drush make -y --no-core --no-gitinfofile --contrib-destination=. drupal-org.make
 
   elif [ $SELECTION = "3" ]; then
 
     echo "Building Drupal Restaurant install profile in development mode (latest dev code with .git working-copy)"
-    drush make --working-copy --no-core --no-gitinfofile --contrib-destination=. github.make
+    drush make -y --working-copy --no-core --no-gitinfofile --contrib-destination=. github.make
 
   else
    echo "Invalid selection."
