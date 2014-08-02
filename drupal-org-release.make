@@ -42,23 +42,16 @@ projects[devel][subdir] = contrib
 
 ; Panopoly Other
 
-projects[panopoly_config][type] = module
-projects[panopoly_config][download][type] = git
-projects[panopoly_config][download][branch] = 7.x-1.x
+projects[panopoly_config][version] = 1.x-dev
 projects[panopoly_config][subdir] = panopoly
-projects[panopoly_config][download][url] = "http://git.drupal.org/project/panopoly_config.git"
 
 projects[panopoly_seo]version] = 1.x-dev
 projects[panopoly_seo][subdir] = panopoly
 
 ; Radix
 
-projects[radix_core][type] = module
-projects[radix_core][download][type] = git
-projects[radix_core][download][revision] = 4f64503
-projects[radix_core][download][branch] = 7.x-3.x
+projects[radix_core][version] = 1.x-dev
 projects[radix_core][subdir] = contrib
-projects[radix_core][download][url] = "http://git.drupal.org/project/radix_core.git"
 
 ; Restaurant
 
