@@ -19,7 +19,8 @@ if ! (git remote | grep drupal -q); then
 fi
 if ! (git remote | grep github -q); then
   # Add Github remote
-  git remote add --track 7.x-1.x github git@github.com:drupalrestaurant/restaurant.git
+  git remote add github git@github.com:drupalrestaurant/restaurant.git
+  git branch 7.x-1.x -u github/7.x-1.x
 fi
 # Pull latest code from Github
 echo "Pulling latest version of profile restaurant from Github..."
@@ -46,7 +47,8 @@ do
     fi
     if ! (git remote | grep github -q); then
       # Add Github remote
-      git remote add --track 7.x-1.x github git@github.com:drupalrestaurant/restaurant_$subdir.git
+      git remote add github git@github.com:drupalrestaurant/restaurant_$subdir.git
+      git branch 7.x-1.x -u github/7.x-1.x
     fi
     # Pull latest code from Github
     echo "Pulling latest version of module restaurant_$subdir from Github..."
@@ -77,7 +79,8 @@ do
     fi
     if ! (git remote | grep github -q); then
       # Add Github remote
-      git remote add --track 7.x-1.x github git@github.com:drupalrestaurant/$subdir.git
+      git remote add github git@github.com:drupalrestaurant/$subdir.git
+      git branch 7.x-1.x -u github/7.x-1.x
     fi
     # Pull latest code from Github
     echo "Pulling latest version of theme restaurant_$subdir from Github..."
