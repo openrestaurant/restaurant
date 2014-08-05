@@ -70,7 +70,7 @@ do
     echo ""
     echo ""
     echo "----------------------------------"
-    echo "Theme: restaurant_$subdir"
+    echo "Theme: $subdir"
     echo "----------------------------------"
     if ! (git remote | grep drupal -q); then
       # Rename origin to drupal
@@ -83,11 +83,11 @@ do
       git branch 7.x-1.x -u github/7.x-1.x
     fi
     # Pull latest code from Github
-    echo "Pulling latest version of theme restaurant_$subdir from Github..."
+    echo "Pulling latest version of theme $subdir from Github..."
     git pull github 7.x-1.x
 
     # Push latest code to Drupal
-    echo "Pushing latest version of theme restaurant_$subdir to Drupal..."
+    echo "Pushing latest version of theme $subdir to Drupal..."
     git push drupal 7.x-1.x
   else
     echo "No git repository found for theme $subdir"
