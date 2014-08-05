@@ -127,3 +127,11 @@ function restaurant_base_get_social_networks() {
 
   return $networks;
 }
+
+/**
+ * Returns TRUE if a field map array value represents an addressfield.
+ * Provided for use as a callback by array_filter().
+ */
+function addressfield_field_map_filter($field) {
+  return !empty($field['type']) && $field['type'] == 'addressfield';
+}
