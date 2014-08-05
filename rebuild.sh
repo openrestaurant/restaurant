@@ -32,8 +32,8 @@ elif [ $SELECTION = "3" ]; then
 
 elif [ $SELECTION = "4" ]; then
 
-  echo "Building Drupal Restaurant install profile from Github"
-  drush make -y --working-copy --no-gitinfofile profiles/restaurant/github.make
+  echo "Building Drupal Restaurant install profile from Github."
+  drush make -y --working-copy --no-gitinfofile profiles/restaurant/build-restaurant-dev.make
 
 else
  echo "Invalid selection."
