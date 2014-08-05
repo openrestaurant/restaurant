@@ -11,7 +11,8 @@ if [ -f drupal-org.make ]; then
   echo "\nThis command can be used to rebuild the installation profile in place.\n"
   echo "  [1] Rebuild profile in place in release mode (latest stable release)"
   echo "  [2] Rebuild profile in place in development mode (latest dev code)"
-  echo "  [3] Rebuild profile in place in development mode (latest dev code with .git working-copy)\n"
+  echo "  [3] Rebuild profile in place in development mode (latest dev code with .git working-copy)"
+  echo "  [4] Rebuild profile in place in development mode from Github\n"
   echo "Selection: \c"
   read SELECTION
 
@@ -29,6 +30,11 @@ if [ -f drupal-org.make ]; then
 
     echo "Building Drupal Restaurant install profile in development mode (latest dev code with .git working-copy)"
     drush make -y --working-copy --no-core --no-gitinfofile --contrib-destination=. github.make
+
+  elif [ $SELECTION = "4" ]; then
+
+    echo "Building Drupal Restaurant install profile from Github"
+    drush make -y --working-copy --no-gitinfofile profiles/restaurant/github.make
 
   else
    echo "Invalid selection."
