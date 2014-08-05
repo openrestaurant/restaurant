@@ -5,5 +5,7 @@ core = 7.x
 includes[] = drupal-org-core.make
 
 ; Download the Restaurant install profile and recurively build its dependencies:
-projects[restaurant][type] = profile
-projects[restaurant][version] = 1.0-alpha5
+projects[restaurant][type] = profile 
+projects[restaurant][download][type] = git
+projects[restaurant][download][branch] = 7.x-1.x
+projects[restaurant][download][url] = "https://github.com/drupalrestaurant/restaurant.git"
