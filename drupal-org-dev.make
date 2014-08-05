@@ -64,7 +64,7 @@ projects[radix_core][download][branch] = 7.x-3.x
 projects[restaurant_base][version] = 1.x-dev
 projects[restaurant_base][subdir] = restaurant
 projects[restaurant_base][download][type] = git
-projects[restaurant_base][download][branch] = 7.x-3.x
+projects[restaurant_base][download][branch] = 7.x-1.x
 
 projects[restaurant_theme][version] = 1.x-dev
 projects[restaurant_theme][subdir] = restaurant
@@ -111,27 +111,27 @@ projects[restaurant_blog][download][branch] = 7.x-1.x
 projects[restaurant_event][version] = 1.x-dev
 projects[restaurant_event][subdir] = restaurant
 projects[restaurant_event][download][type] = git
-projects[restaurant_event][download][branch] = 7.x-3.x
+projects[restaurant_event][download][branch] = 7.x-1.x
 
 projects[restaurant_slideshow][version] = 1.x-dev
 projects[restaurant_slideshow][subdir] = restaurant
 projects[restaurant_slideshow][download][type] = git
-projects[restaurant_slideshow][download][branch] = 7.x-3.x
+projects[restaurant_slideshow][download][branch] = 7.x-1.x
 
 projects[restaurant_pages][version] = 1.x-dev
 projects[restaurant_pages][subdir] = restaurant
 projects[restaurant_pages][download][type] = git
-projects[restaurant_pages][download][branch] = 7.x-3.x
+projects[restaurant_pages][download][branch] = 7.x-1.x
 
 projects[restaurant_demo][version] = 1.x-dev
 projects[restaurant_demo][subdir] = restaurant
 projects[restaurant_demo][download][type] = git
-projects[restaurant_demo][download][branch] = 7.x-3.x
+projects[restaurant_demo][download][branch] = 7.x-1.x
 
 projects[restaurant_reservation][version] = 1.x-dev
 projects[restaurant_reservation][subdir] = restaurant
 projects[restaurant_reservation][download][type] = git
-projects[restaurant_reservation][download][branch] = 7.x-3.x
+projects[restaurant_reservation][download][branch] = 7.x-1.x
 
 projects[restaurant_seo][version] = 1.x-dev
 projects[restaurant_seo][subdir] = restaurant
