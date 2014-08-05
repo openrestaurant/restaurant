@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Configuration variables
-profile_root="$HOME/Sites/restaurant/profiles/restaurant"
+profile_root="$HOME/Sites/vagrant-restaurant/www/profiles/restaurant"
 drops_profile_dest="$HOME/Sites/restaurant-drops-7/profiles/restaurant"
 
 # Make sure the profile_root directory is available
 if [ ! -d ${profile_root} ]; then
-    echo profile_root="$HOME/Sites/restaurant/profiles/restaurant"
+    echo profile_root="$HOME/Sites/vagrant-restaurant/www/profiles/restaurant"
   fi
 
 echo "Starting drops update..."
