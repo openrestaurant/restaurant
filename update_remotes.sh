@@ -7,7 +7,6 @@ if [ -z "$TARGET" ]; then
   TARGET=`pwd -P`
 fi
 TARGET=`cd "$TARGET"; pwd -P`
-echo "Updating git remotes for profile..."
 echo ""
 echo ""
 echo "----------------------------------"
@@ -26,7 +25,10 @@ fi
 echo "Pulling latest version of profile restaurant from Github..."
 git pull github 7.x-1.x
 
-echo 'Updating git remotes for modules...'
+# Push latest code to Drupal
+echo "Pushing latest version of profile restaurant to Drupal..."
+git push drupal 7.x-1.x
+
 submodules=( "admin" "base" "blog" "dashboard" "demo" "event" "foursquare" "location" "mail" "menu" "opentable" "pages" "plugins" "reservation" "seo" "slideshow" "theme" "user" "widgets" "yelp")
 for subdir in "${submodules[@]}"
 do
@@ -49,12 +51,15 @@ do
     # Pull latest code from Github
     echo "Pulling latest version of module restaurant_$subdir from Github..."
     git pull github 7.x-1.x
+
+    # Push latest code to Drupal
+    echo "Pushing latest version of module restaurant_$subdir to Drupal..."
+    git push drupal 7.x-1.x
   else
     echo "No git repository found for module $subdir"
   fi
 done
 
-echo 'Updating git remotes for themes...'
 subthemes=( "restaurant_radix" "restaurant_octal" )
 for subdir in "${subthemes[@]}"
 do
@@ -77,6 +82,10 @@ do
     # Pull latest code from Github
     echo "Pulling latest version of theme restaurant_$subdir from Github..."
     git pull github 7.x-1.x
+
+    # Push latest code to Drupal
+    echo "Pushing latest version of theme restaurant_$subdir to Drupal..."
+    git push drupal 7.x-1.x
   else
     echo "No git repository found for theme $subdir"
   fi
