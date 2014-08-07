@@ -5,6 +5,7 @@ drupal_root="/home/vagrant/www"
 
 # Check if file exists
 cd ${drupal_root}
+chmod 755 sites/default
 
 echo "Dropping all tables"
 `drush sql-connect` -e "show tables" -s | xargs -I "@@" `drush sql-connect` -e "DROP TABLE @@"
