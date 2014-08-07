@@ -4,6 +4,8 @@
 TARGET=$1
 # Use current dir as default
 if [ -z "$TARGET" ]; then
+  # Move up on level
+  cd ..
   TARGET=`pwd -P`
 fi
 TARGET=`cd "$TARGET"; pwd -P`
