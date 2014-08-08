@@ -8,4 +8,3 @@ includes[] = drupal-org-core.make
 projects[restaurant][type] = profile 
 projects[restaurant][download][type] = git
 projects[restaurant][download][branch] = 7.x-1.x
-projects[restaurant][download][url] = "https://github.com/drupalrestaurant/restaurant.git"
