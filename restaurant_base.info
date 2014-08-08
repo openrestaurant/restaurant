@@ -22,6 +22,7 @@ dependencies[] = panopoly_magic
 dependencies[] = path
 dependencies[] = pathauto
 dependencies[] = radix_core
+dependencies[] = radix_views
 dependencies[] = restaurant_update
 dependencies[] = restaurant_plugins
 dependencies[] = restaurant_theme
