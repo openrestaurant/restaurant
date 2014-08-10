@@ -23,5 +23,6 @@ function _restaurant_enable_module($module, $module_name, &$context) {
 function _restaurant_import($operation, $type, &$context) {
   $context['message'] = t('@operation', array('@operation' => $type));
   $migration =  Migration::getInstance($operation);
+  $migration->resetStatus();
   $migration->processImport();
 }

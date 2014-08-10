@@ -132,7 +132,7 @@ projects[restaurant_event][type] = module
 projects[restaurant_event][subdir] = restaurant
 projects[restaurant_event][download][type] = git
 projects[restaurant_event][download][branch] = 7.x-1.x
-projects[restaurant_event][download][revision] = 4fe624d
+projects[restaurant_event][download][revision] = 167d084
 
 projects[restaurant_slideshow][version] = 1.x-dev
 projects[restaurant_slideshow][type] = module
