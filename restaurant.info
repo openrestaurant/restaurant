@@ -47,7 +47,7 @@ dependencies[] = uuid
 
 ; Panopoly Contrib
 dependencies[] = panopoly_config
-dependencies[] = panopoly_seo
+; dependencies[] = panopoly_seo
 
 ; Restaurant
 dependencies[] = restaurant_base
