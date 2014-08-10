@@ -146,7 +146,7 @@ projects[restaurant_pages][type] = module
 projects[restaurant_pages][subdir] = restaurant
 projects[restaurant_pages][download][type] = git
 projects[restaurant_pages][download][branch] = 7.x-1.x
-projects[restaurant_pages][download][revision] = 25b63e2
+projects[restaurant_pages][download][revision] = dd6c3f9
 
 projects[restaurant_demo][version] = 1.x-dev
 projects[restaurant_demo][type] = module
