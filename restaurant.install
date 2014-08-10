@@ -200,6 +200,8 @@ function restaurant_install_features() {
   // Install demo content.
   $install_demo_content = variable_get('restaurant_demo_content', FALSE);
   if ($install_demo_content) {
+    $modules[] = 'restaurant_pages';
+    $modules[] = 'restaurant_demo';
     if (!empty($features['restaurant_blog'])) {
       $modules[] = 'restaurant_blog_demo';
     }
@@ -215,8 +217,6 @@ function restaurant_install_features() {
     if (!empty($features['restaurant_location'])) {
       $modules[] = 'restaurant_location_demo';
     }
-    $modules[] = 'restaurant_pages';
-    $modules[] = 'restaurant_demo';
   }
 
   // Resolve the dependencies now, so that module_enable() doesn't need
