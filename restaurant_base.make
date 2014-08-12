@@ -50,6 +50,7 @@ projects[better_exposed_filters][subdir] = contrib
 
 projects[calendar][version] = 3.4
 projects[calendar][subdir] = contrib
+projects[calendar][patch][1471400] = https://www.drupal.org/files/issues/calendar-illegal_offset-1471400-78.patch
 
 projects[entity][version] = 1.5
 projects[entity][subdir] = contrib
