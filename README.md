@@ -1,6 +1,8 @@
 Drupal Restaurant Distribution
 =========
 
+[![Build Status](https://travis-ci.org/drupalrestaurant/restaurant.svg?branch=7.x-1.x)](https://travis-ci.org/drupalrestaurant/restaurant)
+
 The Restaurant Distribution has everything you need to kickstart your restaurant website.
 
 It comes with a menu management system, a reservation system, a customizable blog and events management.
