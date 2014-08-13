@@ -1,0 +1,43 @@
+language: php
+
+php:
+  - 5.4
+
+mysql:
+  database: drupal
+  username: root
+  encoding: utf8
+
+env:
+  - UPGRADE=none
+  - UPGRADE=7.x-1.0-beta2
+
+install:
+  # Make some variables available to the travis-ci.sh script.
+  - export UPDATE TRAVIS_BUILD_DIR
+
+  # Copy the script into a stable location.
+  - cp scripts/travis-ci.sh $HOME/
+
+  # Move to the directory above, where we should remain.
+  - cd ..
+
+  # Start by doing system installation.
+  - $HOME/travis-ci.sh system-install
+
+before_script:
+  - $HOME/travis-ci.sh before-tests
+
+script:
+  - $HOME/travis-ci.sh run-tests
+
+after_script:
+  - $HOME/travis-ci.sh after-tests
+
+notifications:
+  email:
+    recipients:
+      - drupal-restaurant-ci@googlegroups.com
+    on_success: always
+    on_failure: always
+    
