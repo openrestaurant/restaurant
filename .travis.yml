@@ -40,4 +40,3 @@ notifications:
       - drupal-restaurant-ci@googlegroups.com
     on_success: always
     on_failure: always
-    
