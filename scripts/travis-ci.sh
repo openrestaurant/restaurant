@@ -109,7 +109,7 @@ before_tests() {
     cd drupal
   else
     cd panopoly-$UPGRADE
-    drush dl panopoly_demo-$UPGRADE
+    drush dl restaurant_demo-1.x-dev
   fi
   drush si restaurant --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Restaurant" --yes
   drush dis -y dblog
