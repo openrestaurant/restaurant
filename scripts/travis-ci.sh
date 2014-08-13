@@ -34,7 +34,7 @@ system_install() {
 
   # Build Codebase
   mkdir profiles
-  mv panopoly profiles/
+  mv restaurant profiles/
   mkdir drupal
   mv profiles drupal/
 
@@ -108,7 +108,7 @@ before_tests() {
   if [[ "$UPGRADE" == none ]]; then
     cd drupal
   else
-    cd panopoly-$UPGRADE
+    cd restaurant-$UPGRADE
     drush dl restaurant_demo-1.x-dev
   fi
   drush si restaurant --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Restaurant" --yes
@@ -116,13 +116,13 @@ before_tests() {
   drush vset -y file_private_path "sites/default/private/files"
   drush vset -y file_temporary_path "sites/default/private/temp"
 
-  # Switch to the Panopoly platform built from Git (if we aren't there already).
+  # Switch to the Restaurant platform built from Git (if we aren't there already).
   cd ../drupal
 
   # If we're an upgrade test, run the upgrade process.
   if [[ "$UPGRADE" != none ]]; then
     header Upgrading to latest version
-    cp -a ../panopoly-$UPGRADE/sites/default/* sites/default/ && drush updb --yes
+    cp -a ../restaurant-$UPGRADE/sites/default/* sites/default/ && drush updb --yes
     drush cc all
   fi
 
