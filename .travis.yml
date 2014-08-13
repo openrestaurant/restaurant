@@ -19,6 +19,9 @@ install:
   # Copy the script into a stable location.
   - cp scripts/travis-ci.sh $HOME/
 
+  # Make travis-ci.sh executable
+  = chmod u+x $HOME/travis-ci.sh
+
   # Move to the directory above, where we should remain.
   - cd ..
 
