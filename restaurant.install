@@ -339,3 +339,16 @@ function _restaurant_get_selected_installation_type() {
 
   return $type;
 }
+
+/**
+ * Returns a list of demo modules.
+ */
+function _restaurant_get_demo_modules() {
+  return array(
+    'restaurant_blog_demo',
+    'restaurant_event_demo',
+    'restaurant_menu_demo',
+    'restaurant_location_demo',
+    'restaurant_reservation_demo',
+  );
+}
