@@ -99,7 +99,7 @@ function restaurant_install_welcome($form, &$form_state, &$install_state) {
 
   $message = '<h3>' . st('Thank you for choosing the Restaurant Distribution!') . '</h3>';
   $message .= '<p class="lead">' . st('The Restaurant Distribution has everything you need to build your restaurant website.') . '</p>';
-  $message .= '<h3>Features</h3>
+  $message .= '<h4>Features</h4>
 <ul>
 <li>Menu management system.</li>
 <li>Built-in reservation system.</li>
@@ -119,18 +119,26 @@ function restaurant_install_welcome($form, &$form_state, &$install_state) {
 
   // Add installation types.
   $installation_types = _restaurant_get_installation_types();
+  $form_state['input']['installation_type'] = 'quick';
   $form['installation_type'] = array(
-    '#prefix' => '<p class="lead">' . st('Ready to get started?') . '</p>',
-    '#title' => st('Select an installation type'),
-    '#type' => 'radios',
-    '#default_value' => 'quick',
+    '#prefix' => '<p class="lead"><h4>Ready to get started?</h4></p><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">' . st('Select an installation type:') . '</h3></div><div class="panel-body">',
+    '#suffix' => '</div></div>',
+    '#tree' => TRUE,
   );
   foreach ($installation_types as $type => $values) {
     $label = st('!type - @description', array(
       '!type' => '<strong>' . $values['title'] . '</strong>',
       '@description' => $values['description'],
     ));
-    $form['installation_type']['#options'][$type] = $label;
+//    $form['installation_type']['#options'][$type] = $label;
+    $form['installation_type'][$type] = array(
+      '#type' => 'radio',
+      '#title' => $values['title'],
+      '#description' => $values['description'],
+      '#value' => 'quick',
+      '#return_value' => $type,
+      '#parents' => array('installation_type'),
+    );
   }
 
   $form['actions'] = array(
@@ -153,7 +161,7 @@ function restaurant_install_welcome_submit($form, &$form_state) {
   global $install_state;
 
   // Set the installation type.
-  $install_state['parameters']['installation_type'] = $form_state['values']['installation_type'];
+  $install_state['parameters']['installation_type'] = $form_state['input']['installation_type'];
 
   // mark welcome step as done
   $install_state['parameters']['welcome'] = 'done';
