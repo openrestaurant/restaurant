@@ -38,6 +38,7 @@ function restaurant_install_tasks_alter(&$tasks, $install_state) {
   _restaurant_set_theme('restaurant_octal');
 
   // Custom install_finished callback
+  $tasks['install_finished']['display_name'] = st('Completed');
   $tasks['install_finished']['function'] = 'restaurant_install_finished';
 
   $tasks['install_select_profile']['display'] = FALSE;
