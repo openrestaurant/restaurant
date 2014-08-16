@@ -9,7 +9,7 @@
 /**
  * Implements hook_tasks_alter().
  */
-function quick_tasks_alter(&$tasks, $install_state) {
+function quick_tasks_alter($tasks, $install_state) {
   // Redirect the drupal install_profile_modules step to our own function.
   $tasks['install_profile_modules']['display_name'] = st('Import profile');
   $tasks['install_profile_modules']['function'] = 'install_from_db_install_profile_modules';
@@ -20,6 +20,8 @@ function quick_tasks_alter(&$tasks, $install_state) {
   );
   $tasks = _restaurant_tasks_insert_before_key($tasks, 'install_profile_modules',
     'install_setup_quick_installation', $quick_installation_task);
+
+  return $tasks;
 }
 
 /**

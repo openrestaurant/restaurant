@@ -18,7 +18,7 @@ function restaurant_install_tasks($install_state) {
   $selected_installation_type = _restaurant_get_selected_installation_type();
   $install_tasks_callback = $selected_installation_type . '_install_tasks';
   if (function_exists($install_tasks_callback)) {
-    call_user_func($install_tasks_callback, $tasks, $install_state);
+    $tasks = call_user_func($install_tasks_callback, $install_state);
   }
 
   // Add a task to configure restaurant.
@@ -73,7 +73,7 @@ function restaurant_install_tasks_alter(&$tasks, $install_state) {
   $selected_installation_type = _restaurant_get_selected_installation_type();
   $tasks_alter_callback = $selected_installation_type . '_tasks_alter';
   if (function_exists($tasks_alter_callback)) {
-    call_user_func($tasks_alter_callback, $tasks, $install_state);
+    $tasks = call_user_func($tasks_alter_callback, $tasks, $install_state);
   }
 
   // Magically go one level deeper in solving years of dependency problems
