@@ -26,7 +26,7 @@ fi
 # Pull latest code from Github
 echo "Pulling latest version of profile restaurant from Github..."
 git pull github 7.x-1.x
-git pull -u github 7.x-1.x
+git push -u github 7.x-1.x
 
 # Push latest code to Drupal
 echo "Pushing latest version of profile restaurant to Drupal..."
@@ -54,7 +54,7 @@ do
     # Pull latest code from Github
     echo "Pulling latest version of module restaurant_$subdir from Github..."
     git pull github 7.x-1.x
-    git pull -u github 7.x-1.x
+    git push -u github 7.x-1.x
 
     # Push latest code to Drupal
     echo "Pushing latest version of module restaurant_$subdir to Drupal..."
@@ -86,7 +86,7 @@ do
     # Pull latest code from Github
     echo "Pulling latest version of theme $subdir from Github..."
     git pull github 7.x-1.x
-    git pull -u github 7.x-1.x
+    git push -u github 7.x-1.x
 
     # Push latest code to Drupal
     echo "Pushing latest version of theme $subdir to Drupal..."
