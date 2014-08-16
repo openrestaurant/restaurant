@@ -8,7 +8,7 @@
 /**
  * Implements hook_install_tasks().
  */
-function standard_install_tasks(&$tasks, $install_state) {
+function standard_install_tasks($tasks, $install_state) {
   // Install demo conntent
   $install_demo_content = variable_get('restaurant_demo_content', FALSE);
 
@@ -30,6 +30,8 @@ function standard_install_tasks(&$tasks, $install_state) {
     'type' => 'batch',
     'display' => $install_demo_content,
   );
+
+  return $tasks;
 }
 
 /**
