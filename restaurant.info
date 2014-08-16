@@ -43,7 +43,7 @@ dependencies[] = date_popup_authored
 
 ; Panopoly Recommended - Other
 ; dependencies[] = devel
-dependencies[] = uuid
+; dependencies[] = uuid
 
 ; Panopoly Contrib
 dependencies[] = panopoly_config

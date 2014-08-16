@@ -1,5 +1,8 @@
 <?php
 
+// Include files for quick installation.
+include_once 'includes/quick_installation.inc';
+
 /**
  * Implements hook_install_tasks().
  */
@@ -10,27 +13,30 @@ function restaurant_install_tasks($install_state) {
   drupal_get_messages('status', TRUE);
   drupal_get_messages('warning', TRUE);
 
-  // Install demo conntent
-  $install_demo_content = variable_get('restaurant_demo_content', FALSE);
+  // For standard installation type, add steps to select features.
+  if (_restaurant_get_selected_installation_type() == 'standard') {
+    // Install demo conntent
+    $install_demo_content = variable_get('restaurant_demo_content', FALSE);
 
-  // Add a task to select features for restaurant.
-  $tasks['restaurant_select_features'] = array(
-    'display_name' => st('Select features'),
-    'type' => 'form',
-  );
+    // Add a task to select features for restaurant.
+    $tasks['restaurant_select_features'] = array(
+      'display_name' => st('Select features'),
+      'type' => 'form',
+    );
 
-  // Task to install features.
-  $tasks['restaurant_install_features'] = array(
-    'display_name' => st('Install features'),
-    'type' => 'batch',
-  );
+    // Task to install features.
+    $tasks['restaurant_install_features'] = array(
+      'display_name' => st('Install features'),
+      'type' => 'batch',
+    );
 
-  // Task to install demo content.
-  $tasks['restaurant_install_demo_content'] = array(
-    'display_name' => st('Install demo content'),
-    'type' => 'batch',
-    'display' => $install_demo_content,
-  );
+    // Task to install demo content.
+    $tasks['restaurant_install_demo_content'] = array(
+      'display_name' => st('Install demo content'),
+      'type' => 'batch',
+      'display' => $install_demo_content,
+    );
+  }
 
   // Add a task to configure restaurant.
   $tasks['restaurant_configure_restaurant'] = array(
@@ -67,8 +73,22 @@ function restaurant_install_tasks_alter(&$tasks, $install_state) {
   _restaurant_set_theme('restaurant_octal');
 
   // Magically go one level deeper in solving years of dependency problems
-  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
-  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
+//  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
+//  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
+
+  // Add tasks if quick installation is selected.
+  if (_restaurant_get_selected_installation_type() == 'quick') {
+    // Redirect the drupal install_profile_modules step to our own function.
+    $tasks['install_profile_modules']['display_name'] = st('Import profile');
+    $tasks['install_profile_modules']['function'] = 'install_from_db_install_profile_modules';
+
+    // Add a task to setup the quick installation.
+    $quick_installation_task = array(
+      'function' => 'restaurant_setup_quick_installation',
+    );
+    $tasks = _restaurant_tasks_insert_before_key($tasks, 'install_profile_modules',
+      'install_setup_quick_installation', $quick_installation_task);
+  }
 }
 
 /**
@@ -97,13 +117,28 @@ function restaurant_install_welcome($form, &$form_state, &$install_state) {
     '#markup' => $message,
   );
 
+  // Add installation types.
+  $installation_types = _restaurant_get_installation_types();
+  $form['installation_type'] = array(
+    '#prefix' => '<p class="lead">' . st('Ready to get started?') . '</p>',
+    '#title' => st('Select an installation type'),
+    '#type' => 'radios',
+    '#default_value' => 'quick',
+  );
+  foreach ($installation_types as $type => $values) {
+    $label = st('!type - @description', array(
+      '!type' => '<strong>' . $values['title'] . '</strong>',
+      '@description' => $values['description'],
+    ));
+    $form['installation_type']['#options'][$type] = $label;
+  }
+
   $form['actions'] = array(
     '#type' => 'actions',
   );
 
   $form['actions']['submit'] = array(
     '#type' => 'submit',
-    '#prefix' => '<p class="lead">' . st('Ready to get started?') . '</p>',
     '#value' => st("Launch installation"),
     '#weight' => 10,
     '#attributes' => array(
@@ -117,12 +152,34 @@ function restaurant_install_welcome($form, &$form_state, &$install_state) {
 function restaurant_install_welcome_submit($form, &$form_state) {
   global $install_state;
 
+  // Set the installation type.
+  $install_state['parameters']['installation_type'] = $form_state['values']['installation_type'];
+
   // mark welcome step as done
   $install_state['parameters']['welcome'] = 'done';
 
   // add default parameters
   $install_state['parameters']['profile'] = 'restaurant';
   $install_state['parameters']['locale'] = 'en';
+}
+
+/**
+ * Callback to setup the quick installation.
+ */
+function restaurant_setup_quick_installation(&$install_state) {
+  // Set the db import filename.
+  $profile = $install_state['parameters']['profile'];
+  // Find database dump in the /db folder within the profile
+  // TODO: support different database dump formats
+  $filename = DRUPAL_ROOT . '/profiles/' . $profile . '/db/' . $profile . '.mysql';
+
+  $conn = Database::getConnection('default');
+  // Check if db file exists and connection driver is mysql.
+  if (!file_exists($filename) || !$conn || ($conn->driver() !== 'mysql')) {
+    $install_state['parameters']['installation_type'] = 'standard';
+    return;
+  }
+  $install_state['parameters']['db_import_filename'] = $filename;
 }
 
 /**
@@ -364,6 +421,23 @@ function restaurant_install_finished(&$install_state) {
 }
 
 /**
+ * Helper function to insert a key/value pair before an existing key
+ * Used to re-order the install tasks array
+ */
+function _restaurant_tasks_insert_before_key( $originalArray, $originalKey, $insertKey, $insertValue ) {
+  $newArray = array();
+  $inserted = false;
+  foreach ($originalArray as $key => $value) {
+    if (!$inserted && ($key === $originalKey)) {
+      $newArray[$insertKey] = $insertValue;
+      $inserted = true;
+    }
+    $newArray[$key] = $value;
+  }
+  return $newArray;
+}
+
+/**
  * Sets the installation theme for Restaurant profile
  */
 function _restaurant_set_theme($theme) {
@@ -381,4 +455,35 @@ function _restaurant_set_theme($theme) {
  */
 function _restaurant_filter_dependencies($dependency) {
   return !module_exists($dependency);
+}
+
+/**
+ * Helper function to get the installation types.
+ */
+function _restaurant_get_installation_types() {
+  return array(
+    'quick' => array(
+      'title' => st('Quick'),
+      'description' => st('Install using a set of predefined settings. (recommended)'),
+    ),
+    'standard' => array(
+      'title' => st('Standard'),
+      'description' => st('Install by customizing your distribution.'),
+    ),
+  );
+}
+
+/**
+ * Helper function to get the selected installation type.
+ */
+function _restaurant_get_selected_installation_type() {
+  global $install_state;
+  $type = 'quick'; // Default is quick.
+
+  // Check if installation_type is set.
+  if (!empty($install_state['parameters']['installation_type'])) {
+    $type = $install_state['parameters']['installation_type'];
+  }
+
+  return $type;
 }
