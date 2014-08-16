@@ -315,8 +315,8 @@ function _restaurant_filter_dependencies($dependency) {
 function _restaurant_get_installation_types() {
   return array(
     'quick' => array(
-      'title' => st('Quick'),
-      'description' => st('Install using a set of predefined settings. (recommended)'),
+      'title' => st('Quick (recommended)'),
+      'description' => st('Install using a set of predefined settings.'),
     ),
     'standard' => array(
       'title' => st('Standard'),
