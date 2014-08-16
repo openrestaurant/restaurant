@@ -8,6 +8,11 @@ function restaurant_form_install_configure_form_alter(&$form, $form_state) {
   if (drupal_is_cli()) {
     return;
   }
+
+  // Add a default site name.
+  if (empty($form['site_information']['site_name']['#default_value'])) {
+    $form['site_information']['site_name']['#default_value'] = t('Drupal Restaurant');
+  }
   
   // Hide Server Settings.
   $form['server_settings']['#access'] = FALSE;
