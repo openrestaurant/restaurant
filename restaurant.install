@@ -224,6 +224,9 @@ function restaurant_install_finished(&$install_state) {
 
   // Set the node admin theme.
   variable_set('node_admin_theme', 1);
+
+  // Enable clean urls.
+  variable_set('clean_url', 1);
  
   // Flush theme caches so things are right.
   system_rebuild_theme_data();
