@@ -255,7 +255,7 @@ function restaurant_install_finished(&$install_state) {
   if (isset($messages['error'])) {
     $output = '<p class="lead">' . st('You have successfully installed the Restaurant Distribution.') . '</p>';
 //    $output .= '<p>' . (isset($messages['error']) ? st('Review any messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
-    $output .= l(st('Go to site'), '', array('attributes' => array('class' => array('btn', 'btn-lg', 'btn-success'))));
+    $output .= l(st('View site'), '', array('attributes' => array('class' => array('btn', 'btn-lg', 'btn-success'))));
     return $output;
   }
   else {
