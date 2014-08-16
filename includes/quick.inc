@@ -7,6 +7,41 @@
  */
 
 /**
+ * Implements hook_tasks_alter().
+ */
+function quick_tasks_alter(&$tasks, $install_state) {
+  // Redirect the drupal install_profile_modules step to our own function.
+  $tasks['install_profile_modules']['display_name'] = st('Import profile');
+  $tasks['install_profile_modules']['function'] = 'install_from_db_install_profile_modules';
+
+  // Add a task to setup the quick installation.
+  $quick_installation_task = array(
+    'function' => 'restaurant_setup_quick_installation',
+  );
+  $tasks = _restaurant_tasks_insert_before_key($tasks, 'install_profile_modules',
+    'install_setup_quick_installation', $quick_installation_task);
+}
+
+/**
+ * Callback to setup the quick installation.
+ */
+function restaurant_setup_quick_installation(&$install_state) {
+  // Set the db import filename.
+  $profile = $install_state['parameters']['profile'];
+  // Find database dump in the /db folder within the profile
+  // TODO: support different database dump formats
+  $filename = DRUPAL_ROOT . '/profiles/' . $profile . '/db/' . $profile . '.mysql';
+
+  $conn = Database::getConnection('default');
+  // Check if db file exists and connection driver is mysql.
+  if (!file_exists($filename) || !$conn || ($conn->driver() !== 'mysql')) {
+    $install_state['parameters']['installation_type'] = 'standard';
+    return;
+  }
+  $install_state['parameters']['db_import_filename'] = $filename;
+}
+
+/**
  * Overrides install_profile_modules().
  */
 function install_from_db_install_profile_modules(&$install_state) {
