@@ -47,7 +47,7 @@ function restaurant_setup_quick_installation(&$install_state) {
  * Overrides install_profile_modules().
  */
 function install_from_db_install_profile_modules(&$install_state) {
-  if ((_restaurant_get_selected_installation_type() === 'quick')) {
+  if (_restaurant_get_selected_installation_type() === 'quick') {
     if (!$install_state['interactive']) {
       watchdog('install', 'Installing from database import.', array(), WATCHDOG_INFO);
       print "Installing from database\n";
