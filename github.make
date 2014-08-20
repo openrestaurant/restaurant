@@ -38,7 +38,7 @@ projects[panopoly_pages][subdir] = panopoly
 projects[panopoly_wysiwyg][version] = 1.11
 projects[panopoly_wysiwyg][subdir] = panopoly
 
-; projects[panopoly_search][version] = 1.8
+; projects[panopoly_search][version] = 1.11
 ; projects[panopoly_search][subdir] = panopoly
 
 ; Panopoly Recommended
