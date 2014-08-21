@@ -54,7 +54,7 @@ function restaurant_update_admin_form() {
       versions along with specific patches.  You should never update individual modules
       within a distribution unless you are an experienced developer.')
       . '</p><p>' .
-      t('If you REALLY know what you are doing, you can find the links to the normal Drupal
+      t('If you know what you are doing, you can find the links to the normal Drupal
         update pages in the collapsed section below.')
       . '</p>',
   );
