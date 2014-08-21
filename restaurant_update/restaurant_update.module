@@ -45,7 +45,7 @@ function restaurant_update_admin_form() {
   $form['header'] = array(
     '#theme' => 'html_tag',
     '#tag' => 'h3',
-    '#value' => t('Do not manually update modules within distributions!'),
+    '#value' => t('It is not recommented to manually update modules within the distribution!'),
   );
 
   $form['help'] = array(
