@@ -14,6 +14,7 @@ env:
   - UPGRADE=7.x-1.0-beta3
   - UPGRADE=7.x-1.0-beta4
   - UPGRADE=7.x-1.0-beta5
+  - UPGRADE=7.x-1.0-beta6
 
 install:
   # Make some variables available to the travis-ci.sh script.
