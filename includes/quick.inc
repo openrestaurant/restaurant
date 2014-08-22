@@ -135,6 +135,7 @@ function _install_from_db_cc_all() {
  */
 function _install_from_db_install_db_import($line, $table, &$context) {
   global $conf;
+  global $install_state;
 
   if ($table === 'variable') {
     // save/restore some variables needed by installer or unique to new site
@@ -161,6 +162,11 @@ function _install_from_db_install_db_import($line, $table, &$context) {
     // Flush all caches to complete the module installation process. Subsequent
     // installation tasks will now have full access to the profile's modules.
     _install_from_db_cc_all();
+
+    // Revert the demo module to fix https://www.drupal.org/node/2322661.
+    if (!$install_state['interactive']) {
+      features_revert(array('restaurant_demo' => array('variable')));
+    }
   }
 
   $context['message'] = st('Imported %table table.', array('%table' => $table));
