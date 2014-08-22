@@ -3,6 +3,10 @@ api  = 2
 
 ; Dependencies
 
+projects[ctools][version] = 1.4
+projects[ctools][subdir] = contrib
+projects[ctools][patch][2195211] = https://www.drupal.org/files/issues/ctools-n2195211-entity-from-field-access-callback-15.patch
+
 projects[field_collection][version] = 1.0-beta4
 projects[field_collection][subdir] = contrib
 
