@@ -18,3 +18,6 @@ echo "Creating files directory"
 rm -rf files
 mkdir files
 chmod -R 777 settings.php files
+
+echo "Installing the site"
+drush si restaurant --db-url=mysql://root:root@localhost/restaurant --account-name=root --account-pass=root --site-mail=admin@example.com --site-name="Restaurant" --yes
