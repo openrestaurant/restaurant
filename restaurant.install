@@ -246,7 +246,7 @@ function restaurant_install_finished(&$install_state) {
 
   // Cache a fully-built schema.
   drupal_get_schema(NULL, TRUE);
-  
+
   // Revert the demo module to fix https://www.drupal.org/node/2322661.
   if (!$install_state['interactive']) {
     features_revert(array('restaurant_demo' => array('variable')));
