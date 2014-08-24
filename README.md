@@ -28,9 +28,9 @@ It also has a responsive theme that can be easily customized.
 
 ## Installation
 
-* [Spin on Pantheon](https://dashboard.getpantheon.com/products/restaurant/spinup) (recommended) - The Restaurant Distribution is available on Pantheon. It takes a few minutes to spin a new restaurant website and it is free to install and try.
-* (Download and install)[https://www.drupal.org/project/restaurant] - The Restaurant Distribution is package on drupal.org and available as a download.
-* (Try on Simplytest)[http://simplytest.me/project/restaurant] - Take the Restaurant Distribution for a 30 minutes test drive on simplytest.me.
+* [Spin on Pantheon](https://dashboard.getpantheon.com/products/restaurant/spinup) - The Restaurant Distribution is available on Pantheon. It takes a few minutes to spin a new restaurant website and it is free to install and try.
+* [Download and install](https://www.drupal.org/project/restaurant) - The Restaurant Distribution is package on drupal.org and available as a download.
+* [Try on Simplytest](http://simplytest.me/project/restaurant) - Take the Restaurant Distribution for a 30 minutes test drive on simplytest.me.
 
 ## Read more
 
