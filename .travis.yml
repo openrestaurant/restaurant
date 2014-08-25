@@ -19,6 +19,11 @@ env:
   - UPGRADE=7.x-1.0-beta8
   - UPGRADE=7.x-1.0-beta9
 
+matrix:
+  fast_finish: true
+  allow_failures:
+    - env: UPGRADE=7.x-1.0-beta7
+    
 install:
   # Make some variables available to the travis-ci.sh script.
   - export UPDATE TRAVIS_BUILD_DIR
