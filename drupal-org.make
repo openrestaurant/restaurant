@@ -174,7 +174,7 @@ projects[restaurant_location][type] = module
 projects[restaurant_location][subdir] = restaurant
 projects[restaurant_location][download][type] = git
 projects[restaurant_location][download][branch] = 7.x-1.x
-projects[restaurant_location][download][revision] = d0c5b1c
+projects[restaurant_location][download][revision] = c0bc0e3
 
 projects[restaurant_opentable][version] = 1.x-dev
 projects[restaurant_opentable][type] = module
