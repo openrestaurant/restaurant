@@ -55,7 +55,6 @@ function restaurant_select_features($form, &$form_state, &$install_state) {
     'restaurant_reservation' => st('Reservation system'),
     'restaurant_location' => st('Multiple restaurant locations'),
     'restaurant_admin' => st('Enhanced administrative interface'),
-    'restaurant_slideshow' => st('Slideshows'),
     'restaurant_seo' => st('SEO such clean urls, metatags...etc'),
   );
   $form['features'] = array(
