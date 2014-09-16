@@ -99,7 +99,7 @@ function restaurant_install_welcome($form, &$form_state, &$install_state) {
 <li>Widgets: Map, social links, hours and location, and contact forms.</li>
 <li>Drag and drop functionality to build pages.</li>
 <li>Responsive out of the box. Works on all your devices.</li>
-<li>Opentable and Foursquare support</li>
+<li>Opentable and Foursquare support.</li>
 <li>Awesome support.</li>
 </ul>';
 
