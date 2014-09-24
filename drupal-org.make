@@ -47,10 +47,8 @@ projects[panopoly_config][subdir] = panopoly
 projects[panopoly_config][download][type] = git
 projects[panopoly_config][download][branch] = 7.x-1.x
 
-projects[panopoly_seo][version] = 1.x-dev
+projects[panopoly_seo][version] = 1.0-beta1
 projects[panopoly_seo][subdir] = panopoly
-projects[panopoly_seo][download][type] = git
-projects[panopoly_seo][download][branch] = 7.x-1.x
 
 ; Radix
 
