@@ -307,7 +307,7 @@ function _install_from_db_replace_prefix($line, $conn) {
  */
 function _install_from_db_copy_files() {
   $demo_modules = _restaurant_get_demo_modules();
-  $mask = "(jpg|jpeg|gif|png)";
+  $mask = "(jpg|jpeg|gif|png|pdf)";
 
   // Get images from demo modules.
   foreach ($demo_modules as $demo_module) {
