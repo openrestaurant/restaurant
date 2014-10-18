@@ -179,4 +179,4 @@ projects[restaurant_opentable][type] = module
 projects[restaurant_opentable][subdir] = restaurant
 projects[restaurant_opentable][download][type] = git
 projects[restaurant_opentable][download][branch] = 7.x-1.x
-projects[restaurant_opentable][download][revision] = f190175
+projects[restaurant_opentable][download][revision] = 5bc01d1
