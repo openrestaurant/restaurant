@@ -100,7 +100,7 @@ projects[restaurant_mail][type] = module
 projects[restaurant_mail][subdir] = restaurant
 projects[restaurant_mail][download][type] = git
 projects[restaurant_mail][download][branch] = 7.x-1.x
-projects[restaurant_mail][download][revision] = eade3f4
+projects[restaurant_mail][download][revision] = f543679
 
 projects[restaurant_user][version] = 1.x-dev
 projects[restaurant_user][type] = module
