@@ -107,7 +107,7 @@ projects[restaurant_user][type] = module
 projects[restaurant_user][subdir] = restaurant
 projects[restaurant_user][download][type] = git
 projects[restaurant_user][download][branch] = 7.x-1.x
-projects[restaurant_user][download][revision] = 619853e
+projects[restaurant_user][download][revision] = 164f6d1
 
 ; Restaurant Apps
 
