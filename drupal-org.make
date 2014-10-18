@@ -86,7 +86,7 @@ projects[restaurant_widgets][type] = module
 projects[restaurant_widgets][subdir] = restaurant
 projects[restaurant_widgets][download][type] = git
 projects[restaurant_widgets][download][branch] = 7.x-1.x
-projects[restaurant_widgets][download][revision] = f4d59cb
+projects[restaurant_widgets][download][revision] = c53389a
 
 projects[restaurant_plugins][version] = 1.x-dev
 projects[restaurant_plugins][type] = module
