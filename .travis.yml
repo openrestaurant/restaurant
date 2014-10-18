@@ -18,6 +18,7 @@ env:
   - UPGRADE=7.x-1.0-beta7
   - UPGRADE=7.x-1.0-beta8
   - UPGRADE=7.x-1.0-beta9
+  - UPGRADE=7.x-1.0-beta10
 
 matrix:
   fast_finish: true
