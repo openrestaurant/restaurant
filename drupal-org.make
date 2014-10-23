@@ -123,7 +123,7 @@ projects[restaurant_blog][type] = module
 projects[restaurant_blog][subdir] = restaurant
 projects[restaurant_blog][download][type] = git
 projects[restaurant_blog][download][branch] = 7.x-1.x
-projects[restaurant_blog][download][revision] = 0e7cbd9
+projects[restaurant_blog][download][revision] = 99769fc
 
 projects[restaurant_event][version] = 1.x-dev
 projects[restaurant_event][type] = module
