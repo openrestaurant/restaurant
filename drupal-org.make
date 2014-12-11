@@ -56,7 +56,7 @@ projects[radix_core][version] = 1.x-dev
 projects[radix_core][subdir] = contrib
 projects[radix_core][download][type] = git
 projects[radix_core][download][branch] = 7.x-3.x
-projects[radix_core][download][revision] = 854cb5f
+projects[radix_core][download][revision] = b52ea5d
 
 ; Restaurant
 
