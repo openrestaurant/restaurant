@@ -37,7 +37,7 @@ projects[panopoly_wysiwyg][subdir] = panopoly
 
 ; Panopoly Recommended
 
-projects[devel][version] = 1.3
+projects[devel][version] = 1.5
 projects[devel][subdir] = contrib
 
 ; Panopoly Other
