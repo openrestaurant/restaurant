@@ -3,15 +3,14 @@ api  = 2
 
 ; Dependencies
 
-projects[ctools][version] = 1.4
-projects[ctools][subdir] = contrib
-projects[ctools][patch][2195211] = https://www.drupal.org/files/issues/ctools-n2195211-entity-from-field-access-callback-15.patch
-
 projects[field_collection][version] = 1.0-beta4
 projects[field_collection][subdir] = contrib
 
 projects[semanticviews][version] = 1.x-dev
 projects[semanticviews][subdir] = contrib
+
+projects[fences][version] = 1.0
+projects[fences][subdir] = contrib
 
 ; projects[uuid][version] = 1.x-dev
 ; projects[uuid][subdir] = contrib
@@ -27,9 +26,6 @@ projects[migrate][subdir] = contrib
 
 projects[migrate_extras][version] = 2.5
 projects[migrate_extras][subdir] = contrib
-
-projects[panels_everywhere][version] = 1.0-rc1
-projects[panels_everywhere][subdir] = contrib
 
 projects[view_mode_templates][version] = 1.x-dev
 projects[view_mode_templates][subdir] = contrib
@@ -56,7 +52,7 @@ projects[calendar][version] = 3.4
 projects[calendar][subdir] = contrib
 projects[calendar][patch][1471400] = https://www.drupal.org/files/issues/calendar-illegal_offset-1471400-78.patch
 
-projects[entity][version] = 1.5
+projects[entity][version] = 1.6
 projects[entity][subdir] = contrib
 
 projects[google_analytics][version] = 1.4

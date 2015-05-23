@@ -13,7 +13,6 @@ dependencies[] = image
 dependencies[] = menu
 dependencies[] = migrate
 dependencies[] = migrate_extras
-dependencies[] = panels_everywhere
 dependencies[] = panels_ipe
 dependencies[] = panopoly_admin
 dependencies[] = panopoly_config
