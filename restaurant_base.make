@@ -30,6 +30,9 @@ projects[migrate_extras][subdir] = contrib
 projects[view_mode_templates][version] = 1.0
 projects[view_mode_templates][subdir] = contrib
 
+projects[smart_trim][version] = 1.5
+projects[smart_trim][subdir] = contrib
+
 projects[email][version] = 1.2
 projects[email][subdir] = contrib
 
