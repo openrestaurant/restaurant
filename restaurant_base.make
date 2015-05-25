@@ -27,7 +27,7 @@ projects[migrate][subdir] = contrib
 projects[migrate_extras][version] = 2.5
 projects[migrate_extras][subdir] = contrib
 
-projects[view_mode_templates][version] = 1.x-dev
+projects[view_mode_templates][version] = 1.0
 projects[view_mode_templates][subdir] = contrib
 
 projects[email][version] = 1.2
