@@ -4,6 +4,9 @@
 include_once 'includes/quick.inc';
 include_once 'includes/standard.inc';
 
+// Installation theme
+define('INSTALL_THEME', 'restaurant_octal');
+
 /**
  * Implements hook_install_tasks().
  */
