@@ -4,21 +4,34 @@
 include_once 'includes/quick.inc';
 include_once 'includes/standard.inc';
 
+define('DISTRIBUTION_NAME', 'Open Restaurant');
+
+// Installation theme
+define('INSTALL_THEME', 'restaurant_radix');
+
 /**
  * Implements hook_install_tasks().
  */
 function restaurant_install_tasks($install_state) {
   $tasks = array();
 
-  // Remove status messages.
-  drupal_get_messages('status', TRUE);
-  drupal_get_messages('warning', TRUE);
+  // Set the page title.
+  drupal_set_title(DISTRIBUTION_NAME);
+
+  // Hide status messages for some tasks.
+  $tasks_to_show_messages = array(
+    'install_verify_requirements'
+  );
+  if (!in_array($install_state['active_task'], $tasks_to_show_messages)) {
+    drupal_get_messages('status', TRUE);
+    drupal_get_messages('warning', TRUE);
+  }
 
   // Load tasks for installation type.
   $selected_installation_type = _restaurant_get_selected_installation_type();
   $install_tasks_callback = $selected_installation_type . '_install_tasks';
   if (function_exists($install_tasks_callback)) {
-    $tasks = call_user_func($install_tasks_callback, $install_state);
+    $tasks = call_user_func($install_tasks_callback, $tasks, $install_state);
   }
 
   // Add a task to configure restaurant.
@@ -34,8 +47,8 @@ function restaurant_install_tasks($install_state) {
  * Implements hook_install_tasks_alter()
  */
 function restaurant_install_tasks_alter(&$tasks, $install_state) {
-  // Set the install theme to restaurant_octal.
-  _restaurant_set_theme('restaurant_octal');
+  // Set the install theme.
+  _restaurant_set_theme(INSTALL_THEME);
 
   // Custom install_finished callback
   $tasks['install_finished']['display_name'] = st('Completed');
@@ -99,9 +112,8 @@ function restaurant_install_welcome($form, &$form_state, &$install_state) {
 <li>Widgets: Map, social links, hours and location, and contact forms.</li>
 <li>Drag and drop functionality to build pages.</li>
 <li>Responsive out of the box. Works on all your devices.</li>
-<li>Opentable and Foursquare support.</li>
-<li>Awesome support.</li>
 </ul>';
+  $message .= '<h4>Click on Launch Installation to setup your website.</h4>';
 
   $form['welcome_message'] = array(
     '#markup' => $message,
@@ -113,7 +125,7 @@ function restaurant_install_welcome($form, &$form_state, &$install_state) {
 
   $form['actions']['submit'] = array(
     '#type' => 'submit',
-    '#value' => st("Let's get started"),
+    '#value' => st("Launch Installation"),
     '#weight' => 10,
     '#attributes' => array(
       'class' => array('btn', 'btn-lg', 'btn-primary'),
@@ -188,7 +200,7 @@ function restaurant_select_installation_type_submit($form, &$form_state) {
  */
 function restaurant_configure_restaurant($form, &$form_state, &$install_state) {
   module_load_include('inc', 'panopoly_config', 'panopoly_config.profile');
-  $form += panopoly_config_get_profile_form();
+  $form += panopoly_config_get_profile_form($form, $form_state);
   return $form;
 }
 
@@ -258,7 +270,7 @@ function restaurant_install_finished(&$install_state) {
 //  drupal_cron_run();
 
   if (isset($messages['error'])) {
-    $output = '<p class="lead">' . st('You have successfully installed the Restaurant Distribution.') . '</p>';
+    $output = '<p class="lead">' . st('You have successfully installed @distribution.', array('@distribution' => DISTRIBUTION_NAME)) . '</p>';
 //    $output .= '<p>' . (isset($messages['error']) ? st('Review any messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
     $output .= l(st('View site'), '', array('attributes' => array('class' => array('btn', 'btn-lg', 'btn-success'))));
     return $output;

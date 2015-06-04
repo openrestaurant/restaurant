@@ -11,7 +11,7 @@ function restaurant_form_install_configure_form_alter(&$form, $form_state) {
 
   // Add a default site name.
   if (empty($form['site_information']['site_name']['#default_value'])) {
-    $form['site_information']['site_name']['#default_value'] = t('Drupal Restaurant');
+    $form['site_information']['site_name']['#default_value'] = DISTRIBUTION_NAME;
   }
   
   // Hide Server Settings.
