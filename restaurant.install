@@ -7,7 +7,8 @@ include_once 'includes/standard.inc';
 define('DISTRIBUTION_NAME', 'Open Restaurant');
 
 // Installation theme
-define('INSTALL_THEME', 'restaurant_radix');
+//define('INSTALL_THEME', 'restaurant_radix');
+define('INSTALL_THEME', 'restaurant_octal');
 
 /**
  * Implements hook_install_tasks().
