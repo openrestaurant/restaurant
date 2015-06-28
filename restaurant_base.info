@@ -4,6 +4,7 @@ core = 7.x
 package = Restaurant
 version = 7.x-1.0
 project = restaurant_base
+dependencies[] = colorfield
 dependencies[] = ctools
 dependencies[] = defaultconfig
 dependencies[] = entity

@@ -45,6 +45,9 @@ projects[addressfield][subdir] = contrib
 projects[colorfield][version] = 1.0
 projects[colorfield][subdir] = contrib
 
+projects[jquery_colorpicker][version] = 1.1
+projects[jquery_colorpicker][subdir] = contrib
+
 projects[disqus][version] = 1.10
 projects[disqus][subdir] = contrib
 
