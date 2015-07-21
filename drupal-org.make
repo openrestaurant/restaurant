@@ -81,12 +81,19 @@ projects[restaurant_admin][download][type] = git
 projects[restaurant_admin][download][branch] = 7.x-1.x
 projects[restaurant_admin][download][revision] = d9e4f1f
 
+projects[restaurant_images][version] = 1.x-dev
+projects[restaurant_images][type] = module
+projects[restaurant_images][subdir] = restaurant
+projects[restaurant_images][download][type] = git
+projects[restaurant_images][download][branch] = 7.x-1.x
+projects[restaurant_images][download][revision] = 5bc01d1
+
 projects[restaurant_widgets][version] = 1.x-dev
 projects[restaurant_widgets][type] = module
 projects[restaurant_widgets][subdir] = restaurant
 projects[restaurant_widgets][download][type] = git
 projects[restaurant_widgets][download][branch] = 7.x-1.x
-projects[restaurant_widgets][download][revision] = c53389a
+projects[restaurant_widgets][download][revision] = afb6b16
 
 projects[restaurant_plugins][version] = 1.x-dev
 projects[restaurant_plugins][type] = module
