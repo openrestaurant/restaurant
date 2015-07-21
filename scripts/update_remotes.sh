@@ -21,7 +21,7 @@ if ! (git remote | grep drupal -q); then
 fi
 if ! (git remote | grep github -q); then
   # Add Github remote
-  git remote add github git@github.com:drupalrestaurant/restaurant.git
+  git remote add github git@github.com:openrestaurant/restaurant.git
 fi
 # Pull latest code from Github
 echo "Pulling latest version of profile restaurant from Github..."
@@ -32,7 +32,7 @@ git push -u github 7.x-1.x
 echo "Pushing latest version of profile restaurant to Drupal..."
 git push drupal 7.x-1.x
 
-submodules=( "admin" "base" "blog" "dashboard" "demo" "event" "foursquare" "location" "mail" "menu" "opentable" "pages" "plugins" "reservation" "seo" "slideshow" "theme" "user" "widgets" "yelp")
+submodules=( "admin" "base" "blog" "dashboard" "demo" "event" "foursquare" "location" "mail" "menu" "opentable" "pages" "plugins" "reservation" "seo" "slideshow" "theme" "user" "widgets" "yelp" "images")
 for subdir in "${submodules[@]}"
 do
   echo ""
@@ -55,7 +55,7 @@ do
   fi
   if ! (git remote | grep github -q); then
     # Add Github remote
-    git remote add github git@github.com:drupalrestaurant/restaurant_$subdir.git
+    git remote add github git@github.com:openrestaurant/restaurant_$subdir.git
   fi
   # Pull latest code from Github
   echo "Pulling latest version of module restaurant_$subdir from Github..."
@@ -84,7 +84,7 @@ do
     fi
     if ! (git remote | grep github -q); then
       # Add Github remote
-      git remote add github git@github.com:drupalrestaurant/$subdir.git
+      git remote add github git@github.com:openrestaurant/$subdir.git
     fi
     # Pull latest code from Github
     echo "Pulling latest version of theme $subdir from Github..."
