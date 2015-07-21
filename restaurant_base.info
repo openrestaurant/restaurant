@@ -35,7 +35,6 @@ dependencies[] = views
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[filter][] = unfiltered_html
-features[image][] = restaurant_large
 features[variable][] = jquery_update_compression_type
 features[variable][] = jquery_update_jquery_cdn
 features[variable][] = user_cancel_method

@@ -66,3 +66,9 @@ projects[google_analytics][subdir] = contrib
 
 projects[computed_field][version] = 1.0
 projects[computed_field][subdir] = contrib
+
+projects[custom_add_another][version] = 1.0-rc3
+projects[custom_add_another][subdir] = contrib
+
+projects[better_exposed_filters][version] = 3.0-beta4
+projects[better_exposed_filters][subdir] = contrib
