@@ -1,9 +1,9 @@
-Drupal Restaurant Distribution
+Open Restaurant
 =========
 
-[![Build Status](https://travis-ci.org/drupalrestaurant/restaurant.svg?branch=7.x-1.x)](https://travis-ci.org/drupalrestaurant/restaurant)
+[![Build Status](https://travis-ci.org/openrestaurant/restaurant.svg?branch=7.x-1.x)](https://travis-ci.org/openrestaurant/restaurant)
 
-The Restaurant Distribution has everything you need to kickstart your restaurant website.
+The Open Restaurant Distribution has everything you need to kickstart your restaurant website.
 
 It comes with a menu management system, a reservation system, a customizable blog and events management.
 
@@ -31,7 +31,3 @@ It also has a responsive theme that can be easily customized.
 * [Spin on Pantheon](https://dashboard.getpantheon.com/products/restaurant/spinup) - The Restaurant Distribution is available on Pantheon. It takes a few minutes to spin a new restaurant website and it is free to install and try.
 * [Download and install](https://www.drupal.org/project/restaurant) - The Restaurant Distribution is package on drupal.org and available as a download.
 * [Try on Simplytest](http://simplytest.me/project/restaurant) - Take the Restaurant Distribution for a 30 minutes test drive on simplytest.me.
-
-## Read more
-
-https://drupal.org/project/restaurant
