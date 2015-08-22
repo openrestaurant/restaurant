@@ -231,7 +231,7 @@ function restaurant_install_finished(&$install_state) {
   variable_set('theme_default', $theme);
 
   // Set the admin theme.
-  $admin_theme = 'seven';
+  $admin_theme = 'restaurant_seven';
   theme_enable(array($admin_theme));
   variable_set('admin_theme', $admin_theme);
 
