@@ -9,6 +9,9 @@ projects[field_collection][subdir] = contrib
 projects[fences][version] = 1.0
 projects[fences][subdir] = contrib
 
+projects[eck][version] = 2.0-rc7
+projects[eck][subdir] = contrib
+
 projects[variable][version] = 2.1
 projects[variable][subdir] = contrib
 
@@ -63,3 +66,6 @@ projects[custom_add_another][subdir] = contrib
 
 projects[better_exposed_filters][version] = 3.0-beta4
 projects[better_exposed_filters][subdir] = contrib
+
+projects[features_override][version] = 2.0-rc2
+projects[features_override][subdir] = contrib
