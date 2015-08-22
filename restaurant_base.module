@@ -21,7 +21,7 @@ function restaurant_base_panopoly_config_info() {
       'site_name' => array(
         'title' => t('Site name'),
         'type' => 'string',
-        'default' => variable_get('site_name', 'Restaurant'),
+        'default' => variable_get('site_name', 'Open Restaurant'),
       ),
       'site_mail' => array(
         'title' => t('Site mail'),
