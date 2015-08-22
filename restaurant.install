@@ -226,7 +226,7 @@ function restaurant_install_finished(&$install_state) {
   module_disable($unwanted);
 
   // Set the default theme.
-  $theme = 'restaurant_radix';
+  $theme = 'sizzle';
   theme_enable(array($theme));
   variable_set('theme_default', $theme);
 
