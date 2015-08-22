@@ -127,3 +127,24 @@ function restaurant_base_get_social_networks() {
 
   return $networks;
 }
+
+/**
+ * Returns an array of config.
+ *
+ * @return array
+ *  An array of config values keyed by config name.
+ */
+function restaurant_base_get_config() {
+  $config = array();
+
+  // Get all config.
+  $panopoly_config = _panopoly_config_get_config();
+  foreach ($panopoly_config as $config_group) {
+    foreach ($config_group['config'] as $key => $c) {
+      $value = panopoly_config_get($key);
+      $config[$key] = !empty($value) ? $value : (!empty($c['default']) ? $c['default'] : '');
+    }
+  }
+
+  return $config;
+}
