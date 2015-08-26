@@ -8,6 +8,7 @@ dependencies[] = colorfield
 dependencies[] = ctools
 dependencies[] = defaultconfig
 dependencies[] = entity
+dependencies[] = entity_view_mode
 dependencies[] = features
 dependencies[] = filter
 dependencies[] = image
