@@ -72,3 +72,6 @@ projects[features_override][subdir] = contrib
 
 projects[entity_view_mode][version] = 1.0-rc1
 projects[entity_view_mode][subdir] = contrib
+
+projects[smart_trim][version] = 1.5
+projects[smart_trim][subdir] = contrib
