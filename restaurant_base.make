@@ -69,3 +69,6 @@ projects[better_exposed_filters][subdir] = contrib
 
 projects[features_override][version] = 2.0-rc2
 projects[features_override][subdir] = contrib
+
+projects[entity_view_mode][version] = 1.0-rc1
+projects[entity_view_mode][subdir] = contrib
