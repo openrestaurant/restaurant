@@ -81,3 +81,6 @@ projects[nodequeue][subdir] = contrib
 
 projects[auto_nodequeue][version] = 2.1
 projects[auto_nodequeue][subdir] = contrib
+
+projects[features_extra][version] = 1.0-beta1
+projects[features_extra][subdir] = contrib
