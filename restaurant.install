@@ -7,7 +7,7 @@ include_once 'includes/standard.inc';
 define('DISTRIBUTION_NAME', 'Open Restaurant');
 
 // Installation theme
-define('INSTALL_THEME', 'restaurant_radix');
+define('INSTALL_THEME', 'restaurant_seven');
 
 /**
  * Implements hook_install_tasks().
@@ -100,8 +100,8 @@ function restaurant_install_tasks_alter(&$tasks, $install_state) {
 function restaurant_install_welcome($form, &$form_state, &$install_state) {
   drupal_set_title(st('Welcome'));
 
-  $message = '<h3>' . st('Thank you for choosing the Restaurant Distribution!') . '</h3>';
-  $message .= '<p class="lead">' . st('The Restaurant Distribution has everything you need to build your restaurant website.') . '</p>';
+  $message = '<h3>' . st('Thank you for choosing Open Restaurant!') . '</h3>';
+  $message .= '<p class="lead">' . st('The Open Restaurant distribution has everything you need to build your restaurant website.') . '</p>';
   $message .= '<h4>Features</h4>
 <ul>
 <li>Menu management system.</li>

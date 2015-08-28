@@ -1,4 +1,4 @@
-name = Restaurant
+name = Open Restaurant
 description = "A distribution to build Restaurant websites"
 version = VERSION
 core = 7.x
@@ -47,14 +47,14 @@ dependencies[] = date_popup_authored
 
 ; Panopoly Contrib
 dependencies[] = panopoly_config
-; dependencies[] = panopoly_seo
+dependencies[] = panopoly_seo
 
 ; Restaurant
 dependencies[] = restaurant_base
+dependencies[] = restaurant_admin
+dependencies[] = restaurant_admin_links
 
 ; Restaurant Core Dependencies
-; dependencies[] = admin_menu
-; dependencies[] = admin_menu_toolbar
 dependencies[] = shortcut
 dependencies[] = contact
 
