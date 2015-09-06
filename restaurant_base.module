@@ -23,6 +23,11 @@ function restaurant_base_panopoly_config_info() {
         'type' => 'string',
         'default' => variable_get('site_name', 'Open Restaurant'),
       ),
+      'site_slogan' => array(
+        'title' => t('Site slogan'),
+        'type' => 'string',
+        'default' => variable_get('site_slogan'),
+      ),
       'site_mail' => array(
         'title' => t('Site mail'),
         'description' => t('The From address in automated e-mails sent during registration and new password requests, and other notifications. (Use an address ending in your site\'s domain to help prevent this e-mail being flagged as spam.)'),
