@@ -87,3 +87,31 @@ projects[features_extra][subdir] = contrib
 
 projects[page_title][version] = 2.7
 projects[page_title][subdir] = contrib
+
+projects[eck][version] = 2.0-rc7
+projects[eck][subdir] = contrib
+
+projects[inline_entity_form][version] = 1.6
+projects[inline_entity_form][subdir] = contrib
+
+projects[commerce][version] = 1.11
+projects[commerce][subdir] = contrib
+
+projects[commerce_backoffice][version] = 1.4
+projects[commerce_backoffice][subdir] = contrib
+
+projects[commerce_features][version] = 1.1
+projects[commerce_features][subdir] = contrib
+
+projects[rules][version] = 2.9
+projects[rules][subdir] = contrib
+
+projects[entityqueue][version] = 1.1
+projects[entityqueue][subdir] = contrib
+
+projects[auto_entityqueue][version] = 1.x-dev
+projects[auto_entityqueue][subdir] = contrib
+
+
+
+
