@@ -76,15 +76,6 @@ projects[entity_view_mode][subdir] = contrib
 projects[smart_trim][version] = 1.5
 projects[smart_trim][subdir] = contrib
 
-projects[nodequeue][version] = 2.0
-projects[nodequeue][subdir] = contrib
-
-projects[auto_nodequeue][version] = 2.1
-projects[auto_nodequeue][subdir] = contrib
-
-projects[features_extra][version] = 1.0-beta1
-projects[features_extra][subdir] = contrib
-
 projects[page_title][version] = 2.7
 projects[page_title][subdir] = contrib
 
