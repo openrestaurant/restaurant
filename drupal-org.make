@@ -166,10 +166,3 @@ projects[restaurant_location][subdir] = restaurant
 projects[restaurant_location][download][type] = git
 projects[restaurant_location][download][branch] = 7.x-1.x
 projects[restaurant_location][download][revision] = e68a87e
-
-projects[restaurant_opentable][version] = 1.x-dev
-projects[restaurant_opentable][type] = module
-projects[restaurant_opentable][subdir] = restaurant
-projects[restaurant_opentable][download][type] = git
-projects[restaurant_opentable][download][branch] = 7.x-1.x
-projects[restaurant_opentable][download][revision] = 5bc01d1
