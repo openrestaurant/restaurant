@@ -144,6 +144,9 @@ function restaurant_install_welcome_submit($form, &$form_state) {
   // add default parameters
   $install_state['parameters']['profile'] = 'restaurant';
   $install_state['parameters']['locale'] = 'en';
+
+  // Set default variables here so that they can be updated by panopoly_config.
+  variable_set('site_slogan', t('Open Source Restaurant Websites'));
 }
 
 function restaurant_select_installation_type($form, &$form_state) {
