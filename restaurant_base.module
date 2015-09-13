@@ -99,6 +99,21 @@ function restaurant_base_panopoly_config_info() {
 }
 
 /**
+ * Implements hook_entity_info_alter().
+ */
+function restaurant_base_entity_info_alter(&$entity_info) {
+  // Remove the 'Add' label from Panopoly FPP.
+  foreach ($entity_info['fieldable_panels_pane']['bundles'] as $key => $bundle) {
+    $label = $bundle['label'];
+    preg_match("/^Add\s/i", $label, $matches);
+    if ($matches) {
+      $label = ucwords(preg_replace("/^Add\s/i", '', $label));
+      $entity_info['fieldable_panels_pane']['bundles'][$key]['label'] = $label;
+    }
+  }
+}
+
+/**
  * Returns a list of social networks available.
  */
 function restaurant_base_get_social_networks() {
