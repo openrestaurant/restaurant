@@ -106,6 +106,9 @@ projects[auto_entityqueue][subdir] = contrib
 projects[addressfield_staticmap][version] = 1.0
 projects[addressfield_staticmap][subdir] = contrib
 
+projects[uuid_features][version] = 1.x-dev
+projects[uuid_features][subdir] = contrib
+
 
 
 
