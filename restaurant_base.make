@@ -78,6 +78,7 @@ projects[smart_trim][subdir] = contrib
 
 projects[page_title][version] = 2.7
 projects[page_title][subdir] = contrib
+projects[page_title][patch][2516726] = https://www.drupal.org/files/issues/page_title-fixes_redeclaration_bug_on_repeated_includes-2516726-1.patch
 
 projects[eck][version] = 2.0-rc7
 projects[eck][subdir] = contrib
