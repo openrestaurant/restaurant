@@ -3,7 +3,7 @@ api  = 2
 
 ; Dependencies
 
-projects[field_collection][version] = 1.0-beta4
+projects[field_collection][version] = 1.0-beta8
 projects[field_collection][subdir] = contrib
 
 projects[fences][version] = 1.0
