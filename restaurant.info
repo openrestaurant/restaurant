@@ -47,16 +47,22 @@ dependencies[] = date_popup_authored
 
 ; Panopoly Contrib
 dependencies[] = panopoly_config
-dependencies[] = panopoly_seo
+; dependencies[] = panopoly_seo
 
 ; Restaurant
-dependencies[] = restaurant_base
 dependencies[] = restaurant_admin
 dependencies[] = restaurant_admin_links
+dependencies[] = restaurant_base
+dependencies[] = restaurant_mail
+dependencies[] = restaurant_pages
+dependencies[] = restaurant_plugins
+dependencies[] = restaurant_theme
+dependencies[] = restaurant_user
+dependencies[] = restaurant_wysiwyg
 
 ; Restaurant Core Dependencies
 dependencies[] = shortcut
-dependencies[] = contact
+; dependencies[] = contact
 
 ; Other
 copyright = Drupal is a registered trademark of Dries Buytaert.
