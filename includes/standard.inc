@@ -54,6 +54,7 @@ function restaurant_select_features($form, &$form_state, &$install_state) {
     'restaurant_event' => st('Events and calendar'),
     'restaurant_reservation' => st('Reservation system'),
     'restaurant_location' => st('Multiple restaurant locations'),
+    'restaurant_contact' => st('Simple contact page'),
     'restaurant_admin' => st('Enhanced administrative interface'),
     'restaurant_seo' => st('SEO such clean urls, metatags...etc'),
   );
@@ -113,18 +114,18 @@ function restaurant_install_features() {
     if (!empty($features['restaurant_blog'])) {
       $modules[] = 'restaurant_blog_demo';
     }
-    if (!empty($features['restaurant_menu'])) {
-      $modules[] = 'restaurant_menu_demo';
-    }
     if (!empty($features['restaurant_event'])) {
       $modules[] = 'restaurant_event_demo';
-    }
-    if (!empty($features['restaurant_reservation'])) {
-      $modules[] = 'restaurant_reservation_demo';
     }
     if (!empty($features['restaurant_location'])) {
       $modules[] = 'restaurant_location_demo';
     }
+//    if (!empty($features['restaurant_menu'])) {
+//      $modules[] = 'restaurant_menu_demo';
+//    }
+//    if (!empty($features['restaurant_reservation'])) {
+//      $modules[] = 'restaurant_reservation_demo';
+//    }
   }
 
   // Resolve the dependencies now, so that module_enable() doesn't need
