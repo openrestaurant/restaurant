@@ -1,7 +1,7 @@
 name = Restaurant Update
 description = Modifications to the Drupal update status page.
 core = 7.x
-package = Open Restaurant
+package = Open Restaurant Core
 version = 7.x-1.0
 project = restaurant_update
 dependencies[] = update
