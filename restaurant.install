@@ -7,7 +7,7 @@ include_once 'includes/standard.inc';
 define('DISTRIBUTION_NAME', 'Open Restaurant');
 
 // Installation theme
-define('INSTALL_THEME', 'restaurant_seven');
+define('INSTALL_THEME', 'radix');
 
 /**
  * Implements hook_install_tasks().
@@ -38,6 +38,12 @@ function restaurant_install_tasks($install_state) {
   $tasks['restaurant_configure_restaurant'] = array(
     'display_name' => st('Configure restaurant'),
     'type' => 'form',
+  );
+
+  // Task to install features.
+  $tasks['restaurant_install_cleanup'] = array(
+    'display_name' => st('Clean up'),
+    'type' => 'batch',
   );
 
   return $tasks;
@@ -90,8 +96,8 @@ function restaurant_install_tasks_alter(&$tasks, $install_state) {
   }
 
   // Magically go one level deeper in solving years of dependency problems
-//  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
-//  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
+  require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
+  $tasks['install_load_profile']['function'] = 'panopoly_core_install_load_profile';
 }
 
 /**
@@ -144,9 +150,6 @@ function restaurant_install_welcome_submit($form, &$form_state) {
   // add default parameters
   $install_state['parameters']['profile'] = 'restaurant';
   $install_state['parameters']['locale'] = 'en';
-
-  // Set default variables here so that they can be updated by panopoly_config.
-  variable_set('site_slogan', t('Open Source Restaurant Websites'));
 }
 
 function restaurant_select_installation_type($form, &$form_state) {
@@ -214,19 +217,34 @@ function restaurant_configure_restaurant_submit($form, &$form_state) {
 /**
  * Callback for install_finished task
  */
-function restaurant_install_finished(&$install_state) {
-  drupal_set_title(st('Installation complete'));
+function restaurant_install_cleanup() {
+  $operations = array(
+    array('restaurant_set_default_variables', array()),
+    array('restaurant_set_default_themes', array()),
+    array('restaurant_disable_unwanted_modules', array()),
+    array('restaurant_clear_theme_caches', array()),
+    array('restaurant_clear_site_caches', array()),
+  );
 
-  $messages = drupal_set_message();
+  $batch = array(
+    'title' => st('Running some post install tasks...'),
+    'operations' => $operations,
+  );
 
+  return $batch;
+}
+
+function restaurant_set_default_variables(&$context) {
   // Remember the profile which was used.
   variable_set('install_profile', drupal_get_profile());
-  variable_set('install_task', 'done');
 
-  // Disable some unwanted modules.
-  $unwanted = array('navbar', 'overlay', 'dblog');
-  module_disable($unwanted);
+  // Enable clean urls.
+  variable_set('clean_url', 1);
 
+  $context['message'] = st('Set default variables.');
+}
+
+function restaurant_set_default_themes(&$context) {
   // Set the default theme.
   $theme = 'sizzle';
   theme_enable(array($theme));
@@ -240,17 +258,43 @@ function restaurant_install_finished(&$install_state) {
   // Set the node admin theme.
   variable_set('node_admin_theme', 1);
 
-  // Enable clean urls.
-  variable_set('clean_url', 1);
- 
+  $context['message'] = st('Enabled default themes.');
+}
+
+function restaurant_disable_unwanted_modules(&$context) {
+
+  // Disable some unwanted modules.
+  $unwanted = array('navbar', 'overlay');
+  module_disable($unwanted);
+
+  $context['message'] = st('Disabled some unsused modules.');
+}
+
+function restaurant_clear_theme_caches(&$context) {
   // Flush theme caches so things are right.
   system_rebuild_theme_data();
   drupal_theme_rebuild();
 
+  $context['message'] = st('Rebuilt the theme registry.');
+}
+
+function restaurant_clear_site_caches(&$context) {
   // Flush all caches to ensure that any full bootstraps during the installer
   // do not leave stale cached data, and that any content types or other items
   // registered by the install profile are registered correctly.
   drupal_flush_all_caches();
+
+  $context['message'] = st('Cleared the site cache.');
+}
+
+/**
+ * Callback for install_finished task
+ */
+function restaurant_install_finished(&$install_state) {
+  drupal_set_title(st('Installation complete'));
+  variable_set('install_task', 'done');
+
+  $messages = drupal_set_message();
 
   // Install profiles are always loaded last
   db_update('system')
@@ -263,9 +307,9 @@ function restaurant_install_finished(&$install_state) {
   drupal_get_schema(NULL, TRUE);
 
   // Revert the demo module to fix https://www.drupal.org/node/2322661.
-  if (!$install_state['interactive']) {
-    features_revert(array('restaurant_demo' => array('variable')));
-  }
+//  if (!$install_state['interactive']) {
+//    features_revert(array('restaurant_demo' => array('variable')));
+//  }
 
   // Run cron to populate update status tables (if available) so that users
   // will be warned if they've installed an out of date Drupal version.
