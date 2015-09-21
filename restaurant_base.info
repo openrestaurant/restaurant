@@ -10,6 +10,7 @@ dependencies[] = disqus
 dependencies[] = entity
 dependencies[] = entity_view_mode
 dependencies[] = features
+dependencies[] = fences
 dependencies[] = image
 dependencies[] = menu
 dependencies[] = migrate
