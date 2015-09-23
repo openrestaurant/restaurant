@@ -11,6 +11,7 @@ dependencies[] = entity
 dependencies[] = entity_view_mode
 dependencies[] = features
 dependencies[] = fences
+dependencies[] = field_collection
 dependencies[] = image
 dependencies[] = menu
 dependencies[] = migrate
