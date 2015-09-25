@@ -7,6 +7,19 @@
  */
 
 /**
+ * Implements hook_install_tasks().
+ */
+function quick_install_tasks() {
+
+  $tasks['restaurant_install_demo_content'] = array(
+    'display_name' => st('Install demo content'),
+    'type' => 'batch',
+  );
+
+  return $tasks;
+}
+
+/**
  * Implements hook_tasks_alter().
  */
 function quick_tasks_alter($tasks, $install_state) {
@@ -111,8 +124,14 @@ function _install_from_db_install_db_import_finished($success, $results, $operat
       ->execute();
   }
 
-  // Copy files from demo modules.
-  _install_from_db_copy_files();
+  // Fix for UUID module.
+  $modules = array('uuid');
+  module_disable($modules, FALSE);
+  drupal_uninstall_modules($modules, FALSE);
+  module_enable($modules, FALSE);
+
+  // Set demo content to TRUE.
+  variable_set('restaurant_demo_content', TRUE);
 }
 
 /**

@@ -6,8 +6,16 @@ include_once 'includes/standard.inc';
 
 define('DISTRIBUTION_NAME', 'Open Restaurant');
 
+define('DISTRIBUTION_SLOGAN', 'Open Source Restaurant Websites');
+
 // Installation theme
 define('INSTALL_THEME', 'radix');
+
+// Default theme
+define('DEFAULT_THEME', 'sizzle');
+
+// Default Administration theme
+define('DEFAULT_ADMINISTRATION_THEME', 'restaurant_seven');
 
 /**
  * Implements hook_install_tasks().
@@ -205,6 +213,8 @@ function restaurant_select_installation_type_submit($form, &$form_state) {
  * Callback for configure restaurant.
  */
 function restaurant_configure_restaurant($form, &$form_state, &$install_state) {
+  // Set the site slogan here so that it can be overriden by panopoly_config.
+  variable_set('site_slogan', DISTRIBUTION_SLOGAN);
   module_load_include('inc', 'panopoly_config', 'panopoly_config.profile');
   $form += panopoly_config_get_profile_form($form, $form_state);
   return $form;
@@ -246,14 +256,12 @@ function restaurant_set_default_variables(&$context) {
 
 function restaurant_set_default_themes(&$context) {
   // Set the default theme.
-  $theme = 'sizzle';
-  theme_enable(array($theme));
-  variable_set('theme_default', $theme);
+  theme_enable(array(DEFAULT_THEME));
+  variable_set('theme_default', DEFAULT_THEME);
 
   // Set the admin theme.
-  $admin_theme = 'restaurant_seven';
-  theme_enable(array($admin_theme));
-  variable_set('admin_theme', $admin_theme);
+  theme_enable(array(DEFAULT_ADMINISTRATION_THEME));
+  variable_set('admin_theme', DEFAULT_ADMINISTRATION_THEME);
 
   // Set the node admin theme.
   variable_set('node_admin_theme', 1);
@@ -284,7 +292,7 @@ function restaurant_clear_site_caches(&$context) {
   // registered by the install profile are registered correctly.
   drupal_flush_all_caches();
 
-  $context['message'] = st('Cleared the site cache.');
+  $context['message'] = st('Clearing the site cache.');
 }
 
 /**
@@ -405,6 +413,108 @@ function _restaurant_get_selected_installation_type() {
 }
 
 /**
+ * Callback to install demo content
+ */
+function restaurant_install_demo_content() {
+  // Build an array of demo modules to enable.
+  $install_demo_content = variable_get('restaurant_demo_content', TRUE);
+  $features = variable_get('restaurant_features', array_keys(restaurant_get_apps()));
+  $apps = restaurant_get_apps();
+  if ($install_demo_content) {
+    $modules = array('restaurant_demo');
+    foreach ($apps as $name => $app) {
+      if (in_array($name, $features)) {
+        if (isset($app['demo'])) {
+          $modules[] = $app['demo'];
+        }
+      }
+    }
+  }
+
+  // Build operations for batch.
+  $operations = _restaurant_build_modules_operations($modules, '_restaurant_enable_module');
+
+  $batch = array(
+    'title' => st('Installing demo content'),
+    'operations' => $operations,
+    'file' => drupal_get_path('profile', 'restaurant') . '/restaurant.install_callbacks.inc',
+  );
+
+  return $batch;
+}
+
+/**
+ * BatchAPI callback to enable a module.
+ *
+ * @see restaurant_install_features()
+ */
+function _restaurant_enable_module($module, $module_name, &$context) {
+  module_enable(array($module), FALSE);
+  $context['message'] = st('Installed %module module.', array('%module' => $module_name));
+}
+
+/**
+ * BatchAPI callback to disable a module.
+ *
+ * @see restaurant_install_features()
+ */
+function _restaurant_disable_module($module, $module_name, &$context) {
+  module_disable(array($module), FALSE);
+//  $context['message'] = st('Installed %module module.', array('%module' => $module_name));
+}
+
+/**
+ * Helper function to build module dependencies.
+ *
+ * @param $modules
+ *  An array of module names.
+ *
+ * @param $callback
+ *  The operation callback.
+ *
+ * @return array
+ *  An batch-ready operations array.
+ */
+function _restaurant_build_modules_operations($modules, $callback) {
+  // Resolve the dependencies now, so that module_enable() doesn't need
+  // to do it later for each individual module (which kills performance).
+  $files = system_rebuild_module_data();
+  $modules_sorted = array();
+  foreach ($modules as $module) {
+    if (isset($files[$module]) && $files[$module]->requires) {
+      // Create a list of dependencies that haven't been installed yet.
+      $dependencies = array_keys($files[$module]->requires);
+      $dependencies = array_filter($dependencies, '_restaurant_filter_dependencies');
+      // Add them to the module list.
+      $modules = array_merge($modules, $dependencies);
+    }
+  }
+  $modules = array_unique($modules);
+  foreach ($modules as $module) {
+    $modules_sorted[$module] = $files[$module]->sort;
+  }
+  arsort($modules_sorted);
+
+  $operations = array();
+  foreach ($modules_sorted as $module => $weight) {
+    $operations[] = array($callback, array($module, $files[$module]->info['name']));
+  }
+  return $operations;
+}
+
+/**
+ * BatchAPI callback.
+ *
+ * @see restaurant_install_demo_content()
+ */
+function _restaurant_import($operation, $type, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $type));
+  $migration =  Migration::getInstance($operation);
+  $migration->resetStatus();
+  $migration->processImport();
+}
+
+/**
  * Returns a list of demo modules.
  */
 function _restaurant_get_demo_modules() {
@@ -414,5 +524,42 @@ function _restaurant_get_demo_modules() {
     'restaurant_menu_demo',
     'restaurant_location_demo',
     'restaurant_reservation_demo',
+  );
+}
+
+/**
+ * Returns an array of restaurant apps.
+ * TODO: Make this into a hook?
+ *
+ * @return array
+ */
+function restaurant_get_apps() {
+  return array(
+    'restaurant_blog' => array(
+      'description' => 'Blog functionality',
+      'demo' => 'restaurant_blog_demo',
+    ),
+    'restaurant_event' => array(
+      'description' => 'Events and calendar',
+      'demo' => 'restaurant_event_demo',
+    ),
+    'restaurant_menu' => array(
+      'description' => 'Menu management',
+      'demo' => 'restaurant_menu_demo',
+    ),
+    'restaurant_location' => array(
+      'description' => 'Multiple restaurant locations',
+      'demo' => 'restaurant_location_demo',
+    ),
+//    'restaurant_reservation' => array(
+//      'description' => 'Simple reservation system',
+//      'demo' => 'restaurant_reservation_demo',
+//    ),
+    'restaurant_contact' => array(
+      'description' => 'Simple contact page',
+    ),
+    'restaurant_seo' => array(
+      'description' => 'Optimize site for Search Engines',
+    ),
   );
 }
