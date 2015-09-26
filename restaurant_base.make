@@ -6,7 +6,7 @@ api  = 2
 projects[field_collection][version] = 1.0-beta8
 projects[field_collection][subdir] = contrib
 
-projects[fences][version] = 1.0
+projects[fences][version] = 1.2
 projects[fences][subdir] = contrib
 
 projects[eck][version] = 2.0-rc7
