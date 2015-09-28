@@ -9,7 +9,7 @@ define('DISTRIBUTION_NAME', 'Open Restaurant');
 define('DISTRIBUTION_SLOGAN', 'Open Source Restaurant Websites');
 
 // Installation theme
-define('INSTALL_THEME', 'radix');
+define('INSTALL_THEME', 'seven');
 
 // Default theme
 define('DEFAULT_THEME', 'sizzle');
@@ -49,8 +49,8 @@ function restaurant_install_tasks($install_state) {
   );
 
   // Task to install features.
-  $tasks['restaurant_install_cleanup'] = array(
-    'display_name' => st('Clean up'),
+  $tasks['restaurant_install_post_install'] = array(
+    'display_name' => st('Post install'),
     'type' => 'batch',
   );
 
@@ -227,13 +227,14 @@ function restaurant_configure_restaurant_submit($form, &$form_state) {
 /**
  * Callback for install_finished task
  */
-function restaurant_install_cleanup() {
+function restaurant_install_post_install() {
   $operations = array(
     array('restaurant_set_default_variables', array()),
     array('restaurant_set_default_themes', array()),
     array('restaurant_disable_unwanted_modules', array()),
     array('restaurant_clear_theme_caches', array()),
     array('restaurant_clear_site_caches', array()),
+    array('restaurant_clear_logs', array()),
   );
 
   $batch = array(
@@ -286,12 +287,16 @@ function restaurant_clear_theme_caches(&$context) {
   $context['message'] = st('Rebuilt the theme registry.');
 }
 
+function restaurant_clear_logs(&$context) {
+  db_delete('watchdog')->execute();
+  $context['message'] = st('Cleared the report logs.');
+}
+
 function restaurant_clear_site_caches(&$context) {
   // Flush all caches to ensure that any full bootstraps during the installer
   // do not leave stale cached data, and that any content types or other items
   // registered by the install profile are registered correctly.
   drupal_flush_all_caches();
-
   $context['message'] = st('Clearing the site cache.');
 }
 
@@ -416,12 +421,14 @@ function _restaurant_get_selected_installation_type() {
  * Callback to install demo content
  */
 function restaurant_install_demo_content() {
+  $modules = array();
+
   // Build an array of demo modules to enable.
   $install_demo_content = variable_get('restaurant_demo_content', TRUE);
-  $features = variable_get('restaurant_features', array_keys(restaurant_get_apps()));
-  $apps = restaurant_get_apps();
   if ($install_demo_content) {
-    $modules = array('restaurant_demo');
+    $features = variable_get('restaurant_features', array_keys(restaurant_get_apps()));
+    $apps = restaurant_get_apps();
+    $modules[] = 'restaurant_demo';
     foreach ($apps as $name => $app) {
       if (in_array($name, $features)) {
         if (isset($app['demo'])) {
@@ -429,18 +436,30 @@ function restaurant_install_demo_content() {
         }
       }
     }
+
+    // Build operations for batch.
+    $operations = _restaurant_build_modules_operations($modules, '_restaurant_enable_module');
+
+    $batch = array(
+      'title' => st('Installing demo content'),
+      'operations' => $operations,
+      'file' => drupal_get_path('profile', 'restaurant') . '/restaurant.install_callbacks.inc',
+    );
+
+    return $batch;
   }
+}
 
-  // Build operations for batch.
-  $operations = _restaurant_build_modules_operations($modules, '_restaurant_enable_module');
-
-  $batch = array(
-    'title' => st('Installing demo content'),
-    'operations' => $operations,
-    'file' => drupal_get_path('profile', 'restaurant') . '/restaurant.install_callbacks.inc',
+/**
+ * Helper to fix menus migrations.
+ * TODO: Figure out why this needs to run twice.
+ */
+function _restaurant_fix_menus_migrations() {
+  $migrations = array(
+    'RestaurantMenuMigrateTypeMigration',
+    'RestaurantMenuMigrateMenuMigration',
   );
-
-  return $batch;
+  _panopoly_core_import_demo_content($migrations);
 }
 
 /**
@@ -551,10 +570,10 @@ function restaurant_get_apps() {
       'description' => 'Multiple restaurant locations',
       'demo' => 'restaurant_location_demo',
     ),
-//    'restaurant_reservation' => array(
-//      'description' => 'Simple reservation system',
-//      'demo' => 'restaurant_reservation_demo',
-//    ),
+    'restaurant_reservation' => array(
+      'description' => 'Simple reservation system',
+      'demo' => 'restaurant_reservation_demo',
+    ),
     'restaurant_contact' => array(
       'description' => 'Simple contact page',
     ),
