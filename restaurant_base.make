@@ -82,7 +82,7 @@ projects[inline_entity_form][subdir] = contrib
 
 projects[commerce][version] = 1.11
 projects[commerce][subdir] = contrib
-projects[ctools][patch][2567833] = https://www.drupal.org/files/issues/commerce-fatal-error-commerce_product_ui.module-2567833-1.patch
+projects[commerce][patch][2567833] = https://www.drupal.org/files/issues/commerce-fatal-error-commerce_product_ui.module-2567833-1.patch
 
 projects[commerce_backoffice][version] = 1.4
 projects[commerce_backoffice][subdir] = contrib
