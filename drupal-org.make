@@ -47,14 +47,6 @@ projects[panopoly_config][download][branch] = 7.x-1.x
 projects[panopoly_seo][version] = 1.0-beta1
 projects[panopoly_seo][subdir] = panopoly
 
-; Radix
-
-projects[radix_core][version] = 1.x-dev
-projects[radix_core][subdir] = contrib
-projects[radix_core][download][type] = git
-projects[radix_core][download][branch] = 7.x-3.x
-projects[radix_core][download][revision] = b52ea5d
-
 ; Restaurant
 
 projects[restaurant_base][version] = 1.x-dev
