@@ -95,6 +95,13 @@ projects[restaurant_user][download][type] = git
 projects[restaurant_user][download][branch] = 7.x-1.x
 projects[restaurant_user][download][url] = "https://github.com/openrestaurant/restaurant_user.git"
 
+projects[restaurant_wysiwyg][version] = 1.x-dev
+projects[restaurant_wysiwyg][type] = module
+projects[restaurant_wysiwyg][subdir] = restaurant/core
+projects[restaurant_wysiwyg][download][type] = git
+projects[restaurant_wysiwyg][download][branch] = 7.x-1.x
+projects[restaurant_wysiwyg][download][url] = "https://github.com/openrestaurant/restaurant_wysiwyg.git"
+
 ; Restaurant Apps
 
 projects[restaurant_menu][version] = 1.x-dev
