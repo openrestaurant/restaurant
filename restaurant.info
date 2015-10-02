@@ -67,6 +67,10 @@ dependencies[] = shortcut
 ; Other
 copyright = Drupal is a registered trademark of Dries Buytaert.
 
+; Guide
+guide[url] = https://github.com/openrestaurant/help
+guide[version] = master
+
 ; Information added by drush on 2014-02-09
 version = "7.x-1.x-dev"
 core = "7.x"
