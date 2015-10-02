@@ -4,7 +4,7 @@
 # To use this command you must have `drush make` and `git` installed.
 
 echo '=========================='
-echo '    Drupal Restaurant     '
+echo '    Open Restaurant     '
 echo '=========================='
 
 echo "\nThis command can be used to rebuild the installation profile.\n"
