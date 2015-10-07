@@ -162,3 +162,25 @@ projects[restaurant_location][subdir] = restaurant/apps
 projects[restaurant_location][download][type] = git
 projects[restaurant_location][download][branch] = 7.x-1.x
 projects[restaurant_location][download][revision] = e68a87e
+
+; Themes
+
+projects[radix][type] = theme
+projects[radix][download][type] = git
+projects[radix][download][branch] = 7.x-3.x
+projects[radix][subdir] = contrib
+
+projects[restaurant_radix][type] = theme
+projects[restaurant_radix][download][type] = git
+projects[restaurant_radix][download][branch] = 7.x-1.x
+projects[restaurant_radix][subdir] = restaurant
+
+projects[restaurant_seven][type] = theme
+projects[restaurant_seven][download][type] = git
+projects[restaurant_seven][download][branch] = 7.x-1.x
+projects[restaurant_seven][subdir] = restaurant
+
+projects[sizzle][type] = theme
+projects[sizzle][download][type] = git
+projects[sizzle][download][branch] = 7.x-1.x
+projects[sizzle][subdir] = restaurant
