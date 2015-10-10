@@ -61,7 +61,7 @@ dependencies[] = restaurant_user
 dependencies[] = restaurant_wysiwyg
 
 ; Restaurant Core Dependencies
-dependencies[] = shortcut
+; dependencies[] = shortcut
 ; dependencies[] = contact
 
 ; Other
