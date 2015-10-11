@@ -52,6 +52,7 @@ dependencies[] = panopoly_config
 ; Restaurant
 dependencies[] = restaurant_admin
 dependencies[] = restaurant_admin_links
+dependencies[] = restaurant_toolbar
 dependencies[] = restaurant_base
 dependencies[] = restaurant_mail
 dependencies[] = restaurant_pages
