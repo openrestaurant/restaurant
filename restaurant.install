@@ -273,7 +273,7 @@ function restaurant_set_default_themes(&$context) {
 function restaurant_disable_unwanted_modules(&$context) {
 
   // Disable some unwanted modules.
-  $unwanted = array('navbar', 'overlay');
+  $unwanted = array('overlay', 'shortcut');
   module_disable($unwanted);
 
   $context['message'] = st('Disabled some unsused modules.');
