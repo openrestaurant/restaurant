@@ -105,6 +105,5 @@ projects[addressfield_staticmap][subdir] = contrib
 projects[uuid_features][version] = 1.x-dev
 projects[uuid_features][subdir] = contrib
 
-
-
-
+projects[search_autocomplete][version] = 4.7
+projects[search_autocomplete][subdir] = contrib
