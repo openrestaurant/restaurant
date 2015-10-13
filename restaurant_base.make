@@ -107,3 +107,9 @@ projects[uuid_features][subdir] = contrib
 
 projects[search_autocomplete][version] = 4.7
 projects[search_autocomplete][subdir] = contrib
+
+projects[radix_core][version] = 3.x-dev
+projects[radix_core][subdir] = contrib
+
+projects[radix_views][version] = 1.0
+projects[radix_views][subdir] = contrib
