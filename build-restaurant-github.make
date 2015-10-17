@@ -125,6 +125,13 @@ projects[restaurant_blog][download][type] = git
 projects[restaurant_blog][download][branch] = 7.x-1.x
 projects[restaurant_blog][download][url] = "https://github.com/openrestaurant/restaurant_blog.git"
 
+projects[restaurant_contact][version] = 1.x-dev
+projects[restaurant_contact][type] = module
+projects[restaurant_contact][subdir] = restaurant
+projects[restaurant_contact][download][type] = git
+projects[restaurant_contact][download][branch] = 7.x-1.x
+projects[restaurant_contact][download][url] = "https://github.com/openrestaurant/restaurant_contact.git"
+
 projects[restaurant_event][version] = 1.x-dev
 projects[restaurant_event][type] = module
 projects[restaurant_event][subdir] = restaurant
