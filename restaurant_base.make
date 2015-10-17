@@ -113,3 +113,6 @@ projects[radix_core][subdir] = contrib
 
 projects[radix_views][version] = 1.0
 projects[radix_views][subdir] = contrib
+
+projects[fontawesome][version] = 2.1
+projects[fontawesome][subdir] = contrib
