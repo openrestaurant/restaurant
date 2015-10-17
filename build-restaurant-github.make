@@ -72,7 +72,7 @@ projects[restaurant_toolbar][type] = module
 projects[restaurant_toolbar][subdir] = restaurant
 projects[restaurant_toolbar][download][type] = git
 projects[restaurant_toolbar][download][branch] = 7.x-1.x
-projects[restaurant_theme][download][url] = "https://github.com/openrestaurant/restaurant_toolbar.git"
+projects[restaurant_toolbar][download][url] = "https://github.com/openrestaurant/restaurant_toolbar.git"
 
 projects[restaurant_admin][version] = 1.x-dev
 projects[restaurant_admin][type] = module
