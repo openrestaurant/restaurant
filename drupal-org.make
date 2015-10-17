@@ -39,10 +39,8 @@ projects[devel][subdir] = contrib
 
 ; Panopoly Other
 
-projects[panopoly_config][version] = 1.x-dev
+projects[panopoly_config][version] = 1.0
 projects[panopoly_config][subdir] = panopoly
-projects[panopoly_config][download][type] = git
-projects[panopoly_config][download][branch] = 7.x-1.x
 
 projects[panopoly_seo][version] = 1.0-beta1
 projects[panopoly_seo][subdir] = panopoly
