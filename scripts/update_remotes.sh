@@ -67,10 +67,10 @@ do
   git push drupal 7.x-1.x
 done
 
-subthemes=( "restaurant_radix" "restaurant_seven")
+subthemes=( "restaurant_radix" "restaurant_seven" "sizzle")
 for subdir in "${subthemes[@]}"
 do
-  if [ -e "$TARGET/themes/restaurant/$subdir/.git" ]; then
+  if [ -e "$TARGET/themes/$subdir/.git" ]; then
     cd $TARGET/themes/$subdir
     echo ""
     echo ""
@@ -80,11 +80,11 @@ do
     if ! (git remote | grep github -q); then
     # Rename origin to github
     git remote rename origin github
-    git remote set-url github git@github.com:openrestaurant/restaurant_$subdir.git
+    git remote set-url github git@github.com:openrestaurant/$subdir.git
     fi
     if ! (git remote | grep drupal -q); then
       # Add Drupal remote
-      git remote add drupal arshad@git.drupal.org:project/restaurant_$subdir.git
+      git remote add drupal arshad@git.drupal.org:project/$subdir.git
     fi
     # Pull latest code from Github
     echo "Pulling latest version of module restaurant_$subdir from Github..."
