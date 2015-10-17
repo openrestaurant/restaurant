@@ -113,3 +113,6 @@ projects[radix_core][subdir] = contrib
 
 projects[radix_views][version] = 1.0
 projects[radix_views][subdir] = contrib
+
+projects[panels_everywhere][version] = 1.0-rc2
+projects[panels_everywhere][subdir] = contrib
