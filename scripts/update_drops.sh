@@ -2,7 +2,7 @@
 
 # Configuration variables
 profile_root="$HOME/Sites/vagrant-openrestaurant/www/profiles/restaurant"
-drops_profile_dest="$HOME/Sites/openrestaurant-drops-7/profiles/restaurant"
+drops_profile_dest="$HOME/Sites/vagrant-openrestaurant-drops-7/www/profiles/restaurant"
 
 # Make sure the profile_root directory is available
 if [ ! -d ${profile_root} ]; then
