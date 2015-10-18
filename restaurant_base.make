@@ -6,9 +6,8 @@ api  = 2
 projects[field_collection][version] = 1.0-beta8
 projects[field_collection][subdir] = contrib
 
-projects[navbar][version] = 1.6
+projects[navbar][version] = 1.x-dev
 projects[navbar][subdir] = contrib
-projects[navbar][patch][2067945] = https://www.drupal.org/files/default-vertical-menu-2067945-2.patch
 
 projects[fences][version] = 1.2
 projects[fences][subdir] = contrib
