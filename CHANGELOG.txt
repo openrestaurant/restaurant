@@ -1,0 +1,260 @@
+Open Restaurant 7.x-1.0-rc1, 2015-10-19
+-----------------------------
+- Update openrestaurant-drops-7 location.
+- Update the drops script.
+- Update the default db.
+- Delete the breakpoints in restaurant_set_default_themes.
+- Build restaurant as dev for now.
+- Add a make file for pantheon.
+- Set Radix as the install theme.
+- Add no-cache to drush make scripts.
+- Add release.sh script.
+- Update panopoly_config.
+- Update version to 1.0-rc1.
+- Update themes in update_remotes script.
+- Add restaurant_contact to make file.
+- Add uuid as a dependency.
+- Fix typo in restaurant_toolbar.
+- FIx update_remotes script.
+- Move modules back to restaurant dir.
+- Update build script.
+- Remove unused scripts.
+- Update update_remotes script.
+- Merge branch '7.x-1.x' of github.com:openrestaurant/restaurant into 7.x-1.x.
+- Add restaurant_toolbar to make file.
+- Update README.md.
+- Update make file.
+- Remove shortcut module from unwanted modules.
+- Add shortcut module back.
+- Update default db.
+- Do not install shortcut module.
+- Add restaurant_toolbar as a dependency.
+- Disable page_manager_node_edit_disabled.
+- Remove shortcut module as a dependency.
+- Clean up and remove unused functions.
+- Add themes to make file.
+- Add restaurant_wysiwyg to make file.
+- Remove radix core from make file.
+- Update github make files.
+- Update rebuild script.
+- Update remotes for projects.
+- Update make files and rebuild script.
+- Rename clean up task to post install.
+- Update quick installation.
+- Update location of site.
+- Add a batch clean up tasks.
+- Update dependencies.
+- Add contact to features.
+- Update demo images path.
+- Move modules into sub directories.
+- Removed opentable from make file.
+- Removed restaurant_images from make file.
+- Removed widgets from make file.
+- Updated to Panopoly 1.26.
+- Updated Drupal core.
+- Set restaurant_radix as the default installation theme.
+- Set restaurant seven as the default admin theme.
+- Set sizzle as the default theme.
+- Removed toolbar from unwanted modules.
+- Comment out admin_menu as a dependency.
+- Updated README.
+- Updated remotes in bash script.
+- Added restaurant_images to make file.
+- Merge branch '7.x-1.x' of github.com:drupalrestaurant/restaurant into 7.x-1.x.
+- Updated to Panopoly 1.25.
+- Merge branch '7.x-1.x' of git.drupal.org:project/restaurant into 7.x-1.x.
+- Updated to Panopoly 1.24.
+- Updated revision for restaurant_theme.
+- Updated to Panopoly 1.23.
+- Fixed merge conflicts.
+- Updated drupal core to 7.38.
+- Updated restaurant install theme.
+- Added INSTALL_THEME.
+- Fixed fatal error for standard install.
+- Updated the update_remotes script.
+- Updated to Drupal 7.37.
+- Update github.make to Panopoly 1.21.
+- Updated to Panopoly 1.21.
+- Updated to Drupal 7.36.
+- Panopoly 1.20 is out. Updated.
+- Updated to Panopoly 1.19.
+- Updated to Panopoly 1.18.
+- Updated Panopoly to 1.16.
+- Update devel to 1.5.
+- Updated to Panopoly 1.15.
+- Updated revision for Radix Core.
+- Updated Drupal to 7.34.
+- Updated github.make to Panopoly 1.14.
+- Update to Panopoly 1.14.
+- Update to drupal 7.34.
+- Updated revision for restaurant_blog: 99769fc Update README.md.
+- Updated revision for restaurant_reservation: 1693111 Update README.md.
+- Added beta10 to travis.
+- Updated Panopoly to 1.13.
+- Updated Drupal core to 7.32.
+- Updated revision for restaurant_widgets: c53389a Update README.md.
+- Updated revision for restaurant_user: 164f6d1 Create README.md.
+- Updated revision for restaurant_slideshow: 0177169 Update README.md_slideshow.
+- Updated revision for restaurant_seo: 7731562 Update README.md.
+- Updated revision for restaurant_reservation: 92a42ef Updated success message to use config.
+- Updated revision for restaurant_plugins: ce15d39 Update README.md.
+- Updated revision for restaurant_opentable: 5bc01d1 Update README.md.
+- Updated revision for restaurant_menu: 3399216 Update README.md.
+- Updated revision for restaurant_mail: f543679 Create README.md.
+- Updated revision for restaurant_location: e68a87e Update README.md.
+- Updated revision for restaurant_demo: 397b080 Update README.md.
+- Updated revision for restaurant_blog: 0e7cbd9 Create README.md.
+- Updated revision for restaurant_admin: d9e4f1f Update README.md.
+- Updated panopoly_seo to 1.0 beta 1.
+- Added pdf to import mask.
+- Removed slideshows from features.
+- Updated revision for restaurant_admin: 1a4d8a6 Code cleanup.
+- Updated revision for restaurant_location: c15248c Added description for location field.
+- Updated revision for restaurant_location: c0bc0e3 Added location field for reservation.
+- Updated revision for restaurant_reservation: 29e1248 Issue #2327301 by gnorf: Fixed Typo causes link in cal. month view not to work.
+- Allow beta 7 to fail on travis.
+- Added beta9 to travis.
+- Added drush si to reinstall script.
+- Fixed Install partially broken since beta3.
+- Updated git remotes for github.make.
+- Updated revision for restaurant_base: 64d5046 Added CTools to make file and patched it.
+- Added 7.x-1.0-beta6 to travis.
+- Updated revision for restaurant_reservation: c4a99c5 Moved hook_forms to .module file so that it is always loaded.
+- Updated revision for restaurant_reservation: fa0b1d5 Issue #2313221: Fixed issue with status form updating same node.
+- Updated default database for quick installation.
+- Updated panopoly_search to 1.11 in github make file.
+- Updated to Panopoly 1.11.
+- Added 7.x-1.0-beta5 to travis.
+- Updated revision for restaurant_theme: 666ade3 Hide blacklisted themes.
+- Added 7.x-1.0-beta4 to travis.
+- Comment fixes.
+- Minor code fixes.
+- Updated revision for restaurant_base: ce23e5a Merge branch &#039;7.x-1.x&#039; of github.com:drupalrestaurant/restaurant_base into 7.x-1.x.
+- Make quick installation recommended.
+- Rename go to site to view site.
+- Push again to github to set upstream.
+- Add an import message when importing table.
+- Import files from demo modules when using quick install.
+- Make sure clean url is enabled after installation.
+- Added 7.x-1.0-beta3 to travis.
+- Fixed php notice pass by ref.
+- Removed make file froms scripts.
+- Removed restaurant.install_callbacks.inc.
+- Renamed finished task to completed.
+- Separate installation types into two include files.
+- Cleaned up welcome screen.
+- Do not run cron after installation completes for now.
+- Updated revision for restaurant_base: 0c88693 Removed dependency on uuid.
+- Added quick installation. Mike Potter FTW.
+- Updated revision for restaurant_reservation: 4b20e29 Removed default node-form class from reservation form.
+- Added a default site_name when empty.
+- Added build status to README.
+- Added behat.travis.yml based on panopoly's.
+- Updated composer.json.
+- Updated path to cd to run tests.
+- Make travis-ci.sh executable.
+- Replaced instances of panopoly with restaurant in travis-ci.sh.
+- Download restaurant_demo and not panopoly demo.
+- Added travis-ci based on panopoly's.
+- Updated travis.yml based on panopoly's.
+- Updated revision for restaurant_event: 67b5d8a Removed addressfield from make file.
+- Added dblog to list of unwanted modules.
+- Updated revision for restaurant_plugins.
+- Updated revision for restaurant_base.
+- Updated Drupal core to 7.31.
+- Updated to Panopoly 1.10.
+- Updated revision for restaurant_admin: 5e95852 Removed radix_admin from make file.
+- Updated revision for radix_core.
+- Updated revision for restaurant_menu.
+- Updated revivion for restaurant_demo.
+- Updated revivion for restaurant_pages.
+- Updated revision for restaurant_reservation.
+- Make restaurant_seo optional and not installed by default.
+- Updated revision for restaurant_blog.
+- Updated revision for restaurant_event.
+- Added projects revision back to make file.
+- Updated to Panopoly 1.9.
+- Remove git url for restaurant.
+- Added restaurant_seo module back.
+- Fixed target for update_remotes script.
+- Moved all scripts to a directory.
+- Make sure default directory has the proper permissions.
+- Disabled restaurant_seo as default module on install.
+- Removed build-restaurant-drops.make.
+- Updated build-restaurant.make.
+- Removed dev make file.
+- Removed unused make file.
+- Updated drupal-org make file.
+- Simplified rebuild.sh script.
+- Added option to build profile+core from github.
+- Always pull the latest revision from github.
+- Updated update_remotes script.
+- Updated update_remotes.sh script.
+- Updated code for tracking remote branches.
+- Updated drops path.
+- Updated module versions.
+- Updated drupal-org-dev.make file.
+- Added drupal-org-dev.make file.
+- Added build-restaurant-release make file.
+- Added build-restaurant-drops make file.
+- Updated update_remotes script to handle profile as well.
+- Added reinstall and update_remotes scripts.
+- Updated release make file.
+- Added travis file.
+- Added a release make file.
+- Assume yes for rebuild.
+- Added rebuild script.
+- Added dev make file.
+- Updated git url in make file.
+- Removed patch for drupal core.
+- Updated to Drupal 7.30.
+- Updated to Panopoly 1.8.
+- Merge branch '7.x-1.x' of github.com:arshad/restaurant into 7.x-1.x.
+- Removed extra messages.
+- Updated to Drupal 7.28.
+- Updated to Panopoly 1.6.
+- Updated read more link to drupal.org project link.
+- Updated revision for restaurant_base: 4fe624d Added foursquare to list of social networks.
+- Do not enable devel by default.
+- Updated revision for restaurant_opentable: f190175 Issue #2268409 by paskainos: Restaurant Opentable: Incorrect simplehtmldom library path.
+- Updated welcome message.
+- Updated README with services.
+- Added test for login using one time login link.
+- Test passed for demo.feature.
+- Added test for demo content on homepage.
+- Added behat for testing.
+- Removed unary from make file.
+- Updated revision for unary: ea9e86f Theme updates.
+- Updated to panopoly 1.5.
+- Updated revision for unary: 8e7d293 Updated theme for admin pages.
+- Updated revision for restaurant_pages: 25b63e2 Renamed navbar to site navbar.
+- Updated revision for restaurant_plugins: 2c87e0b Renamed navbar to site navbar.
+- Added unary to github.make file.
+- Updated revision for unary: 583e939 Updated to Radix 3.x.
+- Added unary theme to make file.
+- Updated revision for restaurant_pages: 5ebae62 Added README file.
+- Better format success message so that it can be used as a commit.
+- Updated to panopoly 1.4.
+- Updated drupal core.
+- Updated default home page panes.
+- Removed testimonials text pane and updated displays.
+- New panelizer display for featured blog posts.
+- Updated revision for restaurant_event: updated featured views number of items.
+- Updated revision for restaurant_opentable.
+- Updated revision for restaurant_location.
+- Updated revision for restaurant_demo.
+- Update README.
+- Updated features task details.
+- Updated README file.
+- Add restaurant_location to list of features.
+- Updated revision for restaurant_pages.
+- Update wording for install finish task.
+- Added restaurant_location to make file.
+- Updated revision for restaurant_admin.
+- Updated revision for restaurant_user.
+- Added restaurant_user to make file.
+- Updated panopoly to 1.2.
+- Added custom script to update pantheon drops.
+- Replaced all download urls for projects with drupal.org git urls.
+- Added a github.make file.
+
