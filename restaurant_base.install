@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Install hooks for Restaurant Base.
+ */
+
+define('RESTAURANT_MAX_EXECUTION_TIME', 120);
+
+/**
+ * Implements hook_requirements().
+ */
+function restaurant_base_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+
+  // Open Restaurant requires a max_execution_time of 120.
+  $requirements['php_max_execution_time'] = array(
+    'title' => $t('PHP max_execution_time'),
+  );
+  $max_execution_time = trim(ini_get('max_execution_time'));
+  if (!empty($max_execution_time) && (int) $max_execution_time < RESTAURANT_MAX_EXECUTION_TIME) {
+    $requirements['php_max_execution_time']['description'] = $t('Please update the <em>max_execution_time</em> value in php.ini to at least @max_execution_time. The PHP manual has instructions for <a href="http://php.net/configuration.changes">how to change configuration settings</a>.', array('@max_execution_time' => RESTAURANT_MAX_EXECUTION_TIME));
+    $requirements['php_max_execution_time']['severity'] = REQUIREMENT_ERROR;
+    $requirements['php_max_execution_time']['value'] = $max_execution_time;
+  }
+  else {
+    $requirements['php_register_globals']['value'] = $max_execution_time;
+  }
+
+  return $requirements;
+}
