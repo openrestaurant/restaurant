@@ -15,10 +15,10 @@ read SELECTION
 
 if [ $SELECTION = "1" ]; then
   echo "Building Open Restaurant install profile from Github..."
-  drush make -y --working-copy --no-gitinfofile --contrib-destination=profiles/restaurant profiles/restaurant/build-restaurant-github.make
+  drush make -y --working-copy --no-gitinfofile --no-cache --contrib-destination=profiles/restaurant profiles/restaurant/build-restaurant-github.make
 elif [ $SELECTION = "2" ]; then
   echo "Building Open Restaurant install profile from Drupal..."
-  drush make -y --working-copy --no-gitinfofile --contrib-destination=profiles/restaurant profiles/restaurant/build-restaurant.make
+  drush make -y --working-copy --no-gitinfofile --no-cache --contrib-destination=profiles/restaurant profiles/restaurant/build-restaurant.make
 else
  echo "Invalid selection."
 fi
