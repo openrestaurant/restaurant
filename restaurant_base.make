@@ -8,6 +8,10 @@ projects[field_collection][subdir] = contrib
 
 projects[navbar][version] = 1.x-dev
 projects[navbar][subdir] = contrib
+projects[navbar][download][type] = git
+projects[navbar][download][revision] = 455f81d
+projects[navbar][download][branch] = 7.x-1.x
+projects[navbar][patch][2595781] = https://www.drupal.org/files/issues/navbar-change-default-orientation-to-vertical-2595781-1.patch
 
 projects[fences][version] = 1.2
 projects[fences][subdir] = contrib
@@ -120,5 +124,5 @@ projects[radix_views][subdir] = contrib
 projects[panels_everywhere][version] = 1.0-rc2
 projects[panels_everywhere][subdir] = contrib
 
-projects[imagecache_token][version] = 1.0-rc1
+projects[imagecache_token][version] = 1.0-rc
 projects[imagecache_token][subdir] = contrib
