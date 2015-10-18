@@ -256,6 +256,13 @@ function restaurant_set_default_variables(&$context) {
 }
 
 function restaurant_set_default_themes(&$context) {
+  // Delete the breakpoints.
+  // This causes a fatal Integrity constraint violation error.
+  // It will be recreated below in theme_enable.
+  if (module_exists('breakpoints')) {
+    breakpoints_breakpoint_group_delete_by_name(DEFAULT_THEME);
+  }
+  
   // Set the default theme.
   theme_enable(array(DEFAULT_THEME));
   variable_set('theme_default', DEFAULT_THEME);
