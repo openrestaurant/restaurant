@@ -11,6 +11,8 @@ projects[navbar][subdir] = contrib
 projects[navbar][download][type] = git
 projects[navbar][download][revision] = 455f81d
 projects[navbar][download][branch] = 7.x-1.x
+projects[navbar][patch][1757466] = http://drupal.org/files/navbar-conflict-1757466-14.patch
+projects[navbar][patch][2050559] = http://drupal.org/files/z-index-heart-cools-2050559-1.patch
 projects[navbar][patch][2595781] = https://www.drupal.org/files/issues/navbar-change-default-orientation-to-vertical-2595781-1.patch
 
 projects[fences][version] = 1.2
