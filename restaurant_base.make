@@ -121,5 +121,5 @@ projects[radix_views][subdir] = contrib
 projects[panels_everywhere][version] = 1.0-rc2
 projects[panels_everywhere][subdir] = contrib
 
-projects[imagecache_token][version] = 1.0-rc2
+projects[imagecache_token][version] = 1.0-rc1
 projects[imagecache_token][subdir] = contrib
