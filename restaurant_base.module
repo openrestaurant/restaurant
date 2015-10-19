@@ -168,3 +168,32 @@ function restaurant_base_get_config() {
 
   return $config;
 }
+
+/**
+ * Add ctools_uuid_generate to fix the Pantheon fatal error.
+ */
+if (!function_exists('ctools_uuid_generate')) {
+  function ctools_uuid_generate() {
+    if (!module_exists('uuid')) {
+      ctools_include('uuid');
+
+      $callback = drupal_static(__FUNCTION__);
+
+      if (empty($callback)) {
+        if (function_exists('uuid_create') && !function_exists('uuid_make')) {
+          $callback = '_ctools_uuid_generate_pecl';
+        }
+        elseif (function_exists('com_create_guid')) {
+          $callback = '_ctools_uuid_generate_com';
+        }
+        else {
+          $callback = '_ctools_uuid_generate_php';
+        }
+      }
+      return $callback();
+    }
+    else {
+      return uuid_generate();
+    }
+  }
+}
