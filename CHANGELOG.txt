@@ -1,3 +1,11 @@
+Open Restaurant 7.x-1.0-rc2, 2015-10-22
+-----------------------------
+- Create release 7.x-1.0-rc2.
+- Update the release script.
+- Add release notes to gitignore.
+- Update script to create release notes.
+- Update the default profile slogan.
+
 Open Restaurant 7.x-1.0-rc1, 2015-10-19
 -----------------------------
 - Update openrestaurant-drops-7 location.
