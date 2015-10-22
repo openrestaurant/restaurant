@@ -36,7 +36,6 @@ do
 
   # Create the CHANGELOG.txt
   echo "Creating CHANGELOG.txt for $module with tag $current_tag and branch $current_branch..."
-  rm -rf CHANGELOG.txt
   drush rn $current_tag $current_branch --changelog >> CHANGELOG.txt
 
   # Replace the current branch with the new tag.
@@ -79,8 +78,6 @@ do
 
   # Create the CHANGELOG.txt
   echo "Creating CHANGELOG.txt for $theme with tag $current_tag and branch $current_branch..."
-  rm -rf CHANGELOG.txt
-  rm -rf CHANGELOG.txt*
   drush rn $current_tag $current_branch --changelog >> CHANGELOG.txt
 
   # Replace the current branch with the new tag.
