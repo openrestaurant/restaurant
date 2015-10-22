@@ -12,6 +12,18 @@ new_tag=7.x-$3
 cd ..
 TARGET=`pwd -P`
 
+# Remove current release notes
+rm $TARGET/RELEASE_NOTES.txt
+
+echo ""
+echo ""
+echo "----------------------------------"
+echo "Profile: Open Restaurant"
+echo "----------------------------------"
+cd $TARGET
+echo "Updating the version number in build-restaurant.make to $3..."
+perl -i -pe "s/^projects\[restaurant\]\[version\]\s?=\s?(.*)$/projects[restaurant][version] = ${3}/g" build-restaurant.make
+
 # Open Restaurant modules.
 for module in "${modules[@]}"
 do
@@ -36,9 +48,17 @@ do
   echo "Updating the date to $current_date..."
   perl -i -pe "s/%ad/${current_date}/g" CHANGELOG.txt
 
+  # Fix empty releases.
+  empty_text="- No changes since last release."
+  perl -i -pe "s/^\-\s?\.$/${empty_text}/g" CHANGELOG.txt
+
   # Update version in .info file.
   echo "Updating the version number in $module.info..."
   perl -i -pe "s/^version\s?=\s?(.*)$/version = ${new_tag}/g" $module.info
+
+  # Update release notes.
+  # Use this to create a release on drupal.org
+  cat CHANGELOG.txt >> $TARGET/RELEASE_NOTES.txt
 
   # Update versions in drupal.org.make
   cd $TARGET
@@ -60,6 +80,7 @@ do
   # Create the CHANGELOG.txt
   echo "Creating CHANGELOG.txt for $theme with tag $current_tag and branch $current_branch..."
   rm -rf CHANGELOG.txt
+  rm -rf CHANGELOG.txt*
   drush rn $current_tag $current_branch --changelog >> CHANGELOG.txt
 
   # Replace the current branch with the new tag.
@@ -71,21 +92,20 @@ do
   echo "Updating the date to $current_date..."
   perl -i -pe "s/%ad/${current_date}/g" CHANGELOG.txt
 
+  # Fix empty releases.
+  empty_text="- No changes since last release."
+  perl -i -pe "s/^\-\s?\.$/${empty_text}/g" CHANGELOG.txt
+
   # Update version in .info file.
   echo "Updating the version number in $theme.info..."
   perl -i -pe "s/^version\s?=\s?(.*)$/version = ${new_tag}/g" $theme.info
+
+  # Update release notes.
+  # Use this to create a release on drupal.org
+  cat CHANGELOG.txt >> $TARGET/RELEASE_NOTES.txt
 
   # Update versions in drupal.org.make
   cd $TARGET
   echo "Updating the version number in drupal-org.make to $3..."
   perl -i -pe "s/^projects\[${theme}\]\[version\]\s?=\s?(.*)$/projects[${theme}][version] = ${3}/g" drupal-org.make
 done
-
-echo ""
-echo ""
-echo "----------------------------------"
-echo "Profile: Open Restaurant"
-echo "----------------------------------"
-cd $TARGET
-echo "Updating the version number in build-restaurant.make to $3..."
-perl -i -pe "s/^projects\[restaurant\]\[version\]\s?=\s?(.*)$/projects[restaurant][version] = ${3}/g" build-restaurant.make
