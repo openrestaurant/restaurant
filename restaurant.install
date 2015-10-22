@@ -6,7 +6,7 @@ include_once 'includes/standard.inc';
 
 define('DISTRIBUTION_NAME', 'Open Restaurant');
 
-define('DISTRIBUTION_SLOGAN', 'Open Source Restaurant Websites');
+define('DISTRIBUTION_SLOGAN', 'Open Source Restaurant Software');
 
 // Installation theme
 define('INSTALL_THEME', 'radix');
