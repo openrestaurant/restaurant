@@ -4,7 +4,9 @@
 source ./config.sh
 
 # New tag.
-new_tag=$1
+current_tag=7.x-$1
+current_branch=7.x-$2
+new_tag=7.x-$3
 
 # Move up on level into the profile root.
 cd ..
@@ -20,25 +22,30 @@ do
   echo "----------------------------------"
   cd $TARGET/modules/restaurant/$module
 
-  # Get the latest tag.
-  current_tag="$(git describe --abbrev=0 --tags)"
+  # Create the CHANGELOG.txt
+  echo "Creating CHANGELOG.txt for $module with tag $current_tag and branch $current_branch..."
+  rm -rf CHANGELOG.txt
+  drush rn $current_tag $current_branch --changelog >> CHANGELOG.txt
 
-  # Tag should match 7.x-1.0-rc1
-  if [[ $current_tag =~ ^[78]+\.x\-[0-9]+\.[0-9]+ ]] ; then
-    # Create release notes using current tag.
-    echo "Creating CHANGELOG.txt for $module..."
-    git push github --tags
-    git push drupal --tags
-  else
-    # If no tag is found then we have not created a tag yet i.e first release.
-    # Create the tag and push it.
-    echo "Creating $new_tag release for $module..."
-    git tag $new_tag
+  # Replace the current branch with the new tag.
+  echo "Updating branch $current_branch in CHANGELOG.txt to $new_tag..."
+  perl -i -pe "s/${current_branch}/${new_tag}/g" CHANGELOG.txt
 
-    git push github --tags
-    git push drupal --tags
-  fi
+  # Replace date.
+  current_date=`date +%Y-%m-%d`
+  echo "Updating the date to $current_date..."
+  perl -i -pe "s/%ad/${current_date}/g" CHANGELOG.txt
+
+  # Update version in .info file.
+  echo "Updating the version number in $module.info..."
+  perl -i -pe "s/^version\s?=\s?(.*)$/version = ${new_tag}/g" $module.info
+
+  # Update versions in drupal.org.make
+  cd $TARGET
+  echo "Updating the version number in drupal-org.make to $3..."
+  perl -i -pe "s/^projects\[${module}\]\[version\]\s?=\s?(.*)$/projects[${module}][version] = ${3}/g" drupal-org.make
 done
+
 
 # Open Restaurant themes.
 for theme in "${themes[@]}"
@@ -50,32 +57,35 @@ do
   echo "----------------------------------"
   cd $TARGET/themes/$theme
 
-  # Get the latest tag.
-  current_tag="$(git describe --abbrev=0 --tags)"
+  # Create the CHANGELOG.txt
+  echo "Creating CHANGELOG.txt for $theme with tag $current_tag and branch $current_branch..."
+  rm -rf CHANGELOG.txt
+  drush rn $current_tag $current_branch --changelog >> CHANGELOG.txt
 
-  # Tag should match 7.x-1.0-rc1
-  if [[ $current_tag =~ ^[78]+\.x\-[0-9]+\.[0-9]+ ]] ; then
-    # Create release notes using current tag.
-    echo "Creating CHANGELOG.txt for $theme..."
-    git push github --tags
-    git push drupal --tags
-  else
-    # If no tag is found then we have not created a tag yet i.e first release.
-    # Create the tag and push it.
-    echo "Creating $new_tag release for $theme..."
-    git tag $new_tag
+  # Replace the current branch with the new tag.
+  echo "Updating branch $current_branch in CHANGELOG.txt to $new_tag..."
+  perl -i -pe "s/${current_branch}/${new_tag}/g" CHANGELOG.txt
 
-    # Push the tags.
-    git push github --tags
-    git push drupal --tags
-  fi
+  # Replace date.
+  current_date=`date +%Y-%m-%d`
+  echo "Updating the date to $current_date..."
+  perl -i -pe "s/%ad/${current_date}/g" CHANGELOG.txt
+
+  # Update version in .info file.
+  echo "Updating the version number in $theme.info..."
+  perl -i -pe "s/^version\s?=\s?(.*)$/version = ${new_tag}/g" $theme.info
+
+  # Update versions in drupal.org.make
+  cd $TARGET
+  echo "Updating the version number in drupal-org.make to $3..."
+  perl -i -pe "s/^projects\[${theme}\]\[version\]\s?=\s?(.*)$/projects[${theme}][version] = ${3}/g" drupal-org.make
 done
 
-# Create release for profile
 echo ""
 echo ""
 echo "----------------------------------"
-echo "Profile: Restaurant"
+echo "Profile: Open Restaurant"
 echo "----------------------------------"
 cd $TARGET
-
+echo "Updating the version number in build-restaurant.make to $3..."
+perl -i -pe "s/^projects\[restaurant\]\[version\]\s?=\s?(.*)$/projects[restaurant][version] = ${3}/g" build-restaurant.make
