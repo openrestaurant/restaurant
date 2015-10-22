@@ -3,3 +3,4 @@ modules/*
 themes/*
 libraries/*
 .DS_Store
+RELEASE_NOTES.txt
