@@ -12,15 +12,6 @@ mysql:
 
 env:
   - UPGRADE=none
-  - UPGRADE=7.x-1.0-beta2
-  - UPGRADE=7.x-1.0-beta3
-  - UPGRADE=7.x-1.0-beta4
-  - UPGRADE=7.x-1.0-beta5
-  - UPGRADE=7.x-1.0-beta6
-  - UPGRADE=7.x-1.0-beta7
-  - UPGRADE=7.x-1.0-beta8
-  - UPGRADE=7.x-1.0-beta9
-  - UPGRADE=7.x-1.0-beta10
   - UPGRADE=7.x-1.0-rc1
   - UPGRADE=7.x-1.0-rc2
 
@@ -28,7 +19,7 @@ matrix:
   fast_finish: true
   allow_failures:
     - env: UPGRADE=7.x-1.0-beta7
-    
+
 mysql:
   database: drupal_travis_db
   username: root
