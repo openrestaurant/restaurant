@@ -3,6 +3,8 @@ language: php
 php:
   - 5.4
 
+sudo: false
+
 mysql:
   database: drupal
   username: root
@@ -26,6 +28,14 @@ matrix:
   fast_finish: true
   allow_failures:
     - env: UPGRADE=7.x-1.0-beta7
+    
+mysql:
+  database: drupal_travis_db
+  username: root
+  encoding: utf8
+
+before_install:
+  - composer self-update
 
 install:
   # Make some variables available to the travis-ci.sh script.
