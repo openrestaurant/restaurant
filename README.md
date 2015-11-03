@@ -3,6 +3,10 @@ Open Restaurant
 
 Everything you need to build your restaurant website. See [open.restaurant](http://open.restaurant)
 
+## Demo
+
+[See a demo](http://dev-demo-openrestaurant.pantheon.io/)
+
 #### Menu management
 
 A management system for creating menus, uploading pictures, and categorization. Supports nutrition information, menu types and prices.
