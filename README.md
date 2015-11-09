@@ -3,6 +3,8 @@ Open Restaurant
 
 Everything you need to build your restaurant website. See [open.restaurant](http://open.restaurant)
 
+![Screebshot](https://cloud.githubusercontent.com/assets/124599/11028266/7fa9ad30-86d6-11e5-91b4-72043d345b17.png)
+
 ## Demo
 
 [See a demo](http://dev-demo-openrestaurant.pantheon.io/)
