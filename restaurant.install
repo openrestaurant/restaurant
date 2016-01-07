@@ -4,17 +4,19 @@
 include_once 'includes/quick.inc';
 include_once 'includes/standard.inc';
 
+// Distribution name.
 define('DISTRIBUTION_NAME', 'Open Restaurant');
 
+// Distribution slogan.
 define('DISTRIBUTION_SLOGAN', 'Open Source Restaurant Software');
 
 // Installation theme
 define('INSTALL_THEME', 'radix');
 
-// Default theme
+// Default theme.
 define('DEFAULT_THEME', 'sizzle');
 
-// Default Administration theme
+// Default Administration theme.
 define('DEFAULT_ADMINISTRATION_THEME', 'restaurant_seven');
 
 /**
@@ -286,6 +288,9 @@ function restaurant_disable_unwanted_modules(&$context) {
   $context['message'] = st('Disabled some unsused modules.');
 }
 
+/**
+ * Rebuilds the theme registry.
+ */
 function restaurant_clear_theme_caches(&$context) {
   // Flush theme caches so things are right.
   system_rebuild_theme_data();
@@ -294,11 +299,17 @@ function restaurant_clear_theme_caches(&$context) {
   $context['message'] = st('Rebuilt the theme registry.');
 }
 
+/**
+ * Clears the watchdog logs.
+ */
 function restaurant_clear_logs(&$context) {
   db_delete('watchdog')->execute();
   $context['message'] = st('Cleared the report logs.');
 }
 
+/**
+ * Clears the site caches.
+ */
 function restaurant_clear_site_caches(&$context) {
   // Flush all caches to ensure that any full bootstraps during the installer
   // do not leave stale cached data, and that any content types or other items
