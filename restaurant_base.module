@@ -168,3 +168,41 @@ function restaurant_base_get_config() {
 
   return $config;
 }
+
+/**
+ * Implements hook_migrate_api().
+ *
+ * We implement the hooks here to fix issues with unregistered migration when
+ * the restaurant_demo modules is enabled.
+ */
+function restaurant_base_migrate_api() {
+  return array(
+    'api' => 2,
+    'groups' => array(
+      'restaurant_demo' => array(
+        'title' => t('Restaurant demo content'),
+      ),
+    ),
+    'migrations' => restaurant_base_get_migrations(),
+  );
+}
+
+/**
+ * Returns an array of migrations.
+ */
+function restaurant_base_get_migrations() {
+  return array(
+    'RestaurantDemoMigrateSlideshowMigration' => array(
+      'class_name' => 'RestaurantDemoMigrateSlideshowMigration',
+      'group_name' => 'restaurant_demo',
+    ),
+    'RestaurantDemoMigrateSlideMigration' => array(
+      'class_name' => 'RestaurantDemoMigrateSlideMigration',
+      'group_name' => 'restaurant_demo',
+    ),
+    'RestaurantDemoMigrateTextMigration' => array(
+      'class_name' => 'RestaurantDemoMigrateTextMigration',
+      'group_name' => 'restaurant_demo',
+    ),
+  );
+}
