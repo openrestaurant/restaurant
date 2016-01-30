@@ -414,7 +414,7 @@ function _restaurant_get_installation_types() {
   return array(
     'quick' => array(
       'title' => st('Quick (recommended)'),
-      'description' => st('Install using a set of predefined settings.'),
+      'description' => st('Install Open Restaurant with all features and demo content.'),
     ),
     'standard' => array(
       'title' => st('Standard'),
