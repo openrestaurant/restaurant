@@ -123,7 +123,7 @@ projects[restaurant_slideshow][subdir] = restaurant
 
 ; Themes
 
-projects[radix][version] = 3.0-rc4
+projects[radix][version] = 3.3
 projects[radix][type] = theme
 
 projects[restaurant_radix][version] = 1.0-rc3
