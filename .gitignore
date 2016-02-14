@@ -1,5 +1,6 @@
 # Ignore profile modules, libraries and themes
-modules/*
+modules/contrib/*
+modules/panopoly/*
 themes/*
 libraries/*
 .DS_Store
