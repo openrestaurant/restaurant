@@ -1,0 +1,16 @@
+Restaurant Base 7.x-1.0-rc2, 2015-10-22
+-----------------------------
+- Revert 2704b032.
+- Add ctools_uuid_generate to fix the Pantheon fatal error.
+- Update navbar in make file.
+- Implement hook_requirements to add max_execution_time.
+- Fix typo in imagecache_token version.
+- Add patch for navbar.
+- Use the dev release for navbar.
+- Change imagecache_token to 1.0-rc1.
+- Add navbar module to make file and patch it.
+
+Restaurant Base 7.x-1.0-rc3, 2016-01-25
+-----------------------------
+- No changes since last release.
+

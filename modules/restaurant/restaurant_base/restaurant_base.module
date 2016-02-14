@@ -1,0 +1,208 @@
+<?php
+/**
+ * @file
+ * Provides base configuration and structure for the Restaurant Distribution
+ */
+
+include_once 'restaurant_base.features.inc';
+
+/**
+ * Implements hook_panopoly_config_info()
+ */
+function restaurant_base_panopoly_config_info() {
+  $info = array();
+
+  // General
+  $info['general'] = array(
+    'title' => t('General'),
+    'description' => t('General settings such as site name, site mail.'),
+    'weight' => 10,
+    'config' => array(
+      'site_name' => array(
+        'title' => t('Site name'),
+        'type' => 'string',
+        'default' => variable_get('site_name', 'Open Restaurant'),
+      ),
+      'site_slogan' => array(
+        'title' => t('Site slogan'),
+        'type' => 'string',
+        'default' => variable_get('site_slogan'),
+      ),
+      'site_mail' => array(
+        'title' => t('Site mail'),
+        'description' => t('The From address in automated e-mails sent during registration and new password requests, and other notifications. (Use an address ending in your site\'s domain to help prevent this e-mail being flagged as spam.)'),
+        'type' => 'string',
+        'default' => variable_get('site_mail'),
+      ),
+    ),
+  );
+
+  // Contact.
+  $info['contact'] = array(
+    'title' => t('Contact'),
+    'description' => t('Contact and opening hours.'),
+    'weight' => 20,
+    'config' => array(
+      'phone' => array(
+        'title' => t('Phone'),
+        'type' => 'string',
+        'description' => t('Phone number for restaurant.'),
+        'show_on_install' => TRUE,
+      ),
+      'address' => array(
+        'title' => t('Address'),
+        'type' => 'text',
+        'description' => t('Restaurant address.'),
+        'show_on_install' => TRUE,
+      ),
+      'opening_hours' => array(
+        'title' => t('Opening Hours'),
+        'type' => 'text',
+        'description' => t('Restaurant opening hours.'),
+        'show_on_install' => TRUE,
+      ),
+    ),
+  );
+
+  // Services.
+  $info['services'] = array(
+    'title' => t('Services'),
+    'description' => t('Settings for external web services such as Google analytics, Disqus..etc'),
+    'weight' => 30,
+    'config' => array(
+      'googleanalytics_account' => array(
+        'title' => t('Google analytics ID'),
+        'description' => t('Google analytics ID in the form of UA-xxxxxxx-yy. !link for advanced settings.', array(
+          '!link' => l(t('Click here'), 'admin/config/system/googleanalytics'),
+        )),
+        'type' => 'string',
+      ),
+    ),
+  );
+
+  // Social.
+  $info['social'] = array(
+    'title' => t('Social'),
+    'description' => t('Settings for social networks such as Twitter, Facebook..etc'),
+    'weight' => 40,
+  );
+  $networks = restaurant_base_get_social_networks();
+  foreach ($networks as $name => $network) {
+    $info['social']['config'][$name] = array(
+      'title' => $network['title'],
+      'type' => 'string',
+      'show_on_install' => TRUE,
+    );  
+  }
+
+  return $info;
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function restaurant_base_entity_info_alter(&$entity_info) {
+  // Remove the 'Add' label from Panopoly FPP.
+  foreach ($entity_info['fieldable_panels_pane']['bundles'] as $key => $bundle) {
+    $label = $bundle['label'];
+    preg_match("/^Add\s/i", $label, $matches);
+    if ($matches) {
+      $label = ucwords(preg_replace("/^Add\s/i", '', $label));
+      $entity_info['fieldable_panels_pane']['bundles'][$key]['label'] = $label;
+    }
+  }
+}
+
+/**
+ * Returns a list of social networks available.
+ */
+function restaurant_base_get_social_networks() {
+  $networks = array(
+    'twitter' => array(
+      'title' => t('Twitter'),
+      'button_text' => t('Follow us on Twitter'),
+    ),
+    'facebook' => array(
+      'title' => t('Facebook'),
+      'button_text' => t('Like us on Facebook'),
+    ),
+    'google_plus' => array(
+      'title' => t('Google+'),
+      'button_text' => t('Follow us on Google+'),
+    ),
+    'yelp' => array(
+      'title' => t('Yelp'),
+      'button_text' => t('Find us on Yelp'),
+    ),
+    'foursquare' => array(
+      'title' => t('Foursquare'),
+      'button_text' => t('We are on Foursquare'),
+    ),
+  );
+
+  // Add value to networks.
+  foreach ($networks as $name => $network) {
+    $networks[$name]['default'] = panopoly_config_get($name);
+  }
+
+  return $networks;
+}
+
+/**
+ * Returns an array of config.
+ *
+ * @return array
+ *  An array of config values keyed by config name.
+ */
+function restaurant_base_get_config() {
+  $config = array();
+
+  // Get all config.
+  $panopoly_config = _panopoly_config_get_config();
+  foreach ($panopoly_config as $config_group) {
+    foreach ($config_group['config'] as $key => $c) {
+      $value = panopoly_config_get($key);
+      $config[$key] = !empty($value) ? $value : (!empty($c['default']) ? $c['default'] : '');
+    }
+  }
+
+  return $config;
+}
+
+/**
+ * Implements hook_migrate_api().
+ *
+ * We implement the hooks here to fix issues with unregistered migration when
+ * the restaurant_demo modules is enabled.
+ */
+function restaurant_base_migrate_api() {
+  return array(
+    'api' => 2,
+    'groups' => array(
+      'restaurant_demo' => array(
+        'title' => t('Restaurant demo content'),
+      ),
+    ),
+    'migrations' => restaurant_base_get_migrations(),
+  );
+}
+
+/**
+ * Returns an array of migrations.
+ */
+function restaurant_base_get_migrations() {
+  return array(
+    'RestaurantDemoMigrateSlideshowMigration' => array(
+      'class_name' => 'RestaurantDemoMigrateSlideshowMigration',
+      'group_name' => 'restaurant_demo',
+    ),
+    'RestaurantDemoMigrateSlideMigration' => array(
+      'class_name' => 'RestaurantDemoMigrateSlideMigration',
+      'group_name' => 'restaurant_demo',
+    ),
+    'RestaurantDemoMigrateTextMigration' => array(
+      'class_name' => 'RestaurantDemoMigrateTextMigration',
+      'group_name' => 'restaurant_demo',
+    ),
+  );
+}
