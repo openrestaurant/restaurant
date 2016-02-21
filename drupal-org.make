@@ -49,6 +49,8 @@ projects[panopoly_seo][subdir] = panopoly
 
 projects[radix][version] = 3.3
 projects[radix][type] = theme
+projects[radix][subdir] = contrib
 
 projects[sizzle][version] = 1.0-rc3
 projects[sizzle][type] = theme
+projects[sizzle][subdir] = contrib
