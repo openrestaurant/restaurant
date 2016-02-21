@@ -1,0 +1,16 @@
+// Node: Location
+// -----------------------------------------------------------------------------
+.node-location {
+  .image {
+    border: 1px solid $brand-primary;
+    padding: 8px;
+    @include border-radius(2px);
+  }
+
+  .field-slideshow-controls .fa {
+    font-size: 3.0em;
+    width: 30px;
+    height: 70px;
+    margin-top: -45px;
+  }
+}

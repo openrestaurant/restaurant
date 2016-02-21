@@ -1,0 +1,39 @@
+// Modal
+#modalBackdrop {
+  background: rgba(#000, 0.7) !important;
+  z-index: 1002 !important;
+}
+#modalContent {
+  z-index: 1100 !important;
+  width: 1000px !important;
+  div.ctools-modal-content {
+    width: 100% !important;
+    margin: 0;
+    background: transparent;
+    border-radius: 2px;
+    .modal-header {
+      background: $gray;
+      color: #ecf0f1;
+      overflow: hidden;
+      padding: 10px 20px;
+      height: 48px;
+      border-radius: 2px 2px 0 0;
+      .modal-title {
+        line-height: 30px;
+        float: left;
+      }
+      a.close {
+        margin: 5px 0 0;
+      }
+    }
+    .modal-content {
+      width: 1000px !important;
+      padding: 20px;
+      background: white;
+      border-radius: 0 0 2px 2px;
+    }
+  }
+}
+div.ui-dialog {
+  top: 70px !important;
+}

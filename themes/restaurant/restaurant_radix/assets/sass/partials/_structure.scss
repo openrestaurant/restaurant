@@ -1,0 +1,49 @@
+// Styles for Tabs, Messages, ..etc
+// --------------------------------------------------
+
+// Logo
+// -----------------------------------------------------------------------------
+.logo {
+  img {
+    display: inline-block;
+    vertical-align: middle;
+    + h1 {
+      @extend .margin--sm--left;
+    }
+  }
+  h1 {
+    display: inline-block;
+    margin: 0;
+  }
+}
+
+// Address
+// -----------------------------------------------------------------------------
+.address {
+  font-size: 12px;
+//  border: 1px solid $brand-primary;
+//  padding: 10px;
+//  color: lighten($brand-primary, 40);
+//  text-align: right;
+//  background-color: rgba($brand-primary, 0.95);
+}
+
+// Page header
+// -----------------------------------------------------------------------------
+.page-header {
+  margin: 0 0 30px;
+}
+
+// Alerts
+// -----------------------------------------------------------------------------
+.alert {
+  &.alert-success {
+    @extend .border--xs;
+  }
+}
+
+// Node
+// -----------------------------------------------------------------------------
+.node {
+  position: relative;
+}

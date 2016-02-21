@@ -1,0 +1,13 @@
+name        = Restaurant Seven
+description = Default Administration theme for Open Restaurant.
+screenshot  = screenshot.png
+core        = 7.x
+
+; Base - Seven
+base theme  = seven
+
+; CSS - General
+stylesheets[all][]     = assets/css/restaurant_seven.style.css
+
+; Javascript
+scripts[] = assets/js/restaurant_seven.script.js

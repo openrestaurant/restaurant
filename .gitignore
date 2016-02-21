@@ -1,7 +1,7 @@
 # Ignore profile modules, libraries and themes
 modules/contrib/*
 modules/panopoly/*
-themes/*
+themes/contrib/*
 libraries/*
 .DS_Store
 RELEASE_NOTES.txt

@@ -1,0 +1,87 @@
+// Styles for Reservations.
+// -----------------------------------------------------------------------------
+
+// Reservation
+// -----------------------------------------------------------------------------
+.reservation {
+  .field-label {
+    margin: 15px 0 5px;
+    font-size: 1.1em;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .col-left,
+  .col-right {
+    float: left;
+  }
+  .col-left {
+    width: 60%;
+  }
+  .col-right {
+    width: 39%;
+    margin-left: 1%;
+  }
+
+}
+
+// Label
+// -----------------------------------------------------------------------------
+.reservation-label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-weight: normal;
+  line-height: 1;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  font-size: 0.85em;
+  &-pending {
+    background-color: $blue;
+  }
+  &-cancelled {
+    background-color: $red;
+  }
+  &-confirmed {
+    background-color: $green;
+  }
+}
+
+// View
+// -----------------------------------------------------------------------------
+.view-item-administration_reservations {
+  .calendar {
+    &.monthview {
+      background: none !important;
+      border: 1px solid $border-color;
+      padding: 5px 5px 25px 5px !important;
+      position: relative;
+      border-radius: 0;
+
+      h6 {
+        float: right;
+        margin: 0;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      h4 {
+        margin: 0;
+        font-weight: 600;
+      }
+
+      .reservation-label {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        line-height: 18px;
+        border-radius: 0;
+      }
+    }
+  }
+}

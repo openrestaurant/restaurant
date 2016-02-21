@@ -1,0 +1,185 @@
+// Styles for Forms
+// -----------------------------------------------------------------------------
+
+// Buttons
+// -----------------------------------------------------------------------------
+.btn {
+  color: $brand-primary;
+  font-size: 13px;
+  font-family: $font-secondary;
+  text-transform: uppercase;
+  background: none;
+  padding: 10px 20px;
+  border: 1px solid $brand-primary;
+  @include border-radius(2px);
+  @include hover() {
+    color: #ffffff;
+    background: $brand-primary;
+    border-color: $brand-primary;
+  }
+
+  &.btn--hover {
+    color: #ffffff;
+    background: $brand-primary;
+    border-color: $brand-primary;
+  }
+
+  &.btn--secondary {
+    color: #ffffff;
+    background: $brand-secondary;
+    border-color: $brand-secondary;
+    @include hover() {
+      background: $brand-primary;
+      border-color: $brand-primary;
+    }
+  }
+
+  &.btn--xs {
+    padding: 5px 10px 4px;
+    font-size: 12px;
+  }
+
+  &.btn--lg {
+    padding: 7px 60px 5px;
+    font-size: 16px;
+  }
+}
+.btn + .btn {
+  margin-right: 10px;
+}
+
+// Form
+// -----------------------------------------------------------------------------
+form {
+  div.form-item {
+    margin: 0 0 25px;
+  }
+  label {
+    text-transform: uppercase;
+    font-family: $font-secondary;
+  }
+  .form-control {
+    @include hover {
+      @include box-shadow(none);
+    }
+  }
+
+  .radio, .checkbox {
+    label {
+      font-weight: 600;
+    }
+  }
+
+  .form-checkboxes {
+    .radio, .checkbox {
+      label {
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+// Better Exposed Filters.
+// -----------------------------------------------------------------------------
+.bef-select-as-checkboxes {
+  .bef-checkboxes {
+    background: white;
+    border-bottom: 1px solid rgba($brand-primary, 0.2);
+    @include box-shadow(0 5px 5px rgba($brand-primary, 0.2));
+    .form-item {
+      font-size: 1.1em;
+      font-family: $font-secondary;
+      padding: 10px 20px;
+      border-bottom: 1px solid rgba($brand-primary, 0.2);
+      cursor: pointer;
+      &:last-child {
+        border: 0;
+      }
+      &:hover {
+        color: $brand-secondary;
+        background-color: rgba($brand-secondary, 0.1);
+      }
+      input {
+        margin: 5px 0 0;
+        float: right;
+        vertical-align: middle;
+      }
+      img {
+        margin: 0 8px 0 0;
+        vertical-align: middle;
+      }
+      label {
+        font-weight: 300;
+        text-transform: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// Views Exposed Form.
+// -----------------------------------------------------------------------------
+.views-exposed-form {
+  .views-exposed-widgets {
+    margin: 0;
+    .views-exposed-widget {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      > label {
+        @extend .btn;
+        min-width: 200px;
+        text-align: left;
+        @include border-radius(0);
+        &:before {
+          @include fa(filter);
+          font-size: 1.6em;
+          vertical-align: middle;
+          margin-right: 5px;
+          line-height: 100%;
+          width: 20px;
+        }
+      }
+      .views-widget {
+        display: none;
+        z-index: 600;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+      }
+
+      &.open {
+        > label {
+          @extend .btn--hover;
+        }
+        .views-widget {
+          display: block;
+        }
+      }
+
+      + .views-exposed-widget {
+        margin-left: 10px;
+      }
+
+      &#edit-location-wrapper {
+        > label {
+          &:before {
+            @include fa(map-marker);
+            font-size: 1.6em;
+            vertical-align: middle;
+            margin-right: 5px;
+            line-height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Other
+// -----------------------------------------------------------------------------
+.progress {
+  height: 30px;
+  @extend .border--xs;
+}

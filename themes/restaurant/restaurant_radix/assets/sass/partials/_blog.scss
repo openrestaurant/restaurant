@@ -1,0 +1,19 @@
+// Blog Post
+// -----------------------------------------------------------------------------
+.node-blog-post {
+  img {
+    width: 100%;
+    height: auto;
+    @include border-radius(2px);
+  }
+
+  &.view-mode-teaser {
+    @extend .margin--sm--top;
+    @extend .margin--sm--bottom;
+  }
+
+  &.view-mode-featured {
+    @extend .padding--xs--left;
+    @extend .padding--xs--right;
+  }
+}

@@ -1,0 +1,191 @@
+// Styles for Media
+// -----------------------------------------------------------------------------
+
+// Media Widget.
+// -----------------------------------------------------------------------------
+.media-widget {
+  border: 1px solid $border-color;
+  padding: 15px;
+  margin: 0 0 25px;
+  border-radius: 2px;
+  img {
+    border: 1px solid $border-color;
+    padding: 5px;
+  }
+  input.form-submit,
+  a.button {
+    float: right;
+  }
+  a.browse {
+    float: left;
+  }
+  input.remove {
+    margin-right: 0;
+  }
+}
+.media-filename {
+  margin: 5px 8px;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+.media-item {
+  background: none;
+  border: 0;
+  padding: 0;
+  float: left;
+  margin: 0 5px 0 0;
+  box-shadow: none;
+  a.edit {
+    float: left;
+    height: 30px;
+    padding: 4px 12px;
+  }
+}
+.field-widget-media-generic {
+  .tabledrag-toggle-weight {
+    display: none;
+  }
+  fieldset {
+    margin: 0;
+    border: 0;
+    legend {
+      display: none;
+    }
+  }
+  .fieldset-wrapper {
+    padding: 0;
+    .form-type-media {
+      > label {
+        display: none;
+      }
+      .media-widget {
+        margin: -1px 1px 0 0;
+        border-radius: 0 0 2px 2px;
+      }
+    }
+  }
+  table {
+    margin: 0;
+    thead {
+      display: none;
+    }
+    td {
+      vertical-align: top;
+      padding-right: 0;
+      &:first-child {
+        width: 90%;
+      }
+    }
+    .tabledrag-handle {
+      position: relative;
+    }
+    .media-widget {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      a.edit {
+        margin-right: 0;
+      }
+    }
+  }
+}
+.media-display-thumbnails {
+  clear: both;
+}
+ul.media-list-thumbnails li {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $border-color;
+  padding: 15px 15px 15px 35px;
+  margin: 15px 15px 0 0;
+  width: 30%;
+  float: left;
+  min-height: 100px;
+  border-radius: 2px;
+  img {
+    border: 1px solid $border-color;
+    padding: 5px;
+    width: 80px;
+    height: 80px;
+  }
+  .form-type-checkbox {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+  }
+}
+
+// Media Popup
+// -----------------------------------------------------------------------------
+#media-browser-tabset {
+  #header {
+    padding: 20px 0 0;
+    min-height: 0;
+    border-radius: 0;
+    @include clearfix();
+    .container {
+      margin: 0;
+      padding: 0 20px;
+      width: auto;
+    }
+    ul.tabs {
+      li {
+        a {
+          border: 0;
+          height: auto;
+          padding: 12px 18px;
+          line-height: 12px;
+          outline: none;
+          &:hover, :focus {
+            padding: 12px 18px;
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+  .media-browser-tab {
+    padding: 20px 0 80px;
+    .form-actions {
+      background-color: white;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+      padding: 10px 5px 5px;
+      border-top: 1px solid $border-color;
+      text-align: right;
+    }
+  }
+  ul.media-list-thumbnails {
+    li {
+      padding: 9px;
+      .media-item {
+        opacity: 0.8;
+        &.selected {
+          opacity: 1.0;
+          img {
+            border: 1px solid $gray;
+          }
+        }
+      }
+    }
+  }
+}
+.media-wrapper {
+  .ui-dialog-titlebar {
+    button.ui-dialog-titlebar-close {
+      background: url('../images/icon/icon-close-popup.png') no-repeat left top;
+      top: 10px;
+      outline: none;
+      text-indent: -9999px;
+      span {
+        display: none;
+      }
+    }
+  }
+}

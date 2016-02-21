@@ -1,0 +1,90 @@
+// Styles for Views
+// -----------------------------------------------------------------------------
+
+// Views: filters
+// -----------------------------------------------------------------------------
+.view-filters {
+  padding: 10px 15px;
+  border: 1px solid $border-color;
+  margin: 15px 0;
+  background-color: lighten($border-color, 10);
+  border-radius: 2px;
+}
+.views-exposed-form {
+  .views-submit-button,
+  .views-reset-button {
+    margin-top: 35px;
+    padding: 0;
+  }
+}
+.vbo-select-all-markup {
+  margin-bottom: 18px;
+}
+
+// Views: UI
+// -----------------------------------------------------------------------------
+#edit-options {
+  .collapsible {
+    padding: 0;
+  }
+}
+.views-ui-dialog {
+  .ui-dialog-titlebar {
+    height: 0;
+    padding: 0;
+  }
+  .ui-dialog-titlebar-close {
+    background: #F3F4EE;
+    cursor: pointer;
+    .ui-button-text {
+      display: none;
+    }
+  }
+  #views-filterable-options-controls {
+    margin: 0 0 10px;
+    padding: 10px;
+    border: 1px solid $border-color;
+    border-radius: 2px;
+    .form-item {
+      margin: 0 10px 0 0;
+    }
+    label {
+      float: left;
+      margin: 8px 8px 0 0;
+    }
+  }
+}
+
+// Views: Date nav
+// -----------------------------------------------------------------------------
+.view {
+  .date-nav-wrapper {
+    padding: 15px;
+    border: 1px solid $border-color;
+    margin: 15px 0;
+    border-radius: 2px;
+    .date-heading {
+      float: left;
+      text-align: left;
+    }
+    .date-nav {
+      padding: 0;
+      margin: 0;
+    }
+    .date-prev,
+    .date-next {
+      padding: 0;
+      border-radius: 2px;
+      a {
+        padding: 5px 10px;
+        margin: 0;
+        display: block;
+        border-radius: 2px;
+        &:hover {
+          background-color: $blue;
+          color: white;
+        }
+      }
+    }
+  }
+}

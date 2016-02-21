@@ -1,0 +1,79 @@
+// Tabs
+// -----------------------------------------------------------------------------
+ul.primary {
+  float: right;
+  position: relative;
+  bottom: -11px;
+  height: auto;
+  li {
+    padding: 0;
+    margin: 0 3px;
+    a, a:link {
+      border: 1px solid lighten($gray, 50) !important;
+      height: auto;
+      line-height: 120%;
+      font-weight: 600;
+      color: $gray;
+      padding: 12px 18px;
+      background: lighten($gray, 50) !important;
+      border-radius: 2px 2px 0 0 !important;
+      @include hover() {
+        color: $gray;
+        background: lighten($gray, 60) !important;
+      }
+      &.active, &.ui-state-active {
+        border: 1px solid $border-color !important;
+        border-bottom-color: white !important;
+        background: white !important;
+      }
+    }
+    &.active, &.ui-state-active {
+      a {
+        border: 1px solid $border-color !important;
+        border-bottom-color: white !important;
+        background: white !important;
+      }
+    }
+  }
+}
+ul.secondary {
+  float: right;
+  clear: none;
+  padding: 0;
+  li {
+    margin: 0 0 0 10px;
+    a {
+      color: white;
+      padding: 5px 8px !important;
+      background: lighten($gray, 50) !important;
+      border-radius: 2px !important;
+      &:hover, &.active {
+        padding: 5px 8px !important;
+        background: $gray !important;
+      }
+    }
+  }
+}
+
+// Action links
+// -----------------------------------------------------------------------------
+ul.action-links {
+  margin: 0 0 15px;
+  padding: 0;
+  li {
+    a {
+      color: white;
+      padding: 0 15px;
+      height: 35px;
+      line-height: 35px;
+      display: block;
+      border-radius: 2px;
+      text-decoration: none;
+      background: $gray;
+      @include hover() {
+        color: $gray;
+        background-color: lighten($gray, 60);
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+// Styles for layout
+// -----------------------------------------------------------------------------
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: white;
+}
+
+// Top
+// -----------------------------------------------------------------------------
+#top {
+  background-color: #ffffff;
+  color: $gray;
+  border-bottom: 1px solid #E5E5E5;
+  padding: 15px 0;
+  font-size: 0.85em;
+  display: none;
+  h1 {
+    float: left;
+    font-size: 2.0em;
+    font-weight: 500;
+    margin: 0;
+    margin: 0 0 0 -15px;
+  }
+}
+
+// Page
+// -----------------------------------------------------------------------------
+#page {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: auto;
+  min-width: 1000px;
+  border-radius: 0;
+  #content {
+    padding: 15px 30px 30px;
+  }
+}
+
+// Header
+// -----------------------------------------------------------------------------
+#header {
+  color: $gray;
+  padding: 15px 30px 10px;
+  min-height: 48px;
+  border-bottom: 1px solid $border-color;
+  border-radius: 2px 2px 0 0;
+  h1 {
+    margin: 0;
+    line-height: 140%;
+    font-size: 1.8em;
+    float: left;
+    clear: left;
+  }
+}

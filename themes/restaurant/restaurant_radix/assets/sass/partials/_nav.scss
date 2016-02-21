@@ -1,0 +1,176 @@
+// Styles for Navs
+// --------------------------------------------------
+
+// Navbar collapse
+// -----------------------------------------------------------------------------
+.navbar-collapse {
+  padding: 0;
+}
+
+// Navbar
+// -----------------------------------------------------------------------------
+.navbar.navbar-default {
+  @extend .border-color-primary;
+  border-width: 2px 0;
+  margin: 0;
+}
+.navbar-header {
+  .btn {
+    margin: 8px 0 8px 15px;
+    padding: 6px 10px;
+    + .btn {
+      margin-left: 8px;
+    }
+  }
+}
+
+// Navbar toggle
+// -----------------------------------------------------------------------------
+.navbar-toggle {
+  padding: 5px 10px;
+  margin-right: 15px;
+  i {
+    vertical-align: middle;
+  }
+  .navbar-default & {
+    @include hover() {
+      background-color: $brand-secondary;
+      border-color: $brand-secondary;
+      color: white;
+    }
+  }
+}
+
+// Navbar Nav
+// -----------------------------------------------------------------------------
+ul.navbar-nav {
+  padding: 0 20px;
+  @include breakpoint(md) {
+    padding: 0;
+  }
+
+  > li {
+    position: relative;
+    margin: 15px 0 10px;
+    @include breakpoint(md) {
+      padding: 9px 0 9px 15px;
+      margin: 0;
+      + li {
+        margin-left: 15px;
+      }
+      &:before {
+        content: "\2726";
+        font-size: 10px;
+        line-height: 30px;
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+  li {
+    a {
+      font-family: $font-secondary;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      font-size: 15px;
+      text-align: center;
+      @include transition(all 0.2s ease-in-out);
+      @include breakpoint(md) {
+        text-align: left;
+      }
+    }
+  }
+
+  > li {
+    &.has-btn {
+      @include breakpoint(md) {
+        padding-left: 25px;
+      }
+      a.btn {
+        padding: 4px 15px 2px;
+        display: table;
+        margin: 0 auto;
+        @include hover {
+          background-color: $brand-secondary;
+          color: white;
+        }
+      }
+    }
+
+    .dropdown-menu {
+      margin-top: 2px;
+    }
+  }
+}
+
+// Dropdown menu
+// -----------------------------------------------------------------------------
+ul.dropdown-menu {
+  padding: 10px 0;
+  @include box-shadow(none);
+  @include border-radius(0);
+  li {
+    a {
+      padding: 5px 23px;
+    }
+  }
+}
+
+// Footer nav
+// -----------------------------------------------------------------------------
+// Footer Nav
+// --------------------------------------------------
+ul.footer-nav {
+  @extend .row;
+  margin: 30px auto;
+  padding: 30px 15px;
+  > li {
+    @extend .col-xs-6;
+    @extend .col-md-3;
+    display: block;
+    margin-bottom: 35px;
+    @include breakpoint(md) {
+      margin-bottom: 0px;
+    }
+    > .dropdown-toggle {
+      font-weight: 400;
+      font-size: 14px;
+      padding: 0;
+      background: none;
+      text-transform: uppercase;
+      color: white;
+      .caret {
+        display: none;
+      }
+      &:hover, &.active {
+        background: none;
+      }
+    }
+
+    &.open {
+      > .dropdown-toggle {
+        background: none;
+      }
+    }
+
+    ul.dropdown-menu {
+      display: block;
+      position: static;
+      float: none;
+      background: none;
+      border: 0;
+      padding: 0;
+      li {
+        a {
+          font-size: 13px;
+          padding: 0;
+          display: inline;
+          &:hover, &:focus, &.active, &.active-trail {
+            background: none;
+          }
+        }
+      }
+    }
+  }
+}

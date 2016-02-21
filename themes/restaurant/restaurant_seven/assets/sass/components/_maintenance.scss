@@ -1,0 +1,65 @@
+// Styles for the Maintenance page.
+// -----------------------------------------------------------------------------
+body.maintenance-page {
+  #page {
+    padding: 20px;
+    width: 800px;
+    margin: 30px auto;
+    border-radius: 2px;
+    #sidebar {
+
+    }
+    #content {
+      width: auto;
+      padding: 0;
+      float: none;
+      margin-left: 250px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px 0;
+    }
+  }
+
+  .page-title {
+    font-size: 2.4em;
+  }
+
+  // Tasks.
+  // --------------------------------------------------
+  .tasks-list {
+    > div {
+      margin-bottom: 15px;
+      opacity: 0.5;
+      h6 {
+        font-size: 11px;
+        font-weight: normal;
+        margin-bottom: 0px;
+      }
+      h4 {
+        margin-top: 0;
+        font-size: 14px;
+      }
+      &.active,
+      &.done {
+        color: black;
+        opacity: 1.0;
+      }
+    }
+  }
+
+  // Theme selection form.
+  #panopoly-theme-selection-form {
+    .form-type-radio {
+      margin: 0 0 2em;
+      label {
+        display: block;
+      }
+      .form-radio {
+        margin: 0;
+        left: 0;
+        top: 40%;
+      }
+    }
+  }
+}

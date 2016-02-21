@@ -1,0 +1,11 @@
+// Breadcrumb
+// -----------------------------------------------------------------------------
+.breadcrumb {
+  float: left;
+  font-size: 0.85em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 500px;
+  margin: 0 0 5px;
+}

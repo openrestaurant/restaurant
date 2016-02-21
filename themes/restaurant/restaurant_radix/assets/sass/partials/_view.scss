@@ -1,0 +1,71 @@
+// Styles for Views
+// -----------------------------------------------------------------------------
+
+// General
+// -----------------------------------------------------------------------------
+.view {
+  .view-header {
+    @extend .margin--md--bottom;
+    text-align: center;
+    h2 {
+      margin: 0 0 5px;
+    }
+  }
+  .view-footer {
+    @extend .margin--md--top;
+    text-align: center;
+  }
+}
+
+// Blog Post
+// -----------------------------------------------------------------------------
+.view-blog {
+  .views-row {
+    .views-col {
+      @extend .margin--sm--bottom;
+      @extend .padding--sm--bottom;
+      position: relative;
+      &:after {
+        content: "";
+        height: 1px;
+        position: absolute;
+        bottom: 0;
+        left: floor($grid-gutter-width / 2);
+        right: floor($grid-gutter-width / 2);
+        background: lighten($brand-primary, 30);
+      }
+      &:before {
+        content: "";
+        width: 1px;
+        position: absolute;
+        top: 0;
+        bottom: floor($grid-gutter-width / 2);
+        right: 0;
+        background: lighten($brand-primary, 30);
+        display: none;
+        @include breakpoint(md) {
+          display: block;
+        }
+      }
+      &:last-child {
+        &:before {
+          display: none;
+        }
+      }
+    }
+
+    &:last-child {
+      .views-col {
+        @include breakpoint(md) {
+          margin-bottom: 0 !important;
+          padding-bottom: 0 !important;
+        }
+        &:after {
+          @include breakpoint(md) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

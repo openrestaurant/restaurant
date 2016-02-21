@@ -1,0 +1,370 @@
+// Styles for Forms
+// -----------------------------------------------------------------------------
+
+// Form items
+// -----------------------------------------------------------------------------
+label, .form-item label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+.form-item {
+  padding: 0;
+  margin: 0 0 25px;
+  input {
+    max-width: 100%;
+  }
+  input.form-autocomplete,
+  input.form-text,
+  input.form-file,
+  textarea.form-textarea,
+  select.form-select {
+    border: 2px solid #bfe0f3;
+    height: 40px;
+    padding: 8px 16px;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+  select[multiple] {
+    height: auto;
+  }
+  textarea.form-textarea {
+    min-height: 150px;
+  }
+  .field-prefix {
+    input {
+      display: inline-block;
+      max-width: 80%;
+    }
+  }
+}
+.container-inline {
+  input.form-autocomplete,
+  input.form-text,
+  input.form-file,
+  textarea.form-textarea,
+  select.form-select {
+    width: auto;
+  }
+}
+.form-type-managed-file {
+  label {
+    display: block;
+  }
+  input.form-file {
+    float: left;
+    max-width: 80%;
+    margin: 0 1em 0 0;
+  }
+  .description {
+    clear: left;
+    padding-top: 5px;
+  }
+}
+.form-checkboxes,
+.form-radios {
+  //border: 1px solid $border-color;
+  //padding: 15px;
+  //margin: 0 0 25px;
+  //@include border-radius(2px);
+}
+.form-type-checkbox,
+.form-type-radio {
+  label {
+    min-height: 20px;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+  }
+}
+.form-item-operation {
+  label {
+    display: block;
+  }
+  input, select {
+    float: left;
+    margin: 0 1em 0 0;
+  }
+}
+
+// Fieldset.
+// -----------------------------------------------------------------------------
+fieldset {
+  border: 1px solid $border-color;
+  margin: 0 0 20px;
+  background-color: white;
+  padding: 0;
+  border-radius: 2px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  legend {
+    color: $blue;
+    display: block;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    padding: 12px 15px;
+    border: none;
+    float: left;
+    line-height: 1em;
+    text-transform: none;
+    border-bottom: 1px solid $border-color;
+    //@include background-image(linear-gradient(#fdfefe, #f5f9fc));
+    border-radius: 0;
+    .fieldset-legend {
+      display: block;
+      position: static;
+      margin: 0;
+      padding: 0;
+    }
+    .fieldset-title {
+      color: $blue;
+    }
+  }
+  .fieldset-wrapper {
+    padding: 15px;
+    clear: both;
+  }
+}
+.format-toggle, div.ctools-modal-content .format-toggle {
+  margin: 10px 0 25px;
+  float: none;
+  label, select.form-select {
+    display: inline;
+    width: auto;
+  }
+  label {
+    padding-top: 7px;
+    padding-right: 10px;
+  }
+}
+ul.tips,
+div.description,
+.form-item div.description {
+  font-size: 0.9em;
+  line-height: 140%;
+}
+
+// Buttons.
+// -----------------------------------------------------------------------------
+form input.form-submit,
+a.button, a.button:link,
+#modal-content form input.form-submit {
+  font-size: 14px;
+  font-weight: normal;
+  border: 1px solid darken($border-color, 45);
+  height: 38px;
+  line-height: 38px;
+  padding: 0px 15px;
+  margin: 0 1em 0 0;
+  display: inline-block;
+  color: $link-color;
+  outline: none;
+  background-image: linear-gradient(lighten($border-color, 10), lighten($border-color, 5));
+  border-radius: 2px;
+  box-shadow: none;
+  @include hover() {
+    color: white;
+    background-image: linear-gradient(darken($border-color, 45), darken($border-color, 50));
+  }
+  &:active {
+    color: $link-color !important;
+    outline: none;
+    text-shadow: none;
+    background-image: linear-gradient(lighten($border-color, 5), lighten($border-color, 15));
+  }
+  //color: white;
+  //border: 0;
+  //padding: 0 15px;
+  //height: 40px;
+  //line-height: 40px;
+  //background: darken($border-color, 45);
+  //display: inline-block;
+  //outline: none;
+  //@include border-radius(2px);
+  //@include box-shadow(0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12));
+}
+
+// Container inline
+div.container-inline {
+  .form-item {
+    display: inline-block;
+    width: auto;
+    label, input {
+      display: inline-block;
+      width: auto;
+    }
+  }
+}
+
+// Vertical tabs
+// -----------------------------------------------------------------------------
+div.vertical-tabs {
+  border: 1px solid $border-color;
+  background: white;
+  border-radius: 2px;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 199px;
+    z-index: 100;
+    border-right: 1px solid $border-color;
+    background-image: linear-gradient(#fdfefe, #f5f9fc);
+  }
+  .vertical-tabs-panes {
+    margin: 0 0 0 200px;
+    padding: 0;
+  }
+  .vertical-tabs-list {
+    width: 200px;
+    border: 0;
+    z-index: 200;
+    position: relative;
+    li.vertical-tab-button {
+      a {
+        border: 0;
+        border-right: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        @include hover() {
+          background: white;
+        }
+      }
+    }
+    li.selected {
+      background: white;
+      a {
+        border: 0;
+        border-bottom: 1px solid $border-color;
+        @include hover() {
+          border: 0;
+          border-bottom: 1px solid $border-color;
+          background: white;
+        }
+      }
+    }
+  }
+}
+
+// Horizontal tabs
+// -----------------------------------------------------------------------------
+div.horizontal-tabs {
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  .horizontal-tabs-pane {
+    padding: 0;
+    margin: 0;
+  }
+  ul.horizontal-tabs-list {
+    border: 0;
+    border-bottom: 1px solid $border-color;
+    background-image: linear-gradient(#fdfefe, #f5f9fc);
+    li, li.selected {
+      padding: 0;
+      background: none;
+      border-right: 1px solid $border-color;
+      a {
+        padding: 10px 15px;
+        text-align: center;
+        @include hover() {
+          background: white;
+        }
+      }
+    }
+    li.selected {
+      background: white;
+    }
+  }
+}
+
+// Views Exposed form
+// -----------------------------------------------------------------------------
+.views-exposed-form {
+  margin-bottom: 18px;/**/
+  .views-exposed-widget {
+    .form-submit {
+      margin-top: 0px;
+    }
+  }
+}
+
+// Node form
+// -----------------------------------------------------------------------------
+.node-form {
+  #edit-title {
+    font-size: 1.8em;
+    line-height: 140%;
+    max-width: 100%;
+    padding: 25px 15px;
+  }
+  fieldset {
+    legend {
+      span.summary {
+        font-size: 0.65em;
+        display: inline-block;
+        max-width: 60%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.fieldset-wrapper {
+  > .form-wrapper {
+    margin-bottom: 18px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+// Image style form.
+// -----------------------------------------------------------------------------
+.image-style-new {
+  .form-item, input {
+    display: inline-block;
+  }
+  select {
+    width: auto;
+    margin: 0 1em 0 0;
+  }
+}
+
+// Features UI form.
+// -----------------------------------------------------------------------------
+.features-export-list {
+  .form-checkboxes {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+// Actions List
+ul.action-list,
+ul.actions {
+  .form-submit {
+    color: $text-color;
+    padding: 2px 8px;
+    height: auto;
+  }
+}

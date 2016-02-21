@@ -50,11 +50,5 @@ projects[panopoly_seo][subdir] = panopoly
 projects[radix][version] = 3.3
 projects[radix][type] = theme
 
-projects[restaurant_radix][version] = 1.0-rc3
-projects[restaurant_radix][type] = theme
-
-projects[restaurant_seven][version] = 1.0-rc3
-projects[restaurant_seven][type] = theme
-
 projects[sizzle][version] = 1.0-rc3
 projects[sizzle][type] = theme

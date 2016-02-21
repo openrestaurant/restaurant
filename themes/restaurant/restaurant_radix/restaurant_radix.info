@@ -1,0 +1,18 @@
+name        = Restaurant Radix
+description = Default theme for the Restaurant distribution based on Radix
+screenshot  = screenshot.png
+core        = 7.x
+
+; Base - Radix
+base theme  = radix
+
+; Regions
+regions[sidebar_first] = Sidebar
+regions[content] = Content
+
+; Panels
+plugins[panels][layouts] = layouts
+plugins[panels][styles] = styles
+
+; Javascript
+scripts[] = assets/javascripts/restaurant_radix.script.js

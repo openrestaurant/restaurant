@@ -1,0 +1,39 @@
+Restaurant Seven 7.x-1.0-rc2, 2015-10-22
+------------------------------
+- Remove event field style.
+- Fix style for event node form.
+- Fix style for vbo select all.
+- Fix ui-dialog style.
+- Update header and tabs display.
+- Add gulp autoprefixer.
+- BrowserSyncProxy.
+- Set package private to true.
+
+Restaurant Seven 7.x-1.0-rc3, 2016-01-25
+------------------------------
+- Update css and js directories.
+- Merge branch '7.x-1.0-rc3' of github.com:openrestaurant/restaurant_seven into 7.x-1.0-rc3.
+- Update theme to use libsass and gulp.
+- Update README.md.
+- Create release 7.x-1.0-rc2.
+- Remove event field style.
+- Fix style for event node form.
+- Fix style for vbo select all.
+- Fix ui-dialog style.
+- Update header and tabs display.
+- Add gulp autoprefixer.
+- BrowserSyncProxy.
+- Set package private to true.
+- Remove font awesome.
+- Update display of action links.
+- Update breadcrumbs, tabs and action links styles.
+- Styles for action links.
+- Update breadcrumb position.
+- Minor theme fixes.
+- Add styles for modal and media ui.
+- Update default header background color.
+- Some minor clean up.
+- Fixed includes from proper theme.
+- Updated multiple styles.
+- Merge branch '7.x-1.0-rc3' of github.com:arshad/restaurant_seven into 7.x-1.0-rc3.
+

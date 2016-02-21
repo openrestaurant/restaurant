@@ -1,0 +1,30 @@
+// Dashboard
+// -----------------------------------------------------------------------------
+div.admin {
+  > .compact-link {
+    display: none;
+  }
+}
+div.admin-panel {
+  border: 1px solid $border-color;
+  background: white;
+  padding: 0;
+  margin: 0 0 25px;
+  border-radius: 2px;
+  > h3 {
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: $link-color;
+    border-bottom: 1px solid $border-color;
+    background-image: linear-gradient(#fdfefe, #f5f9fc);
+  }
+  .body {
+    padding: 15px;
+  }
+  ul.admin-list {
+    li:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

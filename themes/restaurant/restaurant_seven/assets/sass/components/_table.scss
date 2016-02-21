@@ -1,0 +1,37 @@
+// Tables
+// -----------------------------------------------------------------------------
+table {
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  th {
+    border: 1px solid $border-color;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: $link-color;
+    background-image: linear-gradient(#fdfefe, #f5f9fc);
+  }
+  tr.even, tr.odd, td, tr td:last-child {
+    border-color: $border-color;
+  }
+  tr.even {
+    background-color: lighten($border-color, 10);
+  }
+  td {
+    padding: 10px 15px;
+  }
+  td.active, th.active, tr.odd td.active {
+    background-color: lighten($border-color, 10);
+  }
+  tr.even td.active {
+    background-color: lighten($border-color, 5);
+  }
+
+  &.views-table {
+    th {
+      &.views-field-title {
+        min-width: 30%;
+      }
+    }
+  }
+}
