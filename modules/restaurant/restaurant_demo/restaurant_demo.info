@@ -10,7 +10,6 @@ dependencies[] = features
 dependencies[] = menu
 dependencies[] = migrate
 dependencies[] = restaurant_base
-dependencies[] = restaurant_widgets
 dependencies[] = strongarm
 features[ctools][] = strongarm:strongarm:1
 features[defaultconfig][] = strongarm:restaurant_config_address
