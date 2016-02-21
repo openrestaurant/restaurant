@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Restaurant Reservation Demo feature.
+ */
+
+include_once 'restaurant_reservation_demo.features.inc';

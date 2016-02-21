@@ -1,0 +1,13 @@
+Restaurant Toolbar 7.x-1.0-rc2, 2015-10-22
+--------------------------------
+- Update padding for toolbar.
+- Fix style for toolbar.
+- Create README.md.
+- Fix vertical tab lock not working on firefox.
+- Fix box-shadow for navbar tray.
+- Check for user access navbar.
+- Lock navbar to vertical position.
+- Make sure navbar is always vertical.
+- Fix body margin.
+- Fix label search icon.
+

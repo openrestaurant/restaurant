@@ -1,0 +1,16 @@
+name = Restaurant Admin
+description = Provides administrative enhancements for Open Restaurant.
+core = 7.x
+package = Open Restaurant Core
+version = 7.x-1.0-rc3
+project = restaurant_admin
+dependencies[] = admin_views
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = menu
+dependencies[] = panopoly_admin
+dependencies[] = strongarm
+dependencies[] = views
+dependencies[] = views_ui
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2

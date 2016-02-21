@@ -1,0 +1,13 @@
+name = Restaurant Location Demo
+description = Demo content for Restaurant Location
+core = 7.x
+package = Restaurant Demo
+version = 7.x-1.0-dev
+project = restaurant_location_demo
+dependencies[] = restaurant_location
+dependencies[] = restaurant_menu_demo
+dependencies[] = migrate
+features[features_api][] = api:1
+
+; Migration files
+files[] = restaurant_location_demo.migrate.inc

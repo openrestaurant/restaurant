@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Restaurant Pages feature.
+ */
+
+include_once 'restaurant_pages.features.inc';

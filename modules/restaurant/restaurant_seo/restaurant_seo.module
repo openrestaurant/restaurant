@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Restaurant SEO feature.
+ */
+
+include_once 'restaurant_seo.features.inc';

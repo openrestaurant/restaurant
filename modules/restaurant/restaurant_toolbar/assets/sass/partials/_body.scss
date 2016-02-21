@@ -1,0 +1,8 @@
+// Body
+// -----------------------------------------------------------------------------
+body.restaurant-toolbar {
+  padding-top: 52px !important;
+  &.navbar-tray-open {
+    margin-left: $tray-width !important;
+  }
+}

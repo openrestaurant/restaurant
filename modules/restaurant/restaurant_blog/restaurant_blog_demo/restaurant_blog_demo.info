@@ -1,0 +1,16 @@
+name = Restaurant Blog Demo
+description = Demo content for the Open Restaurant Blog.
+core = 7.x
+package = Open Restaurant Demo
+version = 7.x-1.0
+project = restaurant_blog_demo
+dependencies[] = restaurant_blog
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features_exclude[dependencies][ctools] = ctools
+
+; Migration files
+files[] = migrations/blog_post.inc
+files[] = migrations/slideshow.inc
+files[] = migrations/slide.inc
+files[] = migrations/text.inc

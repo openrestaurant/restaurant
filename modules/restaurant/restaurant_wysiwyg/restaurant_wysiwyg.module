@@ -1,0 +1,56 @@
+<?php
+/**
+ * @file
+ * WYSIWYG editor for Open Restaurant.
+ */
+
+include_once 'restaurant_wysiwyg.features.inc';
+
+/**
+ * Implements hook_filter_info().
+ */
+function restaurant_wysiwyg_filter_info() {
+  $filters = array();
+
+  $filters['restaurant_config_filter'] = array(
+    'title' => t('Support for configuration tokens: [config:name].'),
+    'process callback' => 'restaurant_wysiwyg_filter_process',
+    'tips callback' => 'restaurant_wysiwyg_filter_tips',
+    'weight' => 10,
+  );
+
+  return $filters;
+}
+
+/**
+ * Filter tips callback.
+ */
+function restaurant_wysiwyg_filter_tips($filter, $format, $long = FALSE) {
+  return check_plain(t('You can add configuration values using tokens. Example: [config:site_name].'));
+}
+
+/**
+ * Filter process callback.
+ */
+function restaurant_wysiwyg_filter_process($text, $filter) {
+  // Prevent useless processing if there are no config tags.
+  if (stristr($text, '[config') !== FALSE) {
+    $pattern = "/(\[config\:([a-z\_]*)\])/i";
+    $text = preg_replace_callback($pattern, 'restaurant_wysiwyg_filter_replace', $text);
+  }
+  return $text;
+}
+
+/**
+ * Callback for preg_replace_callback() in restaurant_wysiwyg_filter_process().
+ */
+function restaurant_wysiwyg_filter_replace($matches) {
+  // Replace the match by the config.
+  $config_name = trim($matches[2]);
+  $config = restaurant_base_get_config();
+  if (isset($config[$config_name])) {
+    return $config[$config_name];
+  }
+
+  return '';
+}

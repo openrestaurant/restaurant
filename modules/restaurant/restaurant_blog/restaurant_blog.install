@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Installation file for Restaurant Blog
+ */
+
+/**
+ * Implements hook_install().
+ */
+function restaurant_blog_install() {
+  $t = get_t();
+
+  // Add shortcuts
+  if (module_exists('shortcut')) {
+    $shortcut_set = shortcut_set_load(SHORTCUT_DEFAULT_SET_NAME);
+    $shortcut_set->links = array(
+      array(
+        'link_path' => 'node/add/blog-post',
+        'link_title' => $t('Add blog post'),
+        'weight' => 20,
+      ),
+      array(
+        'link_path' => 'admin/blog_posts/categories/add',
+        'link_title' => $t('Add blog category'),
+        'weight' => 21,
+      ),
+    );
+    shortcut_set_save($shortcut_set);
+  }
+}

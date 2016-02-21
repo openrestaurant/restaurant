@@ -1,0 +1,347 @@
+// Navbar
+// --------------------------------------------------
+#navbar-administration {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  z-index: 100000;
+  .navbar-bar {
+    background: $navbar-bg-color;
+    color: $white;
+    min-height: 50px;
+    width: auto;
+    right: 0;
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+    .navbar-tab {
+      &--account,
+      &--logout {
+        float: right;
+      }
+      &--home,
+      &--dashboard {
+        width: 50px;
+        margin-right: 20px;
+        @include bp(md) {
+          margin-right: 70px;
+          width: 150px;
+        }
+      }
+      > a {
+        font-weight: normal;
+        display: block;
+        padding: 18px 15px 18px 40px;
+        font-size: 1.2em;
+        text-transform: capitalize;
+        background-size: 20px 20px;
+        &:hover, &:focus, &.active {
+          background-color: $navbar-bg-color;
+          box-shadow: none;
+        }
+        &:before {
+          display: none;
+        }
+        &.navbar-icon-home {
+          padding-left: 0;
+          background: none;
+        }
+        &.navbar-icon-menu {
+          width: 60px;
+          text-align: center;
+          padding: 0 20px;
+          height: 50px;
+          background: transparent url('../images/icon-bars.svg') no-repeat center;
+          background-size: 20px 20px;
+        }
+      }
+    }
+    .navbar-dropdown {
+      position: relative;
+      &__button {
+        cursor: pointer;
+        font-size: 1.2em;
+        width: 30px;
+        height: 52px;
+        line-height: 52px;
+        text-align: center;
+        background: transparent url('../images/icon-shortcuts.svg') no-repeat center;
+        background-size: 20px 20px;
+        text-indent: -9999px;
+      }
+      &__dropdown {
+        display: none;
+        background: white;
+        position: absolute;
+        top: 53px;
+        left: 0;
+        min-width: 200px;
+        color: $gray;
+        box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+        &:before {
+          width: 15px;
+          height: 15px;
+          content: "";
+          display: block;
+          position: absolute;
+          top: -5px;
+          left: 8px;
+          background: white;
+          transform: rotate(45deg);
+        }
+        a {
+          color: $gray;
+        }
+        ul {
+          position: relative;
+          li {
+            padding: 0;
+            a {
+              text-decoration: none;
+              &:hover {
+                color: $gray;
+                background-color: $blue-light;
+              }
+            }
+          }
+        }
+      }
+      &--right {
+        float: right;
+        .navbar-dropdown {
+          &__dropdown {
+            left: auto;
+            right: 0;
+            &:before {
+              left: auto;
+              right: 8px;
+            }
+          }
+        }
+      }
+      &.open {
+        .navbar-dropdown {
+          &__dropdown {
+            display: block;
+          }
+        }
+      }
+    }
+    .navbar-dropdown {
+      &--shortcuts {
+        position: absolute;
+        right: 50px;
+        .navbar-dropdown__dropdown {
+          float: right;
+          right: 0;
+          left: auto;
+          &:before {
+            left: auto;
+            right: 8px;
+          }
+        }
+        @include bp(sm) {
+          position: relative;
+          right: 0;
+          .navbar-dropdown__dropdown {
+            float: left;
+            left: 0;
+            right: auto;
+            &:before {
+              right: auto;
+              left: 8px;
+            }
+          }
+        }
+      }
+      &--account {
+        margin-right: 15px;
+        .navbar-dropdown__button {
+          background-image: url('../images/icon-account.svg');
+        }
+      }
+      .icon {
+        &:before {
+          font-family: FontAwesome;
+          font-style: normal;
+        }
+        &--plus {
+          &:before {
+            content: "\f067";
+          }
+        }
+        &--user {
+          &:before {
+            content: "\f007";
+          }
+        }
+      }
+    }
+  }
+  .navbar-tray {
+    .navbar-lining {
+      border: none;
+      padding: 0;
+      background: white;
+      height: 100%;
+      border-right: 1px solid #e0e0e0;
+      box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+      &:before {
+        border: none;
+        box-shadow: none;
+        background: white;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+        width: $tray-width !important;
+      }
+      ul.root {
+        li.level-1 {
+          border: 0;
+          border-bottom: 1px solid #eee;
+          float: none;
+          > .navbar-box {
+            a {
+              display: block;
+              font-size: 1.2em;
+              color: $gray;
+              padding: 15px 25px 15px 60px;
+              text-decoration: none;
+              background: url('../images/icon-default.svg') no-repeat 20px center;
+              background-size: 20px 20px;
+              &:hover, &.active {
+                color: $gray;
+                background-color: $blue-light;
+              }
+              &:before {
+                display: none;
+              }
+              &.navbar-icon-menus {
+                background-image: url('../images/icon-menus.svg');
+              }
+              &.navbar-icon-events {
+                background-image: url('../images/icon-events.svg');
+              }
+              &.navbar-icon-blog-posts {
+                background-image: url('../images/icon-blog-posts.svg');
+              }
+              &.navbar-icon-locations {
+                background-image: url('../images/icon-locations.svg');
+              }
+              &.navbar-icon-reservations {
+                background-image: url('../images/icon-reservations.svg');
+              }
+              &.navbar-icon-content {
+                background-image: url('../images/icon-content.svg');
+              }
+              &.navbar-icon-structure {
+                background-image: url('../images/icon-structure.svg');
+              }
+              &.navbar-icon-appearance {
+                background-image: url('../images/icon-appearance.svg');
+              }
+              &.navbar-icon-people {
+                background-image: url('../images/icon-people.svg');
+              }
+              &.navbar-icon-modules {
+                background-image: url('../images/icon-modules.svg');
+              }
+              &.navbar-icon-configuration {
+                background-image: url('../images/icon-configuration.svg');
+              }
+              &.navbar-icon-reports {
+                background-image: url('../images/icon-reports.svg');
+              }
+            }
+            .navbar-handle {
+              background: transparent url('../images/icon-handle-close.svg') no-repeat center;
+              background-size: 20px 20px;
+              display: block;
+              &:active, &:focus {
+                outline: none;
+              }
+              &:before {
+                display: none;
+              }
+            }
+          }
+          &.active-trail {
+            a {
+              font-weight: normal;
+              color: $gray;
+              &:before {
+                color: $gray;
+              }
+            }
+          }
+          &.open {
+            background-color: $white;
+            .navbar-handle {
+              background-image: url('../images/icon-handle-open.svg');
+            }
+            .navbar-box {
+              a {
+                color: $gray;
+                &:before {
+                  color: $gray;
+                }
+              }
+            }
+            > ul {
+              margin: 0;
+              padding-left: 60px;
+              padding-bottom: 25px;
+              li {
+                .navbar-handle {
+                  &:active, &:focus {
+                    outline: none;
+                  }
+                }
+                a {
+                  padding: 7px 0;
+                  font-size: 1.15em;
+                }
+              }
+              ul {
+                margin: 0 0 1.5em;
+                border: none;
+                background: none;
+                li {
+                  a {
+                    font-size: 0.95em;
+                    &.active {
+                      font-weight: bold;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &.navbar-tray-horizontal,
+    &.navbar-tray-vertical {
+      width: $tray-width !important;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      bottom: 0;
+      position: fixed;
+      ul.root {
+        li.level-1 {
+          .navbar-box {
+            > a {
+              font-size: 1.2em;
+              padding-top: 15px;
+              padding-bottom: 15px;
+              padding-left: 60px;
+              &:before {
+                line-height: 48px;
+                width: 50px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .navbar-toggle-orientation,
+  > ul.menu {
+    display: none;
+  }
+}

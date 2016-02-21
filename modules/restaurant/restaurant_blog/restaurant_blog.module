@@ -1,0 +1,130 @@
+<?php
+/**
+ * @file
+ * Code for the Restaurant Blog feature.
+ */
+
+include_once 'restaurant_blog.features.inc';
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */ 
+function restaurant_blog_ctools_plugin_directory($module, $plugin) {
+  return 'plugins/' . $plugin;
+}
+
+/**
+ * Implements hook_menu().
+ */
+function restaurant_blog_menu() {
+
+  $items['admin/blog_posts/manage'] = array(
+    'title' => 'Manage blog posts',
+    'weight' => 10,
+    'page callback' => 'restaurant_blog_manage_blog_posts_admin',
+    'access arguments' => array('administer blog'),
+    'file' => 'restaurant_blog.admin.inc',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  $items['admin/blog_posts/add'] = array(
+    'title' => 'Add blog post',
+    'weight' => 20,
+    'page callback' => 'restaurant_blog_add_blog_post_admin',
+    'access arguments' => array('administer blog'),
+    'file' => 'restaurant_blog.admin.inc',
+    'type' => MENU_LOCAL_ACTION,
+  );
+
+  $items['admin/blog_posts/categories'] = array(
+    'title' => 'Blog categories',
+    'weight' => 30,
+    'access arguments' => array('administer blog'),
+    'page callback' => 'restaurant_blog_blog_categories_admin',
+    'file' => 'restaurant_blog.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['admin/blog_posts/categories/add'] = array(
+    'title' => 'Add blog category',
+    'weight' => 40,
+    'page callback' => 'restaurant_blog_add_blog_category_admin',
+    'access arguments' => array('administer blog'),
+    'file' => 'restaurant_blog.admin.inc',
+    'type' => MENU_LOCAL_ACTION,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function restaurant_blog_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  // Add action link to 'admin/blog_posts/add' on 'admin/blog_posts' page.
+  $items = array(
+    'actions' => array(
+      'admin/blog_posts/add',
+      'admin/blog_posts/categories/add',
+    ),
+    'tabs' => array(
+      'admin/blog_posts',
+      'admin/blog_posts/categories',
+    ),
+  );
+
+  $new_data = restaurant_admin_show_menu_items_for_paths_pattern($items, $root_path, "admin/blog_posts\nadmin/blog_posts/*");
+  if (count($new_data)) {
+    $data = $new_data;
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function restaurant_blog_permission() {
+  return array(
+    'administer blog' => array(
+      'title' => t('Administer blog'),
+      'description' => t('Access the blog admininstration pages and manage blog posts.'),
+    ),
+  );
+}
+/**
+ * Implements hook_migrate_api().
+ */
+function restaurant_blog_migrate_api() {
+  return array(
+    'api' => 2,
+    'groups' => array(
+      'restaurant_blog_demo' => array(
+        'title' => t('Restaurant Blog demo content'),
+      ),
+    ),
+    'migrations' => restaurant_blog_get_migrations(),
+  );
+}
+
+/**
+ * Returns an array of migrations.
+ */
+function restaurant_blog_get_migrations() {
+  return array(
+    'RestaurantBlogMigrateBlogPostMigration' => array(
+      'class_name' => 'RestaurantBlogMigrateBlogPostMigration',
+      'group_name' => 'restaurant_blog_demo',
+    ),
+    'RestaurantBlogMigrateSlideshowMigration' => array(
+      'class_name' => 'RestaurantBlogMigrateSlideshowMigration',
+      'group_name' => 'restaurant_blog_demo',
+    ),
+    'RestaurantBlogMigrateSlideMigration' => array(
+      'class_name' => 'RestaurantBlogMigrateSlideMigration',
+      'group_name' => 'restaurant_blog_demo',
+    ),
+    'RestaurantBlogMigrateTextMigration' => array(
+      'class_name' => 'RestaurantBlogMigrateTextMigration',
+      'group_name' => 'restaurant_blog_demo',
+    ),
+  );
+}

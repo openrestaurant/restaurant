@@ -1,0 +1,161 @@
+/**
+ * @file
+ * CSS for restaurant admin module
+ */
+
+/*body.contextual-links-region {*/
+  /*position: static !important;*/
+/*}*/
+/*div.admin-panel .body:after, .clearfix:after {*/
+  /*content: "" !important;*/
+  /*display: none;*/
+/*}*/
+/*.page-node-add #page,*/
+/*.page-node-edit #page {*/
+  /*width: 100%;*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+/*}*/
+/*.page-node-add #console,*/
+/*.page-node-edit #console {*/
+  /*margin: 0;*/
+/*}*/
+/*.page-node-add .messages,*/
+/*.page-node-edit .messages {*/
+  /*margin: 0;*/
+/*}*/
+/*.node-form .panel-display {*/
+  /*background: #e0e0d8;*/
+  /*width: 100%;*/
+/*}*/
+/*.node-form .panel-display .container {*/
+  /*width: auto;*/
+  /*min-width: 1000px;*/
+  /*border-top: 1px solid #aaa;*/
+/*}*/
+/*.node-form .panel-display .sidebar,*/
+/*.node-form .panel-display .span4 {*/
+  /*padding: 0;*/
+  /*width: 30%;*/
+/*}*/
+/*.node-form .panel-display .content,*/
+/*.node-form .panel-display .span8 {*/
+  /*width: 70%;*/
+  /*background: white;*/
+  /*border-right: 1px solid #aaa;*/
+  /*min-height: 800px;*/
+/*}*/
+/*.node-form .panel-display .content .panel-panel-inner {*/
+  /*padding: 20px;*/
+/*}*/
+/*.node-form .panel-display .sidebar .panel-pane {*/
+  /*border-bottom: 1px solid #aaa;*/
+/*}*/
+/*.node-form .panel-display .sidebar .panel-pane .pane-title {*/
+  /*background: #e1e2dc;*/
+  /*padding: 8px 20px;*/
+  /*margin: 0;*/
+  /*font-size: 1.2em;*/
+  /*border-bottom: 1px solid #bebfb9;*/
+/*}*/
+/*.node-form .panel-display .sidebar .panel-pane .pane-content {*/
+  /*padding: 10px 20px;*/
+  /*background: white;*/
+/*}*/
+/*.node-form .panel-display .sidebar .panel-pane .form-item label,*/
+/*.node-form .panel-display .sidebar .panel-pane .form-item .field-label {*/
+  /*display: none;*/
+/*}*/
+/*.node-form .panel-display .sidebar .panel-pane .field-type-field-collection label,*/
+/*.node-form .panel-display .sidebar .panel-pane .field-type-field-collection .field-label {*/
+  /*display: block;*/
+/*}*/
+/*.node-form .panel-display .sidebar .panel-pane .field-type-field-collection .field-label,*/
+/*.node-form .panel-display .sidebar .panel-pane .form-type-checkbox label,*/
+/*.node-form .panel-display .sidebar .panel-pane .form-type-radio label {*/
+  /*display: inherit;*/
+/*}*/
+/*.node-form .panel-display .sidebar .panel-pane .form-type-checkbox label,*/
+/*.node-form .panel-display .sidebar .panel-pane .form-type-radio label {*/
+  /*display: inline;*/
+/*}*/
+/*.node-form .panel-display .sidebar .panel-pane .field-type-field-collection*/
+/*.node-form .panel-display .sidebar .panel-pane fieldset {*/
+  /*border: 0;*/
+  /*padding: 0;*/
+  /*margin: 0;*/
+/*}*/
+/*.node-form .panel-display .sidebar .panel-pane fieldset legend {*/
+  /*display: none;*/
+/*}*/
+/*.node-form .panel-display .sidebar .panel-pane fieldset .fieldset-wrapper {*/
+  /*padding: 0;*/
+/*}*/
+
+/*table.field-multiple-table tbody {*/
+  /*border-top: 1px solid #bebfb9;*/
+/*}*/
+/*.tabledrag-toggle-weight-wrapper {*/
+  /*display: none;*/
+/*}*/
+/*form.node-form #edit-title,*/
+/*.field-name-field-group-subheadline input {*/
+  /*font-size: 2.0em;*/
+  /*width: 100%;*/
+/*}*/
+/*.field-name-og-group-ref fieldset {*/
+  /*margin: 0;*/
+  /*border: 0;*/
+  /*padding: 0;*/
+/*}*/
+
+/*form .field-multiple-table th.field-label {*/
+  /*padding: 5px 8px;*/
+/*}*/
+/*form .field-multiple-table td {*/
+  /*padding: 20px;*/
+/*}*/
+/*form .field-multiple-table td.field-multiple-drag {*/
+  /*background: #eee;*/
+  /*text-align: center;*/
+  /*padding: 8px 10px;*/
+/*}*/
+/*form .field-multiple-table a.tabledrag-handle {*/
+  /*padding: 0 !important;*/
+/*}*/
+/*form .field-multiple-table a.tabledrag-handle .handle {*/
+  /*margin-left: 8px;*/
+  /*margin-right: 0;*/
+/*}*/
+/*form .field-multiple-table td .form-wrapper {*/
+  /*margin-bottom: 1em;*/
+/*}*/
+
+/**
+ * CKEditor
+ */
+.cke_chrome {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+}
+.ckeditor_links {
+  display: none !important;
+}
+
+/**
+ * Admin menu
+ */
+/*body #admin-menu {*/
+  /*box-shadow: none;*/
+  /*-moz-box-shadow: none;*/
+  /*-webkit-box-shadow: none;*/
+  /*-o-box-shadow: none;*/
+/*}*/
+/*#admin-menu-wrapper {*/
+  /*padding: 5px 20px;*/
+/*}*/
+/*#toolbar ul.menu li.leaf {*/
+  /*padding-top: 0;*/
+/*}*/

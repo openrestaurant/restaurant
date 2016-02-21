@@ -1,0 +1,186 @@
+<?php
+
+/**
+ * @file
+ * Toolbar for Open Restaurant.
+ */
+
+include_once 'restaurant_toolbar.features.inc';
+include_once 'restaurant_toolbar.theme.inc';
+
+/**
+ * Implements hook_theme().
+ */
+function restaurant_toolbar_theme($existing, $type, $theme, $path) {
+  $items['navbar_dropdown'] = array(
+    'render element' => 'element',
+  );
+  $items['navbar_dropdown_wrapper'] = array(
+    'render element' => 'element',
+  );
+
+  return $items;
+}
+
+
+/**
+ * Implements hook_element_info().
+ */
+function restaurant_toolbar_element_info() {
+  $path = drupal_get_path('module', 'restaurant_toolbar');
+  $elements = array();
+
+  $elements['navbar_dropdown'] = array(
+    '#pre_render' => array('restaurant_toolbar_pre_render_navbar_dropdown'),
+    '#theme' => 'navbar_dropdown',
+    '#theme_wrappers' => array('navbar_dropdown_wrapper'),
+    '#attached' => array(
+      'js' => array($path . '/assets/javascripts/restaurant_toolbar.dropdown.js' => array()),
+    ),
+  );
+
+  return $elements;
+}
+
+function restaurant_toolbar_pre_render_navbar_dropdown($element) {
+  // Add wrappers for title and dropdown.
+  $element['title']['#prefix'] = '<div class="navbar-dropdown__button">';
+  $element['title']['#suffix'] = '</div>';
+  $element['dropdown']['#prefix'] = '<div class="navbar-dropdown__dropdown">';
+  $element['dropdown']['#suffix'] = '</div>';
+
+  return $element;
+}
+
+/**
+ * Implements hook_navbar_alter().
+ */
+function restaurant_toolbar_navbar_alter(&$items) {
+  $is_admin = path_is_admin(current_path());
+
+  // Hide the title.
+  $items['administration']['tab']['#title'] = '';
+
+  // Render the menu link first.
+  $items['administration']['#weight'] = -100;
+
+  if (!$is_admin) {
+    // Link the home to admin.
+    $items['home']['tab']['#title'] = t('Dashboard');
+    $items['home']['tab']['#href'] = 'admin/index';
+  }
+
+  // Overwrite shortcuts with our custom implementation.
+  if (module_exists('shortcut')) {
+    $items['shortcuts'] = array(
+      '#type' => 'navbar_dropdown',
+      '#weight' => -11,
+      '#wrapper_attributes' => array(
+        'class' => array('navbar-dropdown--shortcuts'),
+      ),
+      'title' => array(
+        '#markup' => '+',
+      ),
+      'dropdown' => array(
+        'links' => shortcut_renderable_links(),
+      ),
+    );
+  }
+
+  // Overwrite user with our custom implementation.
+  $items['user'] = array(
+    '#type' => 'navbar_dropdown',
+    '#weight' => 100,
+    '#wrapper_attributes' => array(
+      'class' => array(
+        'navbar-dropdown--account',
+        'navbar-dropdown--right'
+      ),
+    ),
+    'title' => array(
+      '#markup' => '+',
+    ),
+    'dropdown' => array(
+      '#theme' => 'links',
+      '#links' => array(
+        'account' => array(
+          'title' => t('Account'),
+          'href' => 'user',
+        ),
+        'logout' => array(
+          'title' => t('Logout'),
+          'href' => 'user/logout',
+        ),
+      ),
+    ),
+  );
+
+  // Add the search form.
+  $items['search_form'] = drupal_get_form('restaurant_toolbar_search_form');
+  $items['search_form']['#weight'] = -10;
+}
+
+/**
+ * Implements hook_page_build().
+ */
+function restaurant_toolbar_page_build(&$page) {
+  if (user_access('access navbar')) {
+    $module_path = drupal_get_path('module', 'restaurant_toolbar');
+    $page['page_bottom']['#attached'] = array(
+      'css' => array(
+        $module_path . '/assets/stylesheets/restaurant_toolbar.css',
+      ),
+      'js' => array(
+        $module_path . '/assets/javascripts/restaurant_toolbar.js' => array()
+      ),
+    );
+  }
+}
+
+/**
+ * Toolbar search form.
+ */
+function restaurant_toolbar_search_form($form, &$form_state) {
+  $path = drupal_get_path('module', 'restaurant_toolbar');
+
+  $form['keywords'] = array(
+    '#title' => t('Search'),
+    '#type' => 'textfield',
+    '#default_value' => (isset($_GET['title'])) ? $_GET['title'] : '',
+    '#attributes' => array(
+      'placeholder' => t('Search'),
+    ),
+  );
+
+  $form['submit'] = array(
+    '#value' => t('Submit'),
+    '#type' => 'submit',
+    '#attributes' => array(
+      'class' => array('invisible', 'hidden'),
+    ),
+  );
+
+  $form['#attached'] = array(
+    'js' => array($path . '/assets/javascripts/restaurant_toolbar.form.js' => array()),
+  );
+
+  return $form;
+}
+
+/**
+ * Submit handler for restaurant_toolbar_search_form().
+ */
+function restaurant_toolbar_search_form_submit($form, &$form_state) {
+  $path = 'admin/content';
+  $query = array();
+
+  // Append keyword if available.
+  if (isset($form_state['values']['keywords'])) {
+    $query = array(
+      'title' => trim($form_state['values']['keywords']),
+    );
+  }
+
+  // Redirect form.
+  $form_state['redirect'] = array($path, array('query' => $query));
+}

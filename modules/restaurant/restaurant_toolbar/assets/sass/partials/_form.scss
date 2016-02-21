@@ -1,0 +1,85 @@
+// Search form
+// -----------------------------------------------------------------------------
+#navbar-administration {
+  .navbar-bar {
+    form {
+      float: left;
+      margin: 8px 8px 0;
+      width: 60%;
+      display: none;
+      @include bp(sm) {
+        display: block;
+      }
+      .form-item {
+        margin: 0;
+        position: relative;
+      }
+      label {
+        display: block;
+        width: 40px;
+        height: 31px;
+        text-indent: -9999px;
+        background: url('../images/icon-search.svg') no-repeat center;
+        background-size: 20px 20px;
+        position: absolute;
+        top: 1px;
+        left: 1px;
+      }
+      &.focused {
+        label {
+          background-image: url('../images/icon-search-active.svg');
+        }
+      }
+      input.form-text {
+        border: 0;
+        margin: 0;
+        height: 33px;
+        padding: 8px 16px 8px 46px;
+        background-color: lighten($navbar-bg-color, 15) !important;
+        color: lighten($navbar-bg-color, 20);
+        border-radius: 2px;
+        font-size: 14px;
+        &:focus {
+          background-color: $white !important;
+          color: $navbar-bg-color;
+        }
+      }
+      input.form-autocomplete {
+        background-position: -100px -100px !important;
+      }
+      input.throbbing {
+        background-position: 99% -120px !important;
+      }
+      .ui-helper-hidden-accessible {
+        display: none;
+      }
+      ul.ui-autocomplete {
+        box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+        border: 0;
+        top: 45px !important;
+        border: 0;
+        border-radius: 0;
+        > li {
+          border: 0;
+          float: none;
+          a {
+            color: $navbar-bg-color;
+            font-size: 14px;
+            padding: 5px 40px;
+            border: 0;
+            margin: 0;
+            border-radius: 0;
+            &:hover, &.ui-state-active, &.ui-state-hover {
+              background: $blue-light;
+            }
+          }
+
+          &.ui-state-disabled {
+            color: $navbar-bg-color;
+            padding: 5px 40px;
+          }
+        }
+      }
+    }
+  }
+}

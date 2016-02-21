@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Installation file for Restaurant Menu
+ */
+
+/**
+ * Implements hook_install().
+ */
+function restaurant_menu_install() {
+  $t = get_t();
+
+  // Add Shortcuts.
+  if (module_exists('shortcut')) {
+    $shortcut_set = shortcut_set_load(SHORTCUT_DEFAULT_SET_NAME);
+    $shortcut_set->links = array(
+      array(
+        'link_path' => 'node/add/menu',
+        'link_title' => $t('Add Menu'),
+        'weight' => 10,
+      ),
+    );
+    shortcut_set_save($shortcut_set);
+  }
+}

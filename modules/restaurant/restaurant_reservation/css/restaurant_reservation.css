@@ -1,0 +1,86 @@
+/**
+ * Style for restaurant_reservation.
+ */
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-weight: normal;
+  line-height: 1;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  font-size: 0.85em;
+}
+.label a {
+  color: white;
+}
+#views-ui-edit-form .label {
+  font-size: 1.0em;
+  color: #666666;
+  font-weight: normal;
+  text-align: left;
+  padding: 0;
+  line-height: inherit;
+}
+.label[href]:hover, .label[href]:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+.label:empty {
+  display: none;
+}
+.btn .label {
+  position: relative;
+  top: -1px;
+}
+.label-default {
+  background-color: #999999;
+}
+.label-default[href]:hover, .label-default[href]:focus {
+  background-color: gray;
+}
+.label-primary {
+  background-color: #428bca;
+}
+.label-primary[href]:hover, .label-primary[href]:focus {
+  background-color: #3071a9;
+}
+.label-success {
+  background-color: #5cb85c;
+}
+.label-success[href]:hover, .label-success[href]:focus {
+  background-color: #449d44;
+}
+.label-info {
+  background-color: #5bc0de;
+}
+.label-info[href]:hover, .label-info[href]:focus {
+  background-color: #31b0d5;
+}
+.label-warning {
+  background-color: #f0ad4e;
+}
+.label-warning[href]:hover, .label-warning[href]:focus {
+  background-color: #ec971f;
+}
+.label-danger {
+  background-color: #d9534f;
+}
+.label-danger[href]:hover, .label-danger[href]:focus {
+  background-color: #c9302c;
+}
+.views-field-update-status-form {
+  width: 200px;
+}
+.views-field-update-status-form .form-item-status,
+.views-field-update-status-form .form-submit {
+  display: inline-block;
+}
+.calendar-calendar .month-view .full td.single-day div.monthview,
+.calendar-calendar .week-view .full td.single-day div.weekview,
+.calendar-calendar .day-view .full td.single-day div.dayview {
+  background: none;
+}

@@ -1,0 +1,41 @@
+<?php
+/**
+ * @file
+ * Code for the Restaurant Demo feature.
+ */
+
+include_once 'restaurant_demo.features.inc';
+
+/**
+ * Implements hook_default_page_manager_pages_alter().
+ */
+function restaurant_demo_default_page_manager_pages_alter(&$defaults) {
+  // Set default panes from import.
+  if (isset($defaults['home'])) {
+    if ($fpid8 = variable_get('home__page_home_panel_context__new-8')) {
+      $defaults['home']->default_handlers['page_home_panel_context']->conf['display']->content['new-8']->subtype = 'fpid:' . $fpid8;
+    }
+
+    // if ($fpid10 = variable_get('home__page_home_panel_context__new-10')) {
+    //   $defaults['home']->default_handlers['page_home_panel_context']->conf['display']->content['new-10']->subtype = 'fpid:' . $fpid10;
+    // }
+  }
+  if (isset($defaults['reservation'])) {
+    if ($fpid = variable_get('reservation__page_reservation_panel_context_2__new-2')) {
+      $defaults['reservation']->default_handlers['page_reservation_panel_context_2']->conf['display']->content['new-2']->subtype = 'fpid:' . $fpid;
+    }
+  }
+}
+
+/**
+ * Implements hook_default_page_manager_handlers_alter().
+ */
+function restaurant_demo_default_page_manager_handlers_alter(&$defaults) {
+  // Set default panes from import.
+  if (isset($defaults['site_template_panel_context'])) {
+    if ($fpid = variable_get('site_template_panel_context__new-7')) {
+      $defaults['site_template_panel_context']->conf['display']->content['new-7']->subtype = 'fpid:' . $fpid;
+    }
+  }
+}
+

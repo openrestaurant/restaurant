@@ -1,0 +1,32 @@
+/**
+ * @file
+ * CSS for restaurant menu module
+ */
+.view-display-id-admin_menus td {
+  vertical-align: top;
+}
+.view-display-id-admin_menus .views-field-title a {
+  display: block;
+  font-size: 1.1em;
+  margin: 0 0 8px;
+}
+.views-field-title .item-list ul {
+  margin: 0;
+}
+.views-field-title .item-list li {
+  list-style: none outside none;
+}
+.entity-field-collection-item {
+  margin: 0 0 5px;
+}
+.entity-field-collection-item .content {
+  overflow: hidden;
+}
+.entity-field-collection-item .content .field-name-field-menu-type {
+  float: left;
+  margin: 0 5px 0 0;
+}
+.entity-field-collection-item .content .field-name-field-menu-price {
+  float: right;
+  margin: 0  0 0 5px;
+}

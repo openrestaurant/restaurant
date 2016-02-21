@@ -1,0 +1,93 @@
+<?php
+
+/**
+ * @file
+ * Provides administrative links.
+ */
+
+/**
+ * Get all config implemented by modules.
+ */
+function _restaurant_admin_links_get_admin_links() {
+  // Invoke all hook_admin_links_info.
+  $info = module_invoke_all('admin_links_info');
+
+  // Invoke hook_admin_links_info_alter() to allow modules to alter $info.
+  drupal_alter('admin_links_info', $info);
+
+  // Just return it for now.
+  return $info;
+}
+
+/**
+ * Implements hook_library().
+ */
+function restaurant_admin_links_library() {
+  $path = drupal_get_path('module', 'restaurant_admin_links');
+  $libraries['restaurant-admin-links'] = array(
+    'title' => 'Restaurant Admin Links',
+    'version' => '1.0',
+    'js' => array(
+      $path . '/js/restaurant_admin_links.js' => array(),
+    ),
+    'css' => array(
+      $path . '/css/restaurant_admin_links.css' => array(),
+    ),
+  );
+  return $libraries;
+}
+
+/**
+ * Implements hook_page_build().
+ */
+function restaurant_admin_links_page_build(&$page) {
+  $page['page_bottom']['admin_links'] = _restaurant_admin_links_get_admin_links();
+}
+
+/**
+ * Implements hook_contextual_links_view_alter().
+ */
+function restaurant_admin_links_contextual_links_view_alter(&$element, $items) {
+  // Add the bundle label to contextual links.
+  if (!empty($element['#element']['#entity_type'])) {
+    $info = entity_get_info($element['#element']['#entity_type']);
+    $label = $info['bundles'][$element['#element']['#bundle']]['label'];
+    foreach ($element['#links'] as $index => $link) {
+      $element['#links'][$index]['title'] .= ' ' . $label;
+    }
+  }
+}
+
+/**
+ * Returns a renderable array for contextual links from $links.
+ *
+ * @param $links
+ *  An array of links.
+ * @param $region
+ *  CSS selector for region to attach the contextual links to.
+ * @return array
+ *  A renderable array.
+ */
+function restaurant_admin_links_build_links($links, $region) {
+  // Add destination to links if not set.
+  foreach ($links as $index => $link) {
+    if (empty($link['query']['destination'])) {
+      $links[$index]['query']['destination'] = current_path();
+    }
+  }
+
+  return array(
+    '#prefix' => '<div class="contextual-links-wrapper admin-links" data-region="' . $region . '">',
+    '#suffix' => '</div>',
+    '#theme' => 'links__contextual',
+    '#links' => $links,
+    '#attributes' => array('class' => array('contextual-links')),
+    '#attached' => array(
+      'library' => array(
+        array('contextual', 'contextual-links'),
+        array('restaurant_admin_links', 'restaurant-admin-links'),
+      ),
+    ),
+    '#access' => user_access('access contextual links'),
+  );
+}

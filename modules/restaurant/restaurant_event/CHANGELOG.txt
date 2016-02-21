@@ -1,0 +1,9 @@
+Restaurant Event 7.x-1.0-rc2, 2015-10-22
+------------------------------
+- Update default shortcut set.
+- Hide featured image field.
+
+Restaurant Event 7.x-1.0-rc3, 2016-01-25
+------------------------------
+- No changes since last release.
+

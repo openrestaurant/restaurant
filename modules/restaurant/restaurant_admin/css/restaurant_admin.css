@@ -1,0 +1,9 @@
+/**
+ * Admin enhancement.
+ */
+div#toolbar {
+  z-index: 1000;
+}
+div#toolbar div.toolbar-menu {
+  padding: 10px 50px 10px 10px;
+}

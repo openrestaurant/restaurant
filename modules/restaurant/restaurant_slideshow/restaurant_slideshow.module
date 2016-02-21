@@ -1,0 +1,28 @@
+<?php
+/**
+ * @file
+ * Provides the structure for creating and managing slideshows
+ */
+
+include_once 'restaurant_slideshow.features.inc';
+
+/** 
+ * Implementation of hook_entity_info_alter()
+ */
+function restaurant_slideshow_entity_info_alter(&$entity_info) {
+
+  // Slideshow
+  $entity_info['fieldable_panels_pane']['bundles']['slideshow'] = array(
+    'label' => t('Slideshow'),
+    'pane category' => t('Custom'),
+    'pane top level' => TRUE,
+    'pane icon' => drupal_get_path('module', 'restaurant_slideshow') . '/images/icon/icon-slideshow.png',
+    'admin' => array(
+      'path' => 'admin/structure/fieldable-panels-panes/manage/%fieldable_panels_panes_type',
+      'bundle argument' => 4,
+      'real path' => 'admin/structure/fieldable-panels-panes/manage/slideshow',
+      'access arguments' => array('administer fieldable panels panes'),
+    ),
+  );
+
+}

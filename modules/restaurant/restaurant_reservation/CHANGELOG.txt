@@ -1,0 +1,20 @@
+Restaurant Reservation 7.x-1.0-rc2, 2015-10-22
+------------------------------------
+- Update reservation calendar view.
+
+Restaurant Reservation 7.x-1.0-rc3, 2016-01-25
+------------------------------------
+- Merge branch '7.x-1.0-rc3' of github.com:openrestaurant/restaurant_reservation into 7.x-1.0-rc3.
+- Strict warning message when updating reservation-status.
+- Create release 7.x-1.0-rc2.
+- Update reservation calendar view.
+- Add demo content.
+- Remove demo module for reservation.
+- Implement view modes for reservation.
+- Update menu weight.
+- Updated reservation feature.
+- Updated reservation system.
+- Renamed package to Open Restaurant.
+- Updated permission to administer reservations in exported feature code.
+- Merge branch '7.x-1.0-rc3' of git.drupal.org:project/restaurant_reservation into 7.x-1.0-rc3.
+

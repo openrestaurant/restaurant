@@ -1,0 +1,23 @@
+<?php
+/**
+ * @file
+ * Drupal needs this blank file.
+ */
+
+/**
+ * Returns a list of demo menus.
+ */
+function restaurant_location_get_migrated_menus() {
+  // If module is not enabled return empty array.
+  if (!module_exists('restaurant_menu_demo')) {
+    return array();
+  }
+
+  // Find all migrated menu nodes.
+  $results = db_select('migrate_map_restaurantmenumigratemenu', 'mr')
+    ->fields('mr', array('destid1'))
+    ->execute()
+    ->fetchAllAssoc('destid1');
+
+  return array_keys($results);
+}

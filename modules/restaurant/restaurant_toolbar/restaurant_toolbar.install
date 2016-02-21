@@ -1,0 +1,13 @@
+<?php
+/**
+ * @file
+ * Install hooks for Restaurant Toolbar.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function restaurant_toolbar_install() {
+  // Disable Search Autocomplete helper.
+  variable_set('sa_admin_helper', FALSE);
+}

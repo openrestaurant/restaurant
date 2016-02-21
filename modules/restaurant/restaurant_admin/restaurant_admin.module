@@ -1,0 +1,164 @@
+<?php
+
+/**
+ * @file
+ * Provides administrative enhancements for the Restaurant Distribution
+ */
+
+include_once 'restaurant_admin.features.inc';
+
+/**
+ * Implements hook_theme().
+ */
+function restaurant_admin_theme($existing, $type, $theme, $path) {
+  return array(
+    'restaurant_admin_thumbnail' => array(
+      'render element' => 'element',
+      'file' => 'restaurant_admin.theme.inc',
+    ),
+  );
+}
+
+/**
+ * Implements hook_system_info_alter().
+ */
+function restaurant_admin_system_info_alter(&$info, $file, $type) {
+  $modules_to_hide = array(
+    'date_migrate_example',
+    'bef_test_content',
+    'uuid_services_example',
+    'migrate_example_baseball',
+    'migrate_example_oracle',
+    'migrate_extras_media',
+    'migrate_extras_pathauto',
+    'features_extra_test',
+  );
+  // Hide example features.
+  if (in_array($file->name, $modules_to_hide)) {
+    $info['hidden'] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_page_alter().
+ */
+function restaurant_admin_page_alter(&$page) {
+  // Add a custom stylesheet.
+  $path = drupal_get_path('module', 'restaurant_admin');
+  $page['page_bottom']['restaurant_admin'] = array(
+    '#weight' => -100,
+    '#attached' => array(
+      'css' => array(
+        $path . '/css/restaurant_admin.css' => array('every_page' => TRUE),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function restaurant_admin_preprocess_html(&$variables) {
+  // Add a custom class for theming.
+  $admin_path_patterns = _restaurant_admin_paths();
+  if (drupal_match_path(current_path(), $admin_path_patterns)) {
+    $variables['classes_array'][] = 'admin';
+  }
+}
+
+/**
+ * Implements hook_css_alter().
+ */
+function restaurant_admin_css_alter(&$css) {
+  // Unset styles addded by Panopoly Admin.
+  $panopoly_admin_path = drupal_get_path('module', 'panopoly_admin');
+  unset($css[$panopoly_admin_path . '/panopoly-admin.css']);
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function restaurant_admin_menu_alter(&$items) {
+  // Move Panopoly menu items under configuration
+  $paths = array_keys($items);
+  $panopoly_paths = preg_grep('/^admin\/panopoly/', $paths);
+  foreach ($panopoly_paths as $key) {
+    $config_path = preg_replace('/(^admin)/', 'admin/config', $key);
+    $items[$config_path] = $items[$key];
+    unset($items[$key]);
+  }
+
+  // Use the settings for default theme in place of global settings.
+  $items['admin/appearance/settings/global']['global']['access callback'] = FALSE;
+  $items['admin/appearance/settings/global']['type'] = MENU_LOCAL_TASK;
+  $items['admin/appearance/settings']['page arguments'][] = variable_get('theme_default', 'restaurant_radix');
+}
+
+/**
+ * Implements hook_link_alter().
+ */
+function restaurant_admin_menu_link_alter(&$item) {
+  // Automatically set all of the settings elements to be children of the main parent element.
+  // @see panopoly_admin_menu_link_alter().
+  if (isset($item['path']) && strpos($item['path'], 'panopoly/settings/')) {
+    $parent_mlid = db_query("SELECT mlid FROM {menu_links} WHERE link_path = :path", array(':path' => 'admin/config/panopoly/settings'))->fetchField();
+    $item['plid'] = $parent_mlid;
+  }
+}
+
+/**
+ * Shows tabs/actions links for $items when $root_path matches $pattern.
+ *
+ * @param $items
+ *  An array of menu items paths.
+ * @param $root_path
+ *  The root path or current_path().
+ * @param $pattern
+ *  The pattern to match root_path.
+ *
+ * @return array
+ *  An array of actions and tabs links.
+ */
+function restaurant_admin_show_menu_items_for_paths_pattern($items, $root_path, $pattern) {
+  $data = array();
+
+  if (drupal_match_path($root_path, $pattern)) {
+    // Add item to actions or tabs.
+    foreach ($items as $type => $paths) {
+      foreach ($paths as $path) {
+        $item = menu_get_item($path);
+        if ($item['access']) {
+          $data[$type]['output'][] = array(
+            '#theme' => ($type == 'actions') ? 'menu_local_action' : 'menu_local_task',
+            '#link' => $item,
+          );
+        }
+      }
+    }
+
+    // Update counts.
+    $data['actions']['count'] = count($data['actions']['output']);
+    $data['tabs']['count'] = count($data['tabs']['output']);
+
+    // Fix for tabs.
+    $data['tabs'] = array($data['tabs']);
+  }
+
+  return $data;
+}
+
+/**
+ * Returns a pattern to match admin paths.
+ *
+ * @return string
+ *  Pattern to match admin paths.
+ */
+function _restaurant_admin_paths() {
+  $paths = array(
+    'admin',
+    'admin/*',
+    'node/add/*',
+    'node/*/edit',
+  );
+  return implode("\n", $paths);
+}

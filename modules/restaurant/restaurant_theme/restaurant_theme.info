@@ -1,0 +1,11 @@
+name = Restaurant Theme
+description = Theming helpers for the Restaurant Distribution
+core = 7.x
+package = Open Restaurant Core
+version = 7.x-1.0-rc3
+php = 5.2.4
+project = restaurant_theme
+dependencies[] = restaurant_base
+features[features_api][] = api:1
+
+files[] = plugins/views/restaurant_theme_view_style.inc

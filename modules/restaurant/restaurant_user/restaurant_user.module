@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Restaurant User feature.
+ */
+
+include_once 'restaurant_user.features.inc';

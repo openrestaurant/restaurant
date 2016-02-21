@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Installation file for Restaurant Blog Demo
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function restaurant_blog_demo_enable() {
+  _panopoly_core_import_demo_content(array_keys(restaurant_blog_get_migrations()));
+}
+
+/**
+ * Implements hook_disable().
+ */
+function restaurant_blog_demo_disable() {
+  _panopoly_core_rollback_demo_content(array_keys(restaurant_blog_get_migrations()));
+}

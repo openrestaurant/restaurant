@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Installation file for Restaurant Menu Demo
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function restaurant_menu_demo_enable() {
+  Migration::registerMigration('RestaurantMenuMigrateMenu');
+}
+
+/**
+ * Implements hook_disable().
+ */
+function restaurant_menu_demo_disable() {
+  Migration::deregisterMigration('RestaurantMenuMigrateMenu');
+}

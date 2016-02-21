@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Theming helpers for the Restaurant Distribution
+ */
+
+/**
+ * Implementation of hook_ctools_plugin_directory()
+ */
+function restaurant_theme_ctools_plugin_directory($module, $plugin) {
+  return 'plugins/' . $plugin;
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function restaurant_theme_views_api() {
+  return array("api" => "3.0");
+}
+
+/**
+ * Implements hook_system_info_alter().
+ */
+function restaurant_theme_system_info_alter(&$info, $file, $type) {
+  // Hide blacklisted themes.
+  $blacklisted_themes = _restaurant_theme_get_blacklisted_themes();
+  if ($type == 'theme') {
+    if (in_array($file->name, $blacklisted_themes)) {
+      $info['hidden'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Returns an array of themes to blacklist.
+ */
+function _restaurant_theme_get_blacklisted_themes() {
+  return array(
+    'stark',
+    'bartik',
+    'responsive_bartik',
+    'garland',
+    'octal',
+    'radix',
+    'restaurant_octal',
+    'restaurant_radix',
+  );
+}

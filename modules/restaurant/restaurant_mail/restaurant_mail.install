@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Installation file for Restaurant Mail module.
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function restaurant_mail_enable() {
+  $current = variable_get('mail_system', array('default-system' => 'DefaultMailSystem'));
+  $addition = array('restaurant_mail' => 'RestaurantMailMailSystem');
+  variable_set('mail_system', array_merge($current, $addition));
+}
+
+/**
+ * Implements hook_disable().
+ */
+function restaurant_mail_disable() {
+  $mail_system = variable_get('mail_system', array('default-system' => 'DefaultMailSystem'));
+  unset($mail_system['restaurant_mail']);
+  variable_set('mail_system', $mail_system);
+}

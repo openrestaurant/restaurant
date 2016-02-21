@@ -1,0 +1,14 @@
+name = Restaurant Toolbar
+description = Toolbar for Open Restaurant.
+core = 7.x
+package = Open Restaurant Core
+version = 7.x-1.0-rc2
+project = restaurant_toolbar
+dependencies[] = search_autocomplete
+dependencies[] = views
+features[ctools][] = strongarm:strongarm:1
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[search_autocomplete_config][] = 4
+features[views_view][] = toolbar_autocomplete
+features_exclude[dependencies][ctools] = ctools

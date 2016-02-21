@@ -1,0 +1,7 @@
+name = Restaurant Plugins
+description = Provides multiple plugins for the Restaurant Distribution
+core = 7.x
+package = Open Restaurant Core
+version = 7.x-1.0-rc3
+project = restaurant_plugins
+features[features_api][] = api:2

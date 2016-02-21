@@ -1,0 +1,41 @@
+<?php
+/**
+ * @file
+ * Handles emails for the Restaurant Distribution
+ */
+
+/**
+ * Extend the DefaultMailSystem class.
+ */
+class RestaurantMailMailSystem extends DefaultMailSystem {
+  public function format(array $message) {
+    // Allow html mails.
+    $message['body'] = implode("\n\n", $message['body']);
+    $message['body'] = drupal_wrap_mail($message['body']);
+    return $message;
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function restaurant_mail_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'restaurant_mail':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8;';
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['body'];
+      break;
+  }
+}
+
+/**
+ * Implements hook_mail_alter().
+ */
+function restaurant_mail_mail_alter(&$message) {
+  $site_name = variable_get('site_name');
+  $site_mail = variable_get('site_mail');
+
+  // Add site name and site mail to mail headers.
+  $message['from'] = $message['headers']['From'] = '"' . $site_name . '" <' . $site_mail . '>';
+}

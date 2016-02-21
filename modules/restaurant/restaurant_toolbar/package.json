@@ -1,0 +1,30 @@
+{
+  "name": "restaurant_toolbar",
+  "version": "1.0.0",
+  "description": "Toolbar for Open Restaurant",
+  "private": true,
+  "scripts": {
+    "postinstall": "find node_modules/ -name '*.info' -type f -delete"
+  },
+  "keywords": [
+    "restaurant",
+    "drupal"
+  ],
+  "author": "Arshad Chummun <arshad@chummun.com> (http://arshad.io/)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/openrestaurant/restaurant_toolbar.git"
+  },
+  "dependencies": {
+    "gulp": "~3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-imagemin": "~2.2.1",
+    "gulp-plumber": "~1.0.1",
+    "gulp-rename": "~1.2.2",
+    "gulp-sass": "~2.0.1",
+    "gulp-shell": "~0.4.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-util": "~3.0.5",
+    "imagemin-pngcrush": "~4.1.0"
+  }
+}

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Restaurant Contact feature.
+ */
+
+include_once 'restaurant_contact.features.inc';

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Restaurant Blog Demo feature.
+ */
+
+include_once 'restaurant_blog_demo.features.inc';
