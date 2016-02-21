@@ -128,3 +128,6 @@ projects[panels_everywhere][subdir] = contrib
 
 projects[imagecache_token][version] = 1.0-rc1
 projects[imagecache_token][subdir] = contrib
+
+projects[devel][version] = 1.5
+projects[devel][subdir] = contrib
