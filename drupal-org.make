@@ -11,6 +11,7 @@ projects[panopoly_images][subdir] = contrib
 
 projects[panopoly_theme][version] = 1.30
 projects[panopoly_theme][subdir] = contrib
+projects[panopoly_theme][patch][2672738] = https://www.drupal.org/files/issues/panopoly-theme-remove-responsive-bartik-2672738-1.patch
 
 projects[panopoly_magic][version] = 1.30
 projects[panopoly_magic][subdir] = contrib
