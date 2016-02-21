@@ -18,22 +18,22 @@ function restaurant_location_ctools_plugin_directory($module, $plugin) {
  */
 function restaurant_location_menu() {
 
-  $items['admin/locations/add'] = array(
-    'title' => 'Add location',
+  $items['admin/locations/manage'] = array(
+    'title' => 'Manage locations',
     'weight' => 10,
-    'page callback' => 'restaurant_location_add_location_admin',
+    'page callback' => 'restaurant_location_manage_locations_admin',
     'access arguments' => array('administer locations'),
     'file' => 'restaurant_location.admin.inc',
     'type' => MENU_LOCAL_TASK,
   );
 
-  $items['admin/locations/manage'] = array(
-    'title' => 'Manage locations',
+  $items['admin/locations/add'] = array(
+    'title' => 'Add location',
     'weight' => 20,
-    'page callback' => 'restaurant_location_manage_locations_admin',
+    'page callback' => 'restaurant_location_add_location_admin',
     'access arguments' => array('administer locations'),
     'file' => 'restaurant_location.admin.inc',
-    'type' => MENU_LOCAL_TASK,
+    'type' => MENU_LOCAL_ACTION,
   );
 
   return $items;
@@ -44,14 +44,19 @@ function restaurant_location_menu() {
  */
 function restaurant_location_menu_local_tasks_alter(&$data, $router_item, $root_path) {
   // Add action link to 'admin/locations/add' on 'admin/locations' page.
-  if (drupal_match_path($root_path, "admin/locations")) {
-    $item = menu_get_item('admin/locations/add');
-    if ($item['access']) {
-      $data['actions']['output'][] = array(
-        '#theme' => 'menu_local_action',
-        '#link' => $item,
-      );
-    }
+  $items = array(
+    'actions' => array(
+      'admin/locations/add',
+    ),
+    'tabs' => array(
+      'admin/locations/add',
+      'admin/locations',
+    ),
+  );
+
+  $new_data = restaurant_admin_show_menu_items_for_paths_pattern($items, $root_path, "admin/locations\nadmin/locations/*");
+  if (count($new_data)) {
+    $data = $new_data;
   }
 }
 
@@ -63,6 +68,56 @@ function restaurant_location_permission() {
     'administer locations' => array(
       'title' => t('Administer Locations'),
       'description' => t('Access the location admininstration pages and manage locations.'),
+    ),
+  );
+}
+
+/**
+ * Helper function to get an array of locations.
+ */
+function restaurant_location_get_locations() {
+  return db_select('node', 'n')
+    ->condition('type', 'location')
+    ->fields('n', array('nid'))
+    ->execute()
+    ->fetchCol(0);
+}
+
+/**
+ * Implements hook_migrate_api().
+ */
+function restaurant_location_migrate_api() {
+  return array(
+    'api' => 2,
+    'groups' => array(
+      'restaurant_location_demo' => array(
+        'title' => t('Restaurant Location demo content'),
+      ),
+    ),
+    'migrations' => restaurant_location_get_migrations(),
+  );
+}
+
+/**
+ * Returns an array of migrations.
+ */
+function restaurant_location_get_migrations() {
+  return array(
+    'RestaurantLocationMigrateLocationMigration' => array(
+      'class_name' => 'RestaurantLocationMigrateLocationMigration',
+      'group_name' => 'restaurant_location_demo',
+    ),
+    'RestaurantLocationMigrateSlideshowMigration' => array(
+      'class_name' => 'RestaurantLocationMigrateSlideshowMigration',
+      'group_name' => 'restaurant_location_demo',
+    ),
+    'RestaurantLocationMigrateSlideMigration' => array(
+      'class_name' => 'RestaurantLocationMigrateSlideMigration',
+      'group_name' => 'restaurant_location_demo',
+    ),
+    'RestaurantLocationMigrateTextMigration' => array(
+      'class_name' => 'RestaurantLocationMigrateTextMigration',
+      'group_name' => 'restaurant_location_demo',
     ),
   );
 }

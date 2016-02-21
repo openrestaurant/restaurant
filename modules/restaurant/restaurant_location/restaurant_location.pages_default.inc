@@ -17,7 +17,7 @@ function restaurant_location_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -30;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'Location',
     'no_blocks' => 0,
@@ -55,6 +55,11 @@ function restaurant_location_default_page_manager_handlers() {
       'top' => NULL,
       'contentmain' => NULL,
       'bottom' => NULL,
+      'region_a' => NULL,
+      'region_b' => NULL,
+      'region_c' => NULL,
+      'region_d' => NULL,
+      'region_e' => NULL,
     ),
   );
   $display->cache = array();
@@ -63,83 +68,117 @@ function restaurant_location_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
   $pane = new stdClass();
-  $pane->pid = 'new-4d5e9dda-a1ea-431b-a4a7-22f7bf1a63e3';
-  $pane->panel = 'contentmain';
-  $pane->type = 'node_content';
-  $pane->subtype = 'node_content';
+  $pane->pid = 'new-a35c4fd9-e674-4288-acc1-560b08d15e0f';
+  $pane->panel = 'region_a';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_location_address';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'links' => 0,
-    'no_extras' => 0,
+    'label' => 'title',
+    'formatter' => 'addressfield_staticmap',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(
+      'zoom_level' => '14',
+      'map_size' => '1200x300',
+      'map_style' => 'roadmap',
+      'advanced_settings_index' => '0',
+    ),
+    'context' => array(),
     'override_title' => 1,
     'override_title_text' => '',
-    'identifier' => '',
-    'link' => 1,
-    'leave_node_title' => 1,
-    'build_mode' => 'full',
-    'context' => array(),
     'override_title_heading' => 'h2',
   );
   $pane->cache = array();
-  $pane->style = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
   $pane->css = array();
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = '4d5e9dda-a1ea-431b-a4a7-22f7bf1a63e3';
-  $display->content['new-4d5e9dda-a1ea-431b-a4a7-22f7bf1a63e3'] = $pane;
-  $display->panels['contentmain'][0] = 'new-4d5e9dda-a1ea-431b-a4a7-22f7bf1a63e3';
+  $pane->uuid = 'a35c4fd9-e674-4288-acc1-560b08d15e0f';
+  $display->content['new-a35c4fd9-e674-4288-acc1-560b08d15e0f'] = $pane;
+  $display->panels['region_a'][0] = 'new-a35c4fd9-e674-4288-acc1-560b08d15e0f';
   $pane = new stdClass();
-  $pane->pid = 'new-b2cc9fb6-8de2-431a-8513-aca3757616c5';
-  $pane->panel = 'top';
+  $pane->pid = 'new-228f77cd-43f4-45be-bcfd-b6489ddb0db3';
+  $pane->panel = 'region_b';
   $pane->type = 'fieldable_panels_pane';
-  $pane->subtype = 'fpid:7';
+  $pane->subtype = 'uuid:b4caebe6-f16a-4773-a3ed-57023be13e0c';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
     'view_mode' => 'full',
     'fieldable_panels_pane' => (object) array(
       'bundle' => 'text',
-      'language' => '',
+      'language' => 'und',
       'is_new' => TRUE,
       'title' => '',
       'link' => 0,
       'path' => '',
       'reusable' => 1,
-      'admin_title' => 'Back to locations',
+      'admin_title' => 'Panes',
       'admin_description' => '',
       'category' => 'Reusable Content',
-      'vid' => '19',
+      'vid' => '17',
       'current_vid' => '',
       'revision' => 1,
-      'fpid' => '7',
+      'fpid' => '12',
       'field_basic_text_text' => array(
         'und' => array(
           0 => array(
-            'value' => '<p><a href="/locations"><i class="fa fa-long-arrow-left">&nbsp;</i> Back to locations</a></p>',
+            'value' => '<h2 style="text-align:center" class="clear-margin--bottom"><a href="/locations"><i class="fa fa-long-arrow-left">&nbsp;</i> See all Locations</a></h2>',
             'format' => 'panopoly_html_text',
           ),
         ),
       ),
       'log' => '',
-      'created' => 1436908847,
-      'timestamp' => 1436908847,
-      'changed' => 1436908847,
-      'uuid' => '',
+      'created' => 1442607488,
+      'timestamp' => 1442607488,
+      'changed' => 1442607488,
+      'uuid' => 'b4caebe6-f16a-4773-a3ed-57023be13e0c',
+      'vuuid' => 'e4b592b0-e0ad-45b8-9340-f25bd5428d7d',
       'uid' => '1',
-      'vuuid' => '',
     ),
   );
   $pane->cache = array();
-  $pane->style = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
   $pane->css = array();
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = 'b2cc9fb6-8de2-431a-8513-aca3757616c5';
-  $display->content['new-b2cc9fb6-8de2-431a-8513-aca3757616c5'] = $pane;
-  $display->panels['top'][0] = 'new-b2cc9fb6-8de2-431a-8513-aca3757616c5';
+  $pane->uuid = '228f77cd-43f4-45be-bcfd-b6489ddb0db3';
+  $display->content['new-228f77cd-43f4-45be-bcfd-b6489ddb0db3'] = $pane;
+  $display->panels['region_b'][0] = 'new-228f77cd-43f4-45be-bcfd-b6489ddb0db3';
+  $pane = new stdClass();
+  $pane->pid = 'new-9580de24-5645-46c7-aaab-905277656790';
+  $pane->panel = 'region_c';
+  $pane->type = 'entity_view';
+  $pane->subtype = 'node';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'view_mode' => 'full',
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 1,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '9580de24-5645-46c7-aaab-905277656790';
+  $display->content['new-9580de24-5645-46c7-aaab-905277656790'] = $pane;
+  $display->panels['region_c'][0] = 'new-9580de24-5645-46c7-aaab-905277656790';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -207,6 +246,10 @@ function restaurant_location_default_page_manager_pages() {
     'style_settings' => array(
       'default' => NULL,
       'contentmain' => NULL,
+      'region_a' => NULL,
+      'region_b' => NULL,
+      'region_c' => NULL,
+      'region_d' => NULL,
     ),
   );
   $display->cache = array();
@@ -215,14 +258,64 @@ function restaurant_location_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
   $pane = new stdClass();
-  $pane->pid = 'new-320ec830-c48f-4c82-bbc5-8da98bd4cda6';
-  $pane->panel = 'contentmain';
+  $pane->pid = 'new-7180f44c-5810-47c9-b9b6-bcc429bfc07d';
+  $pane->panel = 'region_a';
+  $pane->type = 'fieldable_panels_pane';
+  $pane->subtype = 'uuid:6f070932-b373-4aab-80c3-d84082324b24';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'view_mode' => 'full',
+    'fieldable_panels_pane' => (object) array(
+      'bundle' => 'slideshow',
+      'language' => 'und',
+      'is_new' => TRUE,
+      'title' => '',
+      'link' => 0,
+      'path' => '',
+      'reusable' => 1,
+      'admin_title' => 'Locations Slideshow',
+      'admin_description' => '',
+      'category' => 'Reusable Content',
+      'vid' => '11',
+      'current_vid' => '',
+      'field_slideshow_slides' => array(
+        'und' => array(
+          0 => array(
+            'value' => '6',
+            'revision_id' => '6',
+          ),
+        ),
+      ),
+      'revision' => 1,
+      'fpid' => '11',
+      'log' => '',
+      'created' => 1442606839,
+      'timestamp' => 1442606839,
+      'changed' => 1442606839,
+      'uuid' => '6f070932-b373-4aab-80c3-d84082324b24',
+      'vuuid' => 'f46dd12b-1569-4f72-8e9b-496c0b3730e4',
+      'uid' => '1',
+    ),
+  );
+  $pane->cache = array();
+  $pane->style = array();
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '7180f44c-5810-47c9-b9b6-bcc429bfc07d';
+  $display->content['new-7180f44c-5810-47c9-b9b6-bcc429bfc07d'] = $pane;
+  $display->panels['region_a'][0] = 'new-7180f44c-5810-47c9-b9b6-bcc429bfc07d';
+  $pane = new stdClass();
+  $pane->pid = 'new-e480f061-e69a-4a9b-a24e-3e9e99be4362';
+  $pane->panel = 'region_c';
   $pane->type = 'views_panes';
   $pane->subtype = 'locations-locations';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'view_settings' => 'nodes',
+    'view_settings' => 'rendered_entity',
     'header_type' => 'none',
     'view_mode' => 'teaser',
   );
@@ -234,143 +327,11 @@ function restaurant_location_default_page_manager_pages() {
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = '320ec830-c48f-4c82-bbc5-8da98bd4cda6';
-  $display->content['new-320ec830-c48f-4c82-bbc5-8da98bd4cda6'] = $pane;
-  $display->panels['contentmain'][0] = 'new-320ec830-c48f-4c82-bbc5-8da98bd4cda6';
-  $pane = new stdClass();
-  $pane->pid = 'new-13f61cc5-b7d0-4aba-98ea-07a6124781a9';
-  $pane->panel = 'slideshow';
-  $pane->type = 'fieldable_panels_pane';
-  $pane->subtype = 'fpid:9';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'view_mode' => 'full',
-    'fieldable_panels_pane' => (object) array(
-      'timestamp' => 1436909749,
-      'uid' => '1',
-      'title' => '',
-      'log' => '',
-      'vuuid' => '',
-      'fpid' => '9',
-      'bundle' => 'slideshow',
-      'link' => 0,
-      'path' => '',
-      'reusable' => 1,
-      'admin_title' => 'Locations Slideshow',
-      'admin_description' => '',
-      'category' => 'Reusable Content',
-      'view_access' => NULL,
-      'edit_access' => NULL,
-      'created' => '1436909723',
-      'changed' => 1436909749,
-      'uuid' => '',
-      'language' => '',
-      'current_vid' => '24',
-      'field_slideshow_slides' => array(
-        'und' => array(
-          0 => array(
-            'value' => '14',
-          ),
-        ),
-      ),
-      'revision' => 1,
-      'is_new' => FALSE,
-      'original' => (object) array(
-        'vid' => '24',
-        'timestamp' => '1436909723',
-        'uid' => '1',
-        'title' => '',
-        'log' => '',
-        'vuuid' => '',
-        'fpid' => '9',
-        'bundle' => 'slideshow',
-        'link' => '0',
-        'path' => '',
-        'reusable' => '1',
-        'admin_title' => 'Locations Slideshow',
-        'admin_description' => '',
-        'category' => 'Reusable Content',
-        'view_access' => NULL,
-        'edit_access' => NULL,
-        'created' => '1436909723',
-        'changed' => '1436909723',
-        'uuid' => '',
-        'language' => '',
-        'current_vid' => '24',
-        'field_slideshow_slides' => array(
-          'und' => array(
-            0 => array(
-              'value' => '14',
-            ),
-          ),
-        ),
-      ),
-      'old_vid' => '24',
-      'vid' => '25',
-    ),
-  );
-  $pane->cache = array();
-  $pane->style = array();
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 0;
-  $pane->locks = array();
-  $pane->uuid = '13f61cc5-b7d0-4aba-98ea-07a6124781a9';
-  $display->content['new-13f61cc5-b7d0-4aba-98ea-07a6124781a9'] = $pane;
-  $display->panels['slideshow'][0] = 'new-13f61cc5-b7d0-4aba-98ea-07a6124781a9';
-  $pane = new stdClass();
-  $pane->pid = 'new-55d21229-d2ab-47b7-94ed-025c822bb78e';
-  $pane->panel = 'top';
-  $pane->type = 'fieldable_panels_pane';
-  $pane->subtype = 'fpid:6';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'view_mode' => 'full',
-    'fieldable_panels_pane' => (object) array(
-      'bundle' => 'text',
-      'language' => '',
-      'is_new' => TRUE,
-      'title' => '',
-      'link' => 0,
-      'path' => '',
-      'reusable' => 1,
-      'admin_title' => 'Locations top text',
-      'admin_description' => '',
-      'category' => 'Reusable Content',
-      'vid' => '18',
-      'current_vid' => '',
-      'revision' => 1,
-      'fpid' => '6',
-      'field_basic_text_text' => array(
-        'und' => array(
-          0 => array(
-            'value' => '<h2>Select a location</h2>',
-            'format' => 'panopoly_wysiwyg_text',
-          ),
-        ),
-      ),
-      'log' => '',
-      'created' => 1436906103,
-      'timestamp' => 1436906103,
-      'changed' => 1436906103,
-      'uuid' => '',
-      'uid' => '1',
-      'vuuid' => '',
-    ),
-  );
-  $pane->cache = array();
-  $pane->style = array();
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 0;
-  $pane->locks = array();
-  $pane->uuid = '55d21229-d2ab-47b7-94ed-025c822bb78e';
-  $display->content['new-55d21229-d2ab-47b7-94ed-025c822bb78e'] = $pane;
-  $display->panels['top'][0] = 'new-55d21229-d2ab-47b7-94ed-025c822bb78e';
+  $pane->uuid = 'e480f061-e69a-4a9b-a24e-3e9e99be4362';
+  $display->content['new-e480f061-e69a-4a9b-a24e-3e9e99be4362'] = $pane;
+  $display->panels['region_c'][0] = 'new-e480f061-e69a-4a9b-a24e-3e9e99be4362';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-320ec830-c48f-4c82-bbc5-8da98bd4cda6';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['locations'] = $page;

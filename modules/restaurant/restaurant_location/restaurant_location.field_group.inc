@@ -68,35 +68,6 @@ function restaurant_location_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_fields|node|menu|form';
-  $field_group->group_name = 'group_fields';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'menu';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'Fields',
-    'weight' => '2',
-    'children' => array(
-      0 => 'group_menu',
-      1 => 'group_types',
-      2 => 'group_images',
-      3 => 'group_locations',
-      4 => 'group_nutrition',
-    ),
-    'format_type' => 'htabs',
-    'format_settings' => array(
-      'formatter' => '',
-      'instance_settings' => array(
-        'classes' => '',
-      ),
-    ),
-  );
-  $export['group_fields|node|menu|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
   $field_group->identifier = 'group_images|node|location|form';
   $field_group->group_name = 'group_images';
   $field_group->entity_type = 'node';

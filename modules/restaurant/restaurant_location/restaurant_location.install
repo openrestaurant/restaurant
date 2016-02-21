@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Installation file for Restaurant Location
+ */
+
+/**
+ * Implements hook_install().
+ */
+function restaurant_location_install() {
+  $t = get_t();
+
+  // Add Shortcuts.
+  if (module_exists('shortcut')) {
+    $shortcut_set = shortcut_set_load(SHORTCUT_DEFAULT_SET_NAME);
+    $shortcut_set->links = array(
+      array(
+        'link_path' => 'node/add/location',
+        'link_title' => $t('Add location'),
+        'weight' => 30,
+      ),
+    );
+    shortcut_set_save($shortcut_set);
+  }
+}

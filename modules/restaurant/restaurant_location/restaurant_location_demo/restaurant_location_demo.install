@@ -5,16 +5,17 @@
  * Installation file for Restaurant Location Demo
  */
 
+
 /**
  * Implements hook_enable().
  */
 function restaurant_location_demo_enable() {
-  Migration::registerMigration('RestaurantLocationMigrateLocation');
+  _panopoly_core_import_demo_content(array_keys(restaurant_location_get_migrations()));
 }
 
 /**
  * Implements hook_disable().
  */
 function restaurant_location_demo_disable() {
-  Migration::deregisterMigration('RestaurantLocationMigrateLocation');
+  _panopoly_core_rollback_demo_content(array_keys(restaurant_location_get_migrations()));
 }
