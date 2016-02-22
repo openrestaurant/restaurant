@@ -9,12 +9,12 @@
  * Implements hook_enable().
  */
 function restaurant_menu_demo_enable() {
-  Migration::registerMigration('RestaurantMenuMigrateMenu');
+  _panopoly_core_import_demo_content(array_keys(restaurant_menu_get_migrations()));
 }
 
 /**
  * Implements hook_disable().
  */
 function restaurant_menu_demo_disable() {
-  Migration::deregisterMigration('RestaurantMenuMigrateMenu');
+  _panopoly_core_rollback_demo_content(array_keys(restaurant_menu_get_migrations()));
 }

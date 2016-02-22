@@ -2,11 +2,14 @@ name = Restaurant Menu Demo
 description = Demo content for Restaurant Menu
 core = 7.x
 package = Open Restaurant Demo
-version = 7.x-1.0-dev
+version = 7.x-1.0
 project = restaurant_menu_demo
 dependencies[] = restaurant_menu
-dependencies[] = migrate
 features[features_api][] = api:1
 
 ; Migration files
-files[] = restaurant_menu_demo.migrate.inc
+files[] = migrations/menu.inc
+files[] = migrations/category.inc
+files[] = migrations/type.inc
+files[] = migrations/slideshow.inc
+files[] = migrations/slide.inc

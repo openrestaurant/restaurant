@@ -17,5 +17,13 @@ function restaurant_menu_taxonomy_default_vocabularies() {
       'module' => 'taxonomy',
       'weight' => 0,
     ),
+    'nutrition_types' => array(
+      'name' => 'Nutrition types',
+      'machine_name' => 'nutrition_types',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
   );
 }

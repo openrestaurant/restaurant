@@ -1,5 +1,61 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the Restaurant Menu Demo feature.
  */
+
+include_once 'restaurant_menu_demo.features.inc';
+
+/**
+ * Implements hook_init().
+ */
+function restaurant_menu_demo_init() {
+  $migration = Migration::getInstance('RestaurantMenuMigrateMenuMigration');
+  // If demo content was selected but migration was not completed.
+  // Show a message to fix that.
+  if (!isset($_SESSION['fixmigration_done'])) {
+    if (user_access('administer menus') && variable_get('restaurant_demo_content') && !$migration->isComplete()) {
+      $message = t('It appears that not all demo menus were installed. Would you like to fix that? !yes | !no', array(
+        '!yes' => l(t('Yes'), 'admin/content/menus/fixmigration/yes'),
+        '!no' => l(t('No'), 'admin/content/menus/fixmigration/no'),
+      ));
+      drupal_set_message($message, 'warning');
+    }
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function restaurant_menu_demo_menu() {
+  $items['admin/content/menus/fixmigration/%'] = array(
+    'title' => t('Fix migration'),
+    'description' => t('Fixes demo menus migration.'),
+    'page callback' => 'restaurant_menu_demo_fix_migration',
+    'page arguments' => array(4),
+    'access arguments' => array('administer menus'),
+  );
+
+  return $items;
+}
+
+/**
+ * Menu callback to fix demo migration.
+ *
+ * @param bool|TRUE $yes
+ */
+function restaurant_menu_demo_fix_migration($opt = 'yes') {
+  if ($opt == 'yes') {
+    // Import migrations.
+    $migrations = array(
+      'RestaurantMenuMigrateTypeMigration',
+      'RestaurantMenuMigrateMenuMigration',
+    );
+    _panopoly_core_import_demo_content($migrations);
+    drupal_get_messages();
+    drupal_set_message(t('Demo menus has been successfully installed.'));
+  }
+
+  $_SESSION['fixmigration_done'] = TRUE;
+  drupal_goto('<front>');
+}

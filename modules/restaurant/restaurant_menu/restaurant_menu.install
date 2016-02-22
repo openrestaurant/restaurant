@@ -17,8 +17,18 @@ function restaurant_menu_install() {
     $shortcut_set->links = array(
       array(
         'link_path' => 'node/add/menu',
-        'link_title' => $t('Add Menu'),
+        'link_title' => $t('Add menu'),
         'weight' => 10,
+      ),
+      array(
+        'link_path' => 'admin/menus/categories/add',
+        'link_title' => $t('Add menu category'),
+        'weight' => 11,
+      ),
+      array(
+        'link_path' => 'admin/menus/types/add',
+        'link_title' => $t('Add nutrition type'),
+        'weight' => 12,
       ),
     );
     shortcut_set_save($shortcut_set);

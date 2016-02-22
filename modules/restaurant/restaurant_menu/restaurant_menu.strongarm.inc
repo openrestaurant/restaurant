@@ -14,28 +14,50 @@ function restaurant_menu_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_menu';
-  $strongarm->value = 'edit-taxonomy-menu-trails';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_menu'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_field_collection_item__field_menu_types';
-  $strongarm->value = array(
-    'view_modes' => array(
-      'full' => array(
-        'custom_settings' => FALSE,
-      ),
-      'token' => array(
-        'custom_settings' => FALSE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(),
-      'display' => array(),
-    ),
-  );
-  $export['field_bundle_settings_field_collection_item__field_menu_types'] = $strongarm;
+  $strongarm->name = 'ant_menu';
+  $strongarm->value = '0';
+  $export['ant_menu'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ant_pattern_menu';
+  $strongarm->value = '';
+  $export['ant_pattern_menu'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ant_php_menu';
+  $strongarm->value = 0;
+  $export['ant_php_menu'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date_popup_authored_enabled_menu';
+  $strongarm->value = 1;
+  $export['date_popup_authored_enabled_menu'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date_popup_authored_format_menu';
+  $strongarm->value = 'm/d/Y - H:i';
+  $export['date_popup_authored_format_menu'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date_popup_authored_year_range_menu';
+  $strongarm->value = '3';
+  $export['date_popup_authored_year_range_menu'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -44,13 +66,13 @@ function restaurant_menu_strongarm() {
   $strongarm->value = array(
     'view_modes' => array(
       'teaser' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'featured' => array(
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'rss' => array(
         'custom_settings' => FALSE,
@@ -67,6 +89,12 @@ function restaurant_menu_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'grid' => array(
+        'custom_settings' => TRUE,
+      ),
+      'stacked' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -74,13 +102,76 @@ function restaurant_menu_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '7',
+          'weight' => '1',
         ),
         'metatags' => array(
-          'weight' => '8',
+          'weight' => '6',
+        ),
+        'redirect' => array(
+          'weight' => '4',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '5',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'product:sku' => array(
+          'grid' => array(
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+          'full' => array(
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
+          'stacked' => array(
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:title' => array(
+          'grid' => array(
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
+          'full' => array(
+            'weight' => '10',
+            'visible' => FALSE,
+          ),
+          'stacked' => array(
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:status' => array(
+          'grid' => array(
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
+          'full' => array(
+            'weight' => '11',
+            'visible' => FALSE,
+          ),
+          'stacked' => array(
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:commerce_price' => array(
+          'grid' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
+          'full' => array(
+            'weight' => '8',
+            'visible' => FALSE,
+          ),
+          'stacked' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__menu'] = $strongarm;
@@ -97,23 +188,56 @@ function restaurant_menu_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'navigation' => array(
+        'custom_settings' => TRUE,
+      ),
+      'grid' => array(
+        'custom_settings' => TRUE,
+      ),
+      'featured' => array(
+        'custom_settings' => FALSE,
+      ),
+      'stacked' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'path' => array(
-          'weight' => '3',
+          'weight' => '5',
         ),
         'name' => array(
-          'weight' => '0',
+          'weight' => '12',
         ),
         'description' => array(
-          'weight' => '1',
+          'weight' => '13',
+        ),
+        'metatags' => array(
+          'weight' => '8',
+        ),
+        'redirect' => array(
+          'weight' => '7',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '6',
         ),
       ),
       'display' => array(
         'description' => array(
           'default' => array(
             'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'navigation' => array(
+            'weight' => '2',
+            'visible' => FALSE,
+          ),
+          'grid' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+          'stacked' => array(
+            'weight' => '1',
             'visible' => TRUE,
           ),
         ),
@@ -140,9 +264,7 @@ function restaurant_menu_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_expanded';
-  $strongarm->value = array(
-    0 => 'main-menu',
-  );
+  $strongarm->value = array();
   $export['menu_expanded'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -188,16 +310,16 @@ function restaurant_menu_strongarm() {
     35 => 29,
     36 => 28,
     37 => 27,
-    38 => 24,
-    39 => 23,
-    40 => 21,
-    41 => 16,
-    42 => 15,
-    43 => 14,
-    44 => 13,
-    45 => 11,
-    46 => 10,
-    47 => 8,
+    38 => 26,
+    39 => 24,
+    40 => 23,
+    41 => 21,
+    42 => 16,
+    43 => 15,
+    44 => 14,
+    45 => 13,
+    46 => 11,
+    47 => 10,
     48 => 7,
     49 => 6,
     50 => 5,
@@ -241,7 +363,7 @@ function restaurant_menu_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_menu';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_menu'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -254,59 +376,16 @@ function restaurant_menu_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'panelizer_defaults_node_menu';
-  $strongarm->value = array(
-    'status' => 1,
-    'view modes' => array(
-      'page_manager' => array(
-        'status' => 1,
-        'default' => 1,
-        'choice' => 0,
-      ),
-      'default' => array(
-        'status' => 1,
-        'default' => 0,
-        'choice' => 0,
-      ),
-      'teaser' => array(
-        'status' => 1,
-        'default' => 1,
-        'choice' => 0,
-      ),
-      'featured' => array(
-        'status' => 1,
-        'default' => 1,
-        'choice' => 0,
-      ),
-    ),
-  );
-  $export['panelizer_defaults_node_menu'] = $strongarm;
+  $strongarm->name = 'page_title_type_menu';
+  $strongarm->value = '';
+  $export['page_title_type_menu'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'panelizer_defaults_taxonomy_term_menu_categories';
-  $strongarm->value = array(
-    'status' => 1,
-    'view modes' => array(
-      'page_manager' => array(
-        'status' => 1,
-        'default' => 1,
-        'choice' => 0,
-      ),
-      'default' => array(
-        'status' => 0,
-        'default' => 0,
-        'choice' => 0,
-      ),
-      'featured' => array(
-        'status' => 0,
-        'default' => 0,
-        'choice' => 0,
-      ),
-    ),
-  );
-  $export['panelizer_defaults_taxonomy_term_menu_categories'] = $strongarm;
+  $strongarm->name = 'page_title_type_menu_showfield';
+  $strongarm->value = 0;
+  $export['page_title_type_menu_showfield'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -328,6 +407,26 @@ function restaurant_menu_strongarm() {
   $strongarm->name = 'save_continue_menu';
   $strongarm->value = 'Save and add fields';
   $export['save_continue_menu'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_menu';
+  $strongarm->value = array(
+    'status' => '0',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_menu'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_taxonomy_term_menu_categories';
+  $strongarm->value = array(
+    'status' => '0',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_taxonomy_term_menu_categories'] = $strongarm;
 
   return $export;
 }

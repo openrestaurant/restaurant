@@ -1,0 +1,295 @@
+<?php
+/**
+ * @file
+ * Code for the Restaurant Menu feature.
+ */
+
+include_once 'restaurant_menu.features.inc';
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function restaurant_menu_entity_info_alter(&$entity_info) {
+  // View modes for taxonomy terms.
+  $entity_info['taxonomy_term']['view modes']['navigation'] = array(
+    'label' => t('Navigation'),
+    'custom settings' => TRUE,
+  );
+  $entity_info['taxonomy_term']['view modes']['grid'] = array(
+    'label' => t('Grid'),
+    'custom settings' => TRUE,
+  );
+  $entity_info['taxonomy_term']['view modes']['stacked'] = array(
+    'label' => t('Stacked'),
+    'custom settings' => TRUE,
+  );
+
+  // View modes for menu nodes.
+  $entity_info['node']['view modes']['stacked'] = array(
+    'label' => t('Stacked'),
+    'custom settings' => TRUE,
+  );
+  $entity_info['node']['view modes']['grid'] = array(
+    'label' => t('Grid'),
+    'custom settings' => TRUE,
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function restaurant_menu_menu() {
+  $items['admin/menus/manage'] = array(
+    'title' => 'Manage menus',
+    'weight' => 10,
+    'page callback' => 'restaurant_menu_manage_menus_admin',
+    'access arguments' => array('administer menus'),
+    'file' => 'restaurant_menu.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['admin/menus/sort'] = array(
+    'title' => 'Sort menus',
+    'weight' => 20,
+    'page callback' => 'restaurant_menu_sort_menus_admin',
+    'access arguments' => array('administer menus'),
+    'file' => 'restaurant_menu.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['admin/menus/add'] = array(
+    'title' => 'Add menu',
+    'weight' => 20,
+    'page callback' => 'restaurant_menu_add_menu_admin',
+    'access arguments' => array('administer menus'),
+    'file' => 'restaurant_menu.admin.inc',
+    'type' => MENU_LOCAL_ACTION,
+  );
+
+  $items['admin/menus/categories'] = array(
+    'title' => 'Menu categories',
+    'weight' => 30,
+    'access arguments' => array('administer menus'),
+    'page callback' => 'restaurant_menu_menu_categories_admin',
+    'file' => 'restaurant_menu.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['admin/menus/categories/add'] = array(
+    'title' => 'Add menu category',
+    'weight' => 40,
+    'page callback' => 'restaurant_menu_add_menu_category_admin',
+    'access arguments' => array('administer menus'),
+    'file' => 'restaurant_menu.admin.inc',
+    'type' => MENU_LOCAL_ACTION,
+  );
+
+  $items['admin/menus/types'] = array(
+    'title' => 'Nutriton types',
+    'weight' => 50,
+    'access arguments' => array('administer menus'),
+    'page callback' => 'restaurant_menu_nutrition_types_admin',
+    'file' => 'restaurant_menu.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['admin/menus/types/add'] = array(
+    'title' => 'Add nutrition type',
+    'weight' => 60,
+    'page callback' => 'restaurant_menu_add_nutrition_type_admin',
+    'access arguments' => array('administer menus'),
+    'file' => 'restaurant_menu.admin.inc',
+    'type' => MENU_LOCAL_ACTION,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function restaurant_menu_menu_alter(&$items) {
+  // Rename Menus to Navigations.
+  $items['admin/structure/menu']['title'] = t('Navigations');
+  $items['admin/structure/menu']['description'] = t('Add new navs to your site, rename and reorganize nav links.');
+
+  // Hide Commerce link for now.
+  $items['admin/commerce']['access callback'] = FALSE;
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function restaurant_menu_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  // Add action links to 'admin/menus/add' on 'admin/menus' page.
+  $items = array(
+    'actions' => array(
+      'admin/menus/add',
+      'admin/menus/categories/add',
+      'admin/menus/types/add',
+    ),
+    'tabs' => array(
+      'admin/menus',
+      'admin/menus/sort',
+      'admin/menus/categories',
+      'admin/menus/types',
+    ),
+  );
+  $new_data = restaurant_admin_show_menu_items_for_paths_pattern($items, $root_path, "admin/menus\nadmin/menus/*");
+  if (count($new_data)) {
+    $data = $new_data;
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function restaurant_menu_permission() {
+  return array(
+    'administer menus' => array(
+      'title' => t('Administer Menus'),
+      'description' => t('Access the menu admininstration pages and manage menus.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_node_insert().
+ */
+function restaurant_menu_node_insert($node) {
+  if ($node->type == 'menu') {
+    // Add the menu to the menus_page queue.
+    _restaurant_menu_add_menu_to_queue($node, 'menus_page');
+  }
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function restaurant_menu_preprocess_views_view_table(&$variables) {
+  $view = $variables['view'];
+  if ($view->name == 'administration_menus') {
+    // Add css.
+    drupal_add_css(drupal_get_path('module', 'restaurant_menu') . '/css/restaurant_menu.css');
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function restaurant_menu_form_menu_node_form_alter(&$form, &$form_state, $form_id) {
+  $language = isset($form['language']['#value']) ? $form['language']['#value'] : $form['#node']->language;
+
+  // Hide locations field if restaurant_location module is disabled.
+  if (!module_exists('restaurant_location')) {
+    $form['field_menu_locations']['#access'] = FALSE;
+  }
+  // Else show a message if no locations has been created.
+  else if (empty($form['field_menu_locations'][$language]['#options'])) {
+    $form['field_menu_locations'][$language]['#access'] = FALSE;
+    $form['field_menu_locations']['message'] = array(
+      '#markup' => t('You have not created any locations. The default location is being used.'),
+    );
+  }
+
+  // Generate and hide SKU and status for now.
+  $form['field_menu_variants'][$language]['form']['sku']['#access'] = FALSE;
+  $form['field_menu_variants'][$language]['form']['sku']['#default_value'] = _restaurant_menu_generate_sku();
+  $form['field_menu_variants'][$language]['form']['status']['#access'] = FALSE;
+
+  // Update title and description for title field.
+  $form['field_menu_variants'][$language]['form']['title']['#title'] = t('Title');
+  $form['field_menu_variants'][$language]['form']['title']['#description'] = t('Example: Large, small.');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function restaurant_menu_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
+  // Always submit the exposed form to the menus page.
+  if ($form['#id'] == 'views-exposed-form-menus-all-menus') {
+    $form['#action'] = 'menus';
+  }
+}
+
+/**
+ * Helper function to add a menu to the menu entity queue.
+ *
+ * @param $menu
+ *  The menu object.
+ */
+function _restaurant_menu_add_menu_to_queue($menu, $queue_name) {
+  $queue = entityqueue_queue_load($queue_name);
+  return auto_entityqueue_add_entity_to_queue($menu, $queue);
+}
+
+/**
+ * Generates an SKU.
+ * This is used temporarily until the online ordering system is built.
+ */
+function _restaurant_menu_generate_sku() {
+  $salt = drupal_get_hash_salt();
+  $hash = md5($salt . time());
+  $sku = substr($hash, rand(0, strlen($hash) - 5), 5);
+
+  // Make sure sku is unique.
+  while (!commerce_product_validate_sku_unique($sku, FALSE)) {
+    $sku = _restaurant_menu_generate_sku($sku);
+  }
+
+  return $sku;
+}
+
+/**
+ * Helper function to get an array of menus.
+ */
+function restaurant_location_get_menus() {
+  return db_select('node', 'n')
+    ->condition('type', 'menu')
+    ->fields('n', array('nid'))
+    ->execute()
+    ->fetchCol(0);
+}
+
+/**
+ * Implements hook_migrate_api().
+ */
+function restaurant_menu_migrate_api() {
+  return array(
+    'api' => 2,
+    'groups' => array(
+      'restaurant_menu_demo' => array(
+        'title' => t('Restaurant Menu demo content'),
+      ),
+    ),
+    'migrations' => restaurant_menu_get_migrations(),
+  );
+}
+
+/**
+ * Returns an array of migrations.
+ */
+function restaurant_menu_get_migrations() {
+  return array(
+    'RestaurantMenuMigrateSlideshowMigration' => array(
+      'class_name' => 'RestaurantMenuMigrateSlideshowMigration',
+      'group_name' => 'restaurant_menu_demo',
+    ),
+    'RestaurantMenuMigrateSlideMigration' => array(
+      'class_name' => 'RestaurantMenuMigrateSlideMigration',
+      'group_name' => 'restaurant_menu_demo',
+    ),
+    'RestaurantMenuMigrateCategoryMigration' => array(
+      'class_name' => 'RestaurantMenuMigrateCategoryMigration',
+      'group_name' => 'restaurant_menu_demo',
+    ),
+    'RestaurantMenuMigrateTypeMigration' => array(
+      'class_name' => 'RestaurantMenuMigrateTypeMigration',
+      'group_name' => 'restaurant_menu_demo',
+    ),
+    'RestaurantMenuMigrateMenuMigration' => array(
+      'class_name' => 'RestaurantMenuMigrateMenuMigration',
+      'group_name' => 'restaurant_menu_demo',
+    ),
+  );
+}

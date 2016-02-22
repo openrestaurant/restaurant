@@ -10,45 +10,27 @@
 function restaurant_menu_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: menu-restaurant-admin-menu:admin/structure/taxonomy/menu_categories/add
-  $menu_links['menu-restaurant-admin-menu:admin/structure/taxonomy/menu_categories/add'] = array(
-    'menu_name' => 'menu-restaurant-admin-menu',
-    'link_path' => 'admin/structure/taxonomy/menu_categories/add',
-    'router_path' => 'admin/structure/taxonomy/%/add',
-    'link_title' => 'Menu Category',
+  // Exported menu link: main-menu_the-menu:menus
+  $menu_links['main-menu_the-menu:menus'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'menus',
+    'router_path' => 'menus',
+    'link_title' => 'The Menu',
     'options' => array(
-      'attributes' => array(),
+      'identifier' => 'main-menu_the-menu:menus',
     ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '11',
-    'parent_path' => 'node/add',
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 1,
   );
-  // Exported menu link: menu-restaurant-admin-menu:node/add/menu
-  $menu_links['menu-restaurant-admin-menu:node/add/menu'] = array(
-    'menu_name' => 'menu-restaurant-admin-menu',
-    'link_path' => 'node/add/menu',
-    'router_path' => 'node/add',
-    'link_title' => 'Menu',
-    'options' => array(
-      'attributes' => array(),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '10',
-    'parent_path' => 'node/add',
-  );
+
   // Translatables
   // Included for use with string extractors like potx.
-  t('Menu');
-  t('Menu Category');
-
+  t('The Menu');
 
   return $menu_links;
 }
