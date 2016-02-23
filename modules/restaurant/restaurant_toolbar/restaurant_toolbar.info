@@ -1,8 +1,7 @@
 name = Restaurant Toolbar
 description = Toolbar for Open Restaurant.
 core = 7.x
-package = Open Restaurant Core
-version = 7.x-1.0-rc2
+package = Open Restaurant
 project = restaurant_toolbar
 dependencies[] = search_autocomplete
 dependencies[] = views

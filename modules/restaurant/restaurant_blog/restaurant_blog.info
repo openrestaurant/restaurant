@@ -1,8 +1,7 @@
 name = Restaurant Blog
 description = Blog system for Open Restaurant.
 core = 7.x
-package = Open Restaurant Apps
-version = 7.x-1.0-rc3
+package = Open Restaurant
 project = restaurant_blog
 dependencies[] = better_exposed_filters
 dependencies[] = disqus

@@ -2,7 +2,6 @@ name = Restaurant SEO
 description = SEO for the Restaurant Distribution
 core = 7.x
 package = Open Restaurant
-version = 7.x-1.0
 project = restaurant_seo
 dependencies[] = ctools
 dependencies[] = defaultconfig

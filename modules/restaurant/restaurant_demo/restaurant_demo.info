@@ -2,7 +2,6 @@ name = Restaurant Demo
 description = Provides demo content for Open Restaurant
 core = 7.x
 package = Open Restaurant Demo
-version = 7.x-1.0-rc3
 project = restaurant_demo
 dependencies[] = ctools
 dependencies[] = features

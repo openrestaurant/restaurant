@@ -1,8 +1,7 @@
 name = Restaurant Contact
 description = Simple contact page for Open Restaurant.
 core = 7.x
-package = Open Restaurant Apps
-version = 7.x-1.0
+package = Open Restaurant
 dependencies[] = contact
 dependencies[] = ctools
 dependencies[] = defaultconfig

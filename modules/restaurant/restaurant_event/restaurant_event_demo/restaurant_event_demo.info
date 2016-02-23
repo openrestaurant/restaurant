@@ -2,7 +2,6 @@ name = Restaurant Event Demo
 description = Demo content for the Restaurant Event.
 core = 7.x
 package = Open Restaurant Demo
-version = 7.x-1.0-dev
 project = restaurant_event_demo
 dependencies[] = restaurant_event
 features[features_api][] = api:1

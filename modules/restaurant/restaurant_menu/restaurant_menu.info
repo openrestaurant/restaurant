@@ -1,8 +1,7 @@
 name = Restaurant Menu
 description = Provides the structure for creating and managing menus.
 core = 7.x
-package = Open Restaurant Apps
-version = 7.x-1.0-rc3
+package = Open Restaurant
 project = restaurant_menu
 dependencies[] = auto_entityqueue
 dependencies[] = better_exposed_filters

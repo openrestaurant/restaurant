@@ -1,8 +1,7 @@
 name = Restaurant WYSIWYG
 description = WYSIWYG editor for Open Restaurant.
 core = 7.x
-package = Open Restaurant Core
-version = 7.x-1.0-rc3
+package = Open Restaurant
 dependencies[] = features
 dependencies[] = features_override
 dependencies[] = filter

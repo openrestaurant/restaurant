@@ -1,8 +1,7 @@
 name = Restaurant Admin Links
 description = Provides administrative links.
 core = 7.x
-package = Open Restaurant Core
-version = 7.x-1.0
+package = Open Restaurant
 project = restaurant_admin_links
 dependencies[] = contextual
 dependencies[] = features

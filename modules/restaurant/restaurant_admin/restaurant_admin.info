@@ -1,8 +1,7 @@
 name = Restaurant Admin
 description = Provides administrative enhancements for Open Restaurant.
 core = 7.x
-package = Open Restaurant Core
-version = 7.x-1.0-rc3
+package = Open Restaurant
 project = restaurant_admin
 dependencies[] = admin_views
 dependencies[] = ctools

@@ -1,8 +1,7 @@
 name = Restaurant Pages
 description = Content and landing pages for Open Restaurant.
 core = 7.x
-package = Open Restaurant Core
-version = 7.x-1.0-rc3
+package = Open Restaurant
 project = restaurant_pages
 dependencies[] = ctools
 dependencies[] = features

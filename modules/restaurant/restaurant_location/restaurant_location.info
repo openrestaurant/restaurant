@@ -1,8 +1,7 @@
 name = Restaurant Location
 description = Manage multiple restaurant locations.
 core = 7.x
-package = Open Restaurant Apps
-version = 7.x-1.0-rc3
+package = Open Restaurant
 project = restaurant_location
 dependencies[] = addressfield_staticmap
 dependencies[] = entityreference

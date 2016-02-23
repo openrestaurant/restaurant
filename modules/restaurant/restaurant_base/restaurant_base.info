@@ -1,8 +1,7 @@
 name = Restaurant Base
 description = Provides base configuration and structure for the Restaurant Distribution
 core = 7.x
-package = Open Restaurant Core
-version = 7.x-1.0-rc3
+package = Open Restaurant
 project = restaurant_base
 dependencies[] = ctools
 dependencies[] = defaultconfig
