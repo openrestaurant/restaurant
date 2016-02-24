@@ -13,8 +13,8 @@ function restaurant_demo_content_menu_links_defaults() {
   // Exported menu link: menu-footer-menu_documentation:http
   $menu_links['menu-footer-menu_documentation:http'] = array(
     'menu_name' => 'menu-footer-menu',
-    'link_path' => 'mlid/1247/under-construction',
-    'router_path' => 'mlid/%/under-construction',
+    'link_path' => 'http://docs.open.restaurant',
+    'router_path' => 'http://docs.open.restaurant',
     'link_title' => 'Documentation',
     'options' => array(
       'attributes' => array(
@@ -27,13 +27,13 @@ function restaurant_demo_content_menu_links_defaults() {
     'has_children' => 0,
     'expanded' => 0,
     'weight' => 13,
-    'parent_path' => 'http://openrestaurant.io',
+    'parent_path' => 'http://open.restaurant',
   );
   // Exported menu link: menu-footer-menu_launch-on-pantheon:http
   $menu_links['menu-footer-menu_launch-on-pantheon:http'] = array(
     'menu_name' => 'menu-footer-menu',
-    'link_path' => 'mlid/1249/under-construction',
-    'router_path' => 'mlid/%/under-construction',
+    'link_path' => 'https://dashboard.pantheon.io/products/openrestaurant/spinup',
+    'router_path' => 'https://dashboard.pantheon.io/products/openrestaurant/spinup',
     'link_title' => 'Launch on Pantheon',
     'options' => array(
       'attributes' => array(
@@ -46,7 +46,7 @@ function restaurant_demo_content_menu_links_defaults() {
     'has_children' => 0,
     'expanded' => 0,
     'weight' => 15,
-    'parent_path' => 'http://openrestaurant.io',
+    'parent_path' => 'http://open.restaurant',
   );
   // Exported menu link: menu-footer-menu_news:news
   $menu_links['menu-footer-menu_news:news'] = array(

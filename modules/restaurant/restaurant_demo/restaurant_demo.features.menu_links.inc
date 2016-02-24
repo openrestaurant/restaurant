@@ -10,17 +10,17 @@
 function restaurant_demo_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: menu-footer-menu_about-us:http://openrestaurant.io
-  $menu_links['menu-footer-menu_about-us:http://openrestaurant.io'] = array(
+  // Exported menu link: menu-footer-menu_about-us:http://open.restaurant
+  $menu_links['menu-footer-menu_about-us:http://open.restaurant'] = array(
     'menu_name' => 'menu-footer-menu',
-    'link_path' => 'http://openrestaurant.io',
+    'link_path' => 'http://open.restaurant',
     'router_path' => '',
     'link_title' => 'About Us',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer-menu_about-us:http://openrestaurant.io',
+      'identifier' => 'menu-footer-menu_about-us:http://open.restaurant',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -93,19 +93,19 @@ function restaurant_demo_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -49,
     'customized' => 1,
-    'parent_identifier' => 'menu-footer-menu_about-us:http://openrestaurant.io',
+    'parent_identifier' => 'menu-footer-menu_about-us:http://open.restaurant',
   );
-  // Exported menu link: menu-footer-menu_documentation:http://openrestaurant.io/documentation
-  $menu_links['menu-footer-menu_documentation:http://openrestaurant.io/documentation'] = array(
+  // Exported menu link: menu-footer-menu_documentation:http://open.restaurant/documentation
+  $menu_links['menu-footer-menu_documentation:http://docs.open.restaurant'] = array(
     'menu_name' => 'menu-footer-menu',
-    'link_path' => 'http://openrestaurant.io/documentation',
+    'link_path' => 'http://docs.open.restaurant',
     'router_path' => '',
     'link_title' => 'Documentation',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer-menu_documentation:http://openrestaurant.io/documentation',
+      'identifier' => 'menu-footer-menu_documentation:http://docs.open.restaurant',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -114,19 +114,19 @@ function restaurant_demo_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -48,
     'customized' => 1,
-    'parent_identifier' => 'menu-footer-menu_open-restaurant:http://openrestaurant.io',
+    'parent_identifier' => 'menu-footer-menu_open-restaurant:http://open.restaurant',
   );
-  // Exported menu link: menu-footer-menu_download:http://openrestaurant.io
-  $menu_links['menu-footer-menu_download:http://openrestaurant.io'] = array(
+  // Exported menu link: menu-footer-menu_download:http://open.restaurant
+  $menu_links['menu-footer-menu_download:http://open.restaurant'] = array(
     'menu_name' => 'menu-footer-menu',
-    'link_path' => 'http://openrestaurant.io',
+    'link_path' => 'http://open.restaurant',
     'router_path' => '',
     'link_title' => 'Download',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer-menu_download:http://openrestaurant.io',
+      'identifier' => 'menu-footer-menu_download:http://open.restaurant',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -135,7 +135,7 @@ function restaurant_demo_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -50,
     'customized' => 1,
-    'parent_identifier' => 'menu-footer-menu_open-restaurant:http://openrestaurant.io',
+    'parent_identifier' => 'menu-footer-menu_open-restaurant:http://open.restaurant',
   );
   // Exported menu link: menu-footer-menu_events:events
   $menu_links['menu-footer-menu_events:events'] = array(
@@ -156,19 +156,19 @@ function restaurant_demo_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 1,
-    'parent_identifier' => 'menu-footer-menu_restaurant:http://openrestaurant.io',
+    'parent_identifier' => 'menu-footer-menu_restaurant:http://open.restaurant',
   );
-  // Exported menu link: menu-footer-menu_faqs:http://openrestaurant.io
-  $menu_links['menu-footer-menu_faqs:http://openrestaurant.io'] = array(
+  // Exported menu link: menu-footer-menu_faqs:http://open.restaurant
+  $menu_links['menu-footer-menu_faqs:http://open.restaurant'] = array(
     'menu_name' => 'menu-footer-menu',
-    'link_path' => 'http://openrestaurant.io',
+    'link_path' => 'http://open.restaurant',
     'router_path' => '',
     'link_title' => 'FAQs',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer-menu_faqs:http://openrestaurant.io',
+      'identifier' => 'menu-footer-menu_faqs:http://open.restaurant',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -177,7 +177,7 @@ function restaurant_demo_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -48,
     'customized' => 1,
-    'parent_identifier' => 'menu-footer-menu_about-us:http://openrestaurant.io',
+    'parent_identifier' => 'menu-footer-menu_about-us:http://open.restaurant',
   );
   // Exported menu link: menu-footer-menu_hours--locations:locations
   $menu_links['menu-footer-menu_hours--locations:locations'] = array(
@@ -198,10 +198,10 @@ function restaurant_demo_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 1,
-    'parent_identifier' => 'menu-footer-menu_restaurant:http://openrestaurant.io',
+    'parent_identifier' => 'menu-footer-menu_restaurant:http://open.restaurant',
   );
-  // Exported menu link: menu-footer-menu_launch-on-pantheon:http://pantheon.io
-  $menu_links['menu-footer-menu_launch-on-pantheon:http://pantheon.io'] = array(
+  // Exported menu link: menu-footer-menu_launch-on-pantheon:https://dashboard.pantheon.io/products/openrestaurant/spinup
+  $menu_links['menu-footer-menu_launch-on-pantheon:https://dashboard.pantheon.io/products/openrestaurant/spinup'] = array(
     'menu_name' => 'menu-footer-menu',
     'link_path' => 'http://pantheon.io',
     'router_path' => '',
@@ -210,7 +210,7 @@ function restaurant_demo_menu_default_menu_links() {
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer-menu_launch-on-pantheon:http://pantheon.io',
+      'identifier' => 'menu-footer-menu_launch-on-pantheon:https://dashboard.pantheon.io/products/openrestaurant/spinup',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -219,7 +219,7 @@ function restaurant_demo_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -49,
     'customized' => 1,
-    'parent_identifier' => 'menu-footer-menu_open-restaurant:http://openrestaurant.io',
+    'parent_identifier' => 'menu-footer-menu_open-restaurant:http://open.restaurant',
   );
   // Exported menu link: menu-footer-menu_lunch:menus
   $menu_links['menu-footer-menu_lunch:menus'] = array(
@@ -282,19 +282,19 @@ function restaurant_demo_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -49,
     'customized' => 1,
-    'parent_identifier' => 'menu-footer-menu_restaurant:http://openrestaurant.io',
+    'parent_identifier' => 'menu-footer-menu_restaurant:http://open.restaurant',
   );
-  // Exported menu link: menu-footer-menu_open-restaurant:http://openrestaurant.io
-  $menu_links['menu-footer-menu_open-restaurant:http://openrestaurant.io'] = array(
+  // Exported menu link: menu-footer-menu_open-restaurant:http://open.restaurant
+  $menu_links['menu-footer-menu_open-restaurant:http://open.restaurant'] = array(
     'menu_name' => 'menu-footer-menu',
-    'link_path' => 'http://openrestaurant.io',
+    'link_path' => 'http://open.restaurant',
     'router_path' => '',
     'link_title' => 'Open Restaurant',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer-menu_open-restaurant:http://openrestaurant.io',
+      'identifier' => 'menu-footer-menu_open-restaurant:http://open.restaurant',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -304,17 +304,17 @@ function restaurant_demo_menu_default_menu_links() {
     'weight' => -47,
     'customized' => 1,
   );
-  // Exported menu link: menu-footer-menu_our-chefs:http://openrestaurant.io
-  $menu_links['menu-footer-menu_our-chefs:http://openrestaurant.io'] = array(
+  // Exported menu link: menu-footer-menu_our-chefs:http://open.restaurant
+  $menu_links['menu-footer-menu_our-chefs:http://open.restaurant'] = array(
     'menu_name' => 'menu-footer-menu',
-    'link_path' => 'http://openrestaurant.io',
+    'link_path' => 'http://open.restaurant',
     'router_path' => '',
     'link_title' => 'Our Chefs',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer-menu_our-chefs:http://openrestaurant.io',
+      'identifier' => 'menu-footer-menu_our-chefs:http://open.restaurant',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -323,19 +323,19 @@ function restaurant_demo_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -50,
     'customized' => 1,
-    'parent_identifier' => 'menu-footer-menu_about-us:http://openrestaurant.io',
+    'parent_identifier' => 'menu-footer-menu_about-us:http://open.restaurant',
   );
-  // Exported menu link: menu-footer-menu_restaurant:http://openrestaurant.io
-  $menu_links['menu-footer-menu_restaurant:http://openrestaurant.io'] = array(
+  // Exported menu link: menu-footer-menu_restaurant:http://open.restaurant
+  $menu_links['menu-footer-menu_restaurant:http://open.restaurant'] = array(
     'menu_name' => 'menu-footer-menu',
-    'link_path' => 'http://openrestaurant.io',
+    'link_path' => 'http://open.restaurant',
     'router_path' => '',
     'link_title' => 'Restaurant',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer-menu_restaurant:http://openrestaurant.io',
+      'identifier' => 'menu-footer-menu_restaurant:http://open.restaurant',
     ),
     'module' => 'menu',
     'hidden' => 0,
