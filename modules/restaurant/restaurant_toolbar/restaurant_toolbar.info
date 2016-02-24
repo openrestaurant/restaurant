@@ -5,6 +5,7 @@ package = Open Restaurant
 project = restaurant_toolbar
 dependencies[] = search_autocomplete
 dependencies[] = views
+dependencies[] = navbar
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
