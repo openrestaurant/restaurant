@@ -365,33 +365,61 @@ body {
     float: left;
     clear: left; }
 
+body.maintenance-page #branding {
+  background-color: #3498db;
+  min-height: 52px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+  padding: 0 20px;
+  z-index: 1000; }
+  body.maintenance-page #branding h1 {
+    color: white;
+    width: auto;
+    padding: 0;
+    font-size: 1.2em;
+    line-height: 52px; }
+
 body.maintenance-page #page {
   padding: 20px;
   width: 800px;
-  margin: 30px auto;
+  margin: 20px 0;
   border-radius: 2px; }
+  body.maintenance-page #page #sidebar-first {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    border-right: 1px solid #e0e0e0;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    padding: 20px;
+    width: 250px; }
   body.maintenance-page #page #content {
     width: auto;
     padding: 0;
     float: none;
-    margin-left: 250px; }
+    margin-left: 270px; }
   body.maintenance-page #page footer {
     text-align: center;
     padding: 20px 0; }
 
-body.maintenance-page .page-title {
-  font-size: 2.4em; }
+body.maintenance-page .page-header {
+  overflow: hidden; }
+  body.maintenance-page .page-header .page-title {
+    float: left;
+    font-size: 2.4em; }
+  body.maintenance-page .page-header .page-steps {
+    float: right; }
 
 body.maintenance-page .tasks-list > div {
   margin-bottom: 15px;
   opacity: 0.5; }
   body.maintenance-page .tasks-list > div h6 {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: normal;
     margin-bottom: 0px; }
   body.maintenance-page .tasks-list > div h4 {
     margin-top: 0;
-    font-size: 14px; }
+    font-size: 16px; }
   body.maintenance-page .tasks-list > div.active, body.maintenance-page .tasks-list > div.done {
     color: black;
     opacity: 1.0; }

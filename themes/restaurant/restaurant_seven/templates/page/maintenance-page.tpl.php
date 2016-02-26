@@ -9,6 +9,13 @@
   </head>
   <body class="<?php print $classes; ?>">
   <?php print $page_top; ?>
+
+  <div id="branding">
+    <?php if ($title): ?>
+      <h1 class="page-title"><?php print DISTRIBUTION_NAME; ?></h1>
+    <?php endif; ?>
+  </div>
+
   <div id="page">
     <?php if ($sidebar_first): ?>
       <div id="sidebar-first" class="sidebar">
@@ -17,7 +24,7 @@
     <?php endif; ?>
 
     <div id="content" class="clearfix">
-      <div class="page-header">
+      <div class="page-header clearfix">
         <h1 class="page-title"><?php print $title; ?></h1>
         <?php if (isset($steps)): ?>
           <h4 class="page-steps"><?php print $steps; ?></h4>
