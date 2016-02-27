@@ -11,7 +11,7 @@ define('DISTRIBUTION_NAME', 'Open Restaurant');
 define('DISTRIBUTION_SLOGAN', 'Open Source Restaurant Software');
 
 // Installation theme
-define('INSTALL_THEME', 'restaurant_seven');
+define('INSTALL_THEME', 'seven');
 
 // Default theme.
 define('DEFAULT_THEME', 'sizzle');
