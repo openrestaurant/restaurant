@@ -260,6 +260,7 @@ function restaurant_reservation_entity_update($entity, $type) {
  * Sends an email for a reservation status change.
  */
 function restaurant_reservation_send_update_status_mail($reservation) {
+  global $language;
   $wrapper = entity_metadata_wrapper('reservation', $reservation);
   $current_status = $wrapper->field_reservation_status->value();
 
@@ -277,7 +278,7 @@ function restaurant_reservation_send_update_status_mail($reservation) {
 
     // For now, let's just attach the node display to the body.
     // TODO: Tokenize this. Add HTML support.
-    $body = entity_view('reservation', array($reservation), 'email');
+    $body = entity_view('reservation', array($reservation), 'email', $language->language);
     $params['body'] .= drupal_render($body);
 
     $to = $wrapper->field_reservation_email->value();
