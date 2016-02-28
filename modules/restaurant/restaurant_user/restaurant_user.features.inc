@@ -25,12 +25,12 @@ function restaurant_user_views_api($module = NULL, $api = NULL) {
  */
 function restaurant_user_default_page_manager_handlers_alter(&$data) {
   if (isset($data['pm_existing_pages_user_login_panel_context'])) {
-    $data['pm_existing_pages_user_login_panel_context']->conf['display']->layout = 'radix_whelan'; /* WAS: 'burr_flipped' */
+    $data['pm_existing_pages_user_login_panel_context']->conf['display']->layout = 'radix_whelan'; /* WAS: 'radix_burr_flipped' */
   }
   if (isset($data['pm_existing_pages_user_password_panel_context'])) {
-    $data['pm_existing_pages_user_password_panel_context']->conf['display']->layout = 'radix_whelan'; /* WAS: 'burr_flipped' */
+    $data['pm_existing_pages_user_password_panel_context']->conf['display']->layout = 'radix_whelan'; /* WAS: 'radix_burr_flipped' */
   }
   if (isset($data['pm_existing_pages_user_register_panel_context'])) {
-    $data['pm_existing_pages_user_register_panel_context']->conf['display']->layout = 'radix_whelan'; /* WAS: 'burr_flipped' */
+    $data['pm_existing_pages_user_register_panel_context']->conf['display']->layout = 'radix_whelan'; /* WAS: 'radix_burr_flipped' */
   }
 }
