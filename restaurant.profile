@@ -13,6 +13,9 @@ function restaurant_form_install_configure_form_alter(&$form, $form_state) {
   if (empty($form['site_information']['site_name']['#default_value'])) {
     $form['site_information']['site_name']['#default_value'] = DISTRIBUTION_NAME;
   }
+
+  // Change title for admin account.
+  $form['admin_account']['#title'] = t('Administration account');
   
   // Hide Server Settings.
   $form['server_settings']['#access'] = FALSE;
