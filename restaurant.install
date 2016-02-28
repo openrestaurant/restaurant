@@ -168,7 +168,7 @@ function restaurant_install_welcome_submit($form, &$form_state) {
 function restaurant_select_installation_type($form, &$form_state) {
   // Add installation types.
   $installation_types = _restaurant_get_installation_types();
-  $form_state['input']['installation_type'] = 'quick';
+  $form_state['input']['installation_type'] = 'standard';
   $form['installation_type'] = array(
     '#prefix' => '<div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">' . st('Select an installation type:') . '</h3></div><div class="panel-body">',
     '#suffix' => '</div></div>',
@@ -184,7 +184,7 @@ function restaurant_select_installation_type($form, &$form_state) {
       '#type' => 'radio',
       '#title' => $values['title'],
       '#description' => $values['description'],
-      '#value' => 'quick',
+      '#value' => 'standard',
       '#return_value' => $type,
       '#parents' => array('installation_type'),
     );
@@ -415,13 +415,13 @@ function _restaurant_filter_dependencies($dependency) {
  */
 function _restaurant_get_installation_types() {
   return array(
+    'standard' => array(
+      'title' => st('Standard'),
+      'description' => st('Install Open Restaurant by customizing your distribution.'),
+    ),
     'quick' => array(
       'title' => st('Demo'),
       'description' => st('Install Open Restaurant with all features and demo content.'),
-    ),
-    'standard' => array(
-      'title' => st('Standard'),
-      'description' => st('Install by customizing your distribution.'),
     ),
   );
 }
