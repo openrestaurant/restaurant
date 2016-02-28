@@ -25,6 +25,9 @@ define('DEFAULT_ADMINISTRATION_THEME', 'restaurant_seven');
 function restaurant_install_tasks($install_state) {
   $tasks = array();
 
+  // Add our custom CSS file for the installation process
+  drupal_add_css(drupal_get_path('profile', 'restaurant') . '/restaurant.css');
+
   // Set the page title.
   drupal_set_title(DISTRIBUTION_NAME);
 

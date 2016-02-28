@@ -1,0 +1,17 @@
+/**
+ * Styles for maintenance page.
+ */
+body.maintenance-page #branding {
+  padding: 20px;
+  background: black;
+}
+
+body.maintenance-page #branding h1.page-title {
+  padding: 0;
+  color: white;
+}
+
+body.maintenance-page #logo {
+  background: red;
+  display: none;
+}
