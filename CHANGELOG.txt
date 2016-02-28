@@ -1,3 +1,42 @@
+Open Restaurant 7.x-1.0-rc4, 2016-02-28
+---------------------------------------
+- Update restaurant version to 7.x-1.0-rc4.
+- Update sizzle to 7.x-1.0-rc4.
+- Update to Drupal 7.43.
+- Make reservation number optional.
+- Multilang Reservation: wrong email text to booking user.
+- Set standard mode as the default installation mode.
+- Update permissions for Administrator role.
+- Rename quick profile to demo.
+- Add some minor css style for the maintenance page.
+- Update the default demo database.
+- Rename site maintenance account to administration account.
+- Set seven as the installation theme.
+- Update to Panopoly 1.31.
+- Update all urls for footer links.
+- Add navbar dependency for restaurant_toolbar.
+- Update openrestaurant.io urls to open.restaurant.
+- Update package info and version for all restaurant modules.
+- Update path in reset script.
+- Update restaurant_menu to latest revision.
+- Update restaurant_mail to latest revision.
+- Update restaurant_location to latest revision.
+- Update restaurant_demo to latest revision.
+- Always build profile from drupal.org.
+- Remove restaurant_widgets as dependency.
+- Move all restaurant modules make file to drupal-org.make.
+- Remove information added by drush.
+- Panopoly_theme to remove responsive bartik.
+- Specify subdir for panopoly modules in make files.
+- Install panopoly modules into contrib directory.
+- Add devel module to make file.
+- Add build-restaurant-dev.make file.
+- Add patch to ignore node_modules and bower_components on file_scan_directory.
+- Move radix and sizzle to a contrib directory.
+- Merge restaurant_radix and restaurant_seven into profile.
+- Remove restaurant modules from make file.
+- Merge all core modules into the profile.
+
 Open Restaurant 7.x-1.0-rc3, 2016-01-25
 -----------------------------
 - Update to Panopoly 1.30
