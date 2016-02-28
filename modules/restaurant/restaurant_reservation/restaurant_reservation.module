@@ -346,8 +346,15 @@ function computed_field_field_reservation_number_compute(&$entity_field, $entity
     return $entity_field[0]['value'];
   }
 
-  // Generate a unique id using the id.
+  // Get the reservation id.
   $reservation_id = entity_id($entity_type, $entity);
+
+  // Use the id if reservation number is not used.
+  if (!panopoly_config_get('reservation_use_reservation_number')) {
+    return $reservation_id;
+  }
+
+  // Generate a unique id using the id.
   $reservation_number = _restaurant_reservation_generate_reservation_number_from_id($reservation_id);
 
   $entity_field[0]['value'] = $reservation_number;

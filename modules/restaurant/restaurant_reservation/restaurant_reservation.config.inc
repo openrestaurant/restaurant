@@ -17,6 +17,13 @@ function restaurant_reservation_panopoly_config_info() {
     'default' => TRUE,
   );
 
+  $config['reservation_use_reservation_number'] = array(
+    'title' => t('Generate a number for reservations'),
+    'description' => t('If checked, a reservation number will be generated for each reservation. Otherwise the reservation id is used.'),
+    'type' => 'boolean',
+    'default' => TRUE,
+  );
+
   $config['reservation_number_prefix'] = array(
     'title' => t('Reservation number prefix'),
     'description' => t('Prefix to use for reservation numbers. Example RN, RESERVATION.'),
