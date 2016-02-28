@@ -416,7 +416,7 @@ function _restaurant_filter_dependencies($dependency) {
 function _restaurant_get_installation_types() {
   return array(
     'quick' => array(
-      'title' => st('Quick (recommended)'),
+      'title' => st('Demo'),
       'description' => st('Install Open Restaurant with all features and demo content.'),
     ),
     'standard' => array(
