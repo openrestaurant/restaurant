@@ -8,7 +8,9 @@
 class RestaurantLocationMigrateLocationMigration extends Migration {
 
   public function __construct($arguments) {
-    parent::__construct($arguments);
+    $this->arguments = $arguments;
+    parent::__construct();
+
     $this->modulePath = drupal_get_path('module', 'restaurant_location_demo');
     $this->data = $this->modulePath . '/data/locations.csv';
     $this->description = t('Import locations nodes.');

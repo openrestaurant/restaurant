@@ -8,7 +8,9 @@
 class RestaurantBlogMigrateBlogPostMigration extends Migration {
 
   public function __construct($arguments) {
-    parent::__construct($arguments);
+    $this->arguments = $arguments;
+    parent::__construct();
+
     $this->data = drupal_get_path('module', 'restaurant_blog_demo') . '/data/blog_posts.csv';
     $this->description = t('Import blog posts nodes.');
     $this->source = new MigrateSourceCSV($this->data, $this->csvcolumns(), array('header_rows' => 1));

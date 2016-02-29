@@ -8,7 +8,9 @@
 class RestaurantMenuMigrateSlideMigration extends Migration {
 
   public function __construct($arguments) {
-    parent::__construct($arguments);
+    $this->arguments = $arguments;
+    parent::__construct();
+
     $this->modulePath = drupal_get_path('module', 'restaurant_menu_demo');
     $this->data = $this->modulePath . '/data/slides.csv';
     $this->description = t('Import slides for Slideshows.');

@@ -8,7 +8,9 @@
 class RestaurantEventMigrateTextMigration extends Migration {
 
   public function __construct($arguments) {
-    parent::__construct($arguments);
+    $this->arguments = $arguments;
+    parent::__construct();
+
     $this->modulePath = drupal_get_path('module', 'restaurant_event_demo');
     $this->data = $this->modulePath . '/data/texts.csv';
     $this->description = t('Import fieldable panels panes.');

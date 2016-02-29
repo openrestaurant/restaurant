@@ -8,7 +8,9 @@
 class RestaurantMenuMigrateMenuMigration extends Migration {
 
   public function __construct($arguments) {
-    parent::__construct($arguments);
+    $this->arguments = $arguments;
+    parent::__construct();
+
     $this->data = drupal_get_path('module', 'restaurant_menu_demo') . '/data/menus.csv';
 
     // Set the sample size to fewer if max_execution_time is less than 60 or on Pantheon.

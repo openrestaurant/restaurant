@@ -8,7 +8,9 @@
 class RestaurantMenuMigrateTypeMigration extends Migration {
 
   public function __construct($arguments) {
-    parent::__construct($arguments);
+    $this->arguments = $arguments;
+    parent::__construct();
+
     $this->data = drupal_get_path('module', 'restaurant_menu_demo') . '/data/types.csv';
     $this->description = t('Import nutrition types terms.');
     $this->source = new MigrateSourceCSV($this->data, $this->csvcolumns(), array('header_rows' => 1));
