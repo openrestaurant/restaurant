@@ -7,9 +7,9 @@
 // Migration class
 class RestaurantDemoMigrateTextMigration extends Migration {
 
-  public function __construct($arguments) {
+  public function __construct($arguments = array()) {
     $this->arguments = $arguments;
-    parent::__construct();
+    parent::__construct($arguments);
 
     $this->modulePath = drupal_get_path('module', 'restaurant_demo');
     $this->data = $this->modulePath . '/data/texts.csv';

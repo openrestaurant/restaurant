@@ -62,7 +62,7 @@ projects[eck][subdir] = contrib
 projects[variable][version] = 2.1
 projects[variable][subdir] = contrib
 
-projects[migrate][version] = 2.5
+projects[migrate][version] = 2.8
 projects[migrate][subdir] = contrib
 
 projects[migrate_extras][version] = 2.5
