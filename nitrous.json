@@ -1,0 +1,7 @@
+{
+  "template": "php",
+  "ports": [3000],
+  "name": "Restaurant",
+  "logo": "",
+  "description": "Everything you need to build your restaurant website."
+}
