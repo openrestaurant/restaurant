@@ -178,6 +178,10 @@ function restaurant_menu_preprocess_views_view_table(&$variables) {
  * Implements hook_form_FORM_ID_alter().
  */
 function restaurant_menu_form_menu_node_form_alter(&$form, &$form_state, $form_id) {
+  // Include node.pages.inc.
+  form_load_include($form_state, 'inc', 'node', 'node.pages');
+
+  // Get the site language.
   $language = isset($form['language']['#value']) ? $form['language']['#value'] : $form['#node']->language;
 
   // Hide locations field if restaurant_location module is disabled.
