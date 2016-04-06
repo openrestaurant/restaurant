@@ -20,6 +20,10 @@ It comes with a menu management system, a reservation system, a customizable blo
 * **Custom look and feel** - Easily customize and colorize your website's theme.
 
 ## Installation
-
 * [Spin on Pantheon](https://dashboard.pantheon.io/products/openrestaurant/spinup) - Open Restaurant is available on Pantheon. It takes a few minutes to spin a new restaurant website and it is free to install and try.
+
+## Download
 * [Download and install](https://www.drupal.org/project/restaurant) - The distribution is packaged on drupal.org and available as a download.
+
+## License
+GPL 2.0
