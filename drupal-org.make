@@ -127,7 +127,7 @@ projects[eck][subdir] = contrib
 projects[inline_entity_form][version] = 1.6
 projects[inline_entity_form][subdir] = contrib
 
-projects[commerce][version] = 1.11
+projects[commerce][version] = 1.13
 projects[commerce][subdir] = contrib
 projects[commerce][patch][2567833] = https://www.drupal.org/files/issues/commerce-fatal-error-commerce_product_ui.module-2567833-1.patch
 
