@@ -122,7 +122,7 @@ function restaurant_update_admin_form() {
 function restaurant_update_admin_form_submit($form, &$form_state) {
   if ($form_state['values']['restaurant_update_enable'] !== $form_state['input']['restaurant_update_enable']) {
     variable_set('restaurant_update_enable', $form_state['values']['restaurant_update_enable']);
-    module_restaurant_install('update');
+    module_load_install('update');
     $status = update_requirements('runtime');
   }
 }
