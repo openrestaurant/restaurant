@@ -9,9 +9,20 @@
  */
 class RestaurantMailMailSystem extends DefaultMailSystem {
   public function format(array $message) {
+    global $base_url;
+
     // Allow html mails.
     $message['body'] = implode("\n\n", $message['body']);
     $message['body'] = drupal_wrap_mail($message['body']);
+
+    // Make all links absolute for message body.
+    $prefix = $base_url . '/';
+    $replacements = array(
+      '/href="\/(?!https?:\/\/)(?!data:)(?!#)/' => 'href="' . $prefix,
+      '/src="(?!https?:\/\/)(?!data:)(?!#)/' => 'src="' . $prefix
+    );
+    $message['body'] = preg_replace(array_keys($replacements), array_values($replacements), $message['body']);
+
     return $message;
   }
 }
