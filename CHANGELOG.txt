@@ -1,3 +1,12 @@
+Open Restaurant 7.x-1.1, 2016-05-15
+---------------------------------------
+- Only show the locations dropdown if site has locations
+- Make all links absolute for message body
+- Update to commerce 1.13
+- Use module_load_install instead module_restaurant_install duh
+- Fix typo in function name
+- Update to Panopoly 1.3
+
 Open Restaurant 7.x-1.0, 2016-03-10
 ---------------------------------------
 - Update to Panopoly 1.32
