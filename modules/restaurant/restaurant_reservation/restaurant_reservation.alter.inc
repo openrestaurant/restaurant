@@ -18,6 +18,16 @@ function restaurant_reservation_form_eck__entity__form_add_reservation_reservati
     // Change the value of the submit buttton.
     $form['actions']['submit']['#value'] = t('Submit Reservation');
 
+    // Only show the locations dropdown if site has created locations.
+    if (isset($form['field_reservation_location'])) {
+      $options = $form['field_reservation_location'][$language]['#options'];
+
+      // Remove the _none options if set.
+      unset($options['_none']);
+
+      $form['field_reservation_location']['#access'] = count($options);
+    }
+
     // Add a custom submit callback.
     $form['#submit'][] = 'restaurant_reservation_form_eck__entity__form_add_reservation_reservation_submit';
   }
