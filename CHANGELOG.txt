@@ -1,5 +1,6 @@
 Open Restaurant 7.x-1.1, 2016-05-15
 ---------------------------------------
+- Update to Radix 3.4 and Sizzle 1.1
 - Only show the locations dropdown if site has locations
 - Make all links absolute for message body
 - Update to commerce 1.13
