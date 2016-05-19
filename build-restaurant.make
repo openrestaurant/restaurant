@@ -6,4 +6,4 @@ includes[] = drupal-org-core.make
 
 ; Download the Restaurant install profile and recursively build its dependencies:
 projects[restaurant][type] = profile 
-projects[restaurant][version] = 1.1
+projects[restaurant][version] = 1.11
