@@ -180,10 +180,6 @@ libraries[jquery.cycle][destination] = libraries
 
 ; Restaurant Themes
 
-projects[radix][version] = 3.4
-projects[radix][type] = theme
-projects[radix][subdir] = contrib
-
 projects[sizzle][version] = 1.1
 projects[sizzle][type] = theme
 projects[sizzle][subdir] = contrib
