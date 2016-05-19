@@ -1,3 +1,12 @@
+Open Restaurant 7.x-1.11, 2016-05-20
+---------------------------------------
+- Update addressfield to 1.2
+- Do not set php_register_globals from restaurant_base.install
+- Update profile root in scripts
+- Fix typo in make file
+- Remove radix from make file. It will be added via radix_core.
+- Update field_slideshow to 1.82
+
 Open Restaurant 7.x-1.1, 2016-05-15
 ---------------------------------------
 - Update to Radix 3.4 and Sizzle 1.1
