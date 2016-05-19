@@ -26,9 +26,6 @@ function restaurant_base_requirements($phase) {
     $requirements['php_max_execution_time']['severity'] = REQUIREMENT_ERROR;
     $requirements['php_max_execution_time']['value'] = $max_execution_time;
   }
-  else {
-    $requirements['php_register_globals']['value'] = $max_execution_time;
-  }
 
   return $requirements;
 }
