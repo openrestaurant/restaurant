@@ -170,7 +170,7 @@ projects[imagecache_token][subdir] = contrib
 projects[devel][version] = 1.5
 projects[devel][subdir] = contrib
 
-projects[field_slideshow][version] = 1.8
+projects[field_slideshow][version] = 1.82
 projects[field_slideshow][subdir] = contrib
 projects[field_slideshow][patch][1366226] = http://drupal.org/files/field_slideshow-long-text-field-support-1366226-11.patch
 
