@@ -11,7 +11,7 @@ echo ""
 echo "----------------------------------"
 echo "Recreating settings.php in sites/default..."
 echo "----------------------------------"
-cd /home/vagrant/sites/openrestaurant
+cd ~/Sites/htdocs/restaurant
 chmod 755 sites/default
 cd sites/default
 rm -rf settings.php files
