@@ -80,7 +80,7 @@ projects[email][subdir] = contrib
 projects[auto_nodetitle][version] = 1.0
 projects[auto_nodetitle][subdir] = contrib
 
-projects[addressfield][version] = 1.0-beta5
+projects[addressfield][version] = 1.2
 projects[addressfield][subdir] = contrib
 
 projects[disqus][version] = 1.10
