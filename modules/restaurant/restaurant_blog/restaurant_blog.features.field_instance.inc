@@ -206,7 +206,7 @@ function restaurant_blog_field_default_field_instances() {
       'custom_add_another' => '',
       'custom_remove' => '',
       'default_image' => 0,
-      'file_directory' => 'blog',
+      'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',

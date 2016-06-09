@@ -14,7 +14,7 @@ class RestaurantDemoMigrateSlideMigration extends Migration {
     $this->modulePath = drupal_get_path('module', 'restaurant_demo');
     $this->data = $this->modulePath . '/data/slides.csv';
     $this->description = t('Import slides for Slideshows.');
-    $this->dependencies = array('RestaurantDemoMigrateSlideshow');
+    $this->dependencies = array('RestaurantDemoMigrateSlideshowMigration');
     $this->source = new MigrateSourceCSV($this->data, $this->csvcolumns(), array('header_rows' => 1));
     $this->destination = new MigrateDestinationFieldCollection(
       'field_slideshow_slides',

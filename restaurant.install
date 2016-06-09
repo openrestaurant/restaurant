@@ -591,5 +591,9 @@ function restaurant_get_apps() {
     'restaurant_seo' => array(
       'description' => 'Optimize site for Search Engines',
     ),
+    'restaurant_demo' => array(
+      'description' => 'Provides demo content for Open Restaurant',
+      'demo' => 'restaurant_demo',
+    ),
   );
 }
