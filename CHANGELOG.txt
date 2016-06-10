@@ -1,3 +1,7 @@
+Open Restaurant 7.x-1.12, 2016-06-10
+---------------------------------------
+- Fix demo installation
+
 Open Restaurant 7.x-1.11, 2016-05-20
 ---------------------------------------
 - Update addressfield to 1.2
