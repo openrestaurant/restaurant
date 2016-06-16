@@ -1,3 +1,8 @@
+Open Restaurant 7.x-1.13, 2016-06-16
+---------------------------------------
+- Upgrade to Drupal 7.44
+- Upgrade to Panopoly 1.36
+
 Open Restaurant 7.x-1.12, 2016-06-10
 ---------------------------------------
 - Fix demo installation
