@@ -36,12 +36,12 @@ projects[panopoly_wysiwyg][subdir] = contrib
 projects[panopoly_config][version] = 1.0
 projects[panopoly_config][subdir] = contrib
 
-projects[panopoly_seo][version] = 1.0-beta1
+projects[panopoly_seo][version] = 1.0-beta8
 projects[panopoly_seo][subdir] = contrib
 
 ; Open Restaurant Dependencies
 
-projects[field_collection][version] = 1.0-beta8
+projects[field_collection][version] = 1.0-beta12
 projects[field_collection][subdir] = contrib
 
 projects[navbar][version] = 1.x-dev
@@ -56,10 +56,10 @@ projects[navbar][patch][2595781] = https://www.drupal.org/files/issues/navbar-ch
 projects[fences][version] = 1.2
 projects[fences][subdir] = contrib
 
-projects[eck][version] = 2.0-rc7
+projects[eck][version] = 2.0-rc8
 projects[eck][subdir] = contrib
 
-projects[variable][version] = 2.1
+projects[variable][version] = 2.5
 projects[variable][subdir] = contrib
 
 projects[migrate][version] = 2.8
