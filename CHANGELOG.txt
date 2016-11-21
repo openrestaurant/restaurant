@@ -1,3 +1,9 @@
+Open Restaurant 7.x-1.14, 2016-11-21
+-----------------------------------
+- Update contrib modules.
+- Update to Drupal 7.52.
+- Update to Panopoly 1.41.
+
 Open Restaurant 7.x-1.13, 2016-06-16
 ---------------------------------------
 - Upgrade to Drupal 7.44
