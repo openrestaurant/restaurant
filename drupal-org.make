@@ -38,6 +38,7 @@ projects[panopoly_config][subdir] = contrib
 
 projects[panopoly_seo][version] = 1.0-beta9
 projects[panopoly_seo][subdir] = contrib
+projects[panopoly_seo][patch][2854609] = https://www.drupal.org/files/issues/update-metatag-to-latest-security-2854609-1.patch
 
 ; Open Restaurant Dependencies
 
