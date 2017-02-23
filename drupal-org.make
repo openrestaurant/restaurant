@@ -106,9 +106,6 @@ projects[computed_field][subdir] = contrib
 projects[custom_add_another][version] = 1.0-rc3
 projects[custom_add_another][subdir] = contrib
 
-projects[better_exposed_filters][version] = 3.0-beta4
-projects[better_exposed_filters][subdir] = contrib
-
 projects[features_override][version] = 2.0-rc2
 projects[features_override][subdir] = contrib
 
