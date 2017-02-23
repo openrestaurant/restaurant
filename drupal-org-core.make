@@ -3,7 +3,7 @@ core = 7.x
 
 ; Drupal Core
 projects[drupal][type] = core
-projects[drupal][version] = 7.52
+projects[drupal][version] = 7.54
 
 ; Patches
 
