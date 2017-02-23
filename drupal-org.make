@@ -36,7 +36,7 @@ projects[panopoly_wysiwyg][subdir] = contrib
 projects[panopoly_config][version] = 1.0
 projects[panopoly_config][subdir] = contrib
 
-projects[panopoly_seo][version] = 1.0-beta8
+projects[panopoly_seo][version] = 1.0-beta9
 projects[panopoly_seo][subdir] = contrib
 
 ; Open Restaurant Dependencies
@@ -86,7 +86,7 @@ projects[addressfield][subdir] = contrib
 projects[disqus][version] = 1.10
 projects[disqus][subdir] = contrib
 
-projects[better_exposed_filters][version] = 3.0-beta4
+projects[better_exposed_filters][version] = 3.4
 projects[better_exposed_filters][subdir] = contrib
 
 projects[calendar][version] = 3.4
