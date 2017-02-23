@@ -98,7 +98,7 @@ function restaurant_radix_select_as_checkboxes($variables) {
         $value = $image . $value;
       }
 
-      $output .= bef_checkbox($element, $key, $value, array_search($key, $selected_options) !== FALSE);
+      $output .= theme('bef_checkbox', array('element' => $element, 'value' => $key, 'label' => $value, 'selected' => array_search($key, $selected_options) !== FALSE));
     }
 
     if ($is_optgroup) {
